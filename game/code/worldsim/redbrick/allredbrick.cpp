@@ -1,0 +1,13 @@
+#include <worldsim/redbrick/geometryvehicle.cpp>
+#include <worldsim/redbrick/physicslocomotion.cpp>
+#include <worldsim/redbrick/physicslocomotioncontrollerforces.cpp>
+#include <worldsim/redbrick/redbrickcollisionsolveragent.cpp>
+#include <worldsim/redbrick/rootmatrixdriver.cpp>
+#include <worldsim/redbrick/suspensionjointdriver.cpp>
+#include <worldsim/redbrick/trafficlocomotion.cpp>
+#include <worldsim/redbrick/vehicle.cpp>
+#include <worldsim/redbrick/vehicleinit.cpp>
+#include <worldsim/redbrick/vehiclelocomotion.cpp>
+#include <worldsim/redbrick/wheel.cpp>
+#include <worldsim/redbrick/vehicleeventlistener.cpp>
+#include <worldsim/redbrick/trafficbodydrawable.cpp>

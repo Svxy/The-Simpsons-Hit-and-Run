@@ -1,0 +1,1 @@
+#include <mission/safezone/safezone.cpp>

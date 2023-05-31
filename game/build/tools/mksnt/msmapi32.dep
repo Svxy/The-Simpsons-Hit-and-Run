@@ -1,0 +1,131 @@
+
+; Dependency file for setup wizards.
+
+[Version]
+Version=5.0.37.21
+
+; Dependencies for MSMapi32.ocx
+
+; Default Dependencies ----------------------------------------------
+
+[MSMapi32.ocx]
+Dest=$(WinSysPath)
+Register=$(DLLSelfRegister)
+Version=5.0.37.21
+Uses1=ComCat.dll
+Uses2=
+CABFileName=MSMapi32.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMapi32.inf
+
+[ComCat.dll]
+Dest=$(WinSysPathSysFile)
+Register=$(DLLSelfRegister)
+Uses1=
+
+; Localized Dependencies --------------------------------------------
+
+; ** German (DE) ***
+; (0007 = German)
+;
+[MSMapi32.ocx <0007>]
+Uses1=MSMpiDE.dll
+Uses2=
+
+[MSMpiDE.dll <0007>]
+Uses1=
+CABFileName=MSMpiDE.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiDE.inf
+
+; ** French (FR) ***
+; (000C = French)
+;
+[MSMapi32.ocx <000C>]
+Uses1=MSMpiFR.dll
+Uses2=
+
+[MSMpiFR.dll <000C>]
+Uses1=
+CABFileName=MSMpiFR.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiFR.inf
+
+; ** Italian (IT) ***
+; (0010 = Italian)
+;
+[MSMapi32.ocx <0010>]
+Uses1=MSMpiIT.dll
+Uses2=
+
+[MSMpiIT.dll <0010>]
+Uses1=
+CABFileName=MSMpiIT.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiIT.inf
+
+; ** Spanish (ES) ***
+; (000A = Spanish)
+;
+[MSMapi32.ocx <000A>]
+Uses1=MSMpiES.dll
+Uses2=
+
+[MSMpiES.dll <000A>]
+Uses1=
+CABFileName=MSMpiES.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiES.inf
+
+; ** Japanese (JP) ***
+; (0011 = Japanese)
+;
+[MSMapi32.ocx <0011>]
+Uses1=MSMpiJP.dll
+Uses2=
+
+[MSMpiJP.dll <0011>]
+Uses1=
+CABFileName=MSMpiJP.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiJP.inf
+
+; ** Korean (KO) ***
+; (0012 = Korean)
+;
+[MSMapi32.ocx <0012>]
+Uses1=MSMpiKO.dll
+Uses2=
+
+[MSMpiKO.dll <0012>]
+Uses1=
+CABFileName=MSMpiKO.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiKO.inf
+
+; ** Chinese Traditional (CHT) ***
+; (0404 = Chinese Traditional)
+;
+[MSMapi32.ocx <0404>]
+Uses1=MSMpiCHT.dll
+Uses2=
+
+[MSMpiCHT.dll <0404>]
+Uses1=
+CABFileName=MSMpiCHT.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiCHT.inf
+
+; ** Chinese Simplified (CHS) ***
+; (0804 = Chinese Simplified)
+;
+[MSMapi32.ocx <0804>]
+Uses1=MSMpiCHS.dll
+Uses2=
+
+[MSMpiCHS.dll <0804>]
+Uses1=
+CABFileName=MSMpiCHS.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb5
+CABINFFile=MSMpiCHS.inf
+

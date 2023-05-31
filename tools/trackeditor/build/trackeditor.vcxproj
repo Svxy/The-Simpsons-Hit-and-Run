@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Tools Debug|Win32">
+      <Configuration>Tools Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Tools Release|Win32">
+      <Configuration>Tools Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath />
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{8D79E782-9747-4732-A869-CA630AC7D3C0}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\include\;..\code\;..\..\..\game\libs\pure3d\toollib\inc;..\..\..\game\libs\pure3d\toollib\chunks16\inc;.;..\..\..\game\libs\pure3d\constants;..\..\globalcode;..\..\..\game\libs\radmath;..\..\..\game\code\constants;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WIN32;_WINDOWS;NT_PLUGIN;RAD_WIN32;RAD_PC;RAD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderFile>precompiled/pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>Release/PCH.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /EXPORT:initializePlugin /EXPORT:uninitializePlugin
+ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>user32.lib;gdi32.lib;glu32.lib;version.lib;Foundation.lib;OpenGL32.lib;OpenMaya.lib;OpenMayaFX.lib;OpenMayaRender.lib;OpenMayaUI.lib;OpenMayaAnim.lib;WS2_32.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>Release\trackeditor.mll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMT.lib;LIBCPMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDatabaseFile>.\Release/trackeditor.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <ImportLibrary>.\Release/trackeditor.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/trackeditor.tlb</TypeLibraryName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copy trackeditor.mll to Distribution and Maya dir.</Message>
+      <Command>copy .\Release\trackeditor.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\trackeditor.mll
+copy .\Release\trackeditor.mll C:\AW\Maya4.0\bin\plug-ins\trackeditor.mll
+</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\code\;..\..\..\game\libs\pure3d\toollib\inc;..\..\..\game\libs\pure3d\toollib\chunks16\inc;.;..\..\..\game\libs\pure3d\constants;..\..\globalcode;..\..\..\game\libs\radmath;..\..\..\game\libs\pure3d\sdks\Maya4_0\include\;..\..\..\game\code\constants;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WIN32;_WINDOWS;NT_PLUGIN;RAD_WIN32;RAD_PC;RAD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderFile>PCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug/trackeditor.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>user32.lib;gdi32.lib;glu32.lib;version.lib;Foundation.lib;OpenGL32.lib;OpenMaya.lib;OpenMayaFX.lib;OpenMayaRender.lib;OpenMayaUI.lib;OpenMayaAnim.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>Debug\trackeditor.mll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/trackeditor.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>.\Debug/trackeditor.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/trackeditor.tlb</TypeLibraryName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copy trackeditor.mll to Distribution and Maya dir.</Message>
+      <Command>copy .\Debug\trackeditor.mll C:\AW\Maya4.0\bin\plug-ins\trackeditord.mll
+copy .\Debug\trackeditor.mll C:\AW\Maya4.0\bin\plug-ins\trackeditor.mll
+</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\main\constants.h" />
+    <ClInclude Include="..\code\main\pluginMain.h" />
+    <ClInclude Include="..\code\main\shapeconstants.h" />
+    <ClInclude Include="..\code\main\trackeditor.h" />
+    <ClInclude Include="..\code\commands\export.h" />
+    <ClInclude Include="..\code\commands\intersectioncommands.h" />
+    <ClInclude Include="..\code\commands\trackeditorcommands.h" />
+    <ClInclude Include="..\code\commands\treelinecommand.h" />
+    <ClInclude Include="..\code\nodes\NU.h" />
+    <ClInclude Include="..\code\nodes\fenceline.h" />
+    <ClInclude Include="..\code\nodes\intersection.h" />
+    <ClInclude Include="..\code\nodes\pedpath.h" />
+    <ClInclude Include="..\code\nodes\road.h" />
+    <ClInclude Include="..\code\nodes\tiledisplay.h" />
+    <ClInclude Include="..\code\nodes\treelineshapenode.h" />
+    <ClInclude Include="..\code\nodes\walllocator.h" />
+    <ClInclude Include="..\code\contexts\bvcontext.h" />
+    <ClInclude Include="..\code\contexts\intersectioncontext.h" />
+    <ClInclude Include="..\code\contexts\ppcontext.h" />
+    <ClInclude Include="..\code\contexts\treelinecontext.h" />
+    <ClInclude Include="..\..\globalcode\utility\GLExt.h" />
+    <ClInclude Include="..\..\globalcode\utility\MExt.h" />
+    <ClInclude Include="..\..\globalcode\utility\MExt_template.h" />
+    <ClInclude Include="..\..\globalcode\utility\MUI.h" />
+    <ClInclude Include="..\..\globalcode\utility\mayahandles.h" />
+    <ClInclude Include="..\..\globalcode\utility\overlaymarquee.h" />
+    <ClInclude Include="..\..\globalcode\utility\stdafx.h" />
+    <ClInclude Include="..\..\globalcode\utility\transformmatrix.h" />
+    <ClInclude Include="..\..\globalcode\utility\util.h" />
+    <ClInclude Include="..\..\globalcode\utility\winutil.h" />
+    <ClInclude Include="..\code\precompiled\PCH.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\main\pluginMain.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\main\trackeditor.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\export.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\intersectioncommands.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\trackeditorcommands.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\treelinecommand.cpp" />
+    <ClCompile Include="..\code\nodes\fenceline.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\intersection.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\pedpath.cpp" />
+    <ClCompile Include="..\code\nodes\road.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\tiledisplay.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\treelineshapenode.cpp" />
+    <ClCompile Include="..\code\nodes\walllocator.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\bvcontext.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\intersectioncontext.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\ppcontext.cpp" />
+    <ClCompile Include="..\code\contexts\treelinecontext.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\GLExt.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt_template.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MUI.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\mayahandles.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\overlaymarquee.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\transformmatrix.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\util.c">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\winutil.c">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">precompiled\pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\code\precompiled\PCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">PCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\code\scripts\te_BVContext.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_IntersectionContext.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_PPContext.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_cleanup.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_editorwindow.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_globals.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_main.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_setup.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_treelineContext.mel">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEIntersectionLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AERoadNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETELocatorSuppress.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETEShowRoadSegButton.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETreelineShapeNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\game\libs\pure3d\lib\freetype\builds\win32\visualc\freetype.vcxproj">
+      <Project>{6d333c70-a27d-4e25-ad26-bb9e20558b8f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\game\libs\pure3d\toollib\toollib_extras.vcxproj">
+      <Project>{cdb92e4a-1e5d-49a8-8153-34264b3fef29}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,218 @@
+AddMission("d1");
+
+
+//This is the level WB data that is persistent.
+LoadP3DFile("art\missions\level02\demo.p3d");
+
+LoadP3DFile("art\phonecamera.p3d");
+LoadP3DFile("art\cards.p3d");
+LoadP3DFile("art\wrench.p3d");
+LoadP3DFile("art\missions\generic\missgen.p3d");
+LoadP3DFile("art\l02_fx.p3d","GMA_LEVEL_OTHER");
+LoadP3DFile("art\chars\bart_kickwave.p3d");
+LoadP3DFile("art\chars\bart_electrocuted.p3d");
+LoadP3DFile("art\missions\level02\l2_doors.p3d");
+
+//load wasps
+LoadP3DFile("art\missions\level02\wasps.p3d");
+
+LoadP3DFile("art\missions\level02\level.p3d");
+
+//This is the level "jump boost zones"
+LoadP3DFile("art\missions\level02\jumps.p3d");
+
+
+
+// New way to load Level Cars
+LoadDisposableCar( "art\cars\honor_v.p3d","honor_v","DEFAULT" );
+
+// chase/harass vehicle
+LoadP3DFile( "art\cars\cPolice.p3d" );
+
+// Traffic vehicle models
+//
+
+LoadP3DFile( "art\cars\huskA.p3d" );
+
+LoadP3DFile( "art\cars\taxiA.p3d" );
+LoadP3DFile( "art\cars\sedanB.p3d" );
+LoadP3DFile( "art\cars\sportsA.p3d" );
+LoadP3DFile( "art\cars\pizza.p3d" );
+
+// Bind gag NISes to the interiors they can be used in.
+//
+ClearGagBindings();
+
+AddGagBinding( "moe1", "gag0400.p3d", "cycle", 1, "" );
+AddGagBinding( "moe1", "gag0401.p3d", "cycle", 1, "" );
+AddGagBinding( "moe1", "gag0402.p3d", "cycle", 1, "" );
+AddGagBinding( "moe1", "gag0403.p3d", "cycle", 1, "" );
+
+AddGagBinding( "dmv", "gag0300.p3d", "cycle", 1, "DMV_gag_people_inline.p3d" );
+AddGagBinding( "dmv", "gag0301.p3d", "cycle", 1, "DMV_gag_willie_friends.p3d" );
+
+
+
+//
+//ADDING INTERACTIVE GAGS FOR LEVEL 01
+//
+
+//Pickle Jar gag
+GagBegin("gag_jar.p3d");
+GagSetInterior("moe1");
+GagSetCycle("reset");
+GagSetPosition(Pickle);
+GagSetRandom(0);
+GagSetSound("gag_jar");
+GagSetTrigger("action", PickleTrig, 1.5);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Flaming Moe gag
+GagBegin("gag_flm.p3d");
+GagSetInterior("moe1");
+GagSetCycle("single");
+GagSetPosition(FlaMoe);
+GagSetRandom(0);
+GagSetSound("gag_flm");
+GagSetTrigger("action", FlaMoeTrig, 1);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Duff poster gag
+GagBegin("gag_duff.p3d");
+GagSetInterior("moe1");
+GagSetCycle("cycle");
+GagSetPosition(Duff);
+GagSetRandom(0);
+//GagSetSound("gag_???");
+GagSetTrigger("touch", DuffTrig, 2);
+GagEnd();
+
+//Love tester Gag
+GagBegin("gag_love.p3d");
+GagSetInterior("moe1");
+GagSetCycle("reset");
+GagSetPosition(Love);
+GagSetRandom(0);
+GagSetSound("gag_love");
+GagSetTrigger("action", LoveTrig, .75);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Slot Machine Gag
+GagBegin("gag_slot.p3d");
+GagSetInterior("moe1");
+GagSetCycle("reset");
+GagSetPosition(Slots);
+GagSetRandom(0);
+GagSetSound("gag_slot");
+GagSetTrigger("action", SlotsTrig, .75);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Catapult Launching gag
+GagBegin("gag_cata.p3d");
+GagSetCycle("reset");
+GagSetPosition(119.535, 7.196, 52.412);
+GagSetSparkle(1);
+GagSetRandom(0);
+GagSetSound("gag_cata");
+GagSetTrigger("action", 122.543, 7.725, 50.876, 1.6);
+GagSetAnimCollision(1);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Fat Tony's Construction gag
+GagBegin("gag_tony.p3d");
+GagSetCycle("single");
+GagSetPosition(-6.87, 7.444, -40.132);
+GagSetSparkle(1);
+GagSetRandom(0);
+GagSetSound("gag_tony");
+GagSetTrigger("action", -8.436, 5.401, -42.758, 4.5);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Herman's bomb gag
+GagBegin("gag_bomb.p3d");
+GagSetCycle("single");
+GagSetPosition(-327.546, 7.384, 370.651);
+GagSetSparkle(1);
+GagSetRandom(0);
+GagSetSound("gag_bomb");
+GagSetTrigger("action", -325.029, 7.384, 372.853, 2.5);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Rat Milker Machine gag
+GagBegin("gag_milk.p3d");
+GagSetCycle("single");
+GagSetPosition(-209.835, 23.284, 44.135);
+GagSetSparkle(1);
+GagSetRandom(0);
+GagSetSound("gag_milk");
+GagSetTrigger("action", -210.282, 23.132, 46.604, 4);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Exploding Car outside Try 'n Save gag
+GagBegin("gag_car.p3d");
+GagSetCycle("single");
+GagSetPosition(-304.935, 8.133, 406.144);
+GagSetSparkle(1);
+GagSetCoins(5, -1);
+GagSetRandom(0);
+GagSetSound("gag_car");
+GagSetTrigger("action", -305.108, 8.016, 405.407, 1.8);
+GagSetAnimCollision(1);
+GagSetPersist(1);
+GagEnd();
+
+//Moleman Get picture taken in DMV
+GagBegin("gag_mol2.p3d");
+GagSetInterior("dmv");
+GagSetCycle("single");
+GagSetPosition(0.218, -20.009, -199.939);
+GagSetRandom(0);
+GagSetSound("gag_mol2");
+GagSetTrigger("action", 4.349, -19.994, -208.487, 1.43);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+
+//Effects in the DMV gag
+GagBegin("gag_smk.p3d");
+GagSetInterior("dmv");
+GagSetCycle("cycle");
+GagSetPosition(-5.688, -17.091, -201.131);
+GagSetRandom(0);
+GagSetSound("gag_smk");
+GagSetTrigger("touch", -6.001, -19.997, -206.173, 2);
+GagEnd();
+
+//Level 2 Dumpster Gag
+GagBegin("l2_dump.p3d");
+GagSetCycle("reset");
+GagSetPosition(-47.669, 28.76, 393.687);
+GagSetSparkle(1);
+GagSetRandom(0);
+GagSetSound("gag_lvl2_dumpster");
+GagSetTrigger("action", -47.123, 28.76, 395.356, 2.4);
+GagSetPersist(1);
+GagSetCoins(1, -1);
+GagEnd();
+//Load DemoCams
+LoadP3DFile("art\missions\level02\democams.p3d");
+
+
+
+

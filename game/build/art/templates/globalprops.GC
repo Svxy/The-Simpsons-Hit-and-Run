@@ -1,0 +1,29 @@
+PRINT Applying LIBANIM template to INPUT
+
+COMMAND p3ddel -d 13000 -d 2200 -a CAM* INPUT -o OUTPUT
+COMMAND p3dimage --ntsc_fix -r -o OUTPUT OUTPUT
+COMMAND convert2dxtn -1 -o OUTPUT OUTPUT
+COMMAND tristrip -m -o OUTPUT OUTPUT
+COMMAND p3danim -C -O --vector-tolerance 0.03 --quaternion-tolerance 0.1 -o OUTPUT OUTPUT
+COMMAND p3dgc --mg --ms -r 1 -u 16 -c 16 -o OUTPUT OUTPUT
+COMMAND p3dsort OUTPUT -o OUTPUT
+
+
+COMMAND propwrapper OUTPUT
+
+STORE OUTPUT OUPUT
+
+COMMAND DSGMaker OUTPUT -nI
+
+# Grab the breakables from the exportart library
+COMMAND findbreakables OUTPUT -o breakables.p3d
+
+#optimize breakables
+COMMAND p3dimage -r -b 8 -o breakables.p3d breakables.p3d
+COMMAND tristrip -m -x -o breakables.p3d breakables.p3d
+COMMAND p3danim -O -o breakables.p3d breakables.p3d
+COMMAND convert2dxtn -1 breakables.p3d breakables.p3d
+COMMAND p3dgc --ms --mg -r 1 -c 16 -u 16 breakables.p3d breakables.p3d
+
+#join them in with the dynamics
+COMMAND p3djoin breakables.p3d OUTPUT -o OUTPUT

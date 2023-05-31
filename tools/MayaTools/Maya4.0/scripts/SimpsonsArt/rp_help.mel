@@ -1,0 +1,184 @@
+/* rpts_help.mel
+
+This script may be freely distributed. Modify at your own risk.
+
+Author: Dirk Bialluch (DirkBi@Software2000.de)
+
+Creation date:	15.10.2000
+Last update:	15.10.2000
+
+*/
+
+//
+// Create UI
+//
+
+global proc rp_help ( int $function )
+{
+	int $uiLabelWidth = 150;
+	int $uiInputWidth = 80;
+	int $uiWidth = $uiLabelWidth + $uiInputWidth + 220;
+
+	if ( `window -exists rp_help` )
+		deleteUI rp_help;
+
+	window
+		-maximizeButton false
+		-resizeToFitChildren false
+		-title "Randomize Points Help"
+		-iconName "Ranomdize Points Help" rp_help;
+ 
+ 		tabLayout -innerMarginWidth 5 -innerMarginHeight 5  -childResizable true rp_helpTab;
+			string $rp1_form = `formLayout -numberOfDivisions 100 "Randomize Points"`;
+	    			string $rp1_scroll = `scrollLayout -hst 16 -vst 16 -childResizable true -minChildWidth $uiWidth`;
+					columnLayout -adjustableColumn true -rowSpacing 6;
+// randomize points - instructions
+						frameLayout
+							-label "Instructions"
+							-labelAlign "center"
+							-cll false
+							-lw $uiWidth
+							-mh 3
+			                                -borderStyle "etchedIn"
+							-bv true;
+							columnLayout -adjustableColumn true;
+								rowLayout
+									-numberOfColumns 1
+									-cat 1 "left" 5;
+									text rp1_instructions;
+									setParent ..;
+								setParent ..;
+							setParent ..;
+						setParent ..;
+					setParent ..;
+
+				string $rp1_button = `button
+					-label "Close"
+					-command "deleteUI rp_help"`;
+				setParent ..;
+
+			string $rp2_form = `formLayout -numberOfDivisions 100 "About"`;
+	    			string $rp2_scroll = `scrollLayout -hst 16 -vst 16 -childResizable true -minChildWidth $uiWidth`;
+					columnLayout -adjustableColumn true -rowSpacing 6;
+// about
+						frameLayout
+							-label "About Randomize Points"
+							-labelAlign "center"
+							-cll false
+							-lw $uiWidth
+							-mh 3
+			                                -borderStyle "etchedIn"
+							-bv true;
+							columnLayout -adjustableColumn true;
+								rowLayout
+									-numberOfColumns 1
+									-cat 1 "left" 5;
+									text rp2_instructions;
+									setParent ..;
+								setParent ..;
+							setParent ..;
+						setParent ..;
+					setParent ..;
+
+				string $rp2_button = `button
+					-label "Close"
+					-command "deleteUI rp_help"`;
+
+	// set form layouts
+	formLayout -edit
+		-attachForm $rp1_scroll "top" 4
+		-attachForm $rp1_scroll "left" 4
+		-attachControl $rp1_scroll "bottom" 4 $rp1_button
+		-attachForm $rp1_scroll "right" 4
+		$rp1_form;
+
+	formLayout -edit
+		-attachNone $rp1_button "top"
+		-attachForm $rp1_button "left" 4
+		-attachForm $rp1_button "bottom" 4
+		-attachForm $rp1_button "right" 4
+		$rp1_form;
+
+	formLayout -edit
+		-attachForm $rp2_scroll "top" 4
+		-attachForm $rp2_scroll "left" 4
+		-attachControl $rp2_scroll "bottom" 4 $rp2_button
+		-attachForm $rp2_scroll "right" 4
+		$rp2_form;
+
+	formLayout -edit
+		-attachNone $rp2_button "top"
+		-attachForm $rp2_button "left" 4
+		-attachForm $rp2_button "bottom" 4
+		-attachForm $rp2_button "right" 4
+		$rp2_form;
+/*
+	Enable Axes
+		Enable/disable the world space, object space or distance axes depending on the Transform
+		Mode settings.
+*/
+	string $rp1_instructions =
+		"This tool randomizes the position of selected CV´s, Poly Vertices and Lattice Points.\n" +
+		"\n" +
+		"Workflow tips\n" +
+		"   To avoid problems at object poles when deforming eg a nurbs sphere, better bind\n" +
+		"   the object to a lattice and randomize the lattice points instead.\n" +
+		"\n" +
+		"Intensity\n" +
+		"   The Intensity value is measured in world or object space units depending on the.\n" +
+		"   chosen Transform Mode. A value of 1 will displace the selected points within a\n" +
+		"   maximum range of -0.5 to 0.5, if Intensity Range is set to 0. If you are using the\n" +
+		"   object space mode, object scale values are taken into account.\n" +
+		"\n" +
+		"Intensity Range\n" +
+		"   Shift the displacement toward the positive or negative value range. If Intensity is\n" +
+		"   set to 2, an Intensity Range of 100% will shift the displacement completely to a\n" +
+		"   positive range from 0 to 2. Setting the value to -100% would result in a range from\n" +
+		"   -2 to 0.\n" +
+		"\n" +
+		"Min/Max Value\n" +
+		"   These values show the final displacement range.\n" +
+		"\n" +
+		"Threshold\n" +
+		"   Increase the Threshold value to leave a certain amount of points unaffected. When\n" +
+		"   leaving this value at 0, all points will be affected. A value of 0.8 will skip\n" +
+		"   approximately 80% of all selected points and randomize the remaining 20%.\n" +
+		"\n" +
+		"Use Seed Value\n" +
+		"   Enable/disable the usage of a seed value for the randomize function.\n" +
+		"\n" +
+		"Seed\n" +
+		"   The Seed value inits the randomize function, so the deformation is repeatable.\n" +
+		"   The function will only produce identical results, if the points are always selected\n" +
+		"   in the same order.\n" +
+		"\n" +
+		"Transform Mode\n" +
+		"   World Space will displace points along the enabled world space axes.\n" +
+		"   Object Space will displace points along the enabled object space axes.\n" +
+		"   Distance will displace points along the enabled normal, u and v tangent.\n" +
+		"      Lattice points are not affected by this transform node, because they do not have\n" +
+		"      UVN properties.\n" +
+		"\n" +
+		"Enable Axes\n" +
+		"   Enable/disable the axes depending on the Transform Mode settings.\n";
+
+	string $rp2_instructions =
+		"Randomize Points V1.6\n" +
+		"\n" +
+		"Programmed by Dirk Bialluch, 1998-2000\n" +
+		"\n" +
+		"This script may be freely distributed.\n" +
+		"Modify at your own risk.\n" +
+		"\n" +
+		"Email: 'DirkBi@Software2000.de'\n" +
+		"Homepage: 'http://dirk-bialluch.mayaring.com'";
+
+	text -e -label $rp1_instructions rp1_instructions;
+	text -e -label $rp2_instructions rp2_instructions;
+
+	tabLayout -e -selectTabIndex $function rp_helpTab;
+
+	showWindow rp_help;
+}
+
+// end of script

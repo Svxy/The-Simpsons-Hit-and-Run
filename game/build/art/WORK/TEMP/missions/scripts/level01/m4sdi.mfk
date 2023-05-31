@@ -1,0 +1,56 @@
+SelectMission("m4sd");
+
+SetMissionStartCameraName( "mission4camShape" );
+SetMissionStartMulticontName( "mission4cam" );
+SetAnimatedCameraName( "mission4camShape" );
+SetAnimCamMulticontName( "mission4cam" );
+
+SetMissionResetPlayerOutCar("m4_homer_start", "m4_carstart");
+SetDynaLoadData("l1r4a.p3d;l1z6.p3d;l1r6.p3d;");
+
+UsePedGroup(7); 
+AddStage(9);
+	SetMaxTraffic(2);
+	SetStageMessageIndex(08);
+	SetHUDIcon( "pwrplant" );
+	SetPresentationBitmap( "art/frontend/dynaload/images/mis01_04.p3d" );
+	AddObjective("goto","both");
+		SetDestination("m4_powerplant", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	RESET_TO_HERE();
+	SetStageMessageIndex(154);
+	SetHUDIcon( "wstation" );
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		AddNPC("carl", "m4_carl_sd");
+		SetDestination("m4_locator_sd", "triggersphere");
+		SetCollectibleEffect("wrench_collect");
+		MustActionTrigger();
+	CloseObjective();
+	//SetCompletionDialog("camera");
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		SetDialogueInfo("homer","carl","camera",0);
+	CloseObjective();
+CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(252);
+//	SetHUDIcon( "pwrplant" );
+//	AddObjective( "goto" );
+//		SetDestination( "m4_start_sd", "triggersphere");
+//		SetCollectibleEffect("wrench_collect");
+//	CloseObjective();
+//CloseStage();
+
+CloseMission();

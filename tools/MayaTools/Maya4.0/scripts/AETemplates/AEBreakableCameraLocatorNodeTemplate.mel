@@ -1,0 +1,20 @@
+global proc AEBreakableCameraLocatorNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Locator Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+		editorTemplate -endLayout;
+        
+		editorTemplate -beginLayout "FOV Settings" -collapse 0;
+            editorTemplate -addControl "fov";
+		editorTemplate -endLayout;
+
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

@@ -1,0 +1,532 @@
+/*  This file downloaded from Highend3d.com
+''  
+''  Highend3d.com File Information:
+''  
+''    Script Name: ajrAutoSave v1.3
+''    Author: Andy Rawling
+''    Last Updated: July 17, 2001
+''    Update/Change this file at:
+''    http://www.highend3d.com/maya/mel/?section=utilities#198
+''  
+''  Please do not alter any information above this line
+''  it is generated dynamically by Highend3d.com and will
+''  be changed automatically on any updates.
+*/
+
+//	ajrAutoSave.mel
+//	v 1.3	July 16 2001
+//	
+//	Tested on Maya2.5Irix Maya2.5.1NT Maya3.0Irix
+//	
+//	Provides automatic backup of scene files.
+//
+//	When this script is first called, it creates two MEL scriptJobs to run
+//	short procedures whenever the user selects or de-selects an object, and
+//	when they change the current time. These jobs trigger backups in two 
+//	ways, either based on the number of times the user selects objects, or
+//	on the amount of time since the last save.
+//	The script also modifies your main File menu, adding File->Autosave options...
+//	to the end. Choosing this menu command brings up the configuration GUI
+//	(by running the same script again, but that's not important right now).
+//
+//	In selection mode, the script keeps a count of how many times the selection
+//	has changed, and will trigger an automatic scene backup when the number of 
+//	selection changes passes the limit set by the user.
+//
+//	In time mode, the script checks the time whenever the selection or the 
+//	current time is changed by the user. The scene is backed up when the amount
+//	of time since the last save passes the limit
+//
+//	This script is designed to be called from your 'userSetup.mel' script.
+//
+//	Configuration
+//	-------------
+//	If the script is run again, it will bring up a GUI which allows you to 
+//	modify the way that AutoSave works. The options are:
+//		o Enable AutoSave
+//		o Save After XX minutes/selects
+//		o Keep up to XX backups
+//		o Save in XX
+//		o notify when saving
+//
+//	
+//	Enable AutoSave:	Check this option off to disable AutoSave (default=ON)
+//	Save After XX (things):	Set the number of things which happen before the 
+//				autosave is triggered - either the user changing which items are
+//				selected, or the number of minutes since the last save (default=15)
+//	(minutes/selects):	What sort of things are we using to spot changes? Either
+//				number of times the selection changes, or number of minutes
+//				passed since the last save (default=minutes , but see the caveats
+//				below)
+//	Keep up to XX backups:	AutoSave keeps a rolling sequence of backups. The 
+//				number of separate backups can be changed here 
+//				(default=5)
+//	Save in XXXX:		Choose the folder where you want the backups to be kept.
+//				This can be relative to your current project (default="scenes")
+//	notify  when saving:	Bring up a small window to tell you when a backup is being 
+//				made (default=OFF)
+//	
+//
+//	Caveats
+//	-------
+//	Maya has no clock event, so when the save is time-based the clock is only
+//	checked when the selection or the current time (as in time slider) changes.
+//
+//	Changes (* is a highend3d release)
+//	-------
+//	v1.3*	Autosaving no longer clears the current tool - cheers to Roger Klado
+//			Feedback line is now more informative as the GUI settings are changed.
+//	v1.2	I've got M3.0, so here there are annotations all over the GUI. Removed
+//			the 'Include in File menu` option from the GUI - it's always included
+//			now. Notify defaults to off now (too many hardware render mess-ups)
+//	v1.1	Layout is more Irix/Motif-friendly now (was a bit squashed)
+//	v1.0*	Fixed minor bug when the scene wasn't saved, choosing not to save
+//			would switch the autosave off. New behavior is to nag the user again
+//			after the trigger period. Now uses a timer as well as selection counter
+//			to trigger backups.
+//
+//	Disclaimer
+//	----------
+//	This script is unsupported; neither me nor (especially) my employer accept 
+//	liability for damage or loss resulting from its use or misuse. Use it at 
+//	your own risk. That said - if you like it, spot a bug in it or think it
+//	could be improved please let me know.
+//	
+//	Andy Rawling	andrew.rawling@_CUT_THIS_BIT_OUT_bigfoot.com
+//	Animator
+//	
+
+global proc ajrAS_SelectionHasChanged() {
+// This is called even when AutoSave is disabled, it just doesn't perform the save in this case
+// We're checking for time passing as well as selection changes here!
+
+	if((`optionVar -exists "ajrAS_iSelectTrigger"`) && (`optionVar -exists "ajrAS_iEnabled"`) && (`optionVar -exists "ajrAS_iUseTime"`)) {
+	
+		if((`optionVar -query "ajrAS_iUseTime"`)) {
+		// We're using time to trigger saves
+			global float $ajrAS_fLastSave; //Absolute time of the last save (or script startup)
+			float $fElapsed;
+			
+			$fElapsed = `timerX -startTime $ajrAS_fLastSave`;
+			if(($fElapsed / 60.0) > `optionVar -query "ajrAS_iSelectTrigger"`) {
+				if(`optionVar -query "ajrAS_iEnabled"`)
+					if (`ajrAS_SaveBackupScene`)
+						$ajrAS_fLastSave = `timerX`;
+			}			
+		} else {
+		// Using the number of selection changes to trigger
+			global int $ajrAS_iSelectCount;	// The selection change counter
+		
+			$ajrAS_iSelectCount ++;
+			if ($ajrAS_iSelectCount >= `optionVar -query "ajrAS_iSelectTrigger"`) {
+				if(`optionVar -query "ajrAS_iEnabled"`)
+					if (`ajrAS_SaveBackupScene`)
+						$ajrAS_iSelectCount = 0;
+			}
+		}
+	}
+}
+
+global proc ajrAS_CurrentTimeHasChanged() {
+// This is called even when AutoSave is disabled, it just doesn't perform the save in this case
+// We're only interested in time passing here
+	
+	if((`optionVar -exists "ajrAS_iSelectTrigger"`) && (`optionVar -exists "ajrAS_iEnabled"`)) {
+	
+		if((`optionVar -query "ajrAS_iUseTime"`)) {
+			global float $ajrAS_fLastSave; //Absolute time of the last save (or script startup)
+			float $fElapsed;
+			
+			$fElapsed = `timerX -startTime $ajrAS_fLastSave`;
+			if(($fElapsed / 60.0) > `optionVar -query "ajrAS_iSelectTrigger"`) {
+				if(`optionVar -query "ajrAS_iEnabled"`)
+					if (`ajrAS_SaveBackupScene`)
+						$ajrAS_fLastSave = `timerX`;
+			}			
+		}
+	}
+}
+
+global proc int ajrAS_SaveBackupScene() {
+// Save the backup file
+// This routine is called when the number of events reaches the level set by the user
+// to trigger a backup save.
+// The save routine appends "_AutoSave#1" to the scene name of the first backup, then
+// #2, #3 etc, until the number of saves reaches the maximum limit, when the number
+// resets to 1 again.
+// If the notifier is switched on, a message window is created for the duration of the\
+// save. Either way, a message is shown on the command feedback line
+//
+	global int $ajrAS_iBackupNumber;	// Number of the current backup file
+	string $sSceneName;			// Full name (including directory path) of the scene file
+	string $sBackupName;			// Name (not inc. path or extension) of the backup scene
+	string $sBackupDir;
+	string $sWorkingTool;
+	int $iReturn = 0;
+
+	// If these values are not in the prefs, then this function should never have been called. Check anyway.
+	if((`optionVar -exists "ajrAS_iSaveCopies"`) && (`optionVar -exists "ajrAS_iNotify"`) && (`optionVar -exists "ajrAS_sBackupDir"`)) {
+
+		$sSceneName = `file -query -sceneName`;
+		// If the scene has no name (hasn't been saved yet) then prompt to do a "Save As"
+		if($sSceneName == "") {
+			string $sReturn = `confirmDialog -title "AutoSave"
+				-message "This scene has not been saved.\nAutoSave will not back up an unsaved scene\n\nDo you want to save your scene now?" 
+				-button "Yes" 
+				-button "No"
+				-button "Configure"
+    				-defaultButton "Yes" 
+    				-cancelButton "No"
+    				-dismissString "No"`;
+			switch($sReturn) {
+	    			
+	    			case "Configure":
+    					ajrAS_GUI;
+    					break;
+    			
+    				case "Yes":
+					projectViewer("SaveAs");
+					break;
+					
+				case "No":
+					// Reset the event counter
+					// The user will be nagged again shortly
+					$iReturn = 1;
+					break;
+			}
+		} else {
+			$sBackupDir = `optionVar -query "ajrAS_sBackupDir"`;
+			if (`file -query -exists $sBackupDir`) {
+				$sWorkingTool = `currentCtx`;
+				$sBackupName = (`optionVar -query "ajrAS_sBackupDir"` + "/" + `file -query -namespace` + "_AutoSave#" + $ajrAS_iBackupNumber);
+				if(`optionVar -query "ajrAS_iNotify"`) 
+					ajrAS_MakeNotifyWindow($sBackupName);
+				print("Auto saving file: " + $sBackupName + ".\n");
+				file -rename $sBackupName;
+				file -save -type mayaBinary -defaultExtensions true;
+				$iReturn = 1;
+				file -rename $sSceneName;
+				$ajrAS_iBackupNumber ++;
+				if ($ajrAS_iBackupNumber > `optionVar -query "ajrAS_iSaveCopies"`)
+					$ajrAS_iBackupNumber = 1;
+				if(`optionVar -query "ajrAS_iNotify"`) { 
+					deleteUI ui_ajrAS_NotifyWindow;
+				}
+				setToolTo $sWorkingTool;
+			} else {
+				ajrAS_CheckBackupDir;
+			}
+		}
+	}
+	return ($iReturn);
+}
+
+global proc ajrAS_MakeNotifyWindow(string $sFileName) {
+
+	if (`window -exists ui_ajrAS_NotifyWindow`)
+		deleteUI ui_ajrAS_NotifyWindow;
+
+	window 	-title ("Saving backup: " + $sFileName + ", please wait...")
+		-iconName "Saving"
+		-widthHeight 500 25
+		-menuBar false
+		ui_ajrAS_NotifyWindow;
+		
+	showWindow ui_ajrAS_NotifyWindow;
+}
+
+global proc ajrAS_Reset() {
+// Reset GUI fields & prefs to defaults. 
+	checkBox -edit -value 		on		ui_ajrAS_iEnabled;
+	intField -edit -value 		15		ui_ajrAS_iSelectTrigger;
+	optionMenu -edit -select	2		ui_ajrAS_type;
+	intField -edit -value 		5		ui_ajrAS_iSaveCopies;
+	checkBox -edit -value 		on		ui_ajrAS_iNotify;
+	textField -edit -fileName 	"scenes"	ui_ajrAS_sBackupDir;
+	ajrAS_Update;
+	$ajrAS_iSelectCount = 0;
+}
+
+global proc ajrAS_Update() {
+// Update the prefs settings
+	optionVar -intValue "ajrAS_iEnabled"		`checkBox -query -value ui_ajrAS_iEnabled`;
+	optionVar -intValue "ajrAS_iSelectTrigger" 	`intField -query -value ui_ajrAS_iSelectTrigger`;
+	optionVar -intValue "ajrAS_iUseTime"  		(`optionMenu -query -value ui_ajrAS_type` == "minutes");
+	optionVar -intValue "ajrAS_iSaveCopies"  	`intField -query -value ui_ajrAS_iSaveCopies`;
+	optionVar -intValue "ajrAS_iNotify"  		`checkBox -query -value ui_ajrAS_iNotify`;
+	optionVar -stringValue "ajrAS_sBackupDir"  	`textField -query -fileName ui_ajrAS_sBackupDir`;
+	string $sReportStr = "AutoSave: ";
+	if(! `optionVar -query "ajrAS_iEnabled"`)
+		$sReportStr += ("disabled.\n");
+	else {
+		ajrAS_SelectionHasChanged;
+		ajrAS_CheckBackupDir;
+		$sReportStr += ("every " + `optionVar -query "ajrAS_iSelectTrigger"` + " ");
+		if((`optionVar -query "ajrAS_iUseTime"`)) {
+			global float $ajrAS_fLastSave; //Absolute time of the last save (or script startup)
+			$sReportStr += ("minutes (next in ");
+			$sReportStr += ((int)(`optionVar -query "ajrAS_iSelectTrigger"` - (`timerX -startTime $ajrAS_fLastSave` / 60.0)) + "), ");
+		} else {
+			global int $ajrAS_iSelectCount;	// The selection change counter
+			$sReportStr += ("selects (next in ");
+			$sReportStr += ((`optionVar -query "ajrAS_iSelectTrigger"` - ($ajrAS_iSelectCount)) + "), ");
+		}
+		$sReportStr += ("keep " + `optionVar -query "ajrAS_iSaveCopies"` + " copies in " + `optionVar -query "ajrAS_sBackupDir"` + ".\n");
+	}
+	print $sReportStr;
+}
+
+global proc int ajrAS_SetBackupDir(string $sDirName, string $sDirType) {
+// Callback function for 'fileBrowser' call on backup directory chooser
+	textField -edit -fileName `workspace -projectPath $sDirName` ui_ajrAS_sBackupDir;
+	ajrAS_Update;
+	return true;
+}
+
+global proc int ajrAS_CheckBackupDir() {
+// Check that the backup location is valid
+// If not, give the option of creating the backup directory, changing the location
+// or just carrying on (in which cast the save doesn't happen)
+	string $sBackupDir;
+	int $iReturn;
+
+	$sBackupDir = `optionVar -query "ajrAS_sBackupDir"`;
+	if (! `file -query -exists $sBackupDir`) {
+		string $sQuestion;
+		string $sAnswer;
+		$sQuestion =	"Your backup folder, (" + $sBackupDir + ") doesn't exist.\n" + 
+				"Would you like to create this folder, or use select a new location?\n" + 
+				"\n" + 
+				"(If you choose to do neither, saving will be disabled)";
+
+		$sAnswer = `confirmDialog -title "AutoSave"
+			-message $sQuestion 
+			-button "Create" 
+			-button "Re-Select"
+			-button "Forget it"
+    			-defaultButton "Re-Select" 
+    			-cancelButton "Forget It"
+    			-dismissString "Forget It"`;
+
+    		switch($sAnswer) {
+    			case "Create":
+    				// Try to create the folder (no return value to check success)
+    				workspace -create `workspace -expandName $sBackupDir`;
+    				// Call this procedure again to see if it worked
+    				ajrAS_CheckBackupDir;
+    				break;
+    			case "Re-Select":
+    				optionVar -stringValue "ajrAS_sBackupDir" "scenes";
+    				if (`window -exists ui_ajrAS`) 
+    					textField -edit -fileName "scenes" ui_ajrAS_sBackupDir;
+    				else
+					ajrAS_GUI;
+    				break;
+    			default:
+    				if (`window -exists ui_ajrAS`) 
+    					checkBox -edit -value off ui_ajrAS_iEnabled;
+    				optionVar -intValue "ajrAS_iEnabled" off;
+    				$iReturn = 0;
+    				break;
+    		}
+
+	} else
+		$iReturn = 1;
+	
+	return $iReturn;
+}
+
+global proc ajrAS_FileMenu() {
+// Add or remove the AutoSave item from the main File menu
+	global string $gMainFileMenu;		// Name of Maya 'File' menu
+
+	if(`menuItem -exists ui_ajrAS_FileAutoSaveSeperator`)
+		deleteUI ui_ajrAS_FileAutoSaveSeperator; 
+	if(`menuItem -exists ui_ajrAS_FileAutoSaveMenu`)
+		deleteUI ui_ajrAS_FileAutoSaveMenu;
+		
+	menuItem	-parent $gMainFileMenu
+			-divider true
+			ui_ajrAS_FileAutoSaveSeperator;
+	menuItem	-parent $gMainFileMenu 
+			-label "Auto Save options..."
+			-annotation "Auto Save: Configure automatic backups"
+			-command "ajrAutoSave"
+			ui_ajrAS_FileAutoSaveMenu;
+}
+
+global proc ajrAS_GUI() {
+// Call up the GUI
+	if (`window -exists ui_ajrAS`)
+		deleteUI ui_ajrAS;
+	
+	window	-title "AutoSave v1.3"
+		-iconName "AutoSave"
+		-widthHeight 280 300
+		-menuBar false
+		ui_ajrAS;
+			
+		formLayout ui_ajrAS_mainForm;
+		
+			frameLayout	-borderStyle "in"
+					-labelVisible false
+					ui_ajrAS_mainFrame;
+						
+				scrollLayout	-childResizable true
+						-verticalScrollBarThickness 10
+						-horizontalScrollBarThickness 0;
+				
+					columnLayout	-adjustableColumn true
+							-cal "left";
+									
+						frameLayout	-labelVisible false
+								-borderStyle "etchedIn" 
+								-manage true;
+							
+							columnLayout	-adjustableColumn true
+									-columnOffset "left" 30
+									-columnAlign "left";
+								
+								checkBox	-label "Enable AutoSave"
+										-value `optionVar -query ajrAS_iEnabled`
+										-onCommand  "ajrAS_Update"
+										-offCommand "ajrAS_Update; $ajrAS_iSelectCount = 0;"
+										-annotation "Enable: Switch the autosave feature on/off"
+										ui_ajrAS_iEnabled;
+
+							setParent ..;
+						setParent ..;
+
+						frameLayout	-label "Options"
+								-borderStyle "etchedIn" 
+								 ui_ajrAS_optionsFrame;
+
+							columnLayout	-adjustableColumn true
+									-columnOffset "left" 30
+									-columnAlign "left";
+									
+								rowColumnLayout	-numberOfColumns 3
+										-columnWidth 1 70
+										-columnWidth 2 40
+										-columnWidth 3 100;
+										
+									text	"Save after";
+									intField	-value `optionVar -query ajrAS_iSelectTrigger`
+											-width 35
+											-changeCommand "ajrAS_Update"
+											-annotation "Save after: Good values are 200 for selects, 30 for minutes"
+											ui_ajrAS_iSelectTrigger;
+									optionMenu	ui_ajrAS_type;
+										menuItem -label "selects";
+										menuItem -label "minutes";
+									optionMenu	-edit
+											-changeCommand "ajrAS_Update"
+											-annotation "Save after: Will you make backups as the minutes pass, or as you pick objects"
+											-select (`optionVar -query ajrAS_iUseTime` + 1)
+											ui_ajrAS_type;
+									
+									text	"Keep up to";
+									intField	-value `optionVar -query ajrAS_iSaveCopies`
+											-annotation "Keep up to: How many rolling copies do you want to keep"
+											-width 35
+											-changeCommand "ajrAS_Update"
+										ui_ajrAS_iSaveCopies;
+									text	" backups";
+									
+								setParent ..;
+								
+								rowLayout	-numberOfColumns 3
+										-columnWidth3 70 100 50
+										-columnAttach3 "left" "left" "left"
+										-columnOffset3 0 0 5
+										-adjustableColumn 2;
+										
+									text 		-label "Save in";
+									textField	-fileName `optionVar -query ajrAS_sBackupDir`
+											-width 90
+											-changeCommand "ajrAS_Update"
+											-annotation "Save in: Path to your backup folder (can be relative to your project)"
+											ui_ajrAS_sBackupDir;
+									symbolButton	-image "navButtonBrowse.xpm"
+											-annotation "Save in: Browse for the backup folder"
+											-command "fileBrowser(\"ajrAS_SetBackupDir\",\"AutoSave\", \"folder\", 4);"
+											browser;
+								setParent ..;
+
+								checkBox	-label "notify when saving"
+										-annotation "Notify: Pop up an window when saving (may interfere with hardware rendering)"
+										-value `optionVar -query ajrAS_iNotify`
+										-onCommand  "ajrAS_Update"
+										-offCommand "ajrAS_Update"
+										ui_ajrAS_iNotify;
+
+							setParent ..;
+							
+						setParent ..;
+
+ 					setParent ..;
+   				setParent ..;
+   			setParent ..;
+
+		button	-label "Close"
+				-command "ajrAS_Update; deleteUI ui_ajrAS"
+				ui_ajrAS_close;
+		
+		button	-label "Reset"
+				-command "ajrAS_Reset"
+				ui_ajrAS_reset;
+		
+		formLayout -edit
+			-attachForm ui_ajrAS_mainFrame "left" 5
+			-attachForm ui_ajrAS_mainFrame "right" 5
+			-attachForm ui_ajrAS_mainFrame "top" 5
+			-attachForm ui_ajrAS_mainFrame "bottom" 35
+			
+			-attachPosition	ui_ajrAS_reset "left" 2 50
+			-attachForm	ui_ajrAS_reset "right" 5
+			-attachNone	ui_ajrAS_reset "top"
+			-attachForm	ui_ajrAS_reset "bottom" 5
+
+			-attachForm	ui_ajrAS_close "left" 5
+			-attachPosition	ui_ajrAS_close "right" 2 50
+			-attachNone	ui_ajrAS_close "top"
+			-attachForm	ui_ajrAS_close "bottom" 5
+
+		ui_ajrAS_mainForm;
+ 
+ 	showWindow ui_ajrAS;
+}
+
+global proc ajrAutoSave() {
+// Called when Maya starts up, and when the user wants to change settings.
+// If the selection script job can't be found, then assume it's startup time & just
+// silently go into the preferred state; otherwise bring up the GUI
+	global int $ajrAS_iTimeJobNo;		// The number of the time change script job
+	global int $ajrAS_iSelJobNo;		// The number of the select change script job
+	global int $ajrAS_iBackupNumber;
+	global float $ajrAS_fLastSave;		// Time of the last save, or script launch
+
+	// If these values are not in the prefs, then set them to the defaults
+	if(! `optionVar -exists "ajrAS_iEnabled"`)
+		optionVar -intValue "ajrAS_iEnabled" 		off;
+	if(! `optionVar -exists "ajrAS_iSelectTrigger"`)
+		optionVar -intValue "ajrAS_iSelectTrigger" 	15;
+	if(! `optionVar -exists "ajrAS_iUseTime"`)
+		optionVar -intValue "ajrAS_iUseTime" 		on;
+	if(! `optionVar -exists "ajrAS_iSaveCopies"`)
+		optionVar -intValue "ajrAS_iSaveCopies" 	5;
+	if(! `optionVar -exists "ajrAS_iNotify"`)
+		optionVar -intValue "ajrAS_iNotify" 		off;
+	if(! `optionVar -exists "ajrAS_sBackupDir"`)
+		optionVar -stringValue "ajrAS_sBackupDir" 	"scenes";
+
+	if ($ajrAS_iSelJobNo != 0)
+		ajrAS_GUI;
+	else {
+		$ajrAS_iBackupNumber = 1;
+		$ajrAS_fLastSave = `timerX`;
+		ajrAS_FileMenu;
+		$ajrAS_iTimeJobNo = `scriptJob -event timeChanged ajrAS_CurrentTimeHasChanged`;
+		$ajrAS_iSelJobNo = `scriptJob -event SelectionChanged ajrAS_SelectionHasChanged`;
+	}
+}

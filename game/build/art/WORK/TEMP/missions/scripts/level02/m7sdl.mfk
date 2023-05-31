@@ -1,0 +1,4 @@
+LoadP3DFile("art\missions\level02\mission4cam.p3d");
+
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\frink.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\stadium.p3d" );

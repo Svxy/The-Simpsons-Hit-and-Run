@@ -1,0 +1,6 @@
+//Create the WorldBuilderNode.
+
+
+global proc wb_Create_WorldBuilderNode()
+{
+}

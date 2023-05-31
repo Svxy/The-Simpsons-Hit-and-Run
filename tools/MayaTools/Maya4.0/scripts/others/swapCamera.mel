@@ -1,0 +1,104 @@
+proc swapCamDefaults (){
+global string $camera[];
+global float $camRotY;
+global float $camRotX;
+global float $camRotZ; 
+global float $camTranY;
+global float $camTranX;
+global float $camTranZ;
+$camera[0]= "persp";
+float $camRotY =0;
+float $camRotX =0;
+float $camRotZ =0;
+float $camTranY =0;
+float $camTranX =0;
+float $camTranZ =0;
+};
+
+global proc perspToOrtho(){
+global string $camera[];
+global float $camRotY;
+global float $camRotX;
+global float $camRotZ; 
+global float $camTranY;
+global float $camTranX;
+global float $camTranZ;
+
+$temp = `ls -sl`;
+{ string $camera = `modelPanel -q -camera modelPanel4`; eval select `getCameraNode view $camera` `getCameraNode up $camera` $camera; };
+$camera = `ls -sl`;
+$camRotY = `getAttr ($camera[0] + ".rotateY")`;
+$camRotX = `getAttr ($camera[0] + ".rotateX")`;
+$camRotZ = `getAttr ($camera[0] + ".rotateZ")`;
+$camTranY = `getAttr ($camera[0] + ".translateY")`;
+$camTranX = `getAttr ($camera[0] + ".translateX")`;
+$camTranZ = `getAttr ($camera[0] + ".translateZ")`;
+int $camRotY1;
+int $camRotX1;
+int $camRotZ1;
+if ($camRotY <= 0)
+	$camRotY1 = (($camRotY-45) % 360.0) / 90;
+else
+	$camRotY1 = (($camRotY+45) % 360.0) / 90;
+$camRotY90 = $camRotY1 * 90;
+
+if ($camRotX <= 0)
+	$camRotX1= (($camRotX-45) % 360.0) / 90;
+else
+	$camRotX1= (($camRotX+45) % 360.0) / 90;
+$camRotX90 = $camRotX1 * 90;
+if ($camRotZ <= 0)
+	$camRotZ1= (($camRotZ-45) % 360.0) / 90;
+else
+	$camRotZ1= (($camRotZ+45) % 360.0) / 90;
+$camRotZ90 = $camRotZ1 * 90;
+
+//$camRotZ90 = (floor ((($camRotZ+45) % 360.0)/90))*90;//
+//makes ortho//
+setAttr ($camera[0] + ".rotateY") $camRotY90;
+setAttr ($camera[0] + ".rotateX") $camRotX90;
+setAttr ($camera[0] + ".rotateZ") $camRotZ90;
+setAttr ($camera[0] + ".orthographic") 1;
+select $temp;
+fitPanel -selected;
+print "camera square";
+};
+
+
+//orthoToPersp $camera[0] $camRotY $camRotX $camRotZ $camTranY $camTranX $camTranZ
+global proc orthoToPersp()
+{
+global string $camera[];
+global float $camRotY;
+global float $camRotX;
+global float $camRotZ; 
+global float $camTranY;
+global float $camTranX;
+global float $camTranZ;
+setAttr ($camera[0] + ".rotateY") $camRotY;
+setAttr ($camera[0] + ".rotateX") $camRotX;
+setAttr ($camera[0] + ".rotateZ") $camRotZ;
+setAttr ($camera[0] + ".translateY") $camTranY;
+setAttr ($camera[0] + ".translateX") $camTranX;
+setAttr ($camera[0] + ".translateZ") $camTranZ;
+setAttr ($camera[0] + ".orthographic") 0;
+};
+
+global proc swapCamera(int $sway){
+global string $camera[];
+global float $camRotY;
+global float $camRotX;
+global float $camRotZ; 
+global float $camTranY;
+global float $camTranX;
+global float $camTranZ;
+switch ($sway){
+
+case 0:
+	perspToOrtho;
+	break;
+case 1:
+	orthoToPersp;
+	break;
+};
+};

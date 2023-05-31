@@ -1,0 +1,85 @@
+SelectMission("m3");
+
+SetMissionResetPlayerInCar("m3_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+
+SetNumValidFailureHints( 5 );
+
+UsePedGroup( 1 ); 
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(253);
+	SetHUDIcon("kburger");
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		AddNPC("lenny", "m3_lenny");
+		SetDestination("m3_lardlads", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+CloseStage();
+
+AddStage(8);
+	RESET_TO_HERE();
+	SetStageMessageIndex(131);
+	SetHUDIcon( "kwike" );
+	AddStageVehicle("smith_v","m4_smithers_carstart","NULL","Missions\level01\M3dest.con", "smithers");
+	AddObjective("goto");
+		SetDestination("m3_smithers_chase_start", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(90);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(7, "final");
+	SetStageMessageIndex(7);
+	SetHUDIcon( "smith_v" );
+	ActivateVehicle("smith_v","NULL","target");
+	SetVehicleAIParams( "smith_v", -10, -9 );   // no shortcuts
+
+	AddStageWaypoint( "m4_smithers_path3" );
+	AddStageWaypoint( "m4_smithers_path6" );
+	AddObjective("destroy","neither");
+		SetObjTargetVehicle("smith_v");
+	CloseObjective();
+	AddCondition("race");
+		SetCondTargetVehicle("smith_v");
+	CloseCondition();
+	AddStageMusicChange();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+	StageStartMusicEvent("M3_drama");
+	SetCompletionDialog("convertible", "smithers");
+CloseStage();
+
+CloseMission();
+

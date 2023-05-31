@@ -1,0 +1,3 @@
+LoadP3DFile("art\missions\level01\demo.p3d");
+
+LoadDisposableCar("art\cars\skinn_v.p3d","skinn_v","AI");

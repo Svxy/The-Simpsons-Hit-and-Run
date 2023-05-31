@@ -1,0 +1,109 @@
+SelectMission("m1");
+
+SetMissionResetPlayerOutCar("m1_bartstart2","level2_carstart");
+SetDynaLoadData("l2z1.p3d;l2r1.p3d;l2r4.p3d;");
+ 
+UsePedGroup(0);
+AddStage(0);
+	RESET_TO_HERE();
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		//AddStageVehicle("skinn_v","m1_skinn_carstart1","NULL", "Missions\level02\M1Chase.con", "skinner");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+	//SetCompletionDialog("charlie","skinner");
+CloseStage();
+
+AddStage(1);
+	SetMaxTraffic(2);
+	SetHUDIcon( "trynsave" );
+	SetStageMessageIndex(50);
+	AddObjective("goto", "both");
+		TurnGotoDialogOff();
+		AddStageVehicle("skinn_v","m1_skinn_carstart1","NULL", "Missions\level02\M1Chase.con", "skinner");
+		SetDestination("skinner_spawn", "carsphere");
+	CloseObjective();
+	SetStageTime(60);
+	AddCondition("timeout");
+			//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("charlie","skinner");
+CloseStage();
+
+AddStage(1);
+	ShowStageComplete();
+	SetHUDIcon( "skinn_v" );
+	SetStageMessageIndex(51);
+	SetStageTime(90);
+	ActivateVehicle("skinn_v","NULL","chase"); 
+	AddObjective("losetail");
+		AddNPC("jimbo","m1_jimbo_trynsave");
+		SetObjTargetVehicle("skinn_v");
+		SetObjDistance(150);
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("gator");
+CloseStage();
+
+AddStage(2);
+	ShowStageComplete();
+	SetStageMessageIndex(50);
+	SetHUDIcon( "trynsave" );
+	AddObjective("goto", "both");
+		AddNPC("jimbo","m1_jimbo_trynsave");
+		SetDestination("m1_try_n_save", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddStageTime(60);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();
+
+AddStage(3);
+	SetMaxTraffic(5);
+	SetHUDIcon( "jimbo" );
+	SetStageMessageIndex(149);
+	SetStageMusicAlwaysOn();
+	AddObjective("talkto");
+		AddNPC("jimbo","m1_jimbo_trynsave");
+		AddObjectiveNPCWaypoint( "jimbo", "m1_jimbo_walk1" );
+		AddObjectiveNPCWaypoint( "jimbo", "m1_jimbo_walk2" );
+		AddObjectiveNPCWaypoint( "jimbo", "m1_jimbo_walk3" );
+		SetTalkToTarget("jimbo", 0, -0.5); // 0 - eclamation, 1 is gift, with optional hieight offset
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	AddObjective("dialogue");
+		SetCamBestSide("m1_bestside2");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "npc_far" );
+		SetConversationCam( 1, "pc_near" );
+		AddAmbientNpcAnimation( "dialogue_no" );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		//AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_no" );
+		SetCamBestSide("m1_bestside2");
+		SetDialogueInfo("bart","jimbo","finger",0);
+		SetDialoguePositions("m1_jimbo_trynsave","m1_jimbo_walk2","m1_jimbo_walk1");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

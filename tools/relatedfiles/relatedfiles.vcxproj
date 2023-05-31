@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath />
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <ProjectGuid>{EF05D776-F91E-422F-BD64-16B3F5557888}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>../../game/code/constants;../../game/libs/radmath;../../game/libs/pure3d/toollib/inc;../../game/libs/pure3d/constants;../../game/libs/pure3d/toollib/chunks16/inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;RAD_RELEASE;RAD_PC;RAD_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/relatedfiles.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/relatedfiles.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDatabaseFile>.\Release/relatedfiles.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <Midl>
+      <TypeLibraryName>.\Release/relatedfiles.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../game/code/constants;../../game/libs/radmath;../../game/libs/pure3d/toollib/inc;../../game/libs/pure3d/constants;../../game/libs/pure3d/toollib/chunks16/inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;RAD_DEBUG;RAD_PC;RAD_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Debug/relatedfiles.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/relatedfiles.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/relatedfiles.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <Midl>
+      <TypeLibraryName>.\Debug/relatedfiles.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\ChunkManip.hpp" />
+    <ClInclude Include="..\..\game\code\constants\srrchunks.h" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\toollib.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\DataManip.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\dospath.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\getopt.h" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\glob.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\greyscale.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\hash.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\lzr.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\lzrf.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\pddi\ps2\packet.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\porc.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\pddi\ps2\ps2prim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\simdata.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAdjEdgeList.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAdjFaceList.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAnimatedObject.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAnimation.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBSPTree.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBillboardObject.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBillboardObjectAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBox.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBuffer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlByteStream.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCameraAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlChannel.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlChunk16.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCollisionObject.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlColour.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCompositeDrawable.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCompressedByteStream.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlDataChunk.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlEdge.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlEntity.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlEventAnimation.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExportInfo.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExpression.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExpressionAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExpressionOffsets.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFile.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFileByteStream.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFlexibleJoint.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFlexibleObject.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFont.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFourCC.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFrameController.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlGCComponentQuantizer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlGCPrimBuffer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlGameAttr.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHashList.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHashTable.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHeightField.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHistory.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlImage.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlImageQuantizer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlIndexedSkinVertex.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlIndexedVertex.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlIterator.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlKeyDefs.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLight.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLightAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLightGroup.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLoadManager.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLocator.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlMatrix.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlMemByteStream.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlMultiController.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlOffsetList.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlOffsetSkinVertex.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlOpticEffect.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPDDI.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPS2PrimBuffer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPS2SkinPrimBuffer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlParticleSystem.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPhotonMap.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPhysicsObject.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPlane.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPoint.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPose.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPoseAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPrimBuffer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPrimGroup.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPrimGroupMesh.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlQuat.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlRC.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlRay.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSafeEntityCaster.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlScenegraph.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlScenegraphTransformAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSegment.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlShader.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSimpleShader.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSkeleton.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSkin.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSkinVertex.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSphere.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSprite.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlString.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlStringTable.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTable.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTarga.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTextDataParser.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTexture.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTextureAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTranAnimKeys.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriMesh.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriMeshIntersect.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangle.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangleFactory.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangleIntersect.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangleIntersectFactory.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsEdge.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsTriangle.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsTriangleToTriStripConverter.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsVertexCache.h" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsVertexConnectivity.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTypes.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlUV.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVertex.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVertexAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVertexAnimKey.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVisAnim.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlXBOXPrimBuffer.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlcamera.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlentitytable.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlinventory.hpp" />
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlversion.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\game\libs\pure3d\toollib\src\tlDataChunk.cpp" />
+    <ClCompile Include="..\..\game\libs\pure3d\toollib\toollib_extras.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCameraAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCameraChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCompositeDrawableChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlEntityChannelChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlExportInfoChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlExpressionAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFrameControllerChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlHistoryChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLightAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLightGroupChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlMultiControllerChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPoseAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlScenegraphTransformAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSkeletonChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlTextureAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlVertexAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlVertexOffsetExpressionChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlVisibilityAnimChunk16.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlAnimatedObjectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlAnimationChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlBBoxChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlBSphereChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlBillboardObjectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlChannelChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCollisionObjectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlExpressionChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFencelineChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFlexibleJointChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFlexibleObjectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFontChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFrameControllerChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlGameAttrChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlImageChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlIntersectionChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLightChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLocatorChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlMeshChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlOpticEffectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlParticleSystemChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPhotonMapChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPhysicsObjectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPrimGroupChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlRoadChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlRoadSegmentChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlScenegraphChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlScroobyProjectChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlShaderChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlShadowSkinChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSkinChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSmartPropChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSpriteChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlTextureChunk.sc" />
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlWallChunk.sc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

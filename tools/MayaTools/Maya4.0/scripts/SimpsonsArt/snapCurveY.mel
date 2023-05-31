@@ -1,0 +1,75 @@
+global proc int srrRound( float $val )
+{
+    int     $intPart = trunc( $val );
+    float   $decPart = $val - $intPart;
+
+    $val = $intPart;
+    if ( $decPart >= 0.5 ) $val += 1;
+
+    return $val;
+}
+
+
+global proc snapCurveY( float $precision )
+{
+    $precision = abs( $precision );
+
+    string $curves[];
+    $curves = `ls -type nurbsCurve`;
+
+    string $curve;
+    for ( $curve in $curves )
+    {
+        int $numcvs;
+        string $curvecmd = ($curve + ".cp");
+        $numcvs = `eval getAttr -size $curvecmd`;
+		
+        float $cv[ 3 ];
+        int $i = 0;
+        for ( $i = 0; $i < $numcvs; $i++ )
+        {
+            $curvecmd = ($curve + ".cp[" + $i + "]");
+            $cv = `eval getAttr $curvecmd`;
+            
+            if ( $precision == 1 )
+            {
+                $cv[ 1 ] = ceil( $cv[ 1 ] );
+            }
+
+            if ( $precision > 1 )
+            {
+                float $div = $cv[ 1 ] / $precision;
+
+                int $integerpart = trunc( $div );
+                float $decpart = $div - $integerpart;
+
+                if ( $decpart < 0.5 )
+                {
+                    $decpart = 0;
+                }
+                else
+                {
+                    $decpart = 1;
+                }
+
+                float $newdiv = $integerpart + $decpart;
+
+                $cv[ 1 ] = $precision * $newdiv;
+            }
+
+            if ( $precision < 1 )
+            {
+                float $div = $cv[ 1 ] / $precision;
+
+                $div = srrRound( $div );
+
+                float $newdec = $precision * $div;
+
+                $cv[ 1 ] = $newdec;
+            }
+
+            $curvecmd = ($curve + ".cp[" + $i + "].yv");
+            eval setAttr $curvecmd $cv[ 1 ];
+        }
+    }
+}

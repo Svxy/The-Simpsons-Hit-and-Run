@@ -1,0 +1,431 @@
+################################################################################
+#
+#   Files.txt   -   PS2MW
+#
+#   Specify your project settings here.  (Directory locations, output file,
+#   compiler flags, etc.)
+#
+################################################################################
+
+################################################################################
+# General defines
+################################################################################
+
+    ############################################################################
+    # Relative path the FTech root directory
+    ############################################################################
+
+    ROOTDIR = ../../libs
+
+    ############################################################################
+    # Output file directory
+    ############################################################################
+
+    BINDIRECTORY = ../../cd/ps2
+
+    ############################################################################
+    # Output file name (don't include extension or the configuration suffix)
+    ############################################################################
+
+	ifeq ($(BUILDPAL),TRUE)
+	TARGET		= $(BINDIRECTORY)/srr2pal
+	else
+    TARGET		= $(BINDIRECTORY)/srr2
+	endif
+
+    ############################################################################
+    # Output file type (EXECUTABLE or LIBRARY)
+    ############################################################################
+
+    TARGETTYPE	= EXECUTABLE
+
+    ############################################################################
+    # Radbuild defined platform specific configuration files
+    #   * one of config.ps2, config.ps2mw, or config.gcn
+    ############################################################################
+
+    include $(ROOTDIR)\radbuild\config.ps2mw
+
+    ############################################################################
+    # General build dependencies.
+    #   * All client files will be recompiled and linked when files listed
+    #     here are changed
+    ############################################################################
+
+#    GENERAL_DEPENDS = files.txt
+    GENERAL_DEPENDS = 
+
+################################################################################
+# File specification
+# 
+################################################################################
+
+    ############################################################################
+    # Source file directories
+    ############################################################################
+    
+    SIMPSONSCODEDIRS = ../../code \
+		../../code/main \
+		../../code/contexts \
+		../../code/contexts/gameplay \
+		../../code/contexts/supersprint \
+		../../code/contexts/demo \
+		../../code/debug \
+		../../code/events \
+		../../code/gameflow \
+		../../code/constants \
+		../../code/input \
+		../../code/interiors \
+		../../code/memory \
+		../../code/loading \
+		../../code/camera \
+		../../code/console \
+		../../code/sound \
+		../../code/sound/avatar \
+		../../code/sound/dialog \
+		../../code/sound/movingpositional \
+		../../code/sound/music \
+		../../code/sound/nis \
+		../../code/sound/tuning \
+		../../code/sound/sounddebug \
+		../../code/sound/soundfx \
+		../../code/sound/soundrenderer \
+		../../code/render/RenderFlow \
+		../../code/render/Culling \
+		../../code/render/RenderManager \
+		../../code/worldsim/SkidMarks \
+		../../code/render/breakables \
+		../../code/render/IntersectManager \
+		../../code/render/Enums \
+		../../code/render/Loaders \
+		../../code/render/DSG \
+		../../code/render/Particles \
+		../../code/render/animentitydsgmanager \
+		../../code/worldsim \
+		../../code/worldsim/coins \
+		../../code/worldsim/redbrick \
+		../../code/presentation \
+		../../code/presentation/fmvplayer \
+		../../code/presentation/presevents \
+		../../code/presentation/gui \
+		../../code/presentation/gui/bootup \
+		../../code/presentation/gui/backend \
+		../../code/presentation/gui/frontend \
+		../../code/presentation/gui/minigame \
+		../../code/presentation/gui/ingame \
+		../../code/presentation/gui/ingame/hudevents \
+		../../code/presentation/gui/utility \
+		../../code/cards \
+		../../code/data \
+		../../code/data/memcard \
+		../../code/cheats \
+		../../code/mission \
+		../../code/mission/conditions \
+		../../code/mission/objectives \
+		../../code/mission/charactersheet \
+		../../code/mission/rewards \
+		../../code/mission/safezone \
+		../../code/mission/ufo \
+		../../code/mission/respawnmanager \
+		../../code/meta \
+		../../code/worldsim/redbrick \
+		../../code/worldsim/redbrick/vehiclecontroller \
+		../../code/worldsim/character \
+		../../code/ai/ \
+		../../code/ai/sequencer \
+		../../code/ai/actor \
+		../../code/ai/vehicle \
+		../../code/roads \
+		../../code/worldsim/traffic \
+		../../code/atc \
+		../../code/pedpaths \
+		../../code/worldsim/ped \
+		../../code/worldsim/spawn \
+		../../code/worldsim/harass \
+		../../code/stateprop \
+		../../code/worldsim/parkedcars \
+		../../code/supersprint \
+		../../code/worldsim/character/footprint
+
+
+    SOURCEDIR += $(SIMPSONSCODEDIRS)
+
+    ############################################################################
+    # Include file directories
+    ############################################################################
+
+    INCLUDEDIR +=               \
+	/usr/local/sce/ee/include \
+	/usr/local/sce/ee/gcc/include \
+	/usr/local/sce/ee/gcc/ee/include \
+	/usr/local/sce/ee/gcc/lib/gcc-lib/ee/2.95.3 \
+	/usr/local/sce/ee/gcc/include/g++-3 \
+	/usr/local/sce/common/include \
+        ../../code \
+        ../../libs/poser/inc \
+        ../../libs/pure3d \
+        ../../libs/radcontent/inc \
+        ../../libs/radcore/inc \
+	../../libs/radcore/src/radfile/common \
+        ../../libs/radmath \
+        ../../libs/radmovie/inc \
+        ../../libs/radmusic/inc \
+        ../../libs/radscript/inc \
+        ../../libs/radsound/inc \
+        ../../libs/scrooby/inc \
+        ../../libs/scrooby/src \
+        ../../libs/sim
+
+    ############################################################################
+    # Source files names (excluding extension)
+    ############################################################################
+
+        SOURCEFILES += \
+\
+	allai \
+	allactor \
+	allsequencer \
+	allaivehicle \
+	allatc \
+	allcamera \
+	allcards \
+	allcheats \
+	allconsole \
+	allcontexts \
+	allgameplay \
+	alldemo \
+	alldata \
+	allmemcard \
+	alldebug \
+	allevents \
+	allgameflow \
+	allinput \
+	allinteriors \
+	allloadmanager \
+	allps2main \
+	allmemory \
+	allmeta \
+	allmission \
+	allsafezone \
+	allcharactersheet \
+	allrewards \
+	allconditions \
+	allobjectives \
+	allpresentation \
+	allrespawnmanager \
+	allfmvplayerps2 \
+	allgui \
+	allbootup \
+	allbackend \
+	allfrontend \
+	allminigame \
+	allingame \
+	allhudevents \
+	allutility \
+	allpresevents \
+	allculling \
+	alldsg \
+	allbreakables \
+	allskidmarks \
+	allintersect \
+	allloaders \
+	allparticles \
+	allanimentitydsgmanager \
+	allrenderflow \
+	allrendermanager \
+	allroads \
+	allsound \
+	allsoundavatar \
+	alldialog \
+	allmusic \
+	allnissound \
+	allsoundfx \
+	allsoundrenderer \
+	allsoundtuning \
+	allsounddebug \
+	allmovingposn \
+	allworldsim \
+	allcoins \
+	allcharacter \
+	allredbrick \
+	allvehiclecontroller \
+	alltraffic \
+	allpedpaths \
+	allped \
+	allspawn \
+	allharass \
+	allstateprop \
+	allufo \
+	allparkedcars \
+	allsupersprintctx \
+	allsupersprint \
+	allfootprint
+
+    ############################################################################
+    # Library makefile dependencies
+    # Note that the ordering is important.  Libraries should be placed before
+    # the ones they depend on (e.g. radscript uses radcore, so radscript comes
+    # first.)
+    # Choreo depends on poser, so it comes before nonfttlibs.m (Gotcha)
+    ############################################################################
+
+    include $(ROOTDIR)\choreo\build\ps2mw\choreo.m
+    include $(ROOTDIR)\sim\build\ps2mw\sim.m
+    include $(ROOTDIR)\poser\build\ps2mw\poser.m
+    include $(ROOTDIR)\scrooby\build\ps2mw\scrooby.m
+    include $(ROOTDIR)\pure3d\build\ps2mw\pure3d\pure3d.m
+    include $(ROOTDIR)\pure3d\build\ps2mw\pddi\pddi.m
+    include $(ROOTDIR)\pure3d\build\ps2mw\png\png.m
+    include $(ROOTDIR)\pure3d\build\ps2mw\zlib\zlib.m
+    include $(ROOTDIR)\radmath\build\ps2mw\radmath.m
+    include $(ROOTDIR)\radmusic\build\ps2mw\radmusic.m
+    include $(ROOTDIR)\radsound\build\ps2mw\radsound.m
+    include $(ROOTDIR)\radscript\build\ps2mw\radscript.m
+    include $(ROOTDIR)\radmovie\build\ps2mw\radmovie.m
+    include $(ROOTDIR)\radcore\build\ps2mw\radcore.m
+    include $(ROOTDIR)\radcontent\build\ps2mw\radcontent.m
+
+
+    ############################################################################
+    # Static libraries
+    ############################################################################
+    
+    # LIBS += 
+
+    ############################################################################
+    # Object files to be linked in
+    ############################################################################
+
+    # OBJS += crt0.o
+    
+################################################################################
+# Compile settings
+#   * default values are provided
+#   * use '+=' if you want add to default values
+#   * use '=' if you want to override default values
+################################################################################
+
+    ############################################################################
+    # Add pre-processor definitions
+    ############################################################################
+
+    # DEFINE +=
+
+    ############################################################################
+    # Assembler flags
+    ############################################################################
+
+    # ASFLAGS += 
+
+    ############################################################################
+    # C Compiler
+    ############################################################################
+
+    # CFLAGS +=
+
+    ############################################################################
+    # C++ Compiler
+    ############################################################################
+    
+    # CXXFLAGS +=
+
+################################################################################
+# Link setttings
+#   * default values are provided
+#   * use '+=' if you want add to default values
+#   * use '=' if you want to override default values
+################################################################################
+
+    # LDFLAGS +=
+
+################################################################################
+# Pre-compile
+################################################################################
+
+    ############################################################################
+    # Add your target to this list
+    #       - e.g. precompile : crt0.o yourtarget.o
+    ############################################################################
+
+    precompile : gcc_wrapper.o
+
+    ############################################################################
+    # Ps2ee c-runtime compilation
+    ############################################################################
+
+    gcc_wrapper.o: $(MWDIR)/PS2SUP~1/gcc_wrapper.c
+	    @$(CC) $(CFLAGS) -o $@ $< > $*.lst
+
+    OBJS += gcc_wrapper.o
+
+    ############################################################################
+    # Your pre-compile steps
+    ############################################################################
+
+    # yourtarget.o: yourtarget.s
+	#     @$(CC) $(ASFLAGS) -o $@ $< > $*.lst
+
+
+################################################################################
+# Pre-link
+################################################################################
+
+    ############################################################################
+    # Add your target to this list
+    #       - e.g. prelink : yourtarget.o
+    ############################################################################
+
+    prelink : $(BINDIRECTORY)/sound/typ/srrtypes.typ
+
+    ############################################################################
+    # Your pre-link steps
+    ############################################################################
+
+    $(BINDIRECTORY)/sound/typ/srrtypes.typ : $(ROOTDIR)/radcore/inc/radobject.hpp \
+											 ../../code/sound/soundrenderer/idasoundresource.h \
+											 ../../code/sound/soundrenderer/soundresource.h \
+											 ../../code/sound/avatar/icarsoundparameters.h \
+											 ../../code/sound/avatar/carsoundparameters.h \
+											 ../../code/sound/tuning/iglobalsettings.h \
+											 ../../code/sound/tuning/globalsettings.h \
+											 ../../code/sound/soundfx/ireverbsettings.h \
+											 ../../code/sound/soundfx/reverbsettings.h \
+											 ../../code/sound/soundfx/ipositionalsoundsettings.h \
+											 ../../code/sound/soundfx/positionalsoundsettings.h \
+											 $(ROOTDIR)/radsound/inc/radsound.hpp \
+											 $(ROOTDIR)/radsound/inc/radsound_hal.hpp
+	    @$(ECHO) 
+	    @$(ECHO) Building type info file for sound...
+	    @$(ROOTDIR)/radscript/tools/bin/ridl.exe -I$(ROOTDIR)/radcore/inc/radobject.hpp \
+		 -I../../code/sound/soundrenderer/idasoundresource.h \
+		 -I../../code/sound/soundrenderer/soundresource.h \
+		 -I../../code/sound/avatar/icarsoundparameters.h \
+		 -I../../code/sound/avatar/carsoundparameters.h \
+		 -I../../code/sound/tuning/iglobalsettings.h \
+		 -I../../code/sound/tuning/globalsettings.h \
+		 -I../../code/sound/soundfx/ireverbsettings.h \
+		 -I../../code/sound/soundfx/reverbsettings.h \
+		 -I../../code/sound/soundfx/ipositionalsoundsettings.h \
+		 -I../../code/sound/soundfx/positionalsoundsettings.h \
+		 -I$(ROOTDIR)/radsound/inc/radsound.hpp \
+		 -I$(ROOTDIR)/radsound/inc/radsound_hal.hpp \
+		 -O$(BINDIRECTORY)/sound/typ/srrtypes.typ
+
+
+
+
+################################################################################
+# Client Clean
+################################################################################
+
+    ############################################################################
+    # Your clean build targets
+    ############################################################################
+
+    # clientclean :
+	# 	@echo Cleaning client files...
+	# 	@echo ----------------------------
+	# 	@$(RM) -rf crt0.o
+
+
+

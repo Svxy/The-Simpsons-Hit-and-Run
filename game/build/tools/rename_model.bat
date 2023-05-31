@@ -1,0 +1,1 @@
+perl.exe %BUILDART%..\tools\rename_file.pl %1 %2 %3

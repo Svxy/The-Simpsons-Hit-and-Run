@@ -1,0 +1,212 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// te_IntersectionContext.mel
+//
+// Description: Defines all the scripts required by the IntersectionContext tool
+//              As a convention all Terrain Editor global procedures 
+//              and global variables are prefixed with "te_".  All commands 
+//              exposed through TE plugins are prefixed with "TE_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created -- CBrisebois
+//-----------------------------------------------------------------------------
+
+//This is the global instance of the bv context tool.
+
+global proc te_MCB_StartIntersection()
+{
+    //Start the Intersection context...
+    if ( ! `contextInfo -exists IntersectionCtx` ) 
+    {
+        IntersectionContext IntersectionCtx;
+    }
+
+    setToolTo IntersectionCtx;
+}
+
+global string   $gSelectedIntersection = "";
+global int      $gIntersectionSelectionCallbackID = 0;
+global string   $gSelectedName;
+global string   $gTypeField;
+global string   $gIntersectionTypes[] = { "NoStop", "NWay", "FourWay", "NoStopN", "NWayN" };
+
+global proc te_MCB_EditIntersection()
+{
+    global string   $gSelectedName;
+    global int      $gIntersectionSelectionCallbackID;
+    global string   $gIntersectionTypes[];
+    global string   $gTypeField;
+
+    if ( `window -exists TE_InteresctionEditor` )
+    {
+        deleteUI -window TE_IntersectionEditor;
+    }
+
+    window -rtf true -title "TE Road / Intersection Editor" TE_IntersectionEditor;
+
+    columnLayout -adjustableColumn true;
+
+        $gSelectedName = `textField -editable false -text "" -width 170`;
+        
+        $gTypeField = `optionMenu -label "Type" -width 170 -changeCommand ("te_MCB_IntersectionTypeChange( \"#1\" )")`;
+
+        int $index;
+        int $size = size($gIntersectionTypes);
+        for ( $index = 0; $index < $size; $index++ )
+        {
+            menuItem -label $gIntersectionTypes[ $index ];
+        }
+            setParent ..;
+
+        button -label "Create Road" -command ( "te_MCB_CreateRoadFromSelected()" );
+        button -label "Show Whole Road" -command ( "te_MCB_ShowRoadFromSelected()" );
+        button -label "Destroy Road" -command ( "te_MCB_DestroyRoadFromSelected()" );
+        button -label "Set Intersection Start" -command ( "te_MCB_AddSelectedIntersectionToRoad( 0 )" );
+        button -label "Set Intersection End" -command ( "te_MCB_AddSelectedIntersectionToRoad( 1 )" );
+        separator;
+        button -label "Create Intersections" -command "te_MCB_StartIntersection()";
+
+    setParent ..;
+
+    showWindow;
+
+    //Create the selection change callback.
+    $gIntersectionSelectionCallbackID = `scriptJob -parent "TE_IntersectionEditor" -event "SelectionChanged" "te_UpdateIntersectionEditor()"`;
+
+}
+
+global proc te_MCB_IntersectionTypeChange( string $value )
+{
+    global string $gSelectedIntersection;
+
+    if ( $gSelectedIntersection != "" )
+    {
+        setAttr ( $gSelectedIntersection + ".IntersectionType" )  -type "string" $value;
+    }
+}
+
+global proc te_CloseIntersectionEditorWindow()
+{
+    global int $gIntersectionSelectionCallbackID;
+
+    if ( `window -exists TE_InteresctionEditor` )
+    {
+        deleteUI -window TE_IntersectionEditor;
+    }
+
+    $gIntersectionSelectionCallbackID = 0;
+}
+
+global proc te_UpdateIntersectionEditor()
+{
+    global string   $gSelectedIntersection;
+    global string   $gSelectedName;
+    global string   $gTypeField;
+    global string   $gIntersectionTypes[];
+
+	string $selectedObjects[] = `ls -sl -dag`;
+	string $selectedObjectName = $selectedObjects[0];
+    string $selectedNodeType;
+
+    if ( $selectedObjectName != "" )
+    {
+        //There is something selected
+
+        $selectedNodeType = `nodeType $selectedObjectName `;
+        
+        if ( $selectedNodeType == "transform" )
+        {
+            //We don't want the transform, we want the child node.
+            string $children[] = `listRelatives -c $selectedObjectName`;
+            $selectedObjectName = $children[0];
+        }
+
+        if ( $selectedObjectName != "" )
+        {
+	        $selectedNodeType = `nodeType $selectedObjectName `;
+
+            if ( $selectedNodeType == "IntersectionLocatorNode" )
+            {
+                //We're in business
+                textField -edit -text $selectedObjectName $gSelectedName;
+
+                string $value = `getAttr ( $selectedObjectName + ".IntersectionType" )`;
+
+                //Which index is this string?
+                int $size = size( $gIntersectionTypes );
+                int $index;
+
+                for ( $index = 0; $index < $size; $index++ )
+                {
+                    if ( $gIntersectionTypes[ $index ] == $value )
+                    {
+                        optionMenu -edit -sl ($index + 1) $gTypeField;
+                        break;
+                    }
+                }
+
+                if ( $index == $size )
+                {
+                    //This node had no proper setting.  Resetting it.
+                    warning "Node had invalid type setting.  Correcting to default type";
+
+                    optionMenu -edit -sl 1 $gTypeField;
+                    setAttr ( $selectedObjectName + ".IntersectionType" ) -type "string" $gIntersectionTypes[ 0 ];
+                }
+
+                $gSelectedIntersection = $selectedObjectName;
+                return;
+            }
+            else if ( $selectedNodeType == "mesh" )
+            {
+                //This is for adding road to the selected intersection.  Do not unselect the intersection.
+		        string $whichRoad[] = `listAttr -st teWhichRoad $selectedObjectName`;
+
+                if ( size( $whichRoad ) )
+	            {
+                	return;
+		        }
+            }
+        }
+    }
+
+    textField -edit -text "" $gSelectedName;
+    $gSelectedIntersection = "";
+
+}
+
+
+
+global proc te_MCB_CreateRoadFromSelected()
+{
+    TE_CreateRoad();
+}
+
+global proc te_MCB_ShowRoadFromSelected()
+{
+    TE_ShowRoad();
+}
+
+global proc te_MCB_DestroyRoadFromSelected()
+{
+    TE_DestroyRoad();
+}
+
+global proc te_MCB_AddSelectedIntersectionToRoad( int $isEnd )
+{
+    global string $gSelectedIntersection;
+
+    TE_AddIntersectionToRoad( $gSelectedIntersection, $isEnd );   
+}
+
+global proc te_Delete_IntersectionContext()
+{
+    if ( `contextInfo -exists IntersectionCtx` )
+    {
+        deleteUI -toolContext IntersectionCtx;
+    }
+}

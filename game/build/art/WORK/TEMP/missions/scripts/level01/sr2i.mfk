@@ -1,0 +1,104 @@
+SelectMission("sr2");
+//The CIRCUIT RACE (with AI cars)
+//Script set up for multipkle laps
+
+SetAnimatedCameraName( "race2camShape" );
+SetAnimCamMulticontName( "race2cam" );
+
+SetMissionResetPlayerInCar("sr2_carstart");
+SetDynaLoadData("l1z4.p3d;l1r3.p3d;l1z3.p3d;");
+
+UsePedGroup(4); 
+
+//Chuck: StreetRace Prop Load and Unload Setup
+StreetRacePropsLoad("l1_sr2p.p3d;");
+StreetRacePropsUnload("l1_sr2p.p3d:");
+
+AddStage(0);
+SetHUDIcon( "race" );
+DisableHitAndRun();
+PlacePlayerCar("current", "sr2_carstart");
+PutMFPlayerInCar( );  // This makes the play auto reset into their car for this stage.                
+
+StartCountdown("count");
+	AddToCountdownSequence( "3", 800 ); // duration time in milliseconds
+	AddToCountdownSequence( "2", 600 ); // duration time in milliseconds
+	AddToCountdownSequence( "PSYCHE", 500 ); // duration time in milliseconds
+	AddToCountdownSequence( "1", 900 ); // duration time in milliseconds
+	AddToCountdownSequence( "GO", 400 ); // duration time in milliseconds
+
+SetStageMessageIndex(223);
+RESET_TO_HERE();
+NoTrafficForStage();
+AddStageVehicle("honor_v","sr2_AI_carstart2","race","Missions\level01\sr2_1st.con","bart");
+SetVehicleAIParams( "honor_v", -51, -50 );
+SetStageAIRaceCatchupParams("honor_v", 80, 0.6, 1.0, 2.0); 
+//AddStageVehicle("pickupA","sr2_AI_carstart1","race","Missions\level01\sr2_2nd.con");
+AddStageVehicle("minivanA","sr2_AI_carstart3","race","Missions\level01\sr2_3rd.con");
+SetStageAIRaceCatchupParams("minivanA", 80, 0.6, 0.9, 1.50); 
+SetVehicleAIParams( "minivanA", -51, -50 );
+AddStageVehicle("schoolbu","sr2_AI_carstart4","race","Missions\level01\sr2_4th.con");
+SetStageAIRaceCatchupParams("schoolbu", 80, 0.6, 0.9, 1.50); 
+SetVehicleAIParams( "schoolbu", -51, -50 );
+AddStageWaypoint( "sr2_waypoint1" );
+AddStageWaypoint( "sr2_waypoint2" );
+AddStageWaypoint( "sr2_waypoint3" );
+AddStageWaypoint( "sr2_waypoint4" );
+AddStageWaypoint( "sr2_waypoint4b" );
+AddStageWaypoint( "sr2_waypoint5" );
+AddStageWaypoint( "sr2_waypoint6" );
+AddStageWaypoint( "sr2_waypoint7" );
+
+AddObjective( "race","neither");
+AddNPC("patty", "sr2_patty");
+AddNPC("selma", "sr2_selma");
+AddCollectible("sr2_waypoint1","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr2_waypoint2","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr2_waypoint3","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr2_waypoint4","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr2_waypoint5","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr2_waypoint6","carsphere");
+//AddCollectible("sr2_waypoint7");
+AddCollectible("sr2_waypoint8","carsphere");
+SetCollectibleEffect("wrench_collect");
+SetRaceLaps(3);
+CloseObjective();
+AddCondition("position");
+SetConditionPosition(1);
+CloseCondition();
+AddCondition( "damage" );
+	SetCondMinHealth( 0.0 );
+	SetCondTargetVehicle( "current");
+CloseCondition();
+AddCondition("outofvehicle");
+	SetCondTime( 10000 );
+CloseCondition();
+CloseStage();
+
+AddStage(1, "final");
+	AddObjective("dialogue");
+		AddNPC("patty", "sr2_patty");
+		AddNPC("selma", "sr2_selma");
+		//AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		//AmbientAnimationRandomize( 0, 0 );      <<<===---  ASK IAN ABOUT THIS COMMAND
+		//AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		//AddAmbientNpcAnimation( "none" );
+		//AddAmbientNpcAnimation( "dialogue_thinking" );
+		//AddAmbientPcAnimation( "none" );
+		//AddAmbientPcAnimation( "dialogue_yes" );
+		//AddAmbientPcAnimation( "none" );
+		//AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		//SetConversationCam( 3, "pc_far" );
+		//SetConversationCamNpcName("npc_near");
+		//SetConversationCamPcName("pc_near");            <<<===--- ASK IAN ABOUT THIS COMMAND.
+		SetDialogueInfo("patty","homer","success",0);
+		SetDialoguePositions("sr2_patty","sr2_homer","sr2_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();

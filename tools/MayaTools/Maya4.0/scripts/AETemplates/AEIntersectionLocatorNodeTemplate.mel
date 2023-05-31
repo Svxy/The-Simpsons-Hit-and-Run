@@ -1,0 +1,20 @@
+global proc AEIntersectionLocatorNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	       
+		editorTemplate -beginLayout "Intersection Attributes" -collapse 0;
+
+            editorTemplate -addControl "IntersectionType";
+        
+		editorTemplate -endLayout;
+
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+
+    editorTemplate -suppress "localPosition";
+}
+ 

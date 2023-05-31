@@ -1,0 +1,9 @@
+#include <presentation/gui/ingame/hudevents/hudeventhandler.cpp>
+#include <presentation/gui/ingame/hudevents/hudcardcollected.cpp>
+#include <presentation/gui/ingame/hudevents/hudcoincollected.cpp>
+#include <presentation/gui/ingame/hudevents/hudmissionprogress.cpp>
+#include <presentation/gui/ingame/hudevents/hudmissionobjective.cpp>
+#include <presentation/gui/ingame/hudevents/hudcountdown.cpp>
+#include <presentation/gui/ingame/hudevents/hudhitnrun.cpp>
+#include <presentation/gui/ingame/hudevents/hudwaspdestroyed.cpp>
+#include <presentation/gui/ingame/hudevents/huditemdropped.cpp>

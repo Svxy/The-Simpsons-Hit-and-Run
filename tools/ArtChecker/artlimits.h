@@ -1,0 +1,3 @@
+#define MAX_TEXTURE_SIZE 64
+#define MAX_BPP 8
+#define MAX_POLYCOUNT 500

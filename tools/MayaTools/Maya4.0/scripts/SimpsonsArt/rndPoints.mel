@@ -1,0 +1,578 @@
+/* rndPoints V1.6 - Maya2.0
+
+This script may be freely distributed. Modify at your own risk.
+
+Author: Dirk Bialluch (DirkBi@Software2000.de)
+
+Creation date:	21.12.98
+Last update:	15.10.00
+
+Description:
+	Please refer to integrated help window.
+
+History:
+	V1.1
+		NEW
+			-added lattice points and polygon vertices
+	V1.2
+		NEW
+			-set world space axes
+	V1.3
+		NEW
+			-store UI values
+			-transform mode added (world/object space)
+			-set intensity range
+			-use seed value checkbox added
+			-show min/max value
+	V1.4
+		ENHANCED
+			-store UI values as soon as UI element changes
+		NEW
+			-randomize along normal, u & v tangent
+	V1.5
+		FIXED
+			-"Use Seed Value" flag will now be recognized
+		NEW
+			-added threshold value for point randomization
+	V1.6
+		CHANGED
+			-UI point count display removed, due to performance issues
+		ENHANCED
+			-poly vertices can now be randomized along the uv direction
+		NEW
+			-major UI update
+			-reset UI
+			-help window
+*/
+
+//
+// Create UI **********************************************************************************
+//
+
+global proc rndPoints ()
+{
+	// set select tool
+	global string $gSelect;
+	setToolTo $gSelect;
+
+	int $uiLabelWidth = 140;
+	int $uiInputWidth = 240;
+	int $uiWidth = $uiLabelWidth + $uiInputWidth + 40;
+
+	if (`window -exists rp_ui` == true)
+		deleteUI rp_ui;
+
+	window
+		-maximizeButton 0
+		-resizeToFitChildren 0
+		-title "Randomize Points V1.6"
+		-iconName "Randomize Points"
+		-menuBar true
+		-menuBarVisible true
+		rp_ui;
+	menu
+		-label "Edit"
+		-tearOff false;
+	menuItem
+    		-label "Reset Settings"
+    		-c "rp_storeRecallUI reset; rndPoints";
+	menu
+		-label "Help"
+		-tearOff 0;
+	menuItem
+    		-label "Help with Randomize Points tool"
+    		-c "rp_help 1";
+	menuItem
+		-divider true;
+	menuItem
+    		-label "Script Information"
+    		-c "rp_help 2";
+ 
+ 		string $rp_form = `formLayout -numberOfDivisions 100`;
+			string $rp_scroll = `scrollLayout -hst 16 -vst 16 -childResizable true -minChildWidth $uiWidth`;
+				columnLayout -adjustableColumn true -rowSpacing 5;
+					frameLayout
+						-label "Settings"
+						-labelAlign "center"
+						-cll true
+						-lw $uiWidth
+						-mh 3
+		                                -borderStyle "etchedIn"
+						-cc "rp_adjustUI nop"
+						-ec "rp_adjustUI nop"
+						-bv true
+						rp_sFrame;
+ 						columnLayout -adjustableColumn true;
+							rowLayout
+								-numberOfColumns 3
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 $uiInputWidth;
+								text -l "Intensity";
+								floatSliderGrp
+									-field true
+									-precision 4
+									-value .1
+									-minValue 0
+									-maxValue 1
+									-fieldMinValue 0
+									-fieldMaxValue 10000
+									-sliderStep .1
+									-cc "rp_adjustUI nop"
+									-dc "rp_adjustUI nop"
+									rp_intensity;
+								text -l "WS";
+								setParent ..;
+							rowLayout
+								-numberOfColumns 3
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 $uiInputWidth;
+								text -l "Intensity Range";
+								floatSliderGrp
+									-field true
+									-precision 4
+									-value 0
+									-minValue -100
+									-maxValue 100
+									-sliderStep 5
+									-cc "rp_adjustUI nop"
+									-dc "rp_adjustUI nop"
+									rp_intensityRange;
+								text -l "-/+ %";
+								setParent ..;
+							rowLayout
+								-numberOfColumns 4
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 ( $uiInputWidth / 2 )
+								-columnWidth 3 ( $uiInputWidth / 2 );
+								text -l "Min/Max Value";
+								floatField
+									-w ( $uiInputWidth / 2 )
+									-precision 4
+									-editable false
+									rp_min;
+								floatField
+									-w ( $uiInputWidth / 2 )
+									-precision 4
+									-editable false
+									rp_max;
+								text -label "Info";
+								setParent ..;
+
+							separator -h 10;
+
+							rowLayout
+								-numberOfColumns 3
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 $uiInputWidth;
+								text -l "Threshold";
+								floatSliderGrp
+									-field true
+									-precision 4
+									-value 0
+									-minValue 0
+									-maxValue 1
+									-sliderStep .1
+									-cc "rp_adjustUI nop"
+									-dc "rp_adjustUI nop"
+									rp_threshold;
+								text -l "0-1";
+								setParent ..;
+
+							separator -h 10;
+
+							rowLayout
+								-numberOfColumns 2
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 $uiInputWidth;
+								text -label "Use Seed Value";
+								checkBox
+									-label ""
+									-value true
+									-cc "rp_adjustUI nop"
+									rp_useSeed;
+								setParent ..;
+							rowLayout
+								-numberOfColumns 2
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 $uiInputWidth;
+								text -l "Seed Value";
+								intSliderGrp
+									-field true
+									-value 1234
+									-minValue 0
+									-maxValue 99999
+									-cc "rp_adjustUI nop"
+									rp_seed;
+								setParent ..;
+
+							separator -h 10;
+
+							rowLayout
+								-numberOfColumns 2
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 $uiInputWidth;
+								text
+									-label "Transform Mode";
+					 			radioButtonGrp
+					    				-numberOfRadioButtons 3
+									-cw 1 100
+									-cw 2 105
+					 				-labelArray3 "World Space" "Object Space" "Distance"
+									-select 1
+									-cc "rp_adjustUI nop"
+									rp_transMode;
+								setParent ..;
+
+							separator -h 10;
+
+							rowLayout
+								-numberOfColumns 4
+								-cat 1 "right" 5
+								-columnWidth 1 $uiLabelWidth
+								-columnWidth 2 50
+								-columnWidth 3 50;
+								text -label "Enable Axes";
+								checkBox
+									-label "X"
+									-value true
+									-cc "rp_adjustUI nop"
+									rp_x;
+								checkBox
+									-label "Y"
+									-value true
+									-cc "rp_adjustUI nop"
+									rp_y;
+								checkBox
+									-label "Z"
+									-value true
+									-cc "rp_adjustUI nop"
+									rp_z;
+								setParent ..;
+							setParent ..;
+						setParent ..;
+					setParent ..;
+				setParent ..;
+
+			button
+				-label "Randomize Points"
+				-command "rp_main"
+				rp_execButton;
+
+			button
+				-label "Close"
+				-command "deleteUI rp_ui"
+				rp_closeButton;
+
+	// set form layouts
+	formLayout -edit
+		-attachForm $rp_scroll "top" 2
+		-attachForm $rp_scroll "left" 2
+		-attachControl $rp_scroll "bottom" 2 rp_execButton
+		-attachForm $rp_scroll "right" 2
+
+		-attachNone rp_execButton "top"
+		-attachForm rp_execButton "left" 2
+		-attachForm rp_execButton "bottom" 2
+		-attachPosition rp_execButton "right" 2 50
+
+		-attachNone rp_closeButton "top"
+		-attachPosition rp_closeButton "left" 2 50
+		-attachForm rp_closeButton "bottom" 2
+		-attachForm rp_closeButton "right" 2
+		$rp_form;
+
+	rp_storeRecallUI recall;
+
+	// check UI settings after restoring values
+	rp_adjustUI nop;
+
+	showWindow rp_ui;
+}
+
+global proc rp_storeRecallUI ( string $mode )
+{
+	string $floatFieldList[] = {
+		};
+
+	string $intFieldList[] = {
+		};
+
+	string $optionMenuList[] = {
+		};
+
+	string $floatSliderGrpList[] = {
+		"rp_intensity",
+		"rp_intensityRange",
+		"rp_threshold"
+		};
+
+	string $intSliderGrpList[] = {
+		"rp_seed"
+		};
+
+	string $checkBoxList[] = {
+		"rp_useSeed",
+		"rp_x",
+		"rp_y",
+		"rp_z"
+		};
+
+	string $radioButtonGrpList[] = {
+		"rp_transMode"
+		};
+
+	string $frameLayoutList[] = {
+		"rp_sFrame"
+		};
+
+	int $cnt;
+
+	if ( $mode == "store" )
+	{
+		for ( $cnt = 0; $cnt < size( $floatFieldList ); $cnt++ )
+			optionVar -floatValue $floatFieldList[$cnt] `floatField -q -value $floatFieldList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $intFieldList ); $cnt++ )
+			optionVar -intValue $intFieldList[$cnt] `intField -q -value $intFieldList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $floatSliderGrpList ); $cnt++ )
+			optionVar -floatValue $floatSliderGrpList[$cnt] `floatSliderGrp -q -value $floatSliderGrpList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $intSliderGrpList ); $cnt++ )
+			optionVar -intValue $intSliderGrpList[$cnt] `intSliderGrp -q -value $intSliderGrpList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $checkBoxList ); $cnt++ )
+			optionVar -intValue $checkBoxList[$cnt] `checkBox -q -value $checkBoxList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $optionMenuList ); $cnt++ )
+			optionVar -intValue $optionMenuList[$cnt] `optionMenu -q -select $optionMenuList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $radioButtonGrpList ); $cnt++ )
+			optionVar -intValue $radioButtonGrpList[$cnt] `radioButtonGrp -q -select $radioButtonGrpList[$cnt]`;
+
+		for ( $cnt = 0; $cnt < size( $frameLayoutList ); $cnt++ )
+			optionVar -intValue $frameLayoutList[$cnt] `frameLayout -q -collapse $frameLayoutList[$cnt]`;
+	}
+
+	if ( $mode == "recall" )
+	{
+		for ( $cnt = 0; $cnt < size( $floatFieldList ); $cnt++ )
+			if ( `optionVar -exists $floatFieldList[$cnt]` )
+				floatField -e -value `optionVar -q $floatFieldList[$cnt]` $floatFieldList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $intFieldList ); $cnt++ )
+			if ( `optionVar -exists $intFieldList[$cnt]` )
+				intField -e -value `optionVar -q $intFieldList[$cnt]` $intFieldList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $floatSliderGrpList ); $cnt++ )
+			if ( `optionVar -exists $floatSliderGrpList[$cnt]` )
+				floatSliderGrp -e -value `optionVar -q $floatSliderGrpList[$cnt]` $floatSliderGrpList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $intSliderGrpList ); $cnt++ )
+			if ( `optionVar -exists $intSliderGrpList[$cnt]` )
+				intSliderGrp -e -value `optionVar -q $intSliderGrpList[$cnt]` $intSliderGrpList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $checkBoxList ); $cnt++ )
+			if ( `optionVar -exists $checkBoxList[$cnt]` )
+				checkBox -e -value `optionVar -q $checkBoxList[$cnt]` $checkBoxList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $optionMenuList ); $cnt++ )
+			if ( `optionVar -exists $optionMenuList[$cnt]` )
+				optionMenu -e -select `optionVar -q $optionMenuList[$cnt]` $optionMenuList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $radioButtonGrpList ); $cnt++ )
+			if ( `optionVar -exists $radioButtonGrpList[$cnt]` )
+				radioButtonGrp -e -select `optionVar -q $radioButtonGrpList[$cnt]` $radioButtonGrpList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $frameLayoutList ); $cnt++ )
+			if ( `optionVar -exists $frameLayoutList[$cnt]` )
+				frameLayout -e -collapse `optionVar -q $frameLayoutList[$cnt]` $frameLayoutList[$cnt];
+	}
+
+	if ( $mode == "reset" )
+	{
+		for ( $cnt = 0; $cnt < size( $floatFieldList ); $cnt++ )
+			optionVar -remove $floatFieldList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $intFieldList ); $cnt++ )
+			optionVar -remove $intFieldList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $floatSliderGrpList ); $cnt++ )
+			optionVar -remove $floatSliderGrpList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $intSliderGrpList ); $cnt++ )
+			optionVar -remove $intSliderGrpList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $checkBoxList ); $cnt++ )
+			optionVar -remove $checkBoxList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $optionMenuList ); $cnt++ )
+			optionVar -remove $optionMenuList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $radioButtonGrpList ); $cnt++ )
+			optionVar -remove $radioButtonGrpList[$cnt];
+
+		for ( $cnt = 0; $cnt < size( $frameLayoutList ); $cnt++ )
+			optionVar -remove $frameLayoutList[$cnt];
+	}
+}
+
+//
+// Adjust UI settings
+//
+
+global proc rp_adjustUI ( string $function )
+{
+	if ( `checkBox -q -v rp_useSeed` )
+		intSliderGrp -e -enable true rp_seed;
+	else
+		intSliderGrp -e -enable false rp_seed;
+
+	if ( ( `checkBox -q -v rp_x` || `checkBox -q -v rp_y` || `checkBox -q -v rp_z` ) && `floatSliderGrp -q -value rp_intensity` )
+		button -e -enable true rp_execButton;
+	else
+		button -e -enable false rp_execButton;
+
+	if ( `radioButtonGrp -q -select rp_transMode` == 1 )
+		floatSliderGrp -e -extraLabel "WS" rp_intensity;
+	else
+		floatSliderGrp -e -extraLabel "OS" rp_intensity;
+
+	if ( `radioButtonGrp -q -select rp_transMode` == 3 )
+	{
+		checkBox -e -label "U" rp_x;
+		checkBox -e -label "V" rp_y;
+		checkBox -e -label "N" rp_z;
+	}
+	else
+	{
+		checkBox -e -label "X" rp_x;
+		checkBox -e -label "Y" rp_y;
+		checkBox -e -label "Z" rp_z;
+	}
+
+	// calculate min/max displacement value
+	float $intensity =	`floatSliderGrp -q -value rp_intensity`;
+	float $intensityRange =	`floatSliderGrp -q -value rp_intensityRange`;
+
+	float $min = -($intensity / 2) + ($intensity * $intensityRange / 200);
+	float $max = $intensity / 2 + ($intensity * $intensityRange / 200);
+
+	floatField -e -value $min rp_min;
+	floatField -e -value $max rp_max;
+
+	rp_storeRecallUI store;
+}
+
+
+//
+// Main function
+//
+
+global proc rp_main ()
+{
+	// get settings from UI
+	float $min =		`floatField -q -value rp_min`;
+	float $max =		`floatField -q -value rp_max`;
+	int $seed =		`intSliderGrp -q -value rp_seed`;
+	int $useSeed =		`checkBox -q -v rp_useSeed`;
+	int $enX =		`checkBox -q -v rp_x`;
+	int $enY =		`checkBox -q -v rp_y`;
+	int $enZ =		`checkBox -q -v rp_z`;
+	int $transMode =	`radioButtonGrp -q -select rp_transMode`;
+	float $threshold =	`floatSliderGrp -q -value rp_threshold`;
+
+	// init random function for repeatable results
+	if ( $useSeed )
+		seed $seed;
+
+	string $objList[];
+
+	// get selected points
+	if ( $transMode != 3 )
+		// filter cv, poly vertices and lattice points
+		$objList = `filterExpand -ex true -sm 28 -sm 31 -sm 46`;
+	else
+		// filter cv and poly vertices
+		$objList = `filterExpand -ex true -sm 28 -sm 31`;
+
+	int $listSize = size($objList);
+
+	waitCursor -state on;
+
+	// transform CV
+	float $xmin, $ymin, $zmin, $xmax, $ymax, $zmax;
+	int $count;
+	string $u = "";
+	string $v = "";
+	string $n = "";
+
+	int $threshArray[] = {};
+
+	for ($count = 0; $count < $listSize; $count++)
+	{
+		float $threshRnd = `rand 0 1`;
+
+		if ( $threshRnd >= $threshold )
+		{
+			$threshArray[$count] = 1;
+
+			$xmin = $ymin = $zmin = $xmax = $ymax = $zmax = 0;
+			if ($enX)
+			{
+				$xmin = $min;
+				$xmax = $max;
+			}
+			if ($enY)
+			{
+				$ymin = $min;
+				$ymax = $max;
+			}
+			if ($enZ)
+			{
+				$zmin = $min;
+				$zmax = $max;
+			}
+
+			if ( $transMode == 1 )
+				move -r -ws `rand $xmin $xmax` `rand $ymin $ymax` `rand $zmin $zmax` $objList[$count];
+			else if ( $transMode == 2 )
+				move -r -os `rand $xmin $xmax` `rand $ymin $ymax` `rand $zmin $zmax` $objList[$count];
+			else
+			{
+				$u += "-u " + ( `rand $xmin $xmax` ) + " ";
+				$v += "-v " + ( `rand $ymin $ymax` ) + " ";
+				$n += "-n " + ( `rand $zmin $zmax` ) + " ";
+			}
+		}
+	}
+
+	if ( $transMode == 3)
+	{
+		string $pointList = "";
+
+		for ( $cnt = 0; $cnt < size ( $threshArray ); $cnt++ )
+		{
+			if ( $threshArray[$cnt] )
+				$pointList += ( $objList[$cnt] + " " );
+		}
+
+		if ( size ( $pointList ) )
+		{
+			eval ( "moveVertexAlongDirection " + $n + $pointList );
+			eval ( "moveVertexAlongDirection " + $u + $pointList );
+			eval ( "moveVertexAlongDirection " + $v + $pointList );
+		}
+	}
+
+	waitCursor -state off;
+}
+
+// end of script

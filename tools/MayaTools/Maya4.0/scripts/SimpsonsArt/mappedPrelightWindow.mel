@@ -1,0 +1,1118 @@
+/*===========================================================================
+    File:    mappedPrelightWindow.mel
+    Created: January 28, 2002
+    Author:  Harold Westlund
+
+    Copyright (c) 2002 Radical Entertainment, Inc.
+    All rights reserved.
+
+    Updated: April 12, 2002
+    Version: 1.2.0
+
+=============================================================================
+
+    mappedPrelightWindow is the user interface for mappedPrelight.
+
+    This program provides a means to map from a specified cbv brightness
+    range to another colour.  Up to six maps may be specifed and used in
+    any combination.
+
+===========================================================================*/
+
+// Gather global data from other functions and apply to the window.
+global proc P3Dmp_updateAllMappedPrelightGlobal( int $mpNumMaps )
+{
+    // Prepare for forced min value if checked.
+    P3Dmp_forceValues ( $mpNumMaps );
+}
+
+
+// Add Context Sensitive Help
+global proc P3Dmp_buildMappedPrelightContextHelpItems(string $nameRoot, string $menuParent)
+{
+	menuItem -label "Help on Mapped Prelight..."
+		 -enableCommandRepeat false
+            -command "showHelp -d \"UserGuide/ModelingPoly/PolyColoring3.html\"";
+}
+    
+// Prelight the selected object using default options.
+global proc P3Dmp_performPrelight ()
+{
+    toggleMaterialMapping(0);
+    polyGeoSampler
+        -sf 0
+        -su
+        -colorBlend overwrite
+        -alphaBlend overwrite;
+    toggleMaterialMapping(1);
+}
+
+// Prelight conditional upon prelight checkbox being checked
+// Either way, set the persistent data.
+global proc P3Dmp_conditionalPerformPrelight ()
+{
+    int $usePrelight;
+    $usePrelight = `checkBox -q -v performPrelightCheckBox`;
+    optionVar -intValue P3D_mpPerformPrelight $usePrelight;
+
+    if ($usePrelight)
+    {
+        print "Performing prelight\n";
+        
+        P3Dmp_performPrelight();
+    }
+}
+
+//==================================================================
+//
+// Modify the UI through interaction
+//
+//==================================================================
+
+// Force the minimum value of one map to be the maximum value
+// of the previous map.
+global proc P3Dmp_forceValues ( int $mapID )
+{
+    int $forceMinValue;
+    $forceMinValue = `checkBox -q -v forceMinValueCheckBox`;
+
+    int $lastMapUsed = 0;
+
+    // Check every map's UI settings
+    int $i;
+    for( $i = 1; $i <= $mapID; $i++ )
+    {
+        if( $forceMinValue == true )
+        {
+            int $mapUse;
+            $mapUse = `checkBox -q -v ( "mpMap" + $i + "CheckBox" )`;
+            if($mapUse)
+            {
+                // Nothing is done to the first map in use.
+                // Other maps have the min set to the max of the
+                // last in use map, and then the min is disabled.
+                if( $lastMapUsed != 0 )
+                {
+                    float $mapMin = `floatField -q -v ("mpMap" + $lastMapUsed + "MaxField")`;
+                    floatField -edit -v  $mapMin ("mpMap" + $i + "MinField");
+                    floatField -edit -enable 0 ("mpMap" + $i + "MinField");
+                }
+                else
+                {
+                    floatField -edit -enable 1 ("mpMap" + $i + "MinField");
+                }
+
+                $lastMapUsed = $i;
+            }
+
+        }
+        else
+        {
+            int $mapUse;
+            $mapUse = `checkBox -q -v ( "mpMap" + $i + "CheckBox" )`;
+            if($mapUse)
+            {
+                
+                floatField -edit -enable 1 ("mpMap" + $i + "MinField");
+            }
+            
+        }
+    }
+}
+
+// Turn a particular map on or off.
+global proc P3Dmp_changeMapUse ( int $mapID )
+{
+    string $mapName = ( "mpMap" + $mapID );
+
+    string $checkBox = ( $mapName + "CheckBox" );
+
+    string $layout = ( $mapName + "DetailsLayout" );
+
+    int $isOn = `checkBox -q -v $checkBox`;
+
+    // Now enable or disable the map.
+    columnLayout -edit
+        -enable $isOn
+        $layout;
+
+    // Changing the map use will affect forced minimums.
+    P3Dmp_forceValues ( $mapID );
+}
+
+// Apply the numeric RGB values to the colour slider.
+global proc P3Dmp_changeMapRGB ( int $mapID, string $srcDst)
+{
+    string $mapName = ( "mpMap" + $mapID + $srcDst );
+
+    string $RedField   = ( $mapName + "RedField" );
+    string $GreenField = ( $mapName + "GreenField" );
+    string $BlueField  = ( $mapName + "BlueField" );
+
+    float  $red, $green, $blue;
+    $red   = `floatField -q -v $RedField`;
+    $green = `floatField -q -v $GreenField`;
+    $blue  = `floatField -q -v $BlueField`;
+
+    colorSliderButtonGrp -edit
+        -rgbValue $red $green $blue
+        ( $mapName + "ColorSlider" );
+}
+
+// Apply the colour slider values to the numeric RGB values.
+global proc P3Dmp_changeMapRGBSlider ( int $mapID, string $srcDst )
+{
+    string $mapName = ( "mpMap" + $mapID + $srcDst );
+
+    float $rgb[3];
+
+    $rgb = `colorSliderButtonGrp -q -rgbValue ( $mapName + "ColorSlider" )`;
+
+    string $RedField   = ( $mapName + "RedField" );
+    string $GreenField = ( $mapName + "GreenField" );
+    string $BlueField  = ( $mapName + "BlueField" );
+
+    $red   = `floatField -edit -v ( $rgb[0] ) $RedField`;
+    $green = `floatField -edit -v ( $rgb[1] ) $GreenField`;
+    $blue  = `floatField -edit -v ( $rgb[2] ) $BlueField`;
+
+    clear $rgb;
+}
+
+// Apply the prelight maps in the range specified to the selected objects.
+global proc P3Dmp_applyPrelightMaps( int $minMapNum, int $maxMapNum )
+{
+    int $i;
+    int $numMapsInUse;    
+    float $mapsMin[], $mapsMax[];
+    float $mapsRed[], $mapsGreen[], $mapsBlue[];
+    float $mapMin, $mapMax;
+    float $mapRed, $mapGreen, $mapBlue;
+
+    waitCursor -state on;
+
+    for( $i = $minMapNum; $i <= $maxMapNum; $i++ )
+    {
+        string $mapName = ( "mpMap" + $i );
+        int $mapUse;
+        
+        string $checkBox = ( $mapName + "CheckBox" );
+        string $MinField   = ( $mapName + "MinField" );
+        string $MaxField   = ( $mapName + "MaxField" );
+        string $RedField   = ( $mapName + "SrcRedField" );
+        string $GreenField = ( $mapName + "SrcGreenField" );
+        string $BlueField  = ( $mapName + "SrcBlueField" );
+        
+        $mapUse   = `checkBox -q -v $checkBox`;
+        $mapMin   = `floatField -q -v $MinField`;
+        $mapMax   = `floatField -q -v $MaxField`;
+        $mapRed   = `floatField -q -v $RedField`;
+        $mapGreen = `floatField -q -v $GreenField`;
+        $mapBlue  = `floatField -q -v $BlueField`;
+            
+        if ($mapUse)
+        {
+            $mapsMin[$numMapsInUse]   = $mapMin;
+            $mapsMax[$numMapsInUse]   = $mapMax;
+            $mapsRed[$numMapsInUse]   = $mapRed;
+            $mapsGreen[$numMapsInUse] = $mapGreen;
+            $mapsBlue[$numMapsInUse]  = $mapBlue;
+            
+            $numMapsInUse++;
+        }
+
+        string $varName = ( "P3D_" + $mapName );
+        optionVar -intValue   ( $varName + "Use" )   $mapUse;
+        optionVar -floatValue ( $varName + "Min" )   $mapMin;
+        optionVar -floatValue ( $varName + "Max" )   $mapMax;
+        optionVar -floatValue ( $varName + "SrcRed" )   $mapRed;
+        optionVar -floatValue ( $varName + "SrcGreen" ) $mapGreen;
+        optionVar -floatValue ( $varName + "SrcBlue" )  $mapBlue;
+
+    }
+
+    // Perform prelighting if selected
+    P3Dmp_conditionalPerformPrelight();
+
+    // Store current UI settings
+    int $forceMinValue, $useAveSides;
+    $forceMinValue = `checkBox -q -v forceMinValueCheckBox`;
+    $useAveSides = `checkBox -q -v useAverageSideCheckBox`;
+    optionVar -intValue P3D_mpforceMinValue $forceMinValue;
+    optionVar -intValue P3D_mpUseAveSides $useAveSides;
+    
+    if( $useAveSides )
+    {
+        mappedAvePrelight $mapsMin $mapsMax $mapsRed $mapsGreen $mapsBlue;
+    }
+    else {
+        mappedPrelight $mapsMin $mapsMax $mapsRed $mapsGreen $mapsBlue;
+    }
+
+    clear $mapsMin;
+    clear $mapsMax;
+    clear $mapsRed;
+    clear $mapsGreen;
+    clear $mapsBlue;
+
+    waitCursor -state off;
+}
+
+// Apply the colour maps in the range specified to the selected objects.
+global proc P3Dmp_applyColourMaps( int $minMapNum, int $maxMapNum, int $forward )
+{
+    int $i;
+    int $numMapsInUse;    
+    float $mapsTolerance[];
+    float $mapsSrcRed[], $mapsSrcGreen[], $mapsSrcBlue[];
+    float $mapsDstRed[], $mapsDstGreen[], $mapsDstBlue[];
+    float $mapTolerance;
+    float $mapSrcRed, $mapSrcGreen, $mapSrcBlue;
+    float $mapDstRed, $mapDstGreen, $mapDstBlue;
+
+    waitCursor -state on;
+
+    for( $i = $minMapNum; $i <= $maxMapNum; $i++ )
+    {
+        string $mapName = ( "mpMap" + $i );
+        int $mapUse;
+        
+        string $checkBox = ( $mapName + "CheckBox" );
+        string $SrcRedField    = ( $mapName + "SrcRedField" );
+        string $SrcGreenField  = ( $mapName + "SrcGreenField" );
+        string $SrcBlueField   = ( $mapName + "SrcBlueField" );
+        string $ToleranceField = ( $mapName + "ToleranceField" );
+        string $DstRedField    = ( $mapName + "DstRedField" );
+        string $DstGreenField  = ( $mapName + "DstGreenField" );
+        string $DstBlueField   = ( $mapName + "DstBlueField" );
+        
+        $mapUse   = `checkBox -q -v $checkBox`;
+        $mapSrcRed    = `floatField -q -v $SrcRedField`;
+        $mapSrcGreen  = `floatField -q -v $SrcGreenField`;
+        $mapSrcBlue   = `floatField -q -v $SrcBlueField`;
+        $mapTolerance = `floatField -q -v $ToleranceField`;
+        $mapDstRed    = `floatField -q -v $DstRedField`;
+        $mapDstGreen  = `floatField -q -v $DstGreenField`;
+        $mapDstBlue   = `floatField -q -v $DstBlueField`;
+            
+        if ($mapUse)
+        {
+            $mapsSrcRed[$numMapsInUse]   = $mapSrcRed;
+            $mapsSrcGreen[$numMapsInUse] = $mapSrcGreen;
+            $mapsSrcBlue[$numMapsInUse]  = $mapSrcBlue;
+            $mapsTolerance[$numMapsInUse] = $mapTolerance;
+            $mapsDstRed[$numMapsInUse]   = $mapDstRed;
+            $mapsDstGreen[$numMapsInUse] = $mapDstGreen;
+            $mapsDstBlue[$numMapsInUse]  = $mapDstBlue;
+            
+            $numMapsInUse++;
+        }
+
+        string $varName = ( "P3D_" + $mapName );
+        optionVar -intValue   ( $varName + "Use" )   $mapUse;
+        optionVar -floatValue ( $varName + "SrcRed" )    $mapSrcRed;
+        optionVar -floatValue ( $varName + "SrcGreen" )  $mapSrcGreen;
+        optionVar -floatValue ( $varName + "SrcBlue" )   $mapSrcBlue;
+        optionVar -floatValue ( $varName + "Tolerance" ) $mapTolerance;
+        optionVar -floatValue ( $varName + "DstRed" )    $mapDstRed;
+        optionVar -floatValue ( $varName + "DstGreen" )  $mapDstGreen;
+        optionVar -floatValue ( $varName + "DstBlue" )   $mapDstBlue;
+
+    }
+
+    // Do the action
+    if( $forward == 1 )
+    {
+        mappedColour $mapsSrcRed $mapsSrcGreen $mapsSrcBlue $mapsDstRed $mapsDstGreen $mapsDstBlue $mapsTolerance;
+    }
+    else
+    {
+        mappedColour $mapsDstRed $mapsDstGreen $mapsDstBlue $mapsSrcRed $mapsSrcGreen $mapsSrcBlue $mapsTolerance;
+    }
+
+    clear $mapsSrcRed;
+    clear $mapsSrcGreen;
+    clear $mapsSrcBlue;
+    clear $mapsTolerance;
+    clear $mapsDstRed;
+    clear $mapsDstGreen;
+    clear $mapsDstBlue;
+
+    waitCursor -state off;
+}
+
+// Deselect all maps and set their  colour values to zero.
+global proc P3Dmp_resetAllValues ( int $mpNumMaps )
+{
+    string $cancel = `confirmDialog -message "Reset map values to zero.  Are you sure?"
+        -button "Yes" -button "No"
+        -defaultButton "No" -cancelButton "No" -dismissString "No"`;
+
+    if ($cancel == "No")
+        return;
+
+    int $i;
+
+    for( $i = 1; $i <= $mpNumMaps; $i++ )
+    {
+        string $mapName = ( "mpMap" + $i );
+        int $mapUse;
+        
+        string $checkBox = ( $mapName + "CheckBox" );
+        string $MinField   = ( $mapName + "MinField" );
+        string $MaxField   = ( $mapName + "MaxField" );
+        string $SrcRedField   = ( $mapName + "SrcRedField" );
+        string $SrcGreenField = ( $mapName + "SrcGreenField" );
+        string $SrcBlueField  = ( $mapName + "SrcBlueField" );
+        string $ToleranceField = ( $mapName + "ToleranceField" );
+        string $DstRedField   = ( $mapName + "DstRedField" );
+        string $DstGreenField = ( $mapName + "DstGreenField" );
+        string $DstBlueField  = ( $mapName + "DstBlueField" );
+        
+        checkBox -edit -v 0 $checkBox;
+        floatField -edit -v 0 $MinField;
+        floatField -edit -v 0 $MaxField;
+        floatField -edit -v 0 $SrcRedField;
+        floatField -edit -v 0 $SrcGreenField;
+        floatField -edit -v 0 $SrcBlueField;
+        floatField -edit -v 0.01 $ToleranceField;
+        floatField -edit -v 0 $DstRedField;
+        floatField -edit -v 0 $DstGreenField;
+        floatField -edit -v 0 $DstBlueField;
+            
+        P3Dmp_changeMapUse ( $i );
+        P3Dmp_changeMapRGB ( $i, "Src" );
+        P3Dmp_changeMapRGB ( $i, "Dst" );
+            
+        string $varName = ( "P3D_" + $mapName );
+        optionVar -intValue   ( $varName + "Use" )   0;
+        optionVar -floatValue ( $varName + "Min" )   0;
+        optionVar -floatValue ( $varName + "Max" )   0;
+        optionVar -floatValue ( $varName + "SrcRed" )   0;
+        optionVar -floatValue ( $varName + "SrcGreen" ) 0;
+        optionVar -floatValue ( $varName + "SrcBlue" )  0;
+        optionVar -floatValue ( $varName + "Tolerance" ) 0.01;
+        optionVar -floatValue ( $varName + "DstRed" )   0;
+        optionVar -floatValue ( $varName + "DstGreen" ) 0;
+        optionVar -floatValue ( $varName + "DstBlue" )  0;
+    }
+}
+
+//==================================================================
+//
+// File IO
+//
+//==================================================================
+
+// Read in a colour map from file.
+global proc P3Dmp_openColourMap ( int $mpNumMaps, string $srcDst, string $fileName, string $fileType )
+{
+    if( $fileName == "" )
+    {
+        print ("Open cancelled.\n");
+        return; // Dialogue cancelled
+    }
+    print ("Retrieving map.\n");
+    
+    int $i;
+
+    int $n_lines;
+    string $lines[];
+    int $fileId = `fopen $fileName "r"`;
+    
+    if ( $fileId != 0 )
+    {
+        // Store each valid data line of the file in array.
+        string $nextLine = `fgetline $fileId`;
+        while( size( $nextLine ) > 0 )
+        {
+            // Discard comments and blank lines
+            string $ch = `substring $nextLine 1 1`;
+            if( $ch != "#" && $ch != "\n" )
+            {
+                $lines[$n_lines] = $nextLine;
+                $n_lines++;
+            }
+
+            // Get the next line
+            $nextLine = `fgetline $fileId`;
+        }
+        fclose($fileId);
+    }
+    else
+    {
+        print ("Unable to read from " + $fileName + "\n");
+        return;
+    }
+    
+    int $maxMapNumber = $lines[0];
+    
+    // Ensure that the correct number of valid lines were read.
+    if( ( $maxMapNumber * 3 ) != ( $n_lines - 1 ) )
+    {
+        warning -sl true ( "Invalid data in file: " + $fileName );
+        warning "Map not loaded";
+        
+        return;
+    }
+    
+    int   $mapUse[];
+    float $mapMin[], $mapMax[], $mapTolerance[];
+    float $mapRed[], $mapGreen[], $mapBlue[];
+    int $lineNumber = 1;
+    int $readError = false;
+
+    // Read in the data for each map.
+    // Perform simple check for data format error.
+    for( $i = 1; $i <= $maxMapNumber; $i++ )
+    {
+        $mapUse[$i] = $lines[$lineNumber++];
+        
+        string $minmax[];
+        tokenize $lines[$lineNumber++] $minmax;
+        if( size($minmax) != 2  && size($minmax) != 3 )
+        {
+            $readError = true;
+            break;
+        }
+        
+        $mapMin[$i]    = $minmax[0];
+        $mapMax[$i]    = $minmax[1];
+        if( size($minmax) == 2 )
+        {
+            $mapTolerance[$i] = 0.01;
+        }
+        else
+        {
+            $mapTolerance[$i] = $minmax[2];
+        }
+        
+        clear $minmax;
+        
+        string $rgb[];
+        tokenize $lines[$lineNumber++] $rgb;
+        if( size($rgb) != 3 )
+        {
+            $readError = true;
+            break;
+        }
+        $mapRed[$i]   = $rgb[0];
+        $mapGreen[$i] = $rgb[1];
+        $mapBlue[$i]  = $rgb[2];
+        clear $rgb;
+    }
+    if( $readError )
+    {
+        warning -sl true ( "Invalid data in file: " + $fileName );
+        warning "Map not loaded";
+        
+        return;
+    }
+
+    clear $lines;
+
+    // Now update the UI and Maya's persistent data.
+    for( $i = 1; $i <= $maxMapNumber; $i++ )
+    {
+        string $mapName  = ( "mpMap" + $i );
+        string $mapName2 = ( $mapName + $srcDst );
+        string $varName  = ( "P3D_" + $mapName );
+        string $varName2 = ( $varName + $srcDst );
+    
+        if( $srcDst == "Src" )
+        {
+            optionVar -intValue   ( $varName  + "Use" )   $mapUse[$i];
+            optionVar -floatValue ( $varName  + "Min" )   $mapMin[$i];
+            optionVar -floatValue ( $varName  + "Max" )   $mapMax[$i];
+            optionVar -floatValue ( $varName  + "Tolerance" )   $mapTolerance[$i];
+        }
+        optionVar -floatValue ( $varName2 + "Red" )   $mapRed[$i];
+        optionVar -floatValue ( $varName2 + "Green" ) $mapGreen[$i];
+        optionVar -floatValue ( $varName2 + "Blue" )  $mapBlue[$i];
+
+        if( $srcDst == "Src" )
+        {
+            checkBox   -edit -v ( $mapUse[$i] )   ( $mapName  + "CheckBox" );
+            floatField -edit -v ( $mapMin[$i] )   ( $mapName  + "MinField" );
+            floatField -edit -v ( $mapMax[$i] )   ( $mapName  + "MaxField" );
+            floatField -edit -v ( $mapTolerance[$i] )   ( $mapName  + "ToleranceField" );
+        }
+        floatField -edit -v ( $mapRed[$i] )   ( $mapName2 + "RedField" );
+        floatField -edit -v ( $mapGreen[$i] ) ( $mapName2 + "GreenField" );
+        floatField -edit -v ( $mapBlue[$i] )  ( $mapName2 + "BlueField" );
+        P3Dmp_changeMapUse ( $i );
+        P3Dmp_changeMapRGB ( $i, $srcDst );
+    }
+
+    clear $mapUse;
+    clear $mapMin;
+    clear $mapMax;
+    clear $mapTolerance;
+    clear $mapRed;
+    clear $mapGreen;
+    clear $mapBlue;
+
+    print ("Open complete.\n");
+}
+
+// Write out a colour map to file.
+global proc P3Dmp_saveColourMap ( int $mpNumMaps, string $srcDst, string $fileName, string $fileType )
+{
+    if( $fileName == "" )
+    {
+        print ("Save cancelled.\n");
+        return; // Dialogue cancelled
+    }
+    print ("Saving map.\n");
+    
+    int $i;
+
+    int $fileId = `fopen $fileName "w"`;
+    
+    if ( $fileId != 0 )
+    {
+        // Save out the descriptive information
+        string $username = strip( `system "echo %USERNAME%"` );
+        string $date     = strip( `system "date /t"` );
+        string $time     = strip( `system "time /t"` );
+        fprint $fileId ( "## Generated by " + $username + "\r\n" );
+        fprint $fileId ( "## on " + $date + "\r\n" );
+        fprint $fileId ( "## at " + $time + "\r\n" );
+        fprint $fileId ( "##\r\n" );
+        fprint $fileId ( "## This file contains the map specifications for the\r\n" );
+        fprint $fileId ( "## Maya mappedPrelightWindow mel script.\r\n" );
+        fprint $fileId ( "##\r\n" );
+        
+        // Save the number of maps.
+        fprint $fileId ( "# Number of maps\r\n" );
+        fprint $fileId ( "" + $mpNumMaps + "\r\n" );
+        
+        for( $i = 1; $i <= $mpNumMaps; $i++ )
+        {
+            string $mapName  = ( "mpMap" + $i );
+            string $mapName2 = ( $mapName + $srcDst );
+    
+            int $mapUse;
+            float $mapMin, $mapMax, $tolerance;
+            float $mapRed, $mapGreen, $mapBlue;
+            
+            $mapUse   = `checkBox -q -v ( $mapName + "CheckBox" )`;
+            $mapMin   = `floatField -q -v ( $mapName + "MinField" )`;
+            $mapMax   = `floatField -q -v ( $mapName + "MaxField" )`;
+            $mapTolerance = `floatField -q -v ( $mapName + "ToleranceField" )`;
+            $mapRed   = `floatField -q -v ( $mapName2 + "RedField" )`;
+            $mapGreen = `floatField -q -v ( $mapName2 + "GreenField" )`;
+            $mapBlue  = `floatField -q -v ( $mapName2 + "BlueField" )`;
+
+            // Write out the information for this map.
+            fprint $fileId ( "\r\n" );
+            fprint $fileId ( "## Map " + $i + "\r\n" );
+            fprint $fileId ( "# UseMap\r\n" );
+            fprint $fileId ( "" + $mapUse + "\r\n" );
+            fprint $fileId ( "# Min Max Tolerance\r\n" );
+            fprint $fileId ( "" + $mapMin + " " + $mapMax +
+                             " " + $mapTolerance + "\r\n" );
+            fprint $fileId ( "# Red Green Blue\r\n" );
+            fprint $fileId ( "" + $mapRed + " " + $mapGreen +
+                             " " + $mapBlue + "\r\n" );
+
+            // Save the to Maya's persistent data
+            string $varName  = ( "P3D_" + $mapName );
+            string $varName2 = ( "P3D_" + $mapName2 );
+ 
+            // Save the data to persistent variables
+            optionVar -intValue   ( $varName  + "Use" )   $mapUse;
+            optionVar -floatValue ( $varName  + "Min" )   $mapMin;
+            optionVar -floatValue ( $varName  + "Max" )   $mapMax;
+            optionVar -floatValue ( $varName  + "Tolerance" ) $mapTolerance;
+            optionVar -floatValue ( $varName2 + "Red" )   $mapRed;
+            optionVar -floatValue ( $varName2 + "Green" ) $mapGreen;
+            optionVar -floatValue ( $varName2 + "Blue" )  $mapBlue;
+        }
+        fclose($fileId);
+    }
+    else
+    {
+        print ("Unable to write to " + $fileName + "\n");
+        return;
+    }
+
+    print ("Save complete.\n");
+}
+
+//==================================================================
+//
+// Starting the UI creation section
+//
+//==================================================================
+
+proc createSamplingOptions ( string $parent )
+{
+    setUITemplate -pushTemplate attributeEditorTemplate;
+    setParent $parent;
+
+    // Place sampling options here.
+
+    setParent ..;
+    setUITemplate -popTemplate;
+}
+
+proc createBasicPrelight ()
+{
+    setUITemplate -pushTemplate attributeEditorTemplate;
+
+    columnLayout
+        -adjustableColumn true
+        mpCreateBasicPrelightLayout;
+    {
+        columnLayout -rs 5-cat "left" 150;
+        {
+            int $performPrelight;
+            if ( `optionVar -exists P3D_mpPerformPrelight` )
+                $performPrelight = `optionVar -q P3D_mpPerformPrelight `;
+            checkBox
+                -value $performPrelight
+                -al left
+                -w 200
+                -label "Prelight on each Apply"
+                performPrelightCheckBox;
+            button
+                -label  "  Prelight  "
+                -height 22
+                -command P3Dmp_performPrelight
+                mpPrelightButton;
+        } setParent ..;
+    } setParent ..;
+    
+    setUITemplate -popTemplate;
+}
+
+// Create the UI for one map.
+proc createMapLayout ( int $mapID, int $mpNumMaps )
+{
+    setUITemplate -pushTemplate attributeEditorTemplate;
+    
+    string $mapName = ( "mpMap" + $mapID );
+    float $rgbWidth       = 45;
+    float $toleranceWidth = 30;
+    float $buttonWidth    = 20;
+
+    rowColumnLayout -numberOfColumns 2
+        -rat 1 "top" 5
+        -co 1 "left" 5
+        -columnWidth 1 65
+        -cal 2 "left"
+        -columnWidth 2 500
+        ( $mapName + "Layout" );
+    
+    {
+        string $checkCallback = ( "P3Dmp_changeMapUse (" + $mapID + ");" +
+                                  "P3Dmp_forceValues (" + $mpNumMaps + ")" );
+        
+        int   $mapUse=0;
+        float $mapMin=0, $mapMax=0;
+        float $mapSrcRed=0, $mapSrcGreen=0, $mapSrcBlue=0;
+        float $mapTolerance=0.01;
+        float $mapDstRed=0, $mapDstGreen=0, $mapDstBlue=0;
+        
+        string $varName = ( "P3D_" + $mapName );
+        if ( `optionVar -exists ( $varName + "Use" ) ` )
+            $mapUse = `optionVar -q ( $varName + "Use" ) `;
+        if ( `optionVar -exists ( $varName + "Min" ) ` )
+            $mapMin = `optionVar -q ( $varName + "Min" ) `;
+        if ( `optionVar -exists ( $varName + "Max" ) ` )
+            $mapMax = `optionVar -q ( $varName + "Max" ) `;
+        if ( `optionVar -exists ( $varName + "SrcRed" ) ` )
+            $mapSrcRed = `optionVar -q ( $varName + "SrcRed" ) `;
+        if ( `optionVar -exists ( $varName + "SrcGreen" ) ` )
+            $mapSrcGreen = `optionVar -q ( $varName + "SrcGreen" ) `;
+        if ( `optionVar -exists ( $varName + "SrcBlue" ) ` )
+            $mapSrcBlue = `optionVar -q ( $varName + "SrcBlue" ) `;
+        if ( `optionVar -exists ( $varName + "Tolerance" ) ` )
+            $mapTolerance = `optionVar -q ( $varName + "Tolerance" ) `;
+        if ( `optionVar -exists ( $varName + "DstRed" ) ` )
+            $mapDstRed = `optionVar -q ( $varName + "DstRed" ) `;
+        if ( `optionVar -exists ( $varName + "DstGreen" ) ` )
+            $mapDstGreen = `optionVar -q ( $varName + "DstGreen" ) `;
+        if ( `optionVar -exists ( $varName + "DstBlue" ) ` )
+            $mapDstBlue = `optionVar -q ( $varName + "DstBlue" ) `;
+        
+        checkBox
+            -v $mapUse
+            -label ( "Map " + $mapID + ":" )
+            -cc ( $checkCallback )
+            ( $mapName + "CheckBox" );
+        
+        columnLayout
+            -adjustableColumn true
+            -rs 3
+            ( $mapName + "DetailsLayout" );
+        {
+            rowColumnLayout -numberOfColumns 10
+                -columnOffset 1 "left" 10
+                -columnWidth 1 ( $rgbWidth + 10 )
+                -columnWidth 2 $rgbWidth
+                -columnOffset 3 "left" 5 
+                -columnWidth 3 ( $buttonWidth + 10 )
+                -columnOffset 3 "right" 5 
+                -columnWidth 4 $rgbWidth
+                -columnWidth 5 $rgbWidth
+                -columnWidth 6 $rgbWidth
+                -columnWidth 7 ( $buttonWidth + $toleranceWidth + $buttonWidth + 10 )
+                -columnWidth 8 $rgbWidth
+                -columnWidth 9 $rgbWidth
+                -columnWidth 10 ( $rgbWidth + 10 )
+                -columnOffset 10 "right" 10
+                ( $mapName + "SelectSubLayout" );
+            {
+                text -al "center" "Min (0-1)";
+                text -al "center" "Max (0-1)";
+                text -al "center" " ";
+                text -l "Red"   -al "center" "SrcRed";
+                text -l "Green" -al "center" "SrcGreen";
+                text -l "Blue"  -al "center" "SrcBlue";
+                text -al "center" "Tolerance";
+                text -l "Red"   -al "center" "DstRed";
+                text -l "Green" -al "center" "DstGreen";
+                text -l "Blue"  -al "center" "DstBlue";
+                
+                string $minMaxCallback   = ( "P3Dmp_forceValues (" + $mpNumMaps + ")" );
+                string $srcRGBCallback   = ( "P3Dmp_changeMapRGB ( " + $mapID + ", \"Src\"" + " )" );
+                string $dstRGBCallback   = ( "P3Dmp_changeMapRGB ( " + $mapID + ", \"Dst\"" + " )" );
+                string $buttonCallback = ( "P3Dmp_applyPrelightMaps ( " + $mapID + ", " + $mapID + ")" );
+                string $forwardCallback = ( "P3Dmp_applyColourMaps ( " + $mapID + ", " + $mapID + ", 1 )" );
+                string $backwardCallback = ( "P3Dmp_applyColourMaps ( " + $mapID + ", " + $mapID + ", 0 )" );
+                
+                floatField -value $mapMin
+                    -cc $minMaxCallback
+                    ( $mapName + "MinField" );
+                floatField -value $mapMax
+                    -cc $minMaxCallback
+                    ( $mapName + "MaxField" );
+                button -l "=>" -c $buttonCallback
+                    ( $mapName + "ApplyUpToMap" );
+                floatField -value $mapSrcRed   -cc $srcRGBCallback
+                    ( $mapName + "SrcRedField" );
+                floatField -value $mapSrcGreen -cc $srcRGBCallback
+                    ( $mapName + "SrcGreenField" );
+                floatField -value $mapSrcBlue  -cc $srcRGBCallback
+                    ( $mapName + "SrcBlueField" );
+                
+                rowColumnLayout -numberOfColumns 3
+                    -columnOffset 1 "left" 5
+                    -columnWidth 1 ( $buttonWidth + 5 )
+                    -columnWidth 2 $toleranceWidth
+                    -columnWidth 3 ( $buttonWidth + 5 )
+                    -columnOffset 3 "right" 5 
+                    ( $mapName + "ToleranceSubLayout" );
+                {
+                    button -l "<-" -c $backwardCallback
+                        ( $mapName + "ApplyForward" );
+                    floatField -value $mapTolerance
+                        ( $mapName + "ToleranceField" );
+                    button -l "->" -c $forwardCallback
+                        ( $mapName + "ApplyBackward" );
+                } setParent ..;
+
+                floatField -value $mapDstRed   -cc $dstRGBCallback
+                    ( $mapName + "DstRedField" );
+                floatField -value $mapDstGreen -cc $dstRGBCallback
+                    ( $mapName + "DstGreenField" );
+                floatField -value $mapDstBlue  -cc $dstRGBCallback
+                    ( $mapName + "DstBlueField" );
+
+            } setParent ..; // rowColumnLayout -numberOfColumns 10
+            
+            rowColumnLayout -numberOfColumns 2
+                -columnOffset 1 "left" 0
+                -columnWidth 1 325
+                -columnWidth 2 300
+                -columnOffset 2 "right" 10
+                ( $mapName + "ColorsSublayout" );
+            {
+                string $srcColorSliderCallback  = ( "P3Dmp_changeMapRGBSlider (" + $mapID + ", \"Src\"" + ")" );
+                string $dstColorSliderCallback  = ( "P3Dmp_changeMapRGBSlider (" + $mapID + ", \"Dst\"" + ")" );
+                colorSliderButtonGrp
+                    -rgbValue $mapSrcRed $mapSrcGreen $mapSrcBlue
+                    -cat 1 "left" 115
+                    -cw 1 10
+                    -cw 2 50
+                    -cw 3 115
+                    -cat 4 "left" 500
+                    -cw 4 180
+                    -label ""
+                    -symbolButtonDisplay false
+                    -cc $srcColorSliderCallback
+                    ( $mapName + "SrcColorSlider" );
+                colorSliderButtonGrp
+                    -rgbValue $mapDstRed $mapDstGreen $mapDstBlue
+                    -cw 1 10
+                    -cw 2 50
+                    -cw 3 115
+                    -cat 4 "left" 500
+                    -cw 4 180
+                    -label ""
+                    -symbolButtonDisplay false
+                    -cc $dstColorSliderCallback
+                    ( $mapName + "DstColorSlider" );
+                
+            } setParent ..; // rowColumnLayout -numberOfColumns 2
+
+        } setParent ..; // columnLayout
+        
+        columnLayout -edit
+            -enable $mapUse        
+            ( $mapName + "DetailsLayout" );
+
+    } setParent ..;  //rowColumnLayout -numberOfColumns 2
+    
+    setUITemplate -popTemplate;
+}
+
+//  Create the maps section of the UI
+proc createMappedPrelight ( int $mpNumMaps )
+{
+    setUITemplate -pushTemplate attributeEditorTemplate;
+
+    columnLayout
+        -adjustableColumn true
+        mpLayout;
+    {
+        columnLayout -rs 5 -cat "left" 150;
+        {
+            int $forceMinValue;
+            if ( `optionVar -exists P3D_mpforceMinValue` )
+                $forceMinValue = `optionVar -q P3D_mpforceMinValue`;
+            string $forceCallback = ( "P3Dmp_forceValues ( " + $mpNumMaps + " ) " );
+            checkBox
+                -value $forceMinValue
+                -al left
+                -w 200
+                -label "Force minimum values"
+                -cc $forceCallback
+                forceMinValueCheckBox;
+            int $useAveSides;
+            if ( `optionVar -exists P3D_mpUseAveSides` )
+                $useAveSides = `optionVar -q P3D_mpUseAveSides`;
+            checkBox
+                -value $useAveSides
+                -al left
+                -w 200
+                -label "Use average of side vertex colours"
+                useAverageSideCheckBox;
+            string $averageCallback = "waitCursor -st on; avePrelight; waitCursor -st off;";
+            button
+                -label  "  Set to average  "
+                -height 22
+                -command $averageCallback
+                mpAverageSideButton;
+        } setParent ..;
+        
+        separator;
+        rowColumnLayout -numberOfColumns 2
+            -rat 1 "top" 5
+            -co 1 "left" 212
+            -columnWidth 1 312
+            -cal 2 "left"
+            -columnWidth 2 330
+            "P3mp_colourHeader";
+        {
+            text -al "center" "Colour 1";
+            text -al "center" "Colour 2";
+        } setParent ..;
+            
+        int $i;
+        for ( $i = 1; $i <= $mpNumMaps ; $i++ )
+        {
+            separator;
+            createMapLayout ( $i, $mpNumMaps );
+        }
+        
+    } setParent ..;
+
+    setUITemplate -popTemplate;
+}
+    
+// Create the main window for all prelighting.
+global proc mappedPrelightWindow()
+{
+    int $mpNumMaps = 6;
+    string $windowName   = "mappedPrelightWindow";
+    string $windowTitle  = "Mapped Prelight (ver. 1.2.0 April 12, 2002)";
+    string $iconTitle    = "Map Prelight";
+    int    $windowWidth  = 450;
+    int    $windowHeight = 500;
+    int    $windowPosTop = 200;
+    int    $windowPosLft = 220;
+
+    // If the window already exists, just make it visible.
+    if (`window -exists $windowName`)
+    {
+        showWindow $windowName;
+        P3Dmp_updateAllMappedPrelightGlobal( $mpNumMaps );
+        return;
+    }
+    
+    // No window exists so build it.
+    window
+        -t   $windowTitle
+        -in  $iconTitle
+        -wh  $windowWidth $windowHeight
+        -tlc $windowPosTop $windowPosLft
+        -mb  true
+        $windowName;
+    
+    // Create the menus
+    menu -l "File";
+    menuItem -l "New colour map"
+        -c ( "P3Dmp_resetAllValues( " + $mpNumMaps + " )" );
+    string $openColour1Callback = ("fileBrowserDialog -m 0 -fc \"P3Dmp_openColourMap " +
+                            $mpNumMaps + " Src \" -ft map -an Open" );
+    menuItem -l "Open colour 1..."
+        -c $openColour1Callback;
+    string $openColour1Callback = ("fileBrowserDialog -m 0 -fc \"P3Dmp_openColourMap " +
+                            $mpNumMaps + " Dst \" -ft map -an Open" );
+    menuItem -l "Open colour 2..."
+        -c $openColour1Callback;
+    menuItem -d true;
+    string $saveColour1Callback = ("fileBrowserDialog -m 1 -fc \"P3Dmp_saveColourMap " +
+                            $mpNumMaps + " Src \" -ft map -an Save" );
+    menuItem -l "Save colour 1..."
+        -c $saveColour1Callback;
+    string $saveColour2Callback = ("fileBrowserDialog -m 1 -fc \"P3Dmp_saveColourMap " +
+                            $mpNumMaps + " Dst \" -ft map -an Save" );
+    menuItem -l "Save colour 2..."
+        -c $saveColour2Callback;
+        
+//    menu -l "Edit";
+
+    // Create the help menu
+    addContextHelpProc "mappedPrelightWindow" "P3Dmp_buildMappedPrelightContextHelpItems";
+    doHelpMenu "mappedPrelightWindow" "mappedPrelightWindow";
+
+    // Create main form
+    setUITemplate -pushTemplate attributeEditorTemplate;
+
+    formLayout
+        mpMainForm;
+    {
+        scrollLayout
+            -hst 0 mpMainLayout;
+        {
+            columnLayout -adjustableColumn true mpMainColumnLayout;
+            {
+                // Sampling Options
+                frameLayout -label "Sampling Options"
+                    -cll 1 -cl 1
+                    -preExpandCommand "createSamplingOptions (\"mpSamplingOptionsFrame\")"
+                    mpSamplingOptionsFrame;
+                {
+                } setParent ..;
+                
+                // Basic Prelight
+                frameLayout -label "Basic Prelight"
+                    -cll 1 -cl 1
+                    mpBasicPrelight;
+                {
+                    createBasicPrelight();
+                } setParent ..;
+                
+                // Mapped Prelight
+                frameLayout -label "Mapped Prelight"
+                    -cll 1 -cl 0
+                    mpMappedPrelight;
+                {
+                    createMappedPrelight ( $mpNumMaps );
+                } setParent ..; // mpMainColumnLayout
+            } setParent..; // mpMainLayout
+        } setParent..; // mpMainForm
+    } setParent..; // $windowName
+
+    // Create the main window action buttons
+
+    formLayout 
+        -numberOfDivisions 5
+        mpActionButtons;
+    {
+        
+        button
+            -label  "Prelight => Colour 1"
+            -height 26
+            -command ( "P3Dmp_applyPrelightMaps( 1, " + $mpNumMaps + " )" )
+            mpApplyButton;
+        button
+            -label  "Colour 1 <- Colour 2"
+            -command ( "P3Dmp_applyColourMaps( 1, " + $mpNumMaps + ", 0 )" )
+            -height 26
+            mpBackwardButton;
+        button
+            -label  "Colour 1 -> Colour 2"
+            -command ( "P3Dmp_applyColourMaps( 1, " + $mpNumMaps + ", 1 )" )
+            -height 26
+            mpForwardButton;
+        button
+            -label  "Reset"
+            -height 26
+            -command ( "P3Dmp_resetAllValues( " + $mpNumMaps + " )" )
+            mpResetButton;
+        button
+            -label  "Close"
+            -height 26
+            -command ( "deleteUI " + $windowName )
+            mpCloseButton;
+        
+        formLayout
+            -edit
+            -af mpApplyButton left 5
+            -ap mpApplyButton right 2 1 
+            -af mpApplyButton top 5
+            -af mpApplyButton bottom 5
+            
+            -ap mpBackwardButton left 3 1
+            -ap mpBackwardButton right 2 2
+            -af mpBackwardButton top 5
+            -af mpBackwardButton bottom 5
+            
+            -ap mpForwardButton left 3 2
+            -ap mpForwardButton right 2 3
+            -af mpForwardButton top 5
+            -af mpForwardButton bottom 5
+            
+            -ap mpResetButton left 3 3
+            -ap mpResetButton right 2 4
+            -af mpResetButton top 5
+            -af mpResetButton bottom 5
+            
+            -ap mpCloseButton left 3 4
+            -af mpCloseButton right 5
+            -af mpCloseButton top 5
+            -af mpCloseButton bottom 5
+            mpActionButtons;
+    } setParent ..; // mpActionButtons
+     
+    // Set the layout
+    formLayout -edit
+        -af mpMainLayout "top"    0
+        -af mpMainLayout "left"   0 
+        -af mpMainLayout "right"  0 
+        -ac mpMainLayout "bottom" 5 mpActionButtons
+
+        -an mpActionButtons "top"
+        -af mpActionButtons "bottom" 5
+        -af mpActionButtons "left" 5
+        -af mpActionButtons "right" 5
+        mpMainForm;
+
+    setUITemplate -popTemplate ;
+
+    // Make sure associated procedures are loaded
+    source mappedPrelight;
+
+    // Make the window visible
+    showWindow $windowName;
+
+    // Apply any other global settings to the window.
+    P3Dmp_updateAllMappedPrelightGlobal( $mpNumMaps );
+}
+
+

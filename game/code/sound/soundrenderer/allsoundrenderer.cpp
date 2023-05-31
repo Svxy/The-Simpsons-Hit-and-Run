@@ -1,0 +1,14 @@
+#include <sound/soundrenderer/dasoundplayer.cpp>
+#include <sound/soundrenderer/fader.cpp>
+#include <sound/soundrenderer/musicsoundplayer.cpp>
+#include <sound/soundrenderer/soundnucleus.cpp>
+#include <sound/soundrenderer/playermanager.cpp>
+#include <sound/soundrenderer/soundallocatedresource.cpp>
+#include <sound/soundrenderer/sounddynaload.cpp>
+#include <sound/soundrenderer/soundrenderingmanager.cpp>
+#include <sound/soundrenderer/soundresource.cpp>
+#include <sound/soundrenderer/soundresourcemanager.cpp>
+#include <sound/soundrenderer/soundtuner.cpp>
+#include <sound/soundrenderer/wireplayers.cpp>
+#include <sound/soundrenderer/wiresystem.cpp>
+#include <sound/soundrenderer/tunerdebugpage.cpp>

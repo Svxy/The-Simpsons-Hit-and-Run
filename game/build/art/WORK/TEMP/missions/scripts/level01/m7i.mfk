@@ -1,0 +1,123 @@
+SelectMission("m7");
+
+SetMissionResetPlayerInCar("m7_car_start");
+SetDynaLoadData("l1z6.p3d;l1r6.p3d;");
+
+UsePedGroup(7); 
+
+//Chuck: StreetRace Prop Load and Unload Setup - used here to load power plant door to block he shortcut
+StreetRacePropsLoad("l1m7door.p3d;");
+StreetRacePropsUnload("l1m7door.p3d:");
+
+
+//AddStage(0);
+//	SetStageMessageIndex(12);
+//	AddObjective("getin","neither");
+//		SetObjTargetVehicle("current");
+//	CloseObjective();
+//CloseStage();
+
+//AddStage();
+//	RESET_TO_HERE();
+//	SetHUDIcon( "mansion" );
+//	SetStageMessageIndex(18);
+//	SetMaxTraffic(2); //for this race, reduce traffic to prevent overwhelming the user
+//	AddStageVehicle("smith_v","m7_smithers_carstart","NULL","Missions\level01\M7race.con", "smithers");
+//	AddObjective("goto","nearest here");
+//		SetDestination("limo_start", "carsphere");
+//		SetCollectibleEffect("wrench_collect");
+//	CloseObjective();
+//CloseStage();
+
+AddStage(1);
+	RESET_TO_HERE();
+	SetMaxTraffic(2); //for this race, reduce traffic to prevent overwhelming the user
+	SetStageMessageIndex(18);
+	SetHUDIcon( "mansion" );
+	ShowStageComplete();
+	//ActivateVehicle("smith_v","NULL","race");
+	AddStageVehicle("smith_v","m7_smithers_carstart","race","Missions\level01\M7race.con", "smithers");
+//SetStageAIRaceCatchupParams( 
+//	STAGEVEHICLENAME,
+//      ALONGROADDISTFROMPLAYER_TO_APPLYMAXCATCHUP, // default = 80
+//      FRACTIONPLAYERSPEED_MINCATCHUP,   // default = 0.5
+//      FRACTIONPLAYERSPEED_NOCATCHUP,    // default = 1.1
+//      FRACTIONPLAYERSPEED_MAXCATCHUP )  // default = 1.7	AddStageWaypoint( "m7_smithers_race1" );
+//SetStageAIRaceCatchupParams("smith_v", 80, 0.5, 1.1, 1.7); 
+//SetStageAIRaceCatchupParams("smith_v", 80, 0.75, 1.1, 2.3); 
+SetStageAIRaceCatchupParams("smith_v", 80, 0.5, 1.0, 1.5);
+//	SetVehicleAIParams( "smith_v", -10, -9 );   // no shortcuts
+	AddStageWaypoint( "m7_smithers_race1" );
+	AddStageWaypoint( "m5_smithers_nav1" );
+	AddStageWaypoint( "m7_smithers_race1b" );
+	AddStageWaypoint( "m7_smithers_race9" );
+	AddObjective( "race","both");
+		AddNPC("burns", "m7_burns_place");
+		AddCollectible("m7_smithers_race1");
+		AddCollectible("m7_smithers_race2");
+		AddCollectible("m7_smithers_race3");
+		//AddCollectible("m7_smithers_race4");
+		AddCollectible("m7_smithers_race5");
+		AddCollectible("m7_smithers_race6");
+		AddCollectible("m7_smithers_race7");
+		AddCollectible("m7_smithers_race9");
+	CloseObjective();
+	AddCondition("race");
+		SetCondTargetVehicle("smith_v");
+	CloseCondition();
+	StageStartMusicEvent("M7_drama");
+CloseStage();
+
+AddStage();
+	SetMaxTraffic(2); 
+	SetStageMessageIndex(19);
+	SetHUDIcon( "burns" );
+	AddObjective("talkto");
+		AddNPC("burns", "m7_burns_place");
+		AddObjectiveNPCWaypoint( "burns", "m7_burns_walk_1" );
+		SetTalkToTarget("burns");
+	CloseObjective();
+	SetCompletionDialog("there");
+CloseStage();
+
+AddStage(0, "final");
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		SetConversationCam( 2, "pc_far" );
+		SetConversationCam( 3, "npc_far" );
+		SetConversationCam( 4, "pc_far" );
+		SetConversationCam( 5, "npc_far" );
+
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		
+		AddAmbientPcAnimation( "dialogue_shaking_fist" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_no" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		SetCamBestSide("m7_bestside2" );
+		SetDialogueInfo("homer","burns","accuse",0);
+		SetDialoguePositions("m7_homer_burns","m7_burns_place","race_finish",1);
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

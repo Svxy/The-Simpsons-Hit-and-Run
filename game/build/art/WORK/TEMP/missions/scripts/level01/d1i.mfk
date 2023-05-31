@@ -1,0 +1,54 @@
+SelectMission("d1");
+
+SetMissionResetPlayerInCar("demo_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+
+PlacePlayerCar("current", "demo_carstart");
+
+AddStage(18);
+SetMaxTraffic(4); 
+RESET_TO_HERE();
+SetStageMessageIndex(47);
+AddStageVehicle("skinn_v","d1_skinner_carstart","waypoint","HardRace\AI_2nd.con");
+
+AddStageWaypoint( "d1_path1" );
+AddStageWaypoint( "d1_path2" );
+AddStageWaypoint( "d1_path3" );
+AddStageWaypoint( "d1_path4" );
+AddStageWaypoint( "d1_path5" );
+AddStageWaypoint( "d1_path6" );
+AddStageWaypoint( "d1_path7" );
+AddStageWaypoint( "d1_path8" );
+AddStageWaypoint( "d1_path9" );
+AddStageWaypoint( "d1_path10" );
+AddStageWaypoint( "d1_path11" );
+AddStageWaypoint( "d1_path12" );
+AddStageWaypoint( "d1_path13" );
+AddStageWaypoint( "d1_path14" );
+
+AddObjective( "race" );
+AddCollectible("d1_path1");
+AddCollectible("d1_path2");
+AddCollectible("d1_path3");
+AddCollectible("d1_path4");
+AddCollectible("d1_path5");
+AddCollectible("d1_path6");
+AddCollectible("d1_path7");
+AddCollectible("d1_path8");
+AddCollectible("d1_path9");
+AddCollectible("d1_path10");
+AddCollectible("d1_path11");
+AddCollectible("d1_path12");
+AddCollectible("d1_path13");
+AddCollectible("d1_path14");
+SetRaceLaps(2000);
+CloseObjective();
+
+SetDemoLoopTime(40000000000);
+
+AddStageMusicChange();
+
+CloseStage();
+
+
+CloseMission();

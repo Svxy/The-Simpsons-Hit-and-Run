@@ -1,0 +1,153 @@
+SelectMission("m6");
+
+SetMissionResetPlayerInCar("m6_carstart"); 
+SetDynaLoadData("l2r1.p3d;l2z1.p3d;l2r4.p3d;");
+SetNumValidFailureHints(5);
+
+UsePedGroup(6);
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(173);
+	SetHUDIcon( "scream" );
+	AddObjective("goto");
+		AddNPC("nriviera", "m6_drnick");
+		SetDestination("screaming_monkey", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+CloseStage();
+
+AddStage(0); 
+	RESET_TO_HERE();
+	SetStageMessageIndex(63);
+	SetMaxTraffic(4);
+	SetHUDIcon( "monkey" );
+	SetStageTime(240);
+	AddObjective("delivery", "neither");
+		AddCollectible("m6_monkey_6","monkey");
+		AddCollectible("m6_monkey_5","monkey");
+		AddCollectible("m6_monkey_3","monkey");
+		AddCollectible("m6_monkey_4","monkey");
+		AddCollectible("m6_monkey_2","monkey");
+		AddCollectible("m6_monkey_8","monkey");
+		AddCollectible("m6_monkey_7","monkey");
+		AddCollectible("m6_monkey_10","monkey");
+		AddCollectible("m6_monkey_9","monkey");
+		AddCollectible("m6_monkey_11","monkey");
+		AddCollectible("m6_monkey_12","monkey");
+		AddCollectible("m6_monkey_13","monkey");
+		AddCollectible("m6_monkey_14","monkey");
+		AddCollectible("m6_monkey_15","monkey");
+		AddCollectible("m6_monkey_17","monkey");
+		AddCollectible("m6_monkey_16","monkey");
+		AddCollectible("m6_monkey_18","monkey");
+		AddCollectible("m6_monkey_21","monkey");
+		AddCollectible("m6_monkey_19","monkey");
+		AddCollectible("m6_monkey_22","monkey");
+		AddCollectible("m6_monkey_25","monkey");
+		AddCollectible("m6_monkey_24","monkey");
+		AddCollectible("m6_monkey_23","monkey");
+		AddCollectible("m6_monkey_20","monkey");
+		AddCollectible("m6_monkey_1","monkey");
+		AddCollectible("m6_monkey_26","monkey");
+		AddCollectible("m6_monkey_27","monkey");
+		AddCollectible("m6_monkey_28","monkey");
+		AddCollectible("m6_monkey_29","monkey");
+		AddCollectible("m6_monkey_30","monkey");
+		//SetCollectibleEffect("bonestorm_explosion");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(173);
+	SetHUDIcon( "scream" );
+	AddObjective("goto");
+		AddNPC("nriviera", "m6_drnick");
+		SetDestination("screaming_monkey");
+	CloseObjective();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+CloseStage();	
+
+AddStage(4);
+	SetStageMessageIndex(62);
+	SetHUDIcon( "drnick" );
+	AddObjective("talkto", "neither");
+		AddNPC("nriviera", "m6_drnick"); 
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick_walk1" );
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick_walk2" );
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick_walk3" );
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick" );
+		SetTalkToTarget("nriviera", 0, 0);
+	CloseObjective();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current" );
+	CloseCondition();
+	AddStageMusicChange();
+	SetStageMusicAlwaysOn();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		SetCamBestSide( "m6_bestside" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+
+		SetConversationCam( 0, "npc_far" );
+
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+
+		SetDialogueInfo("bart","nriviera","electrode",0);
+		SetDialoguePositions("m6_bart_talk","m6_drnick_walk2","m6_carstart");
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetHUDIcon( "blender");
+	SetStageMessageIndex(174);
+	AddObjective("goto","neither");
+		AddNPC("nriviera", "m6_drnick");
+		SetDestination("m6_blender","blend");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air
+//SetConversationCam( 3, "pc_far" );

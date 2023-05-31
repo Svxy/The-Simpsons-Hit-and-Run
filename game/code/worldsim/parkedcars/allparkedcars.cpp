@@ -1,0 +1,1 @@
+#include <worldsim/parkedcars/parkedcarmanager.cpp>

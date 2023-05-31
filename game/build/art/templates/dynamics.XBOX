@@ -1,0 +1,21 @@
+PRINT Applying DYNAMICS template to INPUT
+COMMAND p3ddel -d 4500 -d 4512 -o OUTPUT INPUT
+COMMAND p3dimage --ntsc_fix -r -b 8 -o OUTPUT OUTPUT
+
+COMMAND p3dsort OUTPUT OUTPUT
+COMMAND DSGMaker OUTPUT 
+
+# Grab the breakables from the exportart library
+COMMAND findbreakables OUTPUT -o breakables.p3d
+
+#optimize breakables
+COMMAND p3dimage -r --ntsc_fix -b 8 -o breakables.p3d breakables.p3d
+COMMAND convert2dxtn -o breakables.p3d breakables.p3d
+COMMAND tristrip -m -x -o breakables.p3d breakables.p3d
+COMMAND p3danim -O  -o breakables.p3d breakables.p3d
+COMMAND p3dxbox -m -o breakables.p3d breakables.p3d
+
+
+
+#join them in with the dynamics
+COMMAND p3djoin breakables.p3d OUTPUT -o OUTPUT

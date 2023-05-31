@@ -1,0 +1,181 @@
+SelectMission("m6sd");
+
+SetMissionStartCameraName( "mission6camShape" );
+SetMissionStartMulticontName( "mission6cam" );
+SetAnimatedCameraName( "mission6camShape" );
+SetAnimCamMulticontName( "mission6cam" );
+
+SetMissionResetPlayerOutCar("m4_bart_start","m4_carstart");  //reusing mission 4 locator
+SetDynaLoadData("l2z4.p3d;l2z1.p3d;l2r4.p3d;");
+
+UsePedGroup(6);
+
+AddStage(0);
+	SetStageMessageIndex(55);
+	SetHUDIcon( "stadium" );
+	SetMaxTraffic(4);
+	AddObjective("goto");
+		AddNPC("frink", "m4_frink_sd");
+		SetDestination("stadium", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();	
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetStageMessageIndex(66);
+	SetHUDIcon( "frink" );
+	AddObjective("talkto");
+		AddNPC("frink", "m4_frink_sd");  //reusing mission 4 locator
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_walk1" );
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_walk2" );
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_sd" );
+		SetTalkToTarget("frink", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AllowMissionAbort( "false" );
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis02_06.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "npc_far" );
+		SetConversationCam( 1, "pc_near" );
+		AddAmbientNpcAnimation( "dialogue_no" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_thinking" );
+		SetCamBestSide("m4_bestside");
+		//SetConversationCam( 3, "pc_far" );
+		SetDialogueInfo("bart","frink","blender",0);
+		SetDialoguePositions("m4_bart_start","m4_frink_sd","m4_carstart");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(173);
+	SetHUDIcon( "scream" );
+	AddObjective("goto");
+		AddNPC("nriviera", "m6_drnick");
+		SetDestination("screaming_monkey", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();	
+
+AddStage(0);
+	SetStageMessageIndex(62);
+	SetHUDIcon( "drnick" );
+	AddObjective("talkto");
+		AddNPC("nriviera", "m6_drnick");
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick_walk1" );
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick_walk2" );
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick_walk3" );
+		AddObjectiveNPCWaypoint( "nriviera", "m6_drnick" );
+		SetTalkToTarget("nriviera", 0, 0);
+	CloseObjective();
+	AddStageMusicChange();
+	SetStageMusicAlwaysOn();
+	CloseCondition();
+CloseStage();
+
+//LOCKED STAGE FOR MR PLOW
+//
+//THIS DIALOGUE WILL INCLUDE THE GATED LINES
+AddStage("locked","car","mrplo_v");
+	SetStageMessageIndex(1);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_near" );
+		SetConversationCam( 2, "pc_far" );
+		SetConversationCam( 3, "npc_near" );
+		SetConversationCam( 4, "pc_far" );
+		SetConversationCam( 5, "npc_near" );
+
+		AddAmbientNpcAnimation( "none" );
+
+		AddAmbientNpcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_hands_in_air" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_scratch_head" );
+		AddAmbientNpcAnimation( "dialogue_no" );
+
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_cross_arms" );
+		AddAmbientPcAnimation( "dialogue_thinking" );
+
+		SetCamBestSide("m6_bestside");
+		SetDialogueInfo("bart","nriviera","monkey",0);
+		SetDialoguePositions("m6_bart_talk","m6_drnick_walk2","level2_carstart");
+	CloseObjective();
+CloseStage();
+
+//THIS DIALOGUE WILL NOT INCLUDE THE GATED LINES AND WILL BEGIN THE MISSION
+//AddStage(0);
+//	AddObjective("dialogue");
+//		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+//		AmbientAnimationRandomize( 0, 0 );
+//		SetConversationCam( 0, "pc_far" );
+//		SetConversationCam( 1, "npc_near" );
+//		SetConversationCam( 2, "pc_far" );
+//		SetConversationCam( 3, "npc_near" );
+//		SetConversationCam( 4, "pc_far" );
+//		SetConversationCam( 5, "npc_near" );
+//		AddAmbientNpcAnimation( "none" );
+//		AddAmbientNpcAnimation( "dialogue_shake_hand_in_air" );
+//		AddAmbientNpcAnimation( "none" );
+//		AddAmbientNpcAnimation( "dialogue_hands_in_air" );
+//		AddAmbientNpcAnimation( "none" );
+//		AddAmbientNpcAnimation( "dialogue_scratch_head" );
+//		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+//		AddAmbientPcAnimation( "none" );
+//		AddAmbientPcAnimation( "dialogue_thinking" );
+//		AddAmbientPcAnimation( "none" );
+//		SetCamBestSide( "m6_bestside" );
+//		SetDialogueInfo("bart","nriviera","monkey2",0);
+//		SetDialoguePositions("m6_bart_talk","m6_drnick_walk2","level2_carstart");
+//	CloseObjective();
+//CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(242);
+	SetHUDIcon( "homer" );
+	AddObjective("buycar", "mrplo_v");
+	CloseObjective();
+CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(12);
+//	AddObjective("getin");
+//		SetObjTargetVehicle("current");
+//	CloseObjective();
+//CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(173);
+//	SetHUDIcon( "scream" );
+//	AddObjective("goto");
+//		AddNPC("nriviera", "m6_drnick");
+//		SetDestination("screaming_monkey", "carsphere");
+//		SetCollectibleEffect("wrench_collect");
+//	CloseObjective();
+//CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

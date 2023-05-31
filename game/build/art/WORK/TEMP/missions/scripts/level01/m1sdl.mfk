@@ -1,0 +1,6 @@
+LoadP3DFile("art\missions\level04\mission6cam.p3d");
+
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\marage.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\simpsons.p3d" );
+
+

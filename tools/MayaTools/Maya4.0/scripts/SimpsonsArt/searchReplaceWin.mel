@@ -1,0 +1,87 @@
+//
+// Copyright (C) 1997-2001 Alias|Wavefront,
+// a division of Silicon Graphics Limited.
+//
+// The information in this file is provided for the exclusive use of the
+// licensees of Alias|Wavefront.  Such users have the right to use, modify,
+// and incorporate this code into other products for purposes authorized
+// by the Alias|Wavefront license agreement, without fee.
+//
+// ALIAS|WAVEFRONT DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
+// INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
+// EVENT SHALL ALIAS|WAVEFRONT BE LIABLE FOR ANY SPECIAL, INDIRECT OR
+// CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+// DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+// TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+// PERFORMANCE OF THIS SOFTWARE.
+//
+// Alias|Wavefront Script File
+// MODIFY THIS AT YOUR OWN RISK
+///
+//
+//
+// searchReplaceWin.mel
+// CPAM June 4,  1999
+// revised July 2001
+//
+//
+// This will search and replace object
+// names for selected objects. Suggest
+// using on a skeleton after copying
+// an arm or leg.
+//
+
+
+global proc searchReplace (){
+
+	global string $searchText;
+	global string $replaceText;
+	global string $objects[];
+
+	$objects = `ls -sl`;
+	$searchText = `textField -q -text searchText`;
+	$replaceText = `textField -q -text replaceText`;
+
+	for ($object in $objects){
+
+		string $newName = `substitute $searchText $object $replaceText`;
+		print "Object: ";
+		print $object;
+		print "  New name: ";
+		print $newName;
+		print "\n";
+		rename $object $newName;
+	}
+
+}
+
+
+global proc searchReplaceWin (){
+
+	window -title "Object Renamer"
+		objectRenamer;
+	columnLayout;
+	
+	text "Search Text:";
+	textField -w 200
+		-text "right"
+		searchText;
+
+	text "Replace Text:";
+	textField -w 200
+		-text "left"
+		replaceText;
+
+	button -label "Search and Replace!"
+		-command "searchReplace"
+		doIt;
+
+	showWindow objectRenamer;
+
+}
+
+
+
+
+
+

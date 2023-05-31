@@ -1,0 +1,11 @@
+
+if ( `menu -exists wb_MainMenu` ) 
+{
+    deleteUI wb_MainMenu;
+    deleteShelfTab ("WorldBuilder");
+
+    wb_SplinesCleanup();
+    wb_CoinSplinesCleanup();
+
+    flushUndo;
+}

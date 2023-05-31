@@ -1,0 +1,66 @@
+SelectMission("m2sd");
+
+SetMissionStartCameraName( "mission2camShape" );
+SetMissionStartMulticontName( "mission2cam" );
+SetAnimatedCameraName( "mission2camShape" );
+SetAnimCamMulticontName( "mission2cam" );
+
+SetMissionResetPlayerOutCar("m2_bart_start","m2_carstart");
+SetDynaLoadData("l2z3.p3d;l2r2.p3d;l2r3.p3d;");
+
+UsePedGroup(4);
+
+AddStage(0);
+	SetStageMessageIndex(57);
+	SetHUDIcon( "hermans" );
+	SetMaxTraffic(4);
+	AddObjective("goto");
+		AddNPC("kearney", "m2_kearney_sd");
+		SetDestination("m2_start", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetStageMessageIndex(164);
+	SetHUDIcon( "kearney" );
+	AddObjective("talkto");
+		AddNPC("kearney", "m2_kearney_sd");
+		AddObjectiveNPCWaypoint( "kearney", "m2_kearney_walk1" );
+		AddObjectiveNPCWaypoint( "kearney", "m2_kearney_walk2" );
+		AddObjectiveNPCWaypoint( "kearney", "m2_kearney_walk1" );
+		//AddObjectiveNPCWaypoint( "kearney", "m2_kearney_sd" );
+		SetTalkToTarget("kearney", 0, -0.5);
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis02_02.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide("m2_bestside");
+		SetDialogueInfo("bart","kearney","fireworks",0);
+		SetDialoguePositions("m2_bart_talk","m2_kearney_sd","m2_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

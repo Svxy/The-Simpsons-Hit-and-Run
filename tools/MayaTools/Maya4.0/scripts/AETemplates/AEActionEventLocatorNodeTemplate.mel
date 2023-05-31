@@ -1,0 +1,34 @@
+global proc AEActionEventLocatorNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Locator Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+
+			editorTemplate -addControl "exportTransform";
+		editorTemplate -endLayout;
+
+        editorTemplate -beginLayout "Action Attribute" -collapse false;
+            editorTemplate -addControl "actionObject";
+            editorTemplate -addControl "joint";
+            editorTemplate -addControl "action";
+            editorTemplate -addControl "buttonInput";
+            editorTemplate -addControl "shouldTransform";
+		editorTemplate -endLayout;
+       
+		editorTemplate -beginLayout "Triggers" -collapse 0;
+            
+			editorTemplate -callCustom "AEWBTriggerButtonNew"
+					"AEWBTriggerButtonReplace"
+					"message";
+
+		editorTemplate -endLayout;
+        
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

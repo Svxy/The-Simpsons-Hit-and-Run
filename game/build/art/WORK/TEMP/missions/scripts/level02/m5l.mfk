@@ -1,0 +1,13 @@
+LoadP3DFile("art\missions\level02\m5.p3d");
+
+LoadDisposableCar("art\cars\cletu_v.p3d","cletu_v","OTHER");
+LoadDisposableCar("art\cars\apu_v.p3d","apu_v","AI");
+
+LoadP3DFile("art\missions\level02\roadkill.p3d");
+LoadP3DFile("art\missions\level02\satellite.p3d"); 
+
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\kburger.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\vehicle\apu_v.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\object\flatmeat.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\object\setelite.p3d" );
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\char\cletus.p3d" );

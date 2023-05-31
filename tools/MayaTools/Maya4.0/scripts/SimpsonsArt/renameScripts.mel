@@ -1,0 +1,313 @@
+// Rename Shape and BV node
+// Alias|Wavefront Script File
+//
+// Creation Date:	2001
+// Author:		(Novy) Gurdarshan Dhillon
+//
+//
+//
+// Description:
+//			Rename the transform, shape, and BV nodes in a hierarchy
+//			to a specified name.
+//			
+//
+//
+// Input Arguments:
+//			None.
+// Return Values:
+//			None.
+// renameShape
+//
+
+global proc renameShape(string $newName)
+{
+	if (`size($newName)`>0)
+	{
+		string $objects[] = `ls -sl`;
+
+		for ($object in $objects)
+		{
+			string $children[];
+			clear ($children);
+			int $count = 1;	
+			int $count2 = 1;
+			if(`nodeType $object` == "transform")
+			{	
+				$object = `rename $object $newName`;
+				print ("\nTopnode : " + $object);
+				//for each object in list get the sub objects.
+				$children = `listRelatives -ad -pa $object`;
+			}
+			if(`nodeType $object` == "joint")
+			{
+				$children[0]= $object;
+			}
+			for($child in $children)
+			{
+				// check if the subobjects are transform and continue
+				string $postfix = "";
+				if(`nodeType $child` == "transform")
+				{
+					print ("\nTransform : " + $child);
+					$child = `rename $child ($newName + $count)`;
+					string $shapes[] = `listRelatives -s $child`;
+					for ($shape in $shapes)
+					{
+						if(`nodeType $shape` == "mesh")
+						{
+							print ("\nMesh : " + $shape);
+							rename $shape ($newName + $count + "Shape");
+						}
+					}
+					$count++;
+				}
+				// check if the sub objects are joints and continue
+				else if(`nodeType $child` == "joint")
+				{
+					print ("\nTransform : " + $child);
+					$child = `rename $child ($newName + $count + "_BV")`;
+					string $shapes[] = `listRelatives -s $child`;
+					for ($shape in $shapes)
+					{
+						if(`nodeType $shape` == "p3dBoundVolShape")
+						{
+							print ("\nMesh : " + $shape);
+							rename $shape ($newName + $count + "_BV" + "Shape");
+						}
+					}
+					$count++;
+				}
+			}
+		}
+	}
+}
+
+
+// Rename Texture node
+// Alias|Wavefront Script File
+//
+// Creation Date:	20 March. 2001
+// Author:		(Novy) Gurdarshan Dhillon
+//
+//
+//
+// Description:
+//			Renames the texture node to corrisponde to the
+//			image file that it contains.  Also outputs the
+//			images resolution.
+//			
+//
+//
+// Input Arguments:
+//			None.
+// Return Values:
+//			None.
+// renameTexture
+//
+
+global proc renameTexture()
+{
+	string $files[] = `ls -type "file"`;
+	string $imageName;
+	print ("\nRename Info");
+	for ($file in $files)
+	{
+		print ("\n-------------------------------------");
+		$imageName = `getAttr ($file + ".fileTextureName")`;
+		string $path[];
+		string $token[];
+		tokenize $imageName "/" $path;
+		tokenize $path[(`size $path` -1)] "." $token;
+		$file = `rename $file ($token[0] + "_t")`;
+		string $fileConnections[] = `listConnections ($file + ".outColor")`;
+
+		float $res[] = `getAttr ($file + ".outSize")`;
+		print ("\nFile:     " + $imageName + "   " + $res[0] + " × " + $res[1]);
+		print ("\nFile Texture Node: " + $file);
+		for ($con in $fileConnections)
+		{
+			string $match1;
+			string $match2;
+			string $nodeType = `nodeType $con`;
+			$match1 = `match "Texture" $nodeType`;
+			$match2 = `match "Shader" $nodeType`;
+			if (`size $match1` > 0)
+			{
+				if(`nodeType $con` == "layeredTexture")
+				{
+					string $layeredShaderColor1Con[] = `listConnections ($con + ".inputs[0].color")`;
+					if(`nodeType $layeredShaderColor1Con[0]` == "file")
+					{
+						string $image = `getAttr ($layeredShaderColor1Con[0] + ".fileTextureName")`;
+						string $path[];
+						string $token[];
+						int $size = `tokenize $image "/" $path`;
+						tokenize $path[$size -1] "." $token;
+						$con = `rename $con ($token[0] + "_layered")`;
+						print ("\nLayered Texture Node: " + $con);
+					}
+				}
+			}
+			else if (`size $match2` > 0)
+			{
+				string $shadingEngines[];
+				string $token[];
+				if(`nodeType $con` == "pure3dLayeredShader")
+				{
+					string $layeredShaderColor1Con[] = `listConnections ($con + ".bottomtex")`;
+					if(`nodeType $layeredShaderColor1Con[0]` == "file")
+					{
+						string $image = `getAttr ($layeredShaderColor1Con[0] + ".fileTextureName")`;
+						string $path[];
+						int $size = `tokenize $image "/" $path`;
+						tokenize $path[$size -1] "." $token;
+						$con = `rename $con ($token[0] + "_m")`;
+						$shadingEngines = `listConnections ($con + ".outColor")`;
+						print ("\nMaterial Node: " + $con);
+					}
+				}
+				else
+				{
+					string $layeredShaderColor1Con[] = `listConnections ($con + ".color")`;
+					if(`nodeType $layeredShaderColor1Con[0]` == "file")
+					{
+						string $image = `getAttr ($layeredShaderColor1Con[0] + ".fileTextureName")`;
+						string $path[];
+						int $size = `tokenize $image "/" $path`;
+						tokenize $path[$size -1] "." $token;
+						$con = `rename $con ($token[0] + "_m")`;
+						$shadingEngines = `listConnections ($con + ".outColor")`;
+						print ("\nMaterial Node: " + $con);
+					}
+				}
+				for ($se in $shadingEngines)
+				{
+					$se = `rename $se ($token[0] + "_shg")`;
+					print ("\nShading Engine: " + $se);
+				}
+			}
+		}
+	}
+}
+
+
+global proc fileRes()
+{
+	string $textures[] = `ls -type "file"`;
+	for($texture in $textures)
+	{
+		string $attr = $texture + ".fileTextureName";
+		string $file = `getAttr $attr`;
+		string $attr = $texture + ".outSize";
+		float $res[] = `getAttr $attr`;
+		print ("\n" + $file + "   " + $res[0] + " × " + $res[1]);
+	}
+}
+
+global proc removeShapefromNode()
+{
+	string $transforms[] = `ls -sl -tr -l`;
+	if(size($transforms))
+	{
+		for($transform in $transforms)
+		{
+			string $relatives[] = `listRelatives -ad -f $transform`;
+			if (size($relatives))
+			{
+				for ($child in $relatives)
+				{
+					if(`nodeType($child)` == "mesh")
+					{
+						string $path[];
+						int $num = `tokenize $child "|" $path`;
+						rename $child $path[$num-2];
+					}
+				}
+			}
+			else
+			{
+				error("Empty Transform Node!");
+
+			}
+		}
+	}
+	else
+	{error ("Please select a transform node.");}
+}
+
+global proc renameTextureOld()
+{
+	string $textures[] = `ls -type "file" -type "ramp"`;
+	for($texture in $textures)
+	{
+		string $attr;
+		string $image[];
+		string $file;
+		int $num;
+		int $size;
+		string $name;
+		string $fileNode;
+		if (`nodeType $texture` == "file")
+		{
+			$attr = $texture + ".fileTextureName";
+			$file = `getAttr $attr`;
+			
+			$num = `tokenize $file "/" $image`;
+			$num = `tokenize $image[$num-1] "." $image`;
+			$attr = $texture + ".outSize";
+			float $res[] = `getAttr $attr`;
+			print ("\nFile: " + $file + "   " + $res[0] + " × " + $res[1]);
+			$size = size($image[0]);
+			$name = `substring $image[0] 1 ($size)`;
+			$fileNode = `rename $texture ($name + "_t")`;
+			print ("\nFileNode: " + $fileNode);
+		}
+		else if(`nodeType $texture` == "ramp")
+		{
+			print ("ramp   " + $texture);
+			$image[0] = $texture;
+			$fileNode = $texture;
+		}
+		$attr = $fileNode + ".outColor";
+		string $shaders[] = `listConnections -d 1 -s 0 $attr`;
+		// string $shader = $shaders[(size($shaders)-1)];
+		for ($shader in $shaders)
+		{
+			if ($shader != "lambert1" || $shader != "particleCloud1")
+			{
+				string $colorCon[];
+				if (`nodeType $shader` != "layeredTexture")
+				{
+					$colorCon = `listConnections ($shader + ".color")`;
+					//if (size($colorCon[0]) > 0)
+					{
+						$name = $image[0] + "_m";
+					}
+				}
+				else
+				{
+					$colorCon = `listConnections ($shader + ".inputs[0].color")`;
+					if (size($colorCon[0]) > 0)
+					{
+						$name = $image[0] + "_layered";
+					}
+				}
+
+				string $shadeNode = `rename $shader ($name)`;
+				print ("\nShading Node: " + $shadeNode);
+				$attr = $shadeNode + ".outColor";
+				string $engines[] = `listConnections -d 1 -s 0 $attr`;
+				if (size($engines))
+				{
+					for ($engine in $engines)
+					{
+						$name = $image[0] + "_shg";
+						string $engineNode = `rename $engine ($name)`;
+						print ("\nShading Engine: " + $engineNode);
+					}
+				}
+			}
+		}
+		print ("\n----------------------------------------\n");
+	}
+}

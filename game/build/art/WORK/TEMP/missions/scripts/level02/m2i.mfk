@@ -1,0 +1,261 @@
+SelectMission("m2");
+
+SetMissionResetPlayerInCar("m2_carstart");
+SetDynaLoadData("l2z3.p3d;l2r2.p3d;l2r3.p3d;");
+
+UsePedGroup(4);
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+	SetMusicState("Mission2", "Stage1");
+CloseStage();
+
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetMaxTraffic(2);
+	SetHUDIcon( "moes" );
+	SetStageMessageIndex(165);
+	//SetStageMusicAlwaysOn();
+	AddObjective("goto");
+		AddNPC("otto","m2_otto2");
+		SetDestination("moes", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(60);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(160);
+	SetHUDIcon( "otto" );
+	AddObjective("talkto");
+		AddNPC("otto","m2_otto2");
+		SetTalkToTarget("otto", 0, 0); // 0 - eclamation, 1 is gift, with optional hieight offset
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		SetCamBestSide( "bestside_ottocam" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		SetDialogueInfo("bart","otto","frog",0);
+		SetDialoguePositions("m2_otto_bart","m2_otto2","level2_carstart");
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	SetStageMessageIndex(166);
+	SetHUDIcon( "firework" );
+	AddObjective("goto");
+		SetDestination("m2_fireworks_locator2","firewrks");
+	CloseObjective();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(1);
+	SetHUDIcon( "moes" );
+	SetStageMessageIndex(52);
+	AddObjective("interior");
+		SetDestination("moe1", "moes_mission_doorstar"); // use name of interiors entry locator
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetHUDIcon( "moe" );
+	SetStageMessageIndex(83);
+	AddObjective("talkto");
+		AddNPC("moe","m2_moes1", moe1);
+		SetTalkToTarget("moe", 0, 0, "3.0"); // 0 - eclamation, 1 is gift, with optional height offset
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "dialogue_no" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		//SetConversationCam( 3, "pc_far" );
+		SetDialogueInfo("bart","moe","minor",0);
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	SetHUDIcon( "firework" );
+	SetStageMessageIndex(166);
+	ShowStageComplete();
+	AddObjective("goto", "neither");
+		SetDestination("m2_fireworks_locator1","i_firewk");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetMaxTraffic(2);
+	SetStageMessageIndex(168);
+	SetHUDIcon( "townhall" );
+	SetStageMusicAlwaysOn();
+	AddObjective("goto");
+		AddNPC("snake","m2_snake3");
+		SetDestination("cityhall", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(40);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(60);
+	SetHUDIcon( "snake" );
+	AddObjective("talkto");
+		AddNPC("snake","m2_snake3");
+		SetTalkToTarget("snake", 0, 0); // 0 - eclamation, 1 is gift, with optional hieight offset
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide( "snake_bestside" );
+		SetDialogueInfo("bart","snake","tijuana",0);
+		SetDialoguePositions("m2_snake_bart","m2_snake3","level2_carstart");
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	SetStageMessageIndex(166);
+	SetHUDIcon( "firework" );
+	AddObjective("goto", "neither");
+		SetDestination("m2_fireworks_locator3","firewrks");
+	CloseObjective();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(169);
+	SetHUDIcon( "police" );
+	SetMaxTraffic(3);
+	SetStageMusicAlwaysOn();
+	AddObjective("goto", "both");
+		AddStageVehicle("wiggu_v","m2_wiggu_carstart","NULL", "Missions\level02\M2chase.con", "wiggum");
+		AddNPC("ralph","m2_ralph4");
+		SetDestination("police_station", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(45);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(53);
+	SetHUDIcon( "ralph" );
+	AddObjective("talkto", "both");
+		AddNPC("ralph","m2_ralph4");
+		SetTalkToTarget("ralph", 0, -0.5); // 0 - eclamation, 1 is gift, with optional height offset
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetCamBestSide( "m2_bestside_ralphcam" );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		SetDialogueInfo("bart","ralph","stash",0);
+		SetDialoguePositions("m2_ralph_bart","m2_ralph4","level2_carstart");
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	SetStageMessageIndex(166);
+	SetHUDIcon( "firework" );
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		SetDestination("m2_fireworks_locator4","firewrks");
+	CloseObjective();
+	ShowStageComplete();
+	SetCompletionDialog("life","wiggum");
+CloseStage();
+
+AddStage(4);
+	SetStageMessageIndex(12);
+	AddObjective("getin","neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0, "final");
+	SetStageMessageIndex(40); 
+	SetHUDIcon( "wiggu_v" );
+	SetMaxTraffic(2);
+	ActivateVehicle("wiggu_v","NULL","chase"); 
+	AddObjective("losetail","neither");
+		SetObjTargetVehicle("wiggu_v");
+		SetObjDistance(150);
+	CloseObjective();
+	SetStageTime(90);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("fought");
+	SetMusicState("Mission2", "Stage2");
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

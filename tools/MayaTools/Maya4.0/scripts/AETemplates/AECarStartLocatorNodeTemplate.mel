@@ -1,0 +1,21 @@
+global proc AECarStartLocatorNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Locator Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+		editorTemplate -endLayout;
+        
+		editorTemplate -beginLayout "Car Start Data" -collapse 0;
+			editorTemplate -addControl "isParked";
+			editorTemplate -addControl "specialName";
+		editorTemplate -endLayout;
+
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

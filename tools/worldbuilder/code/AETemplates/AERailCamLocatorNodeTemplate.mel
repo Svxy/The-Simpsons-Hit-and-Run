@@ -1,0 +1,56 @@
+global proc AERailCamLocatorNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Locator Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+		editorTemplate -endLayout;
+
+        editorTemplate -beginLayout "Rail Attributes" -collapse false;
+            editorTemplate -addControl "cutInOut";
+			editorTemplate -addControl "carOnly";
+            editorTemplate -addControl "onFootOnly";
+			editorTemplate -addControl "reset";
+			editorTemplate -addControl "noFOV";
+            editorTemplate -addControl "camRail";
+            editorTemplate -addControl "behaviour";
+            editorTemplate -addControl "minRadius";
+            editorTemplate -addControl "maxRadius";
+
+            editorTemplate -addSeparator;
+
+            editorTemplate -addControl "trackRail";
+            editorTemplate -addControl "trackDist";
+            editorTemplate -addControl "reverseSense";
+            editorTemplate -addControl "fieldOfView";
+            editorTemplate -addControl "facingOffset";
+            editorTemplate -addControl "axisPlay";
+
+            editorTemplate -addSeparator;
+
+            editorTemplate -addControl "positionLag";
+            editorTemplate -addControl "targetLag";
+
+            editorTemplate -addSeparator;
+
+            editorTemplate -addControl"active";
+            editorTemplate -addControl "target";
+
+            editorTemplate -addSeparator;
+			editorTemplate -addControl "transitionTo"; 
+
+            editorTemplate -callCustom "AEWBTargetSelectNew"
+                    "AEWBTargetSelectReplace"
+                    "message";
+
+		editorTemplate -endLayout;
+
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

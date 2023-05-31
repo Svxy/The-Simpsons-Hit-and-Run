@@ -1,0 +1,36 @@
+global proc selectInst()
+{
+	string $orig[];
+		clear($orig);
+		$orig = `ls -sl -tr`;
+	string $origShape[];
+		clear($origShape);
+		$origShape = `ls -sl -dag -lf`;
+	string $token[];
+		clear($token);
+	int $numTok;
+		$numTok = `tokenize $origShape[0] "|" $token`;
+	string $select[];
+		clear($select);
+	int $index;
+	int $count;
+		$count = 0;
+//	if(`strcmp $orig[0] $token[0]`!=0)
+//	{	error "No Original Geometry Selected!!";}
+//	else
+//	{
+		string $objects[]= `ls -tr`;
+		for($object in $objects)
+		{
+			string $objShape[] = `ls -dag -lf $object`;
+			if(`strcmp $origShape[0] $objShape[0]` == 0)
+			{
+				select -add $object;
+				$select[$count] = $object;
+				$count++;
+			}
+		}
+//	}
+	print "\n";
+	print $select;
+}

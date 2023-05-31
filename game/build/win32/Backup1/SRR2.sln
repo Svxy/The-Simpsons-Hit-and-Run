@@ -1,0 +1,232 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRR2", "SRR2.vcproj", "{4759F797-EA05-4642-832A-A8BB580C577B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "choreo", "..\..\libs\choreo\build\win32\choreo.vcproj", "{D3D85EF1-6E12-478E-85F8-95974C430774}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpng", "..\..\libs\pure3d\build\win32\libpng.vcproj", "{492CA803-8196-4C47-A3BD-84B7C2D9514D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pddidx8", "..\..\libs\pure3d\build\win32\pddidx8.vcproj", "{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pure3D", "..\..\libs\pure3d\build\win32\Pure3D.vcproj", "{67904E19-DE3B-4707-8F96-13AA64DBF58A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "..\..\libs\pure3d\build\win32\zlib.vcproj", "{A21A1BC1-C10B-4260-B494-A51A1E79A40E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radcontent", "..\..\libs\radcontent\build\win32\radcontent.vcproj", "{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radcore", "..\..\libs\radcore\build\win32\radcore.vcproj", "{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radmath", "..\..\libs\radmath\build\win32\radmath.vcproj", "{906E914F-EB63-4B12-9F07-00A727472080}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radmovie", "..\..\libs\radmovie\build\win32\radmovie.vcproj", "{DFAABD95-D93E-4ADE-85ED-E75989E95419}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radscript", "..\..\libs\radscript\build\win32\radscript.vcproj", "{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radsound", "..\..\libs\radsound\build\win32\radsound.vcproj", "{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScroobyLib", "..\..\libs\scrooby\build\win32\ScroobyLib.vcproj", "{60778B7D-0909-46D2-896F-8805097224A3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sim", "..\..\libs\sim\build\win32\sim.vcproj", "{9DCF328B-47FD-4E70-8617-2256EF09FF62}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "poser", "..\..\libs\poser\build\win32\poser.vcproj", "{C38A04B6-53B9-4731-8BE5-396D0D356097}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "radmusic", "..\..\libs\radmusic\build\win32\radmusic.vcproj", "{FD6569BA-9760-436F-8A03-6570BC25F2E4}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 17
+		SccProjectUniqueName0 = SRR2.vcproj
+		SccLocalPath0 = ..\\..
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection0 = build\\win32\\
+		SccProjectUniqueName1 = ..\\..\\libs\\choreo\\build\\win32\\choreo.vcproj
+		SccLocalPath1 = ..\\..\\libs\\choreo
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection1 = build\\win32\\
+		SccProjectUniqueName2 = ..\\..\\libs\\pure3d\\build\\win32\\libpng.vcproj
+		SccLocalPath2 = ..\\..\\libs\\pure3d\\build\\win32
+		CanCheckoutShared = true
+		SccProjectUniqueName3 = ..\\..\\libs\\pure3d\\build\\win32\\pddidx8.vcproj
+		SccLocalPath3 = ..\\..\\libs\\pure3d
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection3 = build\\win32\\
+		SccProjectUniqueName4 = ..\\..\\libs\\pure3d\\build\\win32\\Pure3D.vcproj
+		SccLocalPath4 = ..\\..\\libs\\pure3d
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection4 = build\\win32\\
+		SccProjectUniqueName5 = ..\\..\\libs\\pure3d\\build\\win32\\zlib.vcproj
+		SccLocalPath5 = ..\\..\\libs\\pure3d\\build\\win32
+		CanCheckoutShared = true
+		SccProjectUniqueName6 = ..\\..\\libs\\radcontent\\build\\win32\\radcontent.vcproj
+		SccLocalPath6 = ..\\..\\libs\\radcontent
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection6 = build\\win32\\
+		SccProjectUniqueName7 = ..\\..\\libs\\radcore\\build\\win32\\radcore.vcproj
+		SccLocalPath7 = ..\\..\\libs\\radcore
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection7 = build\\win32\\
+		SccProjectUniqueName8 = ..\\..\\libs\\radmath\\build\\win32\\radmath.vcproj
+		SccLocalPath8 = ..\\..\\libs\\radmath\\build\\win32
+		CanCheckoutShared = true
+		SccProjectUniqueName9 = ..\\..\\libs\\radmovie\\build\\win32\\radmovie.vcproj
+		SccLocalPath9 = ..\\..\\libs\\radmovie
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection9 = build\\win32\\
+		SccProjectUniqueName10 = ..\\..\\libs\\radscript\\build\\win32\\radscript.vcproj
+		SccLocalPath10 = ..\\..\\libs\\radscript
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection10 = build\\win32\\
+		SccProjectUniqueName11 = ..\\..\\libs\\radsound\\build\\win32\\radsound.vcproj
+		SccLocalPath11 = ..\\..\\libs\\radsound
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection11 = build\\win32\\
+		SccProjectUniqueName12 = ..\\..\\libs\\scrooby\\build\\win32\\ScroobyLib.vcproj
+		SccLocalPath12 = ..\\..\\libs\\scrooby
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection12 = build\\win32\\
+		SccProjectUniqueName13 = ..\\..\\libs\\sim\\build\\win32\\sim.vcproj
+		SccLocalPath13 = ..\\..\\libs\\sim
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection13 = build\\win32\\
+		SccProjectUniqueName14 = ..\\..\\libs\\poser\\build\\win32\\poser.vcproj
+		SccLocalPath14 = ..\\..\\libs\\poser
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection14 = build\\win32\\
+		SccProjectUniqueName15 = ..\\..\\libs\\radmusic\\build\\win32\\radmusic.vcproj
+		SccLocalPath15 = ..\\..\\libs\\radmusic
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection15 = build\\win32\\
+		SccProjectName16 = Perforce\u0020Project
+		SccLocalPath16 = ..\\..
+		SccProvider16 = MSSCCI:Perforce\u0020SCM
+		CanCheckoutShared = true
+		SccProjectFilePathRelativizedFromConnection16 = build\\win32\\
+		SolutionUniqueID = {B86604A8-A591-4FBD-AF88-45865A5D8490}
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+		ConfigName.2 = Tune
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{4759F797-EA05-4642-832A-A8BB580C577B}.0 = {D3D85EF1-6E12-478E-85F8-95974C430774}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.1 = {492CA803-8196-4C47-A3BD-84B7C2D9514D}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.2 = {0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.3 = {C38A04B6-53B9-4731-8BE5-396D0D356097}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.4 = {67904E19-DE3B-4707-8F96-13AA64DBF58A}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.5 = {B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.6 = {B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.7 = {906E914F-EB63-4B12-9F07-00A727472080}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.8 = {DFAABD95-D93E-4ADE-85ED-E75989E95419}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.9 = {FD6569BA-9760-436F-8A03-6570BC25F2E4}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.10 = {E5114613-E9F3-42F5-BBD7-2C6606A36BE2}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.11 = {274D5705-B0A2-4629-8BCF-03ED96A7C9D0}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.12 = {60778B7D-0909-46D2-896F-8805097224A3}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.13 = {9DCF328B-47FD-4E70-8617-2256EF09FF62}
+		{4759F797-EA05-4642-832A-A8BB580C577B}.14 = {A21A1BC1-C10B-4260-B494-A51A1E79A40E}
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.0 = {492CA803-8196-4C47-A3BD-84B7C2D9514D}
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.1 = {906E914F-EB63-4B12-9F07-00A727472080}
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.2 = {A21A1BC1-C10B-4260-B494-A51A1E79A40E}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4759F797-EA05-4642-832A-A8BB580C577B}.Debug.ActiveCfg = Debug|Win32
+		{4759F797-EA05-4642-832A-A8BB580C577B}.Debug.Build.0 = Debug|Win32
+		{4759F797-EA05-4642-832A-A8BB580C577B}.Release.ActiveCfg = Release|Win32
+		{4759F797-EA05-4642-832A-A8BB580C577B}.Release.Build.0 = Release|Win32
+		{4759F797-EA05-4642-832A-A8BB580C577B}.Tune.ActiveCfg = Tune|Win32
+		{4759F797-EA05-4642-832A-A8BB580C577B}.Tune.Build.0 = Tune|Win32
+		{D3D85EF1-6E12-478E-85F8-95974C430774}.Debug.ActiveCfg = Debug|Win32
+		{D3D85EF1-6E12-478E-85F8-95974C430774}.Debug.Build.0 = Debug|Win32
+		{D3D85EF1-6E12-478E-85F8-95974C430774}.Release.ActiveCfg = Release|Win32
+		{D3D85EF1-6E12-478E-85F8-95974C430774}.Release.Build.0 = Release|Win32
+		{D3D85EF1-6E12-478E-85F8-95974C430774}.Tune.ActiveCfg = Tune|Win32
+		{D3D85EF1-6E12-478E-85F8-95974C430774}.Tune.Build.0 = Tune|Win32
+		{492CA803-8196-4C47-A3BD-84B7C2D9514D}.Debug.ActiveCfg = Debug|Win32
+		{492CA803-8196-4C47-A3BD-84B7C2D9514D}.Debug.Build.0 = Debug|Win32
+		{492CA803-8196-4C47-A3BD-84B7C2D9514D}.Release.ActiveCfg = Release|Win32
+		{492CA803-8196-4C47-A3BD-84B7C2D9514D}.Release.Build.0 = Release|Win32
+		{492CA803-8196-4C47-A3BD-84B7C2D9514D}.Tune.ActiveCfg = Tune|Win32
+		{492CA803-8196-4C47-A3BD-84B7C2D9514D}.Tune.Build.0 = Tune|Win32
+		{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}.Debug.ActiveCfg = Debug|Win32
+		{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}.Debug.Build.0 = Debug|Win32
+		{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}.Release.ActiveCfg = Release|Win32
+		{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}.Release.Build.0 = Release|Win32
+		{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}.Tune.ActiveCfg = Tune|Win32
+		{0B1A88B5-C8C8-4B05-BAE2-D4D31D6F9B9D}.Tune.Build.0 = Tune|Win32
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.Debug.ActiveCfg = Debug|Win32
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.Debug.Build.0 = Debug|Win32
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.Release.ActiveCfg = Release|Win32
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.Release.Build.0 = Release|Win32
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.Tune.ActiveCfg = Tune|Win32
+		{67904E19-DE3B-4707-8F96-13AA64DBF58A}.Tune.Build.0 = Tune|Win32
+		{A21A1BC1-C10B-4260-B494-A51A1E79A40E}.Debug.ActiveCfg = Debug|Win32
+		{A21A1BC1-C10B-4260-B494-A51A1E79A40E}.Debug.Build.0 = Debug|Win32
+		{A21A1BC1-C10B-4260-B494-A51A1E79A40E}.Release.ActiveCfg = Release|Win32
+		{A21A1BC1-C10B-4260-B494-A51A1E79A40E}.Release.Build.0 = Release|Win32
+		{A21A1BC1-C10B-4260-B494-A51A1E79A40E}.Tune.ActiveCfg = Tune|Win32
+		{A21A1BC1-C10B-4260-B494-A51A1E79A40E}.Tune.Build.0 = Tune|Win32
+		{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}.Debug.ActiveCfg = Debug|Win32
+		{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}.Debug.Build.0 = Debug|Win32
+		{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}.Release.ActiveCfg = Release|Win32
+		{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}.Release.Build.0 = Release|Win32
+		{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}.Tune.ActiveCfg = Tune|Win32
+		{B5C1C3A8-11BC-4D82-A7EB-A85B22DB74EA}.Tune.Build.0 = Tune|Win32
+		{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}.Debug.ActiveCfg = Debug|Win32
+		{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}.Debug.Build.0 = Debug|Win32
+		{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}.Release.ActiveCfg = Release|Win32
+		{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}.Release.Build.0 = Release|Win32
+		{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}.Tune.ActiveCfg = Tune|Win32
+		{B923BE8F-A2B2-4C75-AAB0-4B842498A4AF}.Tune.Build.0 = Tune|Win32
+		{906E914F-EB63-4B12-9F07-00A727472080}.Debug.ActiveCfg = Debug|Win32
+		{906E914F-EB63-4B12-9F07-00A727472080}.Debug.Build.0 = Debug|Win32
+		{906E914F-EB63-4B12-9F07-00A727472080}.Release.ActiveCfg = Release|Win32
+		{906E914F-EB63-4B12-9F07-00A727472080}.Release.Build.0 = Release|Win32
+		{906E914F-EB63-4B12-9F07-00A727472080}.Tune.ActiveCfg = Tune|Win32
+		{906E914F-EB63-4B12-9F07-00A727472080}.Tune.Build.0 = Tune|Win32
+		{DFAABD95-D93E-4ADE-85ED-E75989E95419}.Debug.ActiveCfg = Debug|Win32
+		{DFAABD95-D93E-4ADE-85ED-E75989E95419}.Debug.Build.0 = Debug|Win32
+		{DFAABD95-D93E-4ADE-85ED-E75989E95419}.Release.ActiveCfg = Release|Win32
+		{DFAABD95-D93E-4ADE-85ED-E75989E95419}.Release.Build.0 = Release|Win32
+		{DFAABD95-D93E-4ADE-85ED-E75989E95419}.Tune.ActiveCfg = Tune|Win32
+		{DFAABD95-D93E-4ADE-85ED-E75989E95419}.Tune.Build.0 = Tune|Win32
+		{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}.Debug.ActiveCfg = Debug|Win32
+		{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}.Debug.Build.0 = Debug|Win32
+		{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}.Release.ActiveCfg = Release|Win32
+		{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}.Release.Build.0 = Release|Win32
+		{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}.Tune.ActiveCfg = Tune|Win32
+		{E5114613-E9F3-42F5-BBD7-2C6606A36BE2}.Tune.Build.0 = Tune|Win32
+		{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}.Debug.ActiveCfg = Debug|Win32
+		{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}.Debug.Build.0 = Debug|Win32
+		{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}.Release.ActiveCfg = Release|Win32
+		{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}.Release.Build.0 = Release|Win32
+		{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}.Tune.ActiveCfg = Tune|Win32
+		{274D5705-B0A2-4629-8BCF-03ED96A7C9D0}.Tune.Build.0 = Tune|Win32
+		{60778B7D-0909-46D2-896F-8805097224A3}.Debug.ActiveCfg = Debug|Win32
+		{60778B7D-0909-46D2-896F-8805097224A3}.Debug.Build.0 = Debug|Win32
+		{60778B7D-0909-46D2-896F-8805097224A3}.Release.ActiveCfg = Release|Win32
+		{60778B7D-0909-46D2-896F-8805097224A3}.Release.Build.0 = Release|Win32
+		{60778B7D-0909-46D2-896F-8805097224A3}.Tune.ActiveCfg = Tune|Win32
+		{60778B7D-0909-46D2-896F-8805097224A3}.Tune.Build.0 = Tune|Win32
+		{9DCF328B-47FD-4E70-8617-2256EF09FF62}.Debug.ActiveCfg = Debug|Win32
+		{9DCF328B-47FD-4E70-8617-2256EF09FF62}.Debug.Build.0 = Debug|Win32
+		{9DCF328B-47FD-4E70-8617-2256EF09FF62}.Release.ActiveCfg = Release|Win32
+		{9DCF328B-47FD-4E70-8617-2256EF09FF62}.Release.Build.0 = Release|Win32
+		{9DCF328B-47FD-4E70-8617-2256EF09FF62}.Tune.ActiveCfg = Tune|Win32
+		{9DCF328B-47FD-4E70-8617-2256EF09FF62}.Tune.Build.0 = Tune|Win32
+		{C38A04B6-53B9-4731-8BE5-396D0D356097}.Debug.ActiveCfg = Debug|Win32
+		{C38A04B6-53B9-4731-8BE5-396D0D356097}.Debug.Build.0 = Debug|Win32
+		{C38A04B6-53B9-4731-8BE5-396D0D356097}.Release.ActiveCfg = Release|Win32
+		{C38A04B6-53B9-4731-8BE5-396D0D356097}.Release.Build.0 = Release|Win32
+		{C38A04B6-53B9-4731-8BE5-396D0D356097}.Tune.ActiveCfg = Tune|Win32
+		{C38A04B6-53B9-4731-8BE5-396D0D356097}.Tune.Build.0 = Tune|Win32
+		{FD6569BA-9760-436F-8A03-6570BC25F2E4}.Debug.ActiveCfg = Debug|Win32
+		{FD6569BA-9760-436F-8A03-6570BC25F2E4}.Debug.Build.0 = Debug|Win32
+		{FD6569BA-9760-436F-8A03-6570BC25F2E4}.Release.ActiveCfg = Release|Win32
+		{FD6569BA-9760-436F-8A03-6570BC25F2E4}.Release.Build.0 = Release|Win32
+		{FD6569BA-9760-436F-8A03-6570BC25F2E4}.Tune.ActiveCfg = Tune|Win32
+		{FD6569BA-9760-436F-8A03-6570BC25F2E4}.Tune.Build.0 = Tune|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

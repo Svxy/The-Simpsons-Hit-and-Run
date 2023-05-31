@@ -1,0 +1,228 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// TE_main.mel
+//
+// Description: Installs the Object Snapper (OS) interface.
+//              As a convention all Object Snapper global procedures 
+//              and global variables are prefixed with "os_".  All commands 
+//              exposed through OS plugins are prefixed with "OS_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created March 18 2002 -- Cary Brisebois
+//-----------------------------------------------------------------------------
+
+
+global float $gOS_Offset = 0.10;
+
+
+//-----------------------------------------------------------------------------
+// o s _ b r e a k p o i n t 
+//
+// Synopsis:
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc os_breakpoint( string $tag )
+{
+    confirmDialog -m ( "BreakPoint: " + $tag );
+}
+
+//-----------------------------------------------------------------------------
+// o s _ M C B _ A b o u t
+//
+// Synopsis:    Display an About Object Snapper window.
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc os_MCB_About()
+{
+	string $pluginVersion = "1.0";
+
+    string $message = ( "\nSimpsons Road Rage Object Snapper.\n\n" +
+                        "Release " + $pluginVersion + "\n" +
+                        "(c) 2001, Radical Entertainment, Ltd.\n\n" );
+
+
+    confirmDialog -title "About Object Snapper"
+                  -message $message
+                  -button "OK"
+                  -defaultButton "OK";
+}
+
+//-----------------------------------------------------------------------------
+// o s _ d o M a i n M e n u I t e m s
+//
+// Synopsis:    Creates the OS menu on the menu handle passed in.
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc os_doMainMenuItems( string $menu )
+{
+    menu -edit -tearOff true -allowOptionBoxes true $menu;
+
+        menuItem -label "Snap Single Selected" -command ( "os_MCB_SnapSingleSelected()" );
+
+        menuItem -divider true; 
+
+        menuItem -label "Snap All Selected" -command ( "os_MCB_SnapSelected()" );
+
+        menuItem -divider true; 
+
+        menuItem -label "Snap Tree Line" -command ( "os_MCB_SnapTreeLine()" );
+
+        menuItem -divider true; 
+
+        menuItem -label "About" -command "os_MCB_About()";
+
+        menuItem -optionBox true -command "os_MCB_OSOptions()";
+
+    setParent -m ..;
+}
+
+//-----------------------------------------------------------------------------
+// o s _ I n s t a l l U I
+//
+// Synopsis:
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc os_InstallUI()
+{
+
+    global string $gMainWindow;
+
+    //
+    // Install OS menu as a root menu.
+    //
+    if ( `menu -exists os_MainMenu` ) deleteUI os_MainMenu;
+    menu -label "Object Snapper" -allowOptionBoxes true -parent $gMainWindow os_MainMenu; 
+
+    os_doMainMenuItems "os_MainMenu";
+}
+
+//==============================================================================
+// global proc os_RemoveUI
+//==============================================================================
+// Description: Comment
+//
+// Parameters:  ()
+//
+// Return:      global 
+//
+//==============================================================================
+global proc os_RemoveUI()
+{
+    if ( `menu -exists os_MainMenu` ) deleteUI os_MainMenu;
+    if ( `window -exists os_OptionWindow` ) deleteUI os_OptionWindow;
+}
+
+//==============================================================================
+// global proc os_MCB_SnapSelected
+//==============================================================================
+// Description: Comment
+//
+// Parameters:  ()
+//
+// Return:      global 
+//
+//==============================================================================
+global proc os_MCB_SnapSelected()
+{
+    global float $gOS_Offset;
+
+    OS_SnapSelected( $gOS_Offset, 0 );
+}
+ 
+
+//==============================================================================
+// global proc os_MCB_SnapSingleSelected
+//==============================================================================
+// Description: Comment 
+//
+// Parameters:  ()
+//
+// Return:      global 
+//
+//==============================================================================
+global proc os_MCB_SnapSingleSelected()
+{
+    global float $gOS_Offset;
+
+    OS_SnapSelected( $gOS_Offset, 1 );
+}
+
+//=============================================================================
+// global proc os_MCB_SnapTreeLine
+//=============================================================================
+// Description: Comment
+//
+// Parameters:  ()
+//
+// Return:      global 
+//
+//=============================================================================
+global proc os_MCB_SnapTreeLine()
+{
+    global float $gOS_Offset;
+
+    OS_SnapSelected( $gOS_Offset, 2 );
+}
+
+//==============================================================================
+// global proc os_MCB_OSOptions
+//==============================================================================
+// Description: Comment
+//
+// Parameters:  ()
+//
+// Return:      global 
+//
+//==============================================================================
+global proc os_MCB_OSOptions()
+{
+    global float $gOS_Offset;
+
+    if ( `window -exists os_OptionWindow` ) deleteUI os_OptionWindow;
+
+    window -title "Object Snapper Options" os_OptionWindow;
+
+    columnLayout;
+
+        rowLayout -nc 2;
+
+            text -label "Offset (M):";
+
+            floatField -min -10.0 -max 10.0 -value $gOS_Offset -cc ("$gOS_Offset = #1");
+
+        setParent ..;
+
+    setParent ..;
+
+    showWindow;
+}
+
+evalDeferred "os_InstallUI";

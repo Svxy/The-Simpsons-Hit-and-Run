@@ -1,0 +1,4 @@
+LoadP3DFile("art\missions\level02\demo.p3d");
+
+LoadDisposableCar("art\cars\krust_v.p3d","krust_v","AI");
+

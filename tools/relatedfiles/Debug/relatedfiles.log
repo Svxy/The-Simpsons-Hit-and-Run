@@ -1,0 +1,14 @@
+﻿Build started 11/7/2015 5:44:20 PM.
+     1>Project "G:\Code\Simpsons Hit&Run\tools\relatedfiles\relatedfiles.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../game/code/constants /I../../game/libs/radmath /I../../game/libs/pure3d/toollib/inc /I../../game/libs/pure3d/constants /I../../game/libs/pure3d/toollib/chunks16/inc /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D RAD_DEBUG /D RAD_PC /D RAD_WIN32 /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\game\libs\pure3d\toollib\src\tlDataChunk.cpp ..\..\game\libs\pure3d\toollib\toollib_extras.cpp
+         tlDataChunk.cpp
+     1>g:\code\simpsons hit&run\game\libs\pure3d\toollib\inc\chunkmanip.hpp(13): fatal error C1083: Cannot open include file: 'tlSmartPropChunk.hpp': No such file or directory
+         toollib_extras.cpp
+     1>g:\code\simpsons hit&run\game\libs\pure3d\toollib\inc\chunkmanip.hpp(13): fatal error C1083: Cannot open include file: 'tlSmartPropChunk.hpp': No such file or directory
+         Generating Code...
+     1>Done Building Project "G:\Code\Simpsons Hit&Run\tools\relatedfiles\relatedfiles.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.49

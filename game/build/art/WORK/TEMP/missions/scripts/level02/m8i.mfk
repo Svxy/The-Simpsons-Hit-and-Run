@@ -1,0 +1,9 @@
+SelectMission("m8");
+ 
+AddStage(0);
+	AddObjective("timer");
+		SetDurationTime(2);
+	CloseObjective();
+CloseStage();
+ 
+CloseMission();

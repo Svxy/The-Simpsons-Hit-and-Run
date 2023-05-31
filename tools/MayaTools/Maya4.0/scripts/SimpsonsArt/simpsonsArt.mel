@@ -1,0 +1,334 @@
+/* simpsonsArt.mel  
+
+    THIS IS AN UPDATE TO JEFF PIDSADNY'S SIMPSONS ART MENU SCRIPT.
+    THIS REVISION HAS MAINLY CHANGED THE LOOK OF THE GUI AND ADDED 
+    ICONS INSTEAD OF TEXT.
+
+    AUTHOR: ARYAN HANBECK 
+
+    JULY 03 2002
+
+*/
+ 
+//
+// SOURCE ALL SCRIPTS AND DEFINE GLOBAL PROCEDURES
+//
+
+
+//===========================================================================
+// validBMP
+//===========================================================================
+// Description: Maya's UI layout will BOMB if you attempt to create a UI
+//              control that contains an image (a 'symbolButton' for example)
+//              where the specified image does not exist.
+//
+//              This function queries the folders specified in the XBMLANGPATH 
+//              environment variable for the specified BMP image.  If the
+//              image is found, its name is returned.  If the image is not
+//              found, the default image "vacantCell.xpm" is returned instead.
+//
+//              Suggested use is to specify the image for a control by 
+//              wrapping it within validBMP(); e.g.:
+//
+//                  symbolButton -image ( validBMP( "myImage.bmp" );
+//
+// Constraints: 
+//
+//  Parameters: string $bmp: The name of the BMP image (no path, please).
+//
+//      Return: (string): If specified BMP is valid, the BMP name is
+//                        returned; if the BMP is not valid "vacantCell.xpm"
+//                        is returned.
+//
+//===========================================================================
+
+
+ proc string validBMP( string $bmp )
+{
+    string $validBMP = "vacantCell.xpm";
+    
+    string $pathEnv = `getenv XBMLANGPATH`;
+    string $paths[];
+    tokenize $pathEnv ";" $paths;
+    for ( $p in $paths )
+    {
+        string $bmpPath = ( $p + "/" + $bmp );
+        if ( `file -q -exists $bmpPath` )
+        {
+            $validBMP = $bmp;
+            break;
+        }
+    }
+    
+    return $validBMP;
+}
+
+
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/renameScripts.mel";
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/forceUniqueNames.mel"; 
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/optimizeShaders.mel"; 
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/mappedPrelightWindow.mel";
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/rndPoints.mel";
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/setShapeNode.mel";
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/yuya_copyFileTex.mel";
+source "C:/AW/Maya4.0/scripts/SimpsonsArt/uvz.mel";
+
+
+
+global proc setShapeNode() 
+{
+    source "C:/AW/Maya4.0/scripts/SimpsonsArt/setShapeNode.mel";setShapeNode;
+}
+
+global proc uvz()
+{
+    source "C:/AW/Maya4.0/scripts/SimpsonsArt/uvz.mel";
+}
+
+global proc nameSpaceGui() 
+{
+    source "C:/AW/Maya4.0/scripts/SimpsonsArt/nameSpaceGui.mel";
+}
+
+global proc renameTexture() 
+{
+    source "C:/AW/Maya4.0/scripts/SimpsonsArt/renameTexture.mel";renameTexture;
+}
+
+global proc simpsonsExporterOptions()
+{
+setAttr "p3dDefaultExporterSetting.exportVertexOffsetAnims" 0;
+setAttr "p3dDefaultExporterSetting.exportVisAnimations" 0;
+setAttr "p3dDefaultExporterSetting.exportAnimations" 0;
+
+}
+
+global proc litOff() 
+{
+    string $mats[] = `ls -type pure3dSimpleShader`;
+    for($mat in $mats)
+    {
+        $attr = $mat + ".dynamicallyLit";
+      setAttr $attr 0;
+        $attrs = $mat + ".color";
+        shadingConnection -e -cs on $attrs;
+        FixHWTextureInfo( $mat );
+    }
+//    for($mat in $mats)
+//    {
+//        $attr = $mat + ".doubleSided";
+//      setAttr $attr 0;
+//        $attrs = $mat + ".color";
+//        shadingConnection -e -cs on $attrs; 
+//    }
+}
+
+global proc backfaceOff()
+{
+    string $objects[] = `ls -sl -dag -s`;
+    print ("\n");
+    print $objects;
+    for($object in $objects)
+    {
+        setAttr ( $object + ".opposite") 0; 
+    }
+}
+
+
+if(`window -ex "SAMmainwindow"`)
+{
+    deleteUI -wnd "SAMainWindow";
+}
+
+//
+//CREATE THE GUI WINDOW AND ADD THE BUTTONS
+//
+
+global proc simpsonsArt()
+{
+window 
+    -visible 1
+    -title "SAM"
+    -sizeable 0
+    -iconify 0
+    -wh 147 300
+    -maximizeButton 0
+        SAMmainWindow;
+    columnLayout -adj true;
+        frameLayout
+            -label "Geometry"
+            -labelAlign "center"
+            -cll true
+                SAMgeometryFrame;
+
+            rowLayout
+                -numberOfColumns 2
+                -columnWidth 1 68
+                -columnWidth 2 68
+                    SAMgeometryRow;
+
+                symbolButton
+                    -w 68
+                    -h 28
+                    -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/rnd.bmp"
+                    -ann "Random Points"
+                    -c "rndPoints"
+                    SAMrndPoints;
+                symbolButton
+                    -w 68
+                    -h 28
+                    -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/backfaceoff.bmp"
+                    -ann "Backface Off"
+                    -c "backfaceOff"
+                    SAMbackfaceOff;
+                setParent ..;
+        setParent ..;
+
+        frameLayout
+            -label "Lighting"
+            -labelAlign "center"
+            -cll true
+            -bv true
+            SAMlightingFrame;                   
+            rowLayout
+                -numberOfColumns 2
+                -columnWidth 1 68
+                -columnWidth 2 68
+                SAMlightingRow;
+                symbolButton
+                    -w 68
+                    -h 28
+                    -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/prelighttool.bmp"
+                    -ann "Simpsons Prelight"
+                    -c "mappedPrelightWindow"
+                    SAMsimpsonsPreLight;
+                symbolButton
+                    -w 68
+                    -h 28
+                    -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/prelitoff.bmp"
+                    -ann "Prelit Off"
+                    -c "litOff"
+                    SAMpreLitOff;
+                setParent ..;
+        setParent ..;
+
+        frameLayout
+            -label "Textures"
+            -labelAlign "center"
+            -cll true
+            -bv true
+            SAMtextureFrame;                    
+            columnLayout -adjustableColumn 1 SAMtextureColumn;
+                rowLayout
+                    -numberOfColumns 2
+                    -columnWidth 1 68
+                    -columnWidth 2 68
+                    SAMtextureRow;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/renametex.bmp"
+                        -ann "RenameTextures"
+                        -c "renameTexture"
+                        SAMrenameTextures;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/movetex.bmp"
+                        -ann "Move Textures"
+                        -c "yuya_copyFileTex"
+                        SAMoveFiles;
+                    setParent ..;
+                rowLayout
+                    -numberOfColumns 2
+                    -columnWidth 1 68
+                    -columnWidth 2 68
+                    SAMtextureRow2; 
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/optimizetex.bmp"
+                        -ann "Optimize Shaders"
+                        -c "optimizeShaders"
+                        SAMoptimizeShaders;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/uvz.bmp"
+                        -ann "UVz Utility"
+                        -c "uvz"
+                        SAMuvz;                 
+                    setParent ..;
+            setParent ..;
+        setParent ..;
+        frameLayout
+            -label "Hypergraph"
+            -labelAlign "center"
+            -cll true
+            -bv true
+            SAMhypergraphFrame;                 
+            columnLayout -adjustableColumn 1 SAMhypegraphColumn;
+                rowLayout
+                    -numberOfColumns 2
+                    -columnWidth 1 68
+                    -columnWidth 2 68
+                    SAMhypergraphRow;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/setshape.bmp"
+                        -ann "Set Shape Node"
+                        -c "setShapeNode"
+                        SAMsetShapeNode;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/removetxt.bmp"
+                        -ann "Remove Text String"
+                        -c "nameSpaceGui"
+                        SAMremoveTextString;
+                    setParent ..;
+                rowLayout
+                    -numberOfColumns 2
+                    -columnWidth 1 68
+                    -columnWidth 2 68
+                    SAMHypergraphRow2;  
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/unique.bmp"
+                        -ann "Force Unique Names"
+                        -c "forceUniqueNames"
+                        SAMforceUniqueNames;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/p3d.bmp"
+                        -ann "Set Exporter Options"
+                        -c "simpsonsExporterOptions"
+                        SAMsetExporterOptions;
+                    setParent ..;
+                rowLayout
+                    -numberOfColumns 2
+                    -columnWidth 1 68
+                    -columnWidth 2 68
+                    SAMhypergraphRow3;
+                    string $name = `textField -width 68`;
+                    symbolButton
+                        -w 68
+                        -h 28
+                        -image "C:/AW/Maya4.0/scripts/SimpsonsArt/icons/renamesh.bmp"
+                        -ann "Rename Shapes"
+                        -c ("renameShape `textField -q -text " + $name + "`")
+                        renameShape;
+                    setParent ..;
+            setParent ..;
+        setParent ..;
+    setParent ..;
+
+	 window -e
+		 -wh 147 295
+		SAMmainWindow;
+
+}
+// end of script

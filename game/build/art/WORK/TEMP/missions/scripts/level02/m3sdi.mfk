@@ -1,0 +1,74 @@
+SelectMission("m3sd");
+
+SetMissionStartCameraName( "mission3camShape" );
+SetMissionStartMulticontName( "mission3cam" );
+SetAnimatedCameraName( "mission3camShape" );
+SetAnimCamMulticontName( "mission3cam" );
+
+SetMissionResetPlayerOutCar("m3_bart_start","m3_carstart");
+SetDynaLoadData("l2z4.p3d;l2r3.p3d;l2r4.p3d;");
+
+UsePedGroup(5);
+
+AddStage(0);
+	SetStageMessageIndex(167);
+	SetHUDIcon( "google" );
+	SetMaxTraffic(4);
+	AddObjective("goto");
+		AddNPC("cbg", "m3_cbg_sd");
+		SetDestination("googleplex", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddStageVehicle("comic_v","m3_cbgcar_sd","NULL","EasyRace\AI_5th.con");
+	CloseObjective();
+CloseStage();	
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetStageMessageIndex(54);
+	SetHUDIcon( "cbg" );
+	AddObjective("talkto");
+		AddNPC("cbg", "m3_cbg_sd");
+		AddObjectiveNPCWaypoint( "cbg", "m3_cbg_walk1" );
+		//AddObjectiveNPCWaypoint( "cbg", "m2_cbg_walk2" );
+		SetTalkToTarget("cbg", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis02_03.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		SetConversationCam( 2, "pc_far" );
+		SetConversationCam( 3, "npc_far" );
+
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		AddAmbientNpcAnimation( "dialogue_no" );
+		AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+
+		AddAmbientPcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientPcAnimation( "dialogue_hands_on_hips" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+
+		SetCamBestSide("m3_bestside");
+		SetDialogueInfo("bart","cbg","jabba",0);
+		SetDialoguePositions("m3_bart_start","m3_cbg_sd","m3_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

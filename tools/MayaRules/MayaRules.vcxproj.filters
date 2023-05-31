@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Rules">
+      <UniqueIdentifier>{a9ebfc65-4204-4ed9-b6dc-b5678e2a73a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\MayaTools\Maya4.0\scripts\srr2rules.txt">
+      <Filter>Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

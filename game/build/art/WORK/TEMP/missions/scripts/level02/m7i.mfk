@@ -1,0 +1,171 @@
+SelectMission("m7");
+
+SetMissionResetPlayerInCar("m4_carstart");
+SetDynaLoadData("l2z4.p3d;l2r4.p3d;l2z1.p3d;");
+
+UsePedGroup(6);
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		SetObjTargetVehicle("current");
+		AddStageVehicle("cCellA","m7_cellstart1","NULL","Missions\level02\M7dest.con");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetStageTime(120);
+	SetMaxTraffic(2); 
+	SetStageMessageIndex(64);
+	SetHUDIcon( "celph_v" );
+	ActivateVehicle("cCellA","NULL","target");
+	SetVehicleAIParams( "cCellA", -10, -9 );   // no shortcuts
+	AddStageWaypoint( "m7_cell1" );
+	AddStageWaypoint( "m7_cell2" );
+	AddStageWaypoint( "m7_cell3" );
+	AddStageWaypoint( "m7_cell3b" );
+	AddObjective("destroy","neither");
+		SetObjTargetVehicle("cCellA");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+
+AddStage(0);
+	SetMaxTraffic(3);
+	AddStageTime(115);
+	SetStageMessageIndex(64);
+	SetHUDIcon( "celph_v" );
+	AddStageVehicle("cCellA","m7_cellstart2","target","Missions\level02\M7dest.con");
+	SetVehicleAIParams( "cCellA", -10, -9 );   // no shortcuts
+	AddStageWaypoint( "m7_cell4" );
+	AddStageWaypoint( "m7_cell3" );
+	AddStageWaypoint( "m7_cell3b" );
+	AddStageWaypoint( "m7_cell1" );
+	AddStageWaypoint( "m7_cell2" );
+	AddStageWaypoint( "m7_cell5" );
+	AddStageWaypoint( "m7_cell5b" );
+	AddStageWaypoint( "m7_cell6" );
+	AddObjective("destroy","neither");
+		SetObjTargetVehicle("cCellA");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+
+AddStage(0);
+	SetMaxTraffic(4); 
+	AddStageTime(90);
+	SetStageMessageIndex(64);
+	SetHUDIcon( "celph_v" );
+	AddStageVehicle("cCellA","m7_cellstart3","target","Missions\level02\M7dest.con");
+	SetVehicleAIParams( "cCellA", -10, -9 );   // no shortcuts
+	AddStageWaypoint( "m7_cell2" );
+	AddStageWaypoint( "m7_cell5" );
+	AddStageWaypoint( "m7_cell5b" );
+	AddStageWaypoint( "m7_cell6" );
+	AddStageWaypoint( "m7_cell4" );
+	AddStageWaypoint( "m7_cell3" );
+	AddStageWaypoint( "m7_cell3b" );
+	AddStageWaypoint( "m7_cell1" );
+	AddObjective("destroy","neither");
+		SetObjTargetVehicle("cCellA");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetMaxTraffic(5); 
+	AddStageTime(75);
+	SetStageMessageIndex(64);
+	SetHUDIcon( "celph_v" );
+	AddStageVehicle("cCellA","m7_cellstart4","target","Missions\level02\M7dest.con");
+	SetVehicleAIParams( "cCellA", -10, -9 );   // no shortcuts
+	AddStageWaypoint( "m4_cell7" );
+	AddStageWaypoint( "m7_cell8" );
+	AddStageWaypoint( "m7_cell1" );
+	AddStageWaypoint( "m7_cell3b" );
+	AddStageWaypoint( "m7_cell9" );
+	AddStageWaypoint( "m7_cell10" );
+	AddStageWaypoint( "m7_cell5b" );
+	AddObjective("destroy","neither");
+		SetObjTargetVehicle("cCellA");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	AddStageTime(60);
+	SetStageMessageIndex(55);
+	SetHUDIcon( "stadium" );
+	SetMaxTraffic(5);
+	AddObjective("goto","both");
+		AddNPC("frink", "m4_frink_sd");
+		SetDestination("stadium", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();	
+
+AddStage(0);
+	SetStageMessageIndex(66);
+	SetHUDIcon( "frink" );
+	AddObjective("talkto","neither");
+		AddNPC("frink", "m4_frink_sd"); //reusing mission 4 start locator
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_walk1" );
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_walk2" );
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_sd" );
+		SetTalkToTarget("frink", 0, 0);
+	CloseObjective();
+//	AddCondition("timeout");
+//		//SetHitNRun();
+//	CloseCondition();
+CloseStage();
+
+AddStage(final);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "npc_near" );
+		SetConversationCam( 1, "pc_far" );
+		SetConversationCam( 2, "npc_near" );
+		AddAmbientNpcAnimation( "dialogue_hands_in_air" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide("m4_bestside");
+		//SetConversationCam( 3, "pc_far" );
+		SetDialogueInfo("bart","frink","smash",0);
+		SetDialoguePositions("m4_bart_start","m4_frink_sd","m4_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

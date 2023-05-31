@@ -1,0 +1,90 @@
+SelectMission("m5");
+
+SetMissionResetPlayerInCar("m5_carstart"); 
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+UsePedGroup( 0 ); 
+
+AddStage(0);
+	SetStageMessageIndex(250);
+	AddObjective("gooutside");
+		SetDestination("outside_Simpsons_house_locator");
+	CloseObjective();
+CloseStage();
+
+AddStage();
+	SetHUDIcon( "cvan_v" );
+	SetStageMessageIndex(158);
+	AddStageVehicle("cVan","m5_van_carstart","NULL","Missions\level01\M5evade.con");
+	AddObjective("goto","nearest road");
+		SetDestination("van_start", "carsphere"); 
+		SetCollectibleEffect("wrench_collect");
+		//MustActionTrigger();
+	CloseObjective();
+CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(12);
+//	AddObjective("getin");
+//		SetObjTargetVehicle("current");
+//	CloseObjective();
+//CloseStage();
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetHUDIcon( "cvan_v" );
+	SetStageMessageIndex(13);
+	ActivateVehicle("cVan","NULL","target");	//race makes it very easy, for a level 1 "tutorial" chase.
+						//The difference is that 'race' has slow-down catch-up logic, 
+						// 'evade' doesn't
+	SetVehicleAIParams( "cVan", 50, 51 ); //  <=== name, min, max; 0,1 = really dumb, no shortcuts
+	//SetStageAIRaceCatchupParams("smith_v", 80, 0.5, 1.1, 1.7); //defaults
+//	SetStageAIRaceCatchupParams("cVan", 40, 0.1, 1.4, 2.3); 
+	SetStageAITargetCatchupParams( 	"cVan", 20, 70);
+
+	AddStageWaypoint( "m5_van_path3" );
+	AddStageWaypoint( "m5_van_path2" );
+	AddStageWaypoint( "m5_van_path6");
+	AddObjective("follow","neither");
+		SetObjTargetVehicle("cVan");
+	CloseObjective();
+	AddCondition("followdistance");
+		SetFollowDistances(0, 250);
+		SetCondTargetVehicle("cVan");
+	CloseCondition();
+	//SetCompletionDialog("skeleton");
+	SetFadeOut(1.0);
+CloseStage();
+
+AddStage(1);
+	AddObjective("timer");
+		AddNPC("npd", "m5_marge_end");
+		StayInBlack();
+		AddStageCharacter( "homer", "m5_homer_end", "", "current", "m5_car_end" );
+		SetDurationTime(1);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+
+		SetConversationCam( 0, "pc_near" );
+
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+
+		SetDialogueInfo("homer","npd","skeleton",0);
+	CloseObjective();
+CloseStage();
+	
+AddStage("final");
+	AddObjective("timer");
+		//AddNPC("ralph", "ambient_ralph");
+		//StayInBlack();
+		//AddStageCharacter( "homer", "m5_homer_end", "", "current", "m5_car_end" );
+		SetDurationTime(1);
+	CloseObjective();
+CloseStage();
+
+CloseMission();

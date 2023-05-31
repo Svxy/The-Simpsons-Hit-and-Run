@@ -1,0 +1,9 @@
+PRINT Applying LIBANIM template to INPUT
+
+COMMAND p3ddel -d 13000 -d 2200 -a CAM* INPUT -o OUTPUT
+COMMAND p3dimage --ntsc_fix -r -o OUTPUT OUTPUT
+COMMAND convert2dxtn -1 -o OUTPUT OUTPUT
+COMMAND tristrip -m -o OUTPUT OUTPUT
+COMMAND p3danim -C -O --vector-tolerance 0.03 --quaternion-tolerance 0.1 -o OUTPUT OUTPUT
+COMMAND p3dgc --mg --ms -r 1 -c 16 -u 16 -o OUTPUT OUTPUT
+COMMAND p3dsort OUTPUT -o OUTPUT

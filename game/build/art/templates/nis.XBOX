@@ -1,0 +1,16 @@
+PRINT Applying NIS template to INPUT
+
+#replace char_swatches.bmp? with char_swatches.bmp in the file
+COMMAND insanehack OUTPUT
+
+COMMAND p3ddel -o OUTPUT -t char_swatches.b* -t eyeball* OUTPUT
+COMMAND p3dimage --ntsc_fix -r -b 8 -o OUTPUT INPUT
+
+#COMMAND p3dmipmap -m 16 -s -l 4 -o OUTPUT OUTPUT
+COMMAND convert2dxtn -o OUTPUT OUTPUT
+COMMAND p3dskin -T 0.0001 -o OUTPUT OUTPUT
+COMMAND p3dprimgroup -b -m 25 -o OUTPUT OUTPUT
+COMMAND tristrip -m -x -o OUTPUT OUTPUT
+COMMAND p3danim -C -O --vector-tolerance 0.005 --quaternion-tolerance 0.1 -o OUTPUT OUTPUT
+COMMAND p3dxbox -m -o OUTPUT OUTPUT
+

@@ -1,0 +1,103 @@
+SelectMission("m2sd");
+
+//SetMissionStartCameraName( "mission1camShape" );
+//SetMissionStartMulticontName( "mission1cam" );
+//SetMissionStartCameraName( "mission1camShape" );
+//SetMissionStartMulticontName( "mission1cam" );
+
+SetMissionResetPlayerOutCar("homer_start_alt", "level1_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+
+UsePedGroup( 0 ); 
+
+AddStage(0);
+	SetMaxTraffic(2);
+	SetStageMessageIndex(217);
+	SetHUDIcon("simpsons");
+	AddObjective( "goto" );
+		AddNPC("marge", "m2_marge_sd");
+		SetDestination( "m2_simpsonhouse_sd", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	RESET_TO_HERE(); // skips first stage when loading the mission from pause menu.
+	SetStageMessageIndex(155);
+	SetHUDIcon("simpsons");
+	AddObjective("interior");
+		AddNPC("marge", "m2_marge_sd");
+		SetDestination("SimpsonsHouse", "simp_mission_doorstar"); // use name of interiors entry locator
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(00);
+	SetHUDIcon("marage");
+	AddObjective("talkto");
+		AddNPC("marge", "m2_marge_sd");
+		SetTalkToTarget("marge", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+	    SetPresentationBitmap( "art/frontend/dynaload/images/mis01_02.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		SetDialogueInfo("homer","marge","neighbor",0);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(250);
+	AddObjective("gooutside");
+		TurnGotoDialogOff();
+		SetDestination("outside_Simpsons_house_locator");
+	CloseObjective();
+CloseStage();
+
+AddStage(4);
+	SetStageMessageIndex(3);
+	SetHUDIcon( "ned" );
+	AddObjective("talkto","neither");
+		AddNPC("ned", "m2_ned_sd"); //ned at his house
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_1" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_2" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_3" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_2" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_1" );
+		SetTalkToTarget("ned", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "npc_far" );
+		SetConversationCam( 1, "pc_near" );
+		SetConversationCam( 2, "npc_far" );
+		SetConversationCam( 3, "pc_near" );
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		SetConversationCam( 3, "pc_far" );
+		SetCamBestSide("bestside_m2");
+		SetDialogueInfo("homer","ned","culprit",0);
+		SetDialoguePositions("m2_homer_ned","m2_ned_sd","mission2_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();

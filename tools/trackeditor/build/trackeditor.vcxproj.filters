@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{7aa3607e-360c-466f-82ae-abf6f985953c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="commands">
+      <UniqueIdentifier>{d3d48be8-1aeb-450f-a824-b321cc40f4f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nodes">
+      <UniqueIdentifier>{b4375917-2908-4939-b7c2-be6eeac47c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="contexts">
+      <UniqueIdentifier>{d4bed8bc-73b8-4016-903d-7e43fb5b6474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{f9a9c2c9-d17e-4ef9-b109-1f516775a8e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mel scripts">
+      <UniqueIdentifier>{a5619506-109a-41b8-a033-fe6a1100443e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="precompiled header">
+      <UniqueIdentifier>{c08cb6ab-ec6f-44fa-854e-7567fdae9bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AETemplates">
+      <UniqueIdentifier>{3efb7bc8-741f-4cbd-939e-c757b812ed2d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\main\constants.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\pluginMain.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\shapeconstants.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\trackeditor.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\export.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\intersectioncommands.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\trackeditorcommands.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\treelinecommand.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\NU.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\fenceline.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\intersection.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\pedpath.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\road.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\tiledisplay.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\treelineshapenode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\walllocator.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\contexts\bvcontext.h">
+      <Filter>contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\contexts\intersectioncontext.h">
+      <Filter>contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\contexts\ppcontext.h">
+      <Filter>contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\contexts\treelinecontext.h">
+      <Filter>contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\GLExt.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MExt.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MExt_template.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MUI.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\mayahandles.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\overlaymarquee.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\stdafx.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\transformmatrix.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\util.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\winutil.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\precompiled\PCH.h">
+      <Filter>precompiled header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\main\pluginMain.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\main\trackeditor.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\export.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\intersectioncommands.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\trackeditorcommands.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\treelinecommand.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\fenceline.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\intersection.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\pedpath.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\road.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\tiledisplay.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\treelineshapenode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\walllocator.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\bvcontext.cpp">
+      <Filter>contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\intersectioncontext.cpp">
+      <Filter>contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\ppcontext.cpp">
+      <Filter>contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\treelinecontext.cpp">
+      <Filter>contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\GLExt.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt_template.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MUI.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\mayahandles.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\overlaymarquee.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\transformmatrix.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\util.c">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\winutil.c">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\precompiled\PCH.cpp">
+      <Filter>precompiled header</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\code\scripts\te_BVContext.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_IntersectionContext.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_PPContext.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_cleanup.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_editorwindow.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_globals.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_main.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_setup.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\te_treelineContext.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEIntersectionLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AERoadNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETELocatorSuppress.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETEShowRoadSegButton.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETreelineShapeNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

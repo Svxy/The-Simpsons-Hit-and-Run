@@ -1,0 +1,28 @@
+global proc AEInteriorEntranceLocatorNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Locator Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+		editorTemplate -endLayout;
+
+        editorTemplate -beginLayout "Interior Attribute" -collapse false;
+            editorTemplate -addControl "zone";
+		editorTemplate -endLayout;
+       
+		editorTemplate -beginLayout "Triggers" -collapse 0;
+            
+			editorTemplate -callCustom "AEWBTriggerButtonNew"
+					"AEWBTriggerButtonReplace"
+					"message";
+
+		editorTemplate -endLayout;
+        
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

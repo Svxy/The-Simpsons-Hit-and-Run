@@ -1,0 +1,13 @@
+#include <mission/conditions/damagecondition.cpp>
+#include <mission/conditions/followcondition.cpp>
+#include <mission/conditions/leaveinteriorcondition.cpp>
+#include <mission/conditions/missioncondition.cpp>
+#include <mission/conditions/outofboundscondition.cpp>
+#include <mission/conditions/racecondition.cpp>
+#include <mission/conditions/timeoutcondition.cpp>
+#include <mission/conditions/vehiclecondition.cpp>
+#include <mission/conditions/positioncondition.cpp>
+#include <mission/conditions/vehiclecarryingstateprop.cpp>
+#include <mission/conditions/getoutofcarcondition.cpp>
+#include <mission/conditions/notabductedcondition.cpp>
+#include <mission/conditions/keepbarrelcondition.cpp>

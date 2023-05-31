@@ -1,0 +1,3 @@
+PRINT Applying INTERSECT template
+COMMAND p3ddel -k 10000 -k 12000 -o OUTPUT INPUT
+COMMAND p3dsplit -x 20 -z 20 -t 0 -s intersectOUTPUT -o OUTPUT OUTPUT

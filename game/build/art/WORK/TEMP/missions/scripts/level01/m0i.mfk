@@ -1,0 +1,83 @@
+SelectMission("m0");
+
+SetMissionResetPlayerInCar("level1_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+
+UsePedGroup( 0 ); 
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	RESET_TO_HERE();
+	SetHUDIcon( "kwike" );
+	ShowStageComplete();
+	SetStageMessageIndex(131);
+	AddObjective("goto");
+		SetDestination("m0_kwickemart","carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	SetHUDIcon( "kwike" );
+	SetMaxTraffic(2);
+	SetStageMessageIndex(102);
+	AddObjective("interior","neither");
+		SetDestination("KwikEMart", "kwik_mission_doorstar"); // use name of interiors entry locator
+	CloseObjective();
+CloseStage();
+
+AddStage(2);
+	SetHUDIcon( "apu" );
+	SetStageMessageIndex(157);
+	AddObjective("talkto","nearest road");
+		SetTalkToTarget("apu", 0, -0.3, "3.0"); // 2 - door icon, "3.0" is the size of the NPC trigger area
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	AddObjective("dialogue");
+		SetStageMessageIndex(15,"end");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_hands_on_hips" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_scratch_head" );
+		AddAmbientPcAnimation( "none" );
+		//SetConversationCamNpcName("npc_far");
+		//SetConversationCamPcName("pc_near");
+		SetDialogueInfo("homer","apu","congrats",0);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	SetHUDIcon( "icecream" );
+	SetStageMessageIndex(152);
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		SetDestination("m0_cola","icebuck");
+	CloseObjective();
+	SetCompletionDialog("congrats2","bart");
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

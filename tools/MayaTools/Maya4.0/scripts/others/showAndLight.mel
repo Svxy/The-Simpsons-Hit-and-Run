@@ -1,0 +1,113 @@
+global proc swapGeo (string $showGeo , string $hideGeo1, string $hideGeo2)
+{
+select -r ("*" + $showGeo + "only*");
+	//select -r ("*" + 02 + "only*");//
+select -hi;
+ShowSelectedObjects;
+select -r ("*" + $hideGeo1 + "only*");
+	//select -r ("*" + 05 + "only*");//
+select -add ("*" + $hideGeo2 + "only*");
+	//select -add ("*" + 05 + "only*");//
+select -hi;
+HideSelectedObjects;
+select -cl;
+};
+
+proc ShowBVShapes ()
+{
+select -r "P3D_BVol*Shape*" ;
+$select = `ls -sl`;
+string $sel;
+for ($sel in $select)
+	setAttr ($sel + ".visibility") 1;
+};
+
+
+
+//=============================================//
+global proc selectDrawableOnly ()
+{
+	$shapeSel = `ls -sl -s -v`;
+	select $shapeSel;
+}	 
+global proc hideDontlight ()
+{
+if ( `objExists "*dontlight*"` ) 
+{
+	select -r "*dontlight*";
+	select -hi;
+	HideSelectedObjects;
+} 
+else 	
+	{ warning("there are no objects that you don't want to light?"); };
+};
+
+global proc showDontlight ()
+{
+if ( `objExists "*dontlight*"` ) 
+{
+	select -r "*dontlight*";
+	select -hi;
+	ShowSelectedObjects;
+} 
+else 	
+	{ warning("there are no objects that you don't want to light?"); };
+};
+
+
+global proc selectVisGeo ()
+
+{
+if ( `objExists "*landmarks*"` ) 
+{
+	select -add -vis "*landmarks*";
+} 
+else 	
+{ 
+warning("there are no landmarks in your scene?"); 
+};
+select -add -vis "*gens*";
+select -add -vis "*track*";
+select -add -vis "*dynamics*";
+select -hi;
+}
+;
+
+
+
+
+//=============================================//
+
+
+
+
+global proc bobPrelight ()
+{
+toggleMaterialMapping(0);polyGeoSampler -cs -ul -sf 1 -su -colorBlend "overwrite" -alphaBlend "overwrite"; toggleMaterialMapping(1);
+}
+;
+
+
+
+
+//=============================================//
+
+
+
+
+global proc showAndLight (string $wang, string $chung, string $fung)
+{
+swapGeo $wang $chung $fung;
+hideDontlight;
+selectVisGeo;
+selectDrawableOnly;
+bobPrelight;
+showDontlight;
+swapGeo $wang $chung $fung;
+ShowBVShapes;
+};
+//showAndLight 06 03 03;//
+//showAndLight 03 06 06;//
+
+
+

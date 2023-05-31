@@ -1,0 +1,373 @@
+Imports EnvDTE
+Imports System.Diagnostics
+Imports System.Windows
+Imports System.Windows.Forms
+
+Public Module Module1
+    Sub GetClassAndMethod()
+        Dim selection As TextSelection = ActiveDocument().Selection
+        selection.CharRight()
+        'Select bits of the line
+        selection.FindText("(")
+        selection.CharLeft()
+        selection.WordLeft(DsMovementOptions.dsExtend, 3)
+        selection.Copy()
+        'Time to paste
+        selection.LineUp()
+        selection.EndOfLine()
+        selection.NewLine()
+        selection.Text = "// "
+        selection.Paste()
+        selection.NewLine()
+    End Sub
+    Sub GetParameters()
+        Dim selection As TextSelection = ActiveDocument().Selection
+        selection.CharRight()
+        selection.FindText("(")
+        selection.CharLeft()
+        Dim sSave As EditPoint = selection.ActivePoint.CreateEditPoint
+        selection.FindText(")", DsMovementOptions.dsExtend)
+        Dim eSave As EditPoint = selection.ActivePoint.CreateEditPoint
+        selection.MoveToPoint(sSave)
+        selection.MoveToPoint(eSave, True)
+        selection.Copy()
+        selection.LineUp()
+        selection.Paste()
+    End Sub
+    Sub GetReturnType()
+        Dim selection As TextSelection = ActiveDocument().Selection
+        selection.CharRight()
+        selection.WordRight(DsMovementOptions.dsExtend)
+        selection.Copy()
+        selection.LineUp()
+        selection.EndOfLine()
+        selection.Paste()
+    End Sub
+    Sub CommentBlock()
+        DTE.UndoContext.Open("Comment Block")
+        Try
+            Dim selection As TextSelection = ActiveDocument().Selection
+            selection.Text = "//============================================================================="
+            Call GetClassAndMethod()
+            selection.Text = "//============================================================================="
+            selection.NewLine()
+            selection.Text = "// Description:"
+            selection.Indent()
+            selection.Text = "Comment"
+            selection.NewLine()
+            selection.Text = "//"
+            selection.NewLine()
+            selection.Text = "// Parameters:"
+            selection.Indent()
+            Call GetParameters()
+            selection.NewLine()
+            selection.Text = "//"
+            selection.NewLine()
+            selection.Text = "// Return:"
+            selection.Indent()
+            selection.Indent()
+            Call GetReturnType()
+            selection.NewLine()
+            selection.Text = "//"
+            selection.NewLine()
+            selection.Text = "//============================================================================="
+            selection.CharRight()
+        Finally
+            DTE.UndoContext.Close()
+        End Try
+    End Sub
+    Sub GetFileNameUppercase()
+        Dim selection As TextSelection = ActiveDocument().Selection
+        selection.Text = ActiveDocument().Name
+        selection.FindText(".")
+        selection.EndOfLine(True)
+        selection.Text = "_"
+        selection.WordLeft()
+        selection.WordRight(DsMovementOptions.dsExtend, 3)
+        selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsUppercase)
+        selection.EndOfLine()
+    End Sub
+    Sub HeaderTemplate()
+        DTE.UndoContext.Open("Header Template")
+        Try
+            Dim selection As TextSelection = ActiveDocument().Selection
+            Dim className As String
+            className = InputBox("Enter the name of the new class", "New Class Name")
+            If (className <> "") Then
+                selection.Delete()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "// Copyright (C) 2002 Radical Entertainment Ltd.  All rights reserved."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// File:        " + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsLowercase)
+                selection.WordRight()
+                selection.Text = ".h"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Description: Blahblahblah"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// History:     "
+                selection.Text = System.DateTime.Today
+                selection.Text = " + Created -- NAME"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "#ifndef " + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsUppercase)
+                selection.WordRight()
+                selection.Text = "_H"
+                selection.NewLine()
+                selection.Text = "#define " + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsUppercase)
+                selection.WordRight()
+                selection.Text = "_H"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.Text = "// Nested Includes"
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.Text = "// Forward References"
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Synopsis:    Blahblahblah"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "class " + className
+                selection.NewLine()
+                selection.Text = "{"
+                selection.NewLine()
+                selection.Text = "public:"
+                selection.NewLine()
+                selection.Text = "    " + className
+                selection.Text = "();"
+                selection.NewLine()
+                selection.Text = "virtual ~" + className
+                selection.Text = "();"
+                selection.NewLine()
+                selection.NewLine()
+                selection.CharLeft(False, 1)
+                selection.Text = "private:"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "    //Prevent wasteful constructor creation."
+                selection.NewLine()
+                selection.Text = className + "( const " + className
+                selection.Text = "& " + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsLowercase)
+                selection.WordRight()
+                selection.Text = " );"
+                selection.NewLine()
+                selection.Text = className + "& operator=( const " + className
+                selection.Text = "& " + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsLowercase)
+                selection.WordRight()
+                selection.Text = " );"
+                selection.NewLine()
+                selection.CharLeft(False, 1)
+                selection.Text = "};"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//Inline Public Member Functions"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "#endif //" + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsUppercase)
+                selection.WordRight()
+                selection.Text = "_H"
+                selection.NewLine()
+            End If
+        Finally
+            DTE.UndoContext.Close()
+        End Try
+    End Sub
+    Sub CPPTemplate()
+        DTE.UndoContext.Open("Header Template")
+        Try
+            Dim selection As TextSelection = ActiveDocument().Selection
+            Dim className As String
+            className = InputBox("Enter the name of the new class", "New Class Name")
+            If (className <> "") Then
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "// Copyright (C) 2002 Radical Entertainment Ltd.  All rights reserved."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// File:        " + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsLowercase)
+                selection.WordRight()
+                selection.Insert(".cpp")
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Description: Implement " + className
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// History:     "
+                selection.Text = System.DateTime.Today
+                selection.Text = " + Created -- NAME"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.Text = "// System Includes"
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.Text = "// Foundation Tech"
+                selection.NewLine()
+                selection.Text = "#include <raddebug.hpp>"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.Text = "// Project Includes"
+                selection.NewLine()
+                selection.Text = "//========================================"
+                selection.NewLine()
+                selection.Text = "#include <" + className
+                selection.WordLeft(DsMovementOptions.dsExtend, 1)
+                selection.ChangeCase(EnvDTE.vsCaseOptions.vsCaseOptionsLowercase)
+                selection.WordRight()
+                selection.Insert(".h>")
+                selection.NewLine()
+                selection.NewLine()
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Global Data, Local Data, Local Classes"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Public Member Functions"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "// " + className + "::" + className
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "// Description: Constructor."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Parameters:	None."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Return:      N/A."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = className + "::" + className + "()"
+                selection.NewLine()
+                selection.Text = "{"
+                selection.NewLine()
+                selection.Text = "}"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "// " + className + "::~" + className
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = "// Description: Destructor."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Parameters:	None."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Return:      N/A."
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//============================================================================="
+                selection.NewLine()
+                selection.Text = className + "::~" + className + "()"
+                selection.NewLine()
+                selection.Text = "{"
+                selection.NewLine()
+                selection.Text = "}"
+                selection.NewLine()
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "// Private Member Functions"
+                selection.NewLine()
+                selection.Text = "//"
+                selection.NewLine()
+                selection.Text = "//*****************************************************************************"
+                selection.NewLine()
+            End If
+        Finally
+            DTE.UndoContext.Close()
+        End Try
+    End Sub
+End Module

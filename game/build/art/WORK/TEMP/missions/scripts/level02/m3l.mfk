@@ -1,0 +1,7 @@
+LoadP3DFile("art\missions\level02\m3.p3d");
+LoadP3DFile("art\missions\generic\fline.p3d");
+
+LoadDisposableCar("art\cars\comic_v.p3d","comic_v","OTHER");
+LoadDisposableCar("art\cars\cNerd.p3d","cNerd","AI");
+
+LoadP3DFile( "art\frontend\dynaload\images\msnicons\location\java.p3d" );

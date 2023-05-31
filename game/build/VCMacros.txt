@@ -1,0 +1,363 @@
+'------------------------------------------------------------------------------
+'FILE DESCRIPTION: New Macro File
+'------------------------------------------------------------------------------
+
+Sub GetClassAndMethod()
+'DESCRIPTION: A description was not provided.
+
+
+'Begin Recording
+ActiveDocument.Selection.CharRight
+'Select bits of the line
+ActiveDocument.Selection.FindText "("
+ActiveDocument.Selection.CharLeft
+ActiveDocument.Selection.WordLeft dsExtend, 3
+ActiveDocument.Selection.Copy
+'Time to paste
+ActiveDocument.Selection.LineUp
+ActiveDocument.Selection.EndOfLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.NewLine
+'End Recording
+End Sub
+
+Sub GetParameters()
+'DESCRIPTION: A description was not provided.
+
+
+'Begin Recording
+ActiveDocument.Selection.CharRight
+ActiveDocument.Selection.FindText "("
+ActiveDocument.Selection.CharLeft
+ExecuteCommand "GoToMatchBraceExtend"
+ActiveDocument.Selection.Copy
+ActiveDocument.Selection.LineUp
+ActiveDocument.Selection.Paste
+'End Recording
+End Sub
+
+Sub GetReturnType()
+'DESCRIPTION: A description was not provided.
+
+'Begin Recording
+ActiveDocument.Selection.CharRight
+ActiveDocument.Selection.WordRight dsExtend
+ActiveDocument.Selection.Copy
+ActiveDocument.Selection.LineUp
+ActiveDocument.Selection.EndOfLine
+ActiveDocument.Selection.Paste
+'End Recording
+End Sub
+
+Sub CommentBlock()
+'DESCRIPTION: Comments a member function.
+
+
+'Begin Recording
+ActiveDocument.Selection = "//============================================================================="
+call GetClassAndMethod()
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Description:"
+ActiveDocument.Selection.Indent
+ActiveDocument.Selection = "Comment"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Parameters:"
+ActiveDocument.Selection.Indent
+call GetParameters()
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Return:"
+ActiveDocument.Selection.Indent
+ActiveDocument.Selection.Indent
+call GetReturnType()
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.CharRight
+'End Recording
+End Sub
+
+Sub GetFileNameUppercase()
+ActiveDocument.Selection = ActiveDocument.Name
+ActiveDocument.Selection.FindText ".", dsMatchBackward
+ActiveDocument.Selection = "_"
+ActiveDocument.Selection.WordLeft
+ActiveDocument.Selection.WordRight dsExtend, 3
+ActiveDocument.Selection.ChangeCase dsUppercase
+ActiveDocument.Selection.EndOfLine
+End Sub
+
+Sub HeaderTemplate()
+'DESCRIPTION: This is a header template
+
+ActiveDocument.IndentSize = 0
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.Copy
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Copyright (C) 2002 Radical Entertainment Ltd.  All rights reserved."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// File:        "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.ChangeCase dsLowercase
+ActiveDocument.Selection.WordRight
+ActiveDocument.Selection = ".h"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Description: Blahblahblah"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// History:     "
+ActiveDocument.Selection = Date
+ActiveDocument.Selection = " + Created -- NAME"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "#ifndef "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.ChangeCase dsUppercase
+ActiveDocument.Selection.WordRight
+ActiveDocument.Selection = "_H"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "#define "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.ChangeCase dsUppercase
+ActiveDocument.Selection.WordRight
+ActiveDocument.Selection = "_H"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Nested Includes"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Forward References"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Synopsis:    Blahblahblah"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "class "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "{"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "public:"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "    "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection = "();"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "virtual ~"
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection = "();"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.CharLeft dsMove, 1
+ActiveDocument.Selection = "private:"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "    //Prevent wasteful constructor creation."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection = "( const "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection = "& "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.ChangeCase dsLowercase
+ActiveDocument.Selection.WordRight
+ActiveDocument.Selection = " );"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection = "& operator=( const "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection ="& "
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.ChangeCase dsLowercase
+ActiveDocument.Selection.WordRight
+ActiveDocument.Selection = " );"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.CharLeft dsMove, 1
+ActiveDocument.Selection = "};"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "#endif //"
+ActiveDocument.Selection.Paste
+ActiveDocument.Selection.WordLeft dsExtend, 1
+ActiveDocument.Selection.ChangeCase dsUppercase
+ActiveDocument.Selection.WordRight
+ActiveDocument.Selection = "_H"
+ActiveDocument.Selection.NewLine
+
+End Sub
+
+Sub CPPTemplate()
+'DESCRIPTION: This is a CPP template
+
+
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Copyright (C) 2002 Radical Entertainment Ltd.  All rights reserved."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// File:        <CLASSNAME>.cpp"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Description: Implement <CLASSNAME>"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// History:     "
+ActiveDocument.Selection = Date
+ActiveDocument.Selection = " + Created -- NAME"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// System Includes"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Foundation Tech"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "#include <raddebug.hpp>"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Project Includes"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//========================================"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "#include <<CLASSNAME>.h>"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//******************************************************************************"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Global Data, Local Data, Local Classes"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//******************************************************************************"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//******************************************************************************"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Public Member Functions"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//******************************************************************************"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//=============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// <CLASSNAME>::<CLASSNAME>"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//=============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Description: Constructor."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Parameters:	None."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Return:      N/A."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//=============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "<CLASSNAME>::<CLASSNAME>()"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "{"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "}"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//=============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// <CLASSNAME>::~<CLASSNAME>"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//=============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Description: Destructor."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Parameters:	None."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Return:      N/A."
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//=============================================================================="
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "<CLASSNAME>::~<CLASSNAME>()"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "{"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "}"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//******************************************************************************"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "// Private Member Functions"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//"
+ActiveDocument.Selection.NewLine
+ActiveDocument.Selection = "//******************************************************************************"
+ActiveDocument.Selection.NewLine
+End Sub

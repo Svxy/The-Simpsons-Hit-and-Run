@@ -1,0 +1,17 @@
+#include <meta/actioneventlocator.cpp>
+#include <meta/carstartlocator.cpp>
+#include <meta/directionallocator.cpp>
+#include <meta/eventlocator.cpp>
+#include <meta/fovlocator.cpp>
+#include <meta/interiorentrancelocator.cpp>
+#include <meta/locator.cpp>
+#include <meta/occlusionlocator.cpp>
+#include <meta/recttriggervolume.cpp>
+#include <meta/scriptlocator.cpp>
+#include <meta/spheretriggervolume.cpp>
+#include <meta/splinelocator.cpp>
+#include <meta/triggerlocator.cpp>
+#include <meta/triggervolume.cpp>
+#include <meta/triggervolumetracker.cpp>
+#include <meta/zoneeventlocator.cpp>
+#include <meta/staticcamlocator.cpp>

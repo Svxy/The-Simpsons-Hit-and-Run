@@ -1,0 +1,104 @@
+SelectMission("m1");
+
+SetMissionResetPlayerOutCar("homer_start_alt","level1_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+//SetAnimatedCameraName( "cameraShape1" );
+//SetAnimCamMulticontName( "MasterController" );
+
+UsePedGroup( 0 ); 
+
+AddStage(1);
+	RESET_TO_HERE();
+	SetStageMessageIndex(153);
+	SetHUDIcon( "digest" );
+	AddObjective("goto", "nearest road");
+		TurnGotoDialogOff();
+		SetDestination("m1_tomato","scien"); 
+	CloseObjective();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(8);
+	SetStageMessageIndex(128);
+	SetHUDIcon( "school" );
+	SetMaxTraffic(2);
+	AddObjective("goto");
+		AddStageVehicle("skinn_v","m1_skinner_place","NULL","Missions\level01\M1race.con", "skinner");
+		SetDestination("m1_skinner_start", "carsphere");
+	CloseObjective();
+CloseStage();
+
+AddStage(18);
+	SetStageMessageIndex(47);
+	SetHUDIcon( "school" );
+	ActivateVehicle("skinn_v","NULL","race");
+	AddStageWaypoint( "m1_AI_path1" );
+	AddStageWaypoint( "m1_AI_path1b");
+	AddStageWaypoint( "m1_AI_path4" );
+	AddObjective( "race", "both" );
+//		AddCollectible("m1_AI_path1b");
+		AddCollectible("m1_AI_path4", "carsphere");
+	CloseObjective();
+	AddCondition("race");
+		SetCondTargetVehicle("skinn_v");
+	CloseCondition();
+	AddStageMusicChange();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(1);
+	SetStageMessageIndex(1);
+	SetHUDIcon( "school" );
+	SetMaxTraffic(2);
+	SetStageMusicAlwaysOn();
+	AddObjective("interior", "nearest road");
+		SetDestination("SpringfieldElementary", "school_mission_doorstar");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	SetStageMessageIndex(156);
+	SetHUDIcon( "lisa" );
+	SetMaxTraffic(2);
+	SetStageMusicAlwaysOn();
+	AddObjective("talkto", "nearest road");
+		AddNPC("lisa","m1_lisa_place", SpringfieldElementary);
+		AddObjectiveNPCWaypoint( "lisa", "lisa_walk_1" );
+		AddObjectiveNPCWaypoint( "lisa", "lisa_walk_2" );
+		AddObjectiveNPCWaypoint( "lisa", "lisa_walk_1" );
+		SetTalkToTarget("lisa",0, -0.5);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_hands_on_hips" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_scratch_head" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_no" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		SetDialogueInfo("homer","lisa","bladder",0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

@@ -1,0 +1,53 @@
+global int $gCoinSplineCompleteCB = -1;
+
+global proc wb_MCB_CreateCoinPath()
+{
+    global int $gCoinSplineCompleteCB;
+
+    if ( !`contextInfo -exists CoinSplineCtx` ) 
+    {
+        curveCVCtx -degree 3 -me true -un true CoinSplineCtx;
+		print "create\n";
+    }
+    else
+    {
+        string $currentCtx = `currentCtx`;
+
+        if ( $currentCtx == "CoinSplineCtx" )
+        {
+		print "complete\n";
+            ctxCompletion;
+
+            wb_CB_CoinSplineComplete();
+        }
+    }
+
+		print "select\n";
+    setToolTo CoinSplineCtx;
+
+    $gCoinSplineCompleteCB = `scriptJob -ro 1 -p "WorldBuilder" -e "ToolChanged" wb_CB_CoinSplineComplete`;
+}
+
+global proc wb_CB_CoinSplineComplete()
+{ 
+		print "complete callback\n";
+    WB_CoinSplineComplete();
+}
+ 
+global proc wb_CoinSplinesCleanup()
+{
+		print "clean\n";
+    global int $gCoinSplineCompleteCB;
+
+    if ( $gCoinSplineCompleteCB != -1 )
+    {
+        scriptJob -k $gCoinSplineCompleteCB;
+		print "kill job\n";
+    }
+
+    if ( `contextInfo -exists CoinSplineCtx` )
+    {
+		print "delete ui\n"; 
+        deleteUI -tc CoinSplineCtx;
+    }
+}

@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="trackeditor"
+	SccProjectName="Perforce Project"
+	SccAuxPath=""
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="MFCProj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Tools Release|Win32"
+			OutputDirectory=".\Release"
+			IntermediateDirectory=".\Release"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\include\,..\code\,..\..\..\game\libs\pure3d\toollib\inc,..\..\..\game\libs\pure3d\toollib\chunks16\inc,.,..\..\..\game\libs\pure3d\constants,..\..\globalcode,..\..\..\game\libs\radmath,..\..\..\game\code\constants"
+				PreprocessorDefinitions="NDEBUG;WIN32;_WIN32;_WINDOWS;NT_PLUGIN;RAD_WIN32;RAD_PC;RAD_RELEASE"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="precompiled/pch.h"
+				PrecompiledHeaderFile="Release/PCH.pch"
+				AssemblerListingLocation=".\Release/"
+				ObjectFile=".\Release/"
+				ProgramDataBaseFileName=".\Release/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="TRUE"
+				AdditionalOptions="/MACHINE:I386 /EXPORT:initializePlugin /EXPORT:uninitializePlugin
+"
+				AdditionalDependencies="user32.lib gdi32.lib glu32.lib version.lib Foundation.lib OpenGL32.lib OpenMaya.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaUI.lib OpenMayaAnim.lib WS2_32.LIB"
+				OutputFile="Release\trackeditor.mll"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\lib"
+				IgnoreDefaultLibraryNames="LIBC.lib;LIBCMT.lib;LIBCPMT.lib"
+				ProgramDatabaseFile=".\Release/trackeditor.pdb"
+				SubSystem="1"
+				ImportLibrary=".\Release/trackeditor.lib"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Release/trackeditor.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copy trackeditor.mll to Distribution and Maya dir."
+				CommandLine="copy .\Release\trackeditor.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\trackeditor.mll
+copy .\Release\trackeditor.mll C:\AW\Maya4.0\bin\plug-ins\trackeditor.mll
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_AFXDLL;NDEBUG"
+				Culture="4105"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+		<Configuration
+			Name="Tools Debug|Win32"
+			OutputDirectory=".\Debug"
+			IntermediateDirectory=".\Debug"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\code\,..\..\..\game\libs\pure3d\toollib\inc,..\..\..\game\libs\pure3d\toollib\chunks16\inc,.,..\..\..\game\libs\pure3d\constants,..\..\globalcode,..\..\..\game\libs\radmath,..\..\..\game\libs\pure3d\sdks\Maya4_0\include\,..\..\..\game\code\constants"
+				PreprocessorDefinitions="_DEBUG;WIN32;_WIN32;_WINDOWS;NT_PLUGIN;RAD_WIN32;RAD_PC;RAD_DEBUG"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="PCH.h"
+				PrecompiledHeaderFile=".\Debug/trackeditor.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile=".\Debug/"
+				ProgramDataBaseFileName=".\Debug/"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="4"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="TRUE"
+				AdditionalOptions="/MACHINE:I386"
+				AdditionalDependencies="user32.lib gdi32.lib glu32.lib version.lib Foundation.lib OpenGL32.lib OpenMaya.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaUI.lib OpenMayaAnim.lib"
+				OutputFile="Debug\trackeditor.mll"
+				LinkIncremental="2"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile=".\Debug/trackeditor.pdb"
+				SubSystem="2"
+				ImportLibrary=".\Debug/trackeditor.lib"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Debug/trackeditor.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copy trackeditor.mll to Distribution and Maya dir."
+				CommandLine="copy .\Debug\trackeditor.mll C:\AW\Maya4.0\bin\plug-ins\trackeditord.mll
+copy .\Debug\trackeditor.mll C:\AW\Maya4.0\bin\plug-ins\trackeditor.mll
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_AFXDLL;_DEBUG"
+				Culture="4105"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="main"
+			Filter="">
+			<File
+				RelativePath="..\code\main\constants.h">
+			</File>
+			<File
+				RelativePath="..\code\main\pluginMain.cpp">
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\main\pluginMain.h">
+			</File>
+			<File
+				RelativePath="..\code\main\shapeconstants.h">
+			</File>
+			<File
+				RelativePath="..\code\main\trackeditor.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\main\trackeditor.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="commands"
+			Filter="">
+			<File
+				RelativePath="..\code\commands\export.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\commands\export.h">
+			</File>
+			<File
+				RelativePath="..\code\commands\intersectioncommands.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\commands\intersectioncommands.h">
+			</File>
+			<File
+				RelativePath="..\code\commands\trackeditorcommands.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\commands\trackeditorcommands.h">
+			</File>
+			<File
+				RelativePath="..\code\commands\treelinecommand.cpp">
+			</File>
+			<File
+				RelativePath="..\code\commands\treelinecommand.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="nodes"
+			Filter="">
+			<File
+				RelativePath="..\code\nodes\NU.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\fenceline.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\nodes\fenceline.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\intersection.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\nodes\intersection.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\pedpath.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\pedpath.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\road.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\nodes\road.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\tiledisplay.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\nodes\tiledisplay.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\treelineshapenode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\treelineshapenode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\walllocator.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\nodes\walllocator.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="contexts"
+			Filter="">
+			<File
+				RelativePath="..\code\contexts\bvcontext.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\contexts\bvcontext.h">
+			</File>
+			<File
+				RelativePath="..\code\contexts\intersectioncontext.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\contexts\intersectioncontext.h">
+			</File>
+			<File
+				RelativePath="..\code\contexts\ppcontext.cpp">
+			</File>
+			<File
+				RelativePath="..\code\contexts\ppcontext.h">
+			</File>
+			<File
+				RelativePath="..\code\contexts\treelinecontext.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\contexts\treelinecontext.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="utility"
+			Filter="">
+			<File
+				RelativePath="..\..\globalcode\utility\GLExt.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\GLExt.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt_template.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt_template.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MUI.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MUI.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\mayahandles.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\mayahandles.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\overlaymarquee.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\overlaymarquee.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\stdafx.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\transformmatrix.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\transformmatrix.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\util.c">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\util.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\winutil.c">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\pch.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\winutil.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="mel scripts"
+			Filter="">
+			<File
+				RelativePath="..\code\scripts\te_BVContext.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_IntersectionContext.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_PPContext.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_cleanup.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_editorwindow.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_globals.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_main.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_setup.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\te_treelineContext.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="precompiled header"
+			Filter="">
+			<File
+				RelativePath="..\code\precompiled\PCH.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\precompiled\PCH.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="AETemplates"
+			Filter="">
+			<File
+				RelativePath="..\code\AETemplates\AEIntersectionLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AERoadNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AETELocatorSuppress.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AETEShowRoadSegButton.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AETreelineShapeNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

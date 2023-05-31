@@ -1,0 +1,10 @@
+#include <roads/geometry.cpp>
+#include <roads/intersection.cpp>
+#include <roads/lane.cpp>
+#include <roads/road.cpp>
+#include <roads/roadmanager.cpp>
+#include <roads/roadrender.cpp>
+#include <roads/roadrendertest.cpp>
+#include <roads/roadsegment.cpp>
+#include <roads/roadsegmentdata.cpp>
+#include <roads/trafficcontrol.cpp>

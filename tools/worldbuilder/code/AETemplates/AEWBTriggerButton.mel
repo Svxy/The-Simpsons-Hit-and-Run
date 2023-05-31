@@ -1,0 +1,94 @@
+global int $gIsItVisibler = 0;
+
+global proc AEWBTriggerButtonNew( string $nodeName )
+{
+    columnLayout -adj true;
+
+        select $nodeName;
+        string $names[] = `ls -sl -o`;
+
+        string $command = "wb_BCB_AttachTriggers(\"" + $names[0] + "\", 0)";
+
+		button -label "Attach Triggers" -command $command WBMakeTriggerButton;
+
+    setParent ..;
+
+    select $names[0];
+}
+
+
+global proc AEWBTriggerButtonReplace( string $nodeName )
+{
+
+    select $nodeName;
+    string $names[] = `ls -sl -o`;
+
+    string $command = "wb_BCB_AttachTriggers(\"" + $names[0] + "\", 0)";
+
+    button -e -command $command WBMakeTriggerButton;
+
+    select $names[0];
+}
+
+global proc AEWBTriggerButtonNewOcclude( string $nodeName )
+{
+    columnLayout -adj true;
+
+        select $nodeName;
+        string $names[] = `ls -sl -o`;
+
+        string $command = "wb_BCB_AttachTriggers(\"" + $names[0] + "\", 0)";
+
+		button -label "Add Occlusion Volume" -command $command WBMakeTriggerButton;
+
+    setParent ..;
+
+    select $names[0];
+}
+
+global proc AEWBTriggerButtonReplaceOcclude( string $nodeName )
+{
+    select $nodeName;
+    string $names[] = `ls -sl -o`;
+
+    string $command = "wb_BCB_AttachTriggers(\"" + $names[0] + "\", 0)";
+
+    button -e -command $command WBMakeTriggerButton;
+
+    select $names[0];
+}
+
+global proc AEWBTriggerButtonNewVisible( string $nodeName )
+{
+    columnLayout -adj true;
+
+        select $nodeName;
+        string $names[] = `ls -sl -o`;
+
+        string $command = "wb_BCB_AttachTriggers(\"" + $names[0] + "\", 1)";
+
+		button -label "Add Visibler Volume" -command $command WBMakeTriggerButton;
+
+    setParent ..;
+
+    select $names[0];
+}
+
+global proc AEWBTriggerButtonReplaceVisible( string $nodeName )
+{
+    select $nodeName;
+    string $names[] = `ls -sl -o`;
+
+    string $command = "wb_BCB_AttachTriggers(\"" + $names[0] + "\", 1)";
+
+    button -e -command $command WBMakeTriggerButton;
+
+    select $names[0];
+}
+
+global proc int IsVisibler()
+{
+	global int $gIsItVisibler;
+
+	return $gIsItVisibler;
+}

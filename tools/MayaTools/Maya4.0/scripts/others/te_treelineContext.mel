@@ -1,0 +1,84 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// te_treelineContext.mel
+//
+// Description: Defines all the scripts required by the TreeLineContext tool
+//              As a convention all Terrain Editor global procedures 
+//              and global variables are prefixed with "te_".  All commands 
+//              exposed through TE plugins are prefixed with "TE_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created -- CBrisebois
+//-----------------------------------------------------------------------------
+
+//This is the global instance of the tree line context tool.
+
+global proc te_MCB_CreateTreeLines()
+{
+    //Start the tree line context...
+    if ( ! `contextInfo -exists TreeLineCtx` ) 
+    {
+        TreeLineContext TreeLineCtx;
+    }
+
+    setToolTo TreeLineCtx;
+}
+
+global proc te_Delete_TreeLineContext()
+{
+    if ( `contextInfo -exists TreeLineCtx` )
+    {
+        deleteUI -toolContext TreeLineCtx;
+    }
+}
+
+global proc te_MCB_SnapTreelines()
+{
+    TE_SnapSelectedTreelines();
+}
+
+global proc te_MCB_ConvertToGeometry()
+{
+    string $whichCtx = `currentCtx`;
+
+    if ( $whichCtx == "TreeLineCtx" )
+    {
+        ctxAbort;   
+    }
+
+    TE_ConvertTreelineToGeometry();
+}
+
+global int $gDeleteTreelines = true;
+
+global proc te_MCB_TreelineOptions()
+{
+    global int $gDeleteTreelines;
+
+    if ( `window -exists TE_TreelineOptions` )
+    {
+        deleteUI -window TE_TreelineOptions;
+    }
+
+    window -rtf true -title "TE Treeline Options" TE_TreelineOptions;
+
+    columnLayout -adjustableColumn true;
+
+        checkBox -label "Delete Treelines" -value $gDeleteTreelines -cc "te_BCB_SetDeleteTreelines(#1)";
+
+    setParent ..;
+
+    showWindow;
+}
+
+global proc te_BCB_SetDeleteTreelines( int $delete )
+{
+    global int $gDeleteTreelines;
+
+    $gDeleteTreelines = $delete;
+    TE_SetDeleteTreeline($delete);
+}

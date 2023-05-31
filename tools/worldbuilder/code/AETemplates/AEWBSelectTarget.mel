@@ -1,0 +1,34 @@
+global proc wb_BCB_SelectTarget( string $nodeName )
+{
+    select $nodeName;
+    string $actNodes[] = `ls -sl -o`;
+
+    string $text = `textField -q -text WBTargetName`;
+
+    print ($text + "\n");
+
+    if ( $text != "" )
+    {
+        evalEcho ("setAttr " + $actNodes[0] + ".target -type \"string\" \"" + $text + "\"");
+    }
+
+    select $actNodes[0];
+}
+
+global proc AEWBTargetSelectNew( string $nodeName )
+{
+    columnLayout -adj true;
+
+        textField -ed true WBTargetName;
+        string $command = "wb_BCB_SelectTarget( \"" +  $nodeName + "\" )";
+		button -label "Select Target" -command  $command WBSelectTargetButton;
+
+    setParent ..;
+}
+
+global proc AEWBTargetSelectReplace( string $nodeName )
+{
+    textField -e -text "" WBTargetName;
+    string $command = "wb_BCB_SelectTarget( \"" +  $nodeName + "\" )";
+    button -e -command  $command WBSelectTargetButton;
+} 

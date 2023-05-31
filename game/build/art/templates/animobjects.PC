@@ -1,0 +1,8 @@
+PRINT Applying ANIMOBJECTS template to INPUT
+COMMAND p3dimage --ntsc_fix -r -o INPUT OUTPUT
+#COMMAND p3dgeo2prims -o OUTPUT OUTPUT
+#COMMAND p3dmipmap -m 16 -s -l 4 -o OUTPUT OUTPUT 
+COMMAND tristrip -m -x -o OUTPUT OUTPUT
+COMMAND p3danim -o OUTPUT OUTPUT
+COMMAND AnimCollDSGMaker OUTPUT -o OUTPUT
+COMMAND p3dsort OUTPUT -o OUTPUT

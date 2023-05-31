@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{63629421-51a6-4cb5-92ec-c9b7b0171f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mel scripts">
+      <UniqueIdentifier>{6b7682fb-ce25-4823-b2de-c37177e8f8ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="commands">
+      <UniqueIdentifier>{a320b2f6-fc00-42dd-8379-fbfa8f7e1c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{ad0a5a1d-fa73-4b0a-995e-ad7c04385634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="precompiled header">
+      <UniqueIdentifier>{ceba181d-db94-4612-8b9c-7698e86ea53e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\main\mayaincludes.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\pluginMain.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\stdafx.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\snapselected.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MExt.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MExt_template.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MUI.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\mayahandles.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\util.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\winutil.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\precompiled\PCH.h">
+      <Filter>precompiled header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\main\pluginMain.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\snapselected.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt_template.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MUI.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\mayahandles.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\util.c">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\winutil.c">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\precompiled\PCH.cpp">
+      <Filter>precompiled header</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\code\scripts\os_cleanup.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\os_main.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

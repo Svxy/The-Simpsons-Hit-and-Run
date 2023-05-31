@@ -1,0 +1,274 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// WB_main.mel
+//
+// Description: Installs the World Builder (WB) interface.
+//              As a convention all World Builder global procedures 
+//              and global variables are prefixed with "wb_".  All commands 
+//              exposed through WB plugins are prefixed with "WB_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created Apr 11, 2001 -- bkusy 
+//  + Stolen & Adapted -- CBrisebois
+//-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// w b _ b r e a k p o i n t 
+//
+// Synopsis:
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc wb_breakpoint( string $tag )
+{
+    confirmDialog -m ( "BreakPoint: " + $tag );
+}
+
+//-----------------------------------------------------------------------------
+// w b _ M C B _ A b o u t
+//
+// Synopsis:    Display an About World Builder window.
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc wb_MCB_About()
+{
+	string $pluginVersion = "2.0";
+
+    string $message = ( "\nSimpsons Road Rage World Builder.\n\n" +
+                        "Release " + $pluginVersion + "\n" +
+                        "(c) 2001, Radical Entertainment, Ltd.\n\n" );
+
+
+    confirmDialog -title "About World Builder"
+                  -message $message
+                  -button "OK"
+                  -defaultButton "OK";
+}
+
+//-----------------------------------------------------------------------------
+// w b _ d o M a i n M e n u I w b m s
+//
+// Synopsis:    Creates the WB menu on the menu handle passed in.
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc wb_doMainMenuItems( string $menu )
+{
+    global string $gMainWindow;
+    global float $gWB_Offset;
+
+    menu -edit -tearOff true -allowOptionBoxes true $menu;
+
+        menuItem -label "Display Levels" -sm true; 
+
+            menuItem -label "Event Locators" -checkBox true -command "WB_ChangeDisplay(0, #1)";
+
+            menuItem -label "Script Locators" -checkBox true -command "WB_ChangeDisplay(1, #1)";
+
+            menuItem -label "Generic Locators" -checkBox true -command "WB_ChangeDisplay(2, #1)";
+
+            menuItem -label "Car Start Locators" -checkBox true -command "WB_ChangeDisplay(3, #1)";
+
+            menuItem -label "Dynamic Zone Locators" -checkBox true -command "WB_ChangeDisplay(4, #1)";
+
+            menuItem -label "Occlusion Locators" -checkBox true -command "WB_ChangeDisplay(5, #1)";
+
+            menuItem -label "Interior Entrance Locators" -checkBox true -command "WB_ChangeDisplay(7, #1)";
+
+            menuItem -label "Directional Locators" -checkBox true -command "WB_ChangeDisplay(8, #1)";
+
+            menuItem -label "Action Locators" -checkBox true -command "WB_ChangeDisplay(9, #1)";
+
+            menuItem -label "FOV" -checkBox true -command "WB_ChangeDisplay(10, #1)";
+
+            menuItem -label "Breakable Camera" -checkBox true -command "WB_ChangeDisplay(11, #1)";
+
+            menuItem -label "Static Camera" -checkBox true -command "WB_ChangeDisplay(12, #1)";
+
+            menuItem -label "Ped Group" -checkBox true -command "WB_ChangeDisplay(13, #1)";
+
+            menuItem -divider true;
+
+            menuItem -label "Trigger Volumes" -checkBox true -command "WB_ChangeDisplay(20, #1)";
+
+        setParent -menu ..;
+
+        menuItem -divider true;
+
+        menuItem -label "Create Camera Path" -command "wb_MCB_CreateCameraPath()";
+
+        menuItem -label "Create Coin Path" -command "wb_MCB_CreateCoinPath()";
+
+        menuItem -divider true;
+
+        menuItem -label "Set Prefix" -command "WB_SetPrefix()";
+
+        menuItem -divider true;
+
+        menuItem -label "Snap Locator" -command "WB_SnapLocator( $gWB_Offset )";
+
+        menuItem -optionBox true -command "wb_MCB_SnapLocatorOptions()";
+
+        menuItem -divider true;
+
+        menuItem -label "Export" -command "WB_Export()";
+
+        menuItem -optionBox true -command "WB_ExportOptions()";
+
+        menuItem -divider true; 
+
+        menuItem -label "About" -command "wb_MCB_About()";
+
+    setParent -m ..;
+
+    if ( `shelfLayout -exists "WorldBuilder"` == 0 )
+    {
+        addNewShelfTab "WorldBuilder";
+    }
+
+    //Delete all the old buttons (in case there was a change)..
+    string $buttons[] = `shelfLayout -q -ca WorldBuilder`;
+
+    int $i;
+
+    for ( $i = 0; $i < size($buttons); $i++ )
+    {
+        deleteUI $buttons[ $i ];
+    }
+
+    //Create all the buttons required..
+    shelfButton -c ("wb_BCB_CreateLocator(\"Event\")")
+                -p "WorldBuilder"
+                -i1 "eventlocator.bmp"
+                -ann "Create Event Locator"
+                -l "Event";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Script\")")
+                -p "WorldBuilder"
+                -i1 "scriptlocator.bmp"
+                -ann "Create Script Locator"
+                -l "Script";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Generic\")")
+                -p "WorldBuilder"
+                -i1 "genericlocator.bmp"
+                -ann "Create Generic Locator"
+                -l "Generic";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Car Start\")")
+                -p "WorldBuilder"
+                -i1 "carstartlocator.bmp"
+                -ann "Create Car Start Locator"
+                -l "Car Start";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Dynamic Zone\")")
+                -p "WorldBuilder"
+                -i1 "zonelocator.bmp"
+                -ann "Create Dynamic Zone Locator"
+                -l "Dynamic Zone";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Occlusion\")")
+                -p "WorldBuilder"
+                -i1 "occlusionlocator.bmp"
+                -ann "Create Occlusion Locator"
+                -l "Occlusion";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Interior Entrance\")")
+                -p "WorldBuilder"
+                -i1 "interiorlocator.bmp"
+                -ann "Create Interior Entrance Locator"
+                -l "Interior Entrance";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Directional\")")
+                -p "WorldBuilder"
+                -i1 "directionallocator.bmp"
+                -ann "Create Directional Locator"
+                -l "Directional";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Action\")")
+                -p "WorldBuilder"
+                -i1 "actionlocator.bmp"
+                -ann "Create Action Locator"
+                -l "Action";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"FOV\")")
+                -p "WorldBuilder"
+                -i1 "fovlocator.bmp"
+                -ann "Create FOV Locator"
+                -l "FOV";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Breakable Camera\")")
+                -p "WorldBuilder"
+                -i1 "breakablecameralocator.bmp"
+                -ann "Create Breakable Camera Locator"
+                -l "Breakable Camera";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Static Camera\")")
+                -p "WorldBuilder"
+                -i1 "staticcameralocator.bmp"
+                -ann "Create Static Camera Locator"
+                -l "Static Camera";
+
+    shelfButton -c ("wb_BCB_CreateLocator(\"Ped Group\")")
+                -p "WorldBuilder"
+                -i1 "pedgrouplocator.bmp"
+                -ann "Create Ped Group Locator"
+                -l "Ped Group";
+
+}
+
+
+//-----------------------------------------------------------------------------
+// w b _ I n s t a l l U I
+//
+// Synopsis:
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc wb_InstallUI()
+{
+
+    global string $gMainWindow;
+
+    //
+    // Install WB menu as a root menu.
+    //
+    if ( `menu -exists wb_MainMenu` ) deleteUI wb_MainMenu;
+    menu -label "World Builder" -allowOptionBoxes true -parent $gMainWindow wb_MainMenu; 
+
+    wb_doMainMenuItems "wb_MainMenu";
+}
+
+evalDeferred "wb_InstallUI";
+
+source "wb_setup.mel";
+source "wb_locator.mel";
+source "wb_splines.mel";
+source "wb_coinsplines.mel";
+source "AEWBTriggerButton.mel";
+source "AEWBSelectTarget.mel";

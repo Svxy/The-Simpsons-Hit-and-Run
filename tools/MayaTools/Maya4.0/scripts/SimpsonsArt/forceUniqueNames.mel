@@ -1,0 +1,381 @@
+//===========================================================================
+// Copyright ©2002 Radical Entertainment Ltd.  All rights reserved.
+//
+// Created:     26 March, 2002
+//
+// Description: Forces unique names for all nodes in the scene, and ensures
+//              that each Shape node derives its name (and numerical suffix)
+//              from its Transform.
+//
+// Constraints: 
+//
+// Creator:     Bryan Ewert
+//
+//===========================================================================
+
+//===========================================================================
+// version
+//===========================================================================
+// Description: Returns the current version for this MEL script.
+//              Used for version control.
+//
+// Constraints: 
+//
+//===========================================================================
+proc float version()
+{
+    return ( 1.1 );     // 01 May 2002
+}
+
+//===========================================================================
+// depth
+//===========================================================================
+// Description: Determines the depth of the specified DAG; e.g. the depth
+//              for "|group1|transform2|transformShape2" is 3.
+//
+// Constraints: 
+//
+//  Parameters: string $node: The full path to the node.
+//
+//      Return: (int): The depth of the path.
+//
+//===========================================================================
+proc int depth( string $node )
+{
+    int $depth = 0;
+    
+    if ( `objExists $node` )
+    {
+        string $longA[] = `ls -l $node`;
+        
+        string $tokens[];
+        $depth = `tokenize $longA[0] "|" $tokens`;
+    }
+
+    return $depth;    
+}
+
+//===========================================================================
+// nameNoPath
+//===========================================================================
+// Description: Returns the short name for the specified node.
+//              "|group1|transform2|transformShape2" would return 
+//              "transformShape2"
+//
+// Constraints: The pathless name may not be unique, and may not be 
+//              sufficient for Maya to resolve the DAG!  This name is 
+//              intended for use in a rename operation, and not for 
+//              performing edit operations on the object.
+//
+//  Parameters: string $node: The full path to the node.
+//
+//      Return: (string): The short path for the node.
+//
+//===========================================================================
+proc string nameNoPath( string $node )
+{
+    return `match "[^|]*$" $node`;
+}
+
+//===========================================================================
+// isUnique
+//===========================================================================
+// Description: Determines if the specified node has a unique name.
+//
+// Constraints: 
+//
+//  Parameters: string $node: Name of the node (may be full path, may not).
+//
+//      Return: (int): TRUE (non-zero) if name is unique; else FALSE (zero).
+//
+//===========================================================================
+proc int isUnique( string $node )
+{
+    int $isUnique = true;
+    
+    string $noPath = nameNoPath( $node );
+    string $wildcard = ( "*" + $noPath );
+    string $potentials[] = `ls $wildcard`;
+    
+    int $numMatches = 0;
+    for ( $p in $potentials )
+    {
+        string $tokens[];
+        int $numTokens = `tokenize $p "|" $tokens`;
+        if ( $tokens[$numTokens-1] == $noPath )
+        {
+            $numMatches++;
+        }
+    }
+    
+    $isUnique = ( $numMatches < 2 );
+    
+    return $isUnique;
+}
+
+//===========================================================================
+// getUniqueName
+//===========================================================================
+// Description: Builds a unique name for the specified node by generating
+//              a numerical suffix for the node.  An existing numerical
+//              suffix is stripped and replaced if the node's name is not
+//              already unique.
+//
+// Constraints: The returned name does _not_ contain a path and may not be 
+//              sufficient for Maya to resolve the DAG!  This name is 
+//              intended for use in a rename operation, and not for 
+//              performing edit operations on the object.
+//
+//  Parameters: string $node: The full path to the node.
+//
+//      Return: (string): A unique name for the node.
+//
+//===========================================================================
+proc string getUniqueName( string $node )
+{
+    string $shortNode = nameNoPath( $node );
+    string $unique = $shortNode;
+    
+    if ( !isUnique( $shortNode ) )
+    {
+        // strip numeric suffix
+        string $suffix = `match "[0-9]*$" $shortNode`;
+        int $sizeShortNode = `size $shortNode`;
+        int $sizeSuffix = `size $suffix`;
+        $shortNode = `substring $shortNode 1 ( $sizeShortNode - $sizeSuffix )`;
+
+        if ( !`objExists $shortNode` )
+        {
+            $unique = $shortNode;
+        }
+        else
+        {
+            string $newNode;
+            int $u = 1;
+            do
+            {
+                $newNode = ( $shortNode + ($u++) );
+            } while ( `objExists $newNode` );
+
+            $unique = $newNode;
+        }
+    }
+    
+    return $unique;
+}
+
+//===========================================================================
+// getShape
+//===========================================================================
+// Description: Returns the shape node, if any, for the specified transform.
+//
+// Constraints: Considers only a single shape.
+//
+//  Parameters: string $xform: The transform node.
+//
+//      Return: (string): The shape node.
+//
+//===========================================================================
+proc string getShape( string $xform )
+{
+    string $shapes[];
+    
+    $shapes[0] = $xform;
+    
+    string $isTransform[] = `ls -transforms $xform`;
+    
+    if ( `size $isTransform` > 0 )
+    // If given node is not a transform, assume it is a shape 
+    // and pass it through
+    {
+        $shapes = `listRelatives -fullPath -shapes $xform`;
+    }
+    
+    return $shapes[0];
+}
+
+//===========================================================================
+// getShapeName
+//===========================================================================
+// Description: Derives a name for the shape node given the specified 
+//              transform name.  For example if the $node specified is
+//              "pCube23" the shape name will be "pCubeShape23".
+//
+// Constraints: No checking is done to verify that $node is a transform.
+//
+//  Parameters: string $node: The name for the transform node.
+//
+//      Return: (string): The name for the shape node.
+//
+//===========================================================================
+proc string getShapeName( string $node )
+{
+    string $numeric = `match "[0-9]+$" $node`;
+
+    int $strlen = `size $node`;
+    int $numlen = `size $numeric`;
+    string $alpha = `substring $node 1 ( $strlen - $numlen )`;
+    
+    string $shapeName = ( $alpha + "Shape" + $numeric );
+    
+    return $shapeName;
+}
+
+//===========================================================================
+// performRename
+//===========================================================================
+// Description: Does the work for the rename operation -- generates unique
+//              names for the transform and shape nodes, assesses whether
+//              the names are non-unique and, if necessary, renames the 
+//              nodes.
+//
+// Constraints: Read-only nodes (such as Maya's startup cameras) are a real
+//              pain in the keister because there is no way to detect them
+//              reliably ('ls -readOnly' doesn't work for this).  Currently
+//              the workaround is to assess whether my "unique" name is
+//              the same as Maya's current name and, if so, don't bother
+//              attempting a rename operation.
+//
+//  Parameters: string $node: The full path to the node being renamed.
+//
+//      Return: (int): TRUE (non-zero) if successful; else FALSE.
+//                     TRUE doesn't necessary mean it was renamed; it may
+//                     also mean it did not need to be renamed.
+//
+//===========================================================================
+proc int performRename( string $node )
+{
+    int $bSuccess = false;
+ 
+    if ( `objExists $node` )
+    {
+        string $unique = getUniqueName( $node );
+        string $shape = getShape( $node );
+
+        if ( $shape != "" )
+        {
+            string $uniqueShape = getShapeName( $unique );
+            if ( $uniqueShape != nameNoPath( $shape ) )
+            {
+                eval( "rename " + $shape + " " + $uniqueShape );
+            }
+        }
+
+        if ( $unique != nameNoPath( $node ) )
+        {
+            eval( "rename " + $node + " " + $unique );
+        }
+        
+        $bSuccess = true;
+    }
+
+    return $bSuccess;    
+}
+    
+//===========================================================================
+// performUniqueNames
+//===========================================================================
+// Description: Recursive procedure for assessing the scene and looping 
+//              through the transform nodes.  The renaming is performed
+//              from the top-down, and if a top-level node is renamed the
+//              path to its children will no longer be valid.  The cheap
+//              way around this is to detect an invalid path and signal
+//              a recursive call to this function.  The number of retries
+//              is capped to prevent any possibility of infinite recursion.
+//
+// Constraints: 
+//
+//  Parameters: int $progress: The current progress; i.e. the number of 
+//                             nodes successfully processed so far.
+//              int $retry: Number of retries (recursions) remaining.
+//
+//      Return: (none)
+//
+//===========================================================================
+proc performUniqueNames( int $progress, int $retry )
+{
+    $retry = max( $retry, 0 );
+    
+    int $bSuccess = true;
+    
+    string $transforms[] = `ls -long -transforms`;
+    int $depth[];
+    int $maxDepth = 0;
+    
+    for ( $t = 0; $t < `size $transforms`; $t++ )
+    {
+        $depth[$t] = depth( $transforms[$t] );
+        $maxDepth = max( $maxDepth, $depth[$t] );
+    }
+
+    for ( $d = 1; $d <= $maxDepth; $d++ )
+    {
+        for ( $t = 0; $t < `size $transforms`; $t++ )
+        {
+            if ( $depth[$t] == $d )
+            {
+                $bSuccess = performRename( $transforms[$t] ) && $bSuccess;
+                
+                if ( $bSuccess ) $progress++;
+            }
+            
+            progressWindow -e -progress $progress;
+        }
+    }
+    
+    if ( !$bSuccess && $retry ) performUniqueNames( $progress, --$retry );
+}
+
+//===========================================================================
+// forceUniqueNames
+//===========================================================================
+// Description: Entry point for this script.
+//
+//              Forces unique names for all nodes in the scene, and ensures
+//              that each Shape node derives its name (and numerical suffix)
+//              from its Transform.
+//
+// Constraints: 
+//
+//  Parameters: (none)
+//
+//      Return: (none)
+//
+//===========================================================================
+global proc forceUniqueNames()
+{
+    int $numRetries = 8;
+
+    waitCursor -state on;
+
+    string $transforms[] = `ls -l -type "transform"`;
+
+    int $allProgress = ( `size $transforms` );
+    int $progress = 0;
+    int $progressThreshold = 256;   // no progress window for fewer items.
+
+    if ( $allProgress > $progressThreshold )
+    {
+        progressWindow 
+            -ii false       // not interruptable, sorry.
+            -min 0
+            -max $allProgress
+            -title "Force Unique Names"
+            -status "Scanning for non-unique names."
+            ;
+    }
+
+    performUniqueNames( $progress, $numRetries );
+
+    if ( $allProgress > $progressThreshold )
+    {
+        progressWindow -endProgress;
+    }
+
+    waitCursor -state off;
+}
+
+
+/* 
+source forceUniqueNames; forceUniqueNames; 
+*/

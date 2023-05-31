@@ -1,0 +1,205 @@
+SelectMission("m4");
+
+SetMissionResetPlayerOutCar("m4_bart_start","m4_carstart");
+SetDynaLoadData("l2z1.p3d;l2r1.p3d;l2r4.p3d;");
+
+UsePedGroup(6);
+
+//AddStage(0);
+//	RESET_TO_HERE();
+//	SetMaxTraffic(3);
+//	SetStageMusicAlwaysOn();
+//	SetStageMessageIndex(57);
+//	SetHUDIcon( "hermans" );
+//	AddObjective("goto");
+//		AddNPC("wiggum","m4_wiggum");
+//		SetDestination("hermans", "carsphere");
+//		SetCollectibleEffect("wrench_collect");
+//	CloseObjective();
+//CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(12);
+//	AddObjective("getin");
+//		SetObjTargetVehicle("current");
+//		AddStageVehicle("pizza","m4_pizzastart","NULL", "Missions\level01\M5evade.con", "none");
+//	CloseObjective();
+//CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(261);
+	RESET_TO_HERE();
+	SetHUDIcon( "cvan_v" );
+	SetMaxTraffic(2);
+//	AddStageVehicle("pizza","m4_pizzastart","evade", "Missions\level02\M2evade.con", "none");
+	AddStageVehicle("pizza","m4_pizzastart","target", "Missions\level02\M2evade.con", "none");
+	SetStageAITargetCatchupParams( 	"pizza", 20, 70);
+//	ActivateVehicle("pizza","NULL","evade");
+	AddStageWaypoint( "m4_pizza_path1" );
+	AddStageWaypoint( "m4_pizza_path2" );
+	AddStageWaypoint( "hermans" );
+	AddObjective("follow");
+		AddNPC("wiggum","m4_wiggum");
+		SetObjTargetVehicle("pizza");
+		AddStageVehicle("snake_v","m4_snake_carstart3","NULL","Missions\level02\M4race.con", "snake");
+	CloseObjective();
+	AddCondition("followdistance");
+		SetFollowDistances(0, 150);
+		SetCondTargetVehicle("pizza");
+	CloseCondition();
+CloseStage();
+
+AddStage(1);
+	SetStageMessageIndex(104);
+	SetHUDIcon( "wiggum" );
+	ActivateVehicle("snake_v","NULL","evade");
+	AddStageWaypoint( "hermans" );
+	AddStageWaypoint( "m4_snake_follow" );
+	AddStageWaypoint( "snake" );
+	AddStageWaypoint( "m4_finish" );
+	AddStageWaypoint( "m4_pizza_path1" );
+	AddStageWaypoint( "m4_pizza_path2" );
+	AddObjective("talkto");
+		AddNPC("wiggum","m4_wiggum");
+		AddObjectiveNPCWaypoint( "wiggum", "m2_kearney_walk1" );
+		AddObjectiveNPCWaypoint( "wiggum", "m2_kearney_walk2" );
+		AddObjectiveNPCWaypoint( "wiggum", "m2_kearney_walk1" );
+		SetTalkToTarget("wiggum", 0, 0); 
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		SetConversationCam( 2, "pc_far" );
+		SetConversationCam( 3, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "dialogue_scratch_head" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide( "m4_bestside2" );
+		SetDialogueInfo("bart","wiggum","finest",0);
+		SetDialoguePositions("m4_wiggum_bart","m4_wiggum","m4_wiggum_carstart");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetMaxTraffic(5);
+	SetStageMessageIndex(58);
+	SetHUDIcon( "snake" );
+	//SetStageMusicAlwaysOn();
+	AddObjective("goto");
+		AddNPC("snake","m4_snake");
+		RemoveDriver("snake");
+		AddStageVehicle("snake_v","m4_snake_carstart1","NULL","Missions\level02\M4race.con");
+		SetDestination("snake", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	SetStageMessageIndex(60);
+	SetHUDIcon( "snake" );
+	AddObjective("talkto");
+		AddNPC("snake","m4_snake");
+		AddStageVehicle("snake_v","m4_snake_carstart1","NULL","Missions\level02\M4race.con");
+		SetTalkToTarget("snake", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(2);
+	AddObjective("dialogue");
+		AddStageCharacter ("bart", "m4_snake_bart", "", "current", "m4_bart_racestart");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		SetConversationCam( 2, "pc_far" );
+		SetConversationCam( 3, "npc_far" );
+		SetConversationCam( 4, "pc_far" );
+		SetConversationCam( 5, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_scratch_head" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_shaking_fist" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_scratch_head" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide( "m4_bestside3" );
+		SetDialogueInfo("bart","snake","chicks",0);
+		SetDialoguePositions("m4_snake_bart","m4_snake","m4_race_start");
+	CloseObjective();
+	SetIrisWipe(0.1 );
+CloseStage();
+
+
+
+
+AddStage();
+	SetMaxTraffic(3); //for this race, reduce traffic to prevent overwhelming the user
+	SetStageMessageIndex(142);
+	SetHUDIcon( "stadium" );
+	PutMFPlayerInCar();  // This makes the play auto reset into their car for this stage.                
+	AddStageVehicle("snake_v","m4_snake_carstart1","race","Missions\level02\M4race.con", "snake");
+
+	SetStageAIRaceCatchupParams("snake_v", 80, 0.5, 1.5, 1.7); 
+
+	StartCountdown(count);
+	AddToCountdownSequence( "3", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "2", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "1",  1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "GO",  400 ); // duration time in milliseconds
+
+	AddStageWaypoint( "m4_finish" );
+	AddObjective( "race", "both");
+                RemoveNPC("snake");
+                AddDriver("snake", "snake_v");
+		AddCollectible("m4_finish","finish_line");
+		SetCollectibleEffect("finish_line_col");
+	CloseObjective();
+	AddCondition("race");
+		SetCondTargetVehicle("snake_v");
+	CloseCondition();
+	AddStageMusicChange();
+	ShowStageComplete();
+	SetFadeOut( 2 );
+CloseStage();
+
+AddStage("final");
+	SetHUDIcon( "radio" );
+	SetStageMessageIndex(170);
+	AddObjective("goto","neither");
+		TurnGotoDialogOff();
+		AddNPC("snake","m4_snake2");
+                RemoveDriver("snake");
+		AddStageVehicle("snake_v","m4_snake_carstart2","NULL","Missions\level02\M4race.con");
+		SetDestination("m4_radio","radio");
+	CloseObjective();
+	SetCompletionDialog("satellite");
+CloseStage();
+
+CloseMission();
+
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

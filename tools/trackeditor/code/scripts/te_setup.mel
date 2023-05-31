@@ -1,0 +1,15 @@
+//Create the TrackEditorNode.
+
+
+global proc te_Create_TrackEditorNode()
+{
+    if ( !(`objExists TrackEditorNode`) )
+    {
+        createNode "transform" -n "TrackEditorNode";
+        createNode "transform" -n "Fences" -p "TrackEditorNode";
+        createNode "transform" -n "Roads" -p "TrackEditorNode";
+        createNode "transform" -n "Intersections" -p "TrackEditorNode";
+        createNode "transform" -n "Treelines" -p "TrackEditorNode";
+        createNode "transform" -n "PedPaths" -p "TrackEditorNode";
+    }
+}

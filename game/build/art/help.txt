@@ -1,0 +1,157 @@
+
+SRR2 Art Pipeline (pipeline d'art) Overview
+===========================================
+
+Tools and Commands Used in the SRR2 Art Pipeline
+
+Example Pipeline Sytax
+
+pipe [PLATFORM] [TARGET] [clean] [OPTIONS]
+
+        PLATFORM : [ GC | PS2 | PC | XBOX | ALL_PLAT ]
+                 default - PS2
+
+        TARGET : [ cars | characters | levels | all ]
+                 default - all
+
+        OPTIONS : [ HELP | QUICK | DEBUG | COMPRESS | NONE ]
+                 default - NONE
+
+
+The pipeline targets in this example show cars, characters, levels and all.  
+The pipeline will actually detect the directories in the first level of the 
+exportart directory tree and update the possible targets accordingly.  
+
+Any combination of targets and platforms and options is allowed.  
+For example, one could call "pipe XBOX GC levels clean" which would clean out 
+all the files in the store dir for the levels.  
+The behaviour in the CD directory is more complicated if the files are stored 
+in an RCF, but potentially, the clean command will remove the required files 
+from the RCF in the CD dir (an advancement over last year.)
+
+
+Setup / Cleanup
+===============
+If a setup.bat and or cleanup.bat exist in the top level dir for a given target (eg. cars, animations, or levels)
+they will be called before any pipeline processing for that target.
+
+
+Ini Files
+=========
+
+Ini files must occur in each level of the directory tree.  
+These files tell the pipeline what to do with the art found at the given level.  
+Currently the pipeline expects a file called pipe.ini but the pipline can 
+be easily modified to accept any name and possibly as part of the QUICK option 
+(see above) which is a special ini file designed for quick processing.
+
+An example ini file for processing props would look like so:
+
+
+PRINT Processing the Props
+PRINT ====================
+
+DEPEND cans.p3d boxes.p3d signs.p3d
+
+COMMAND p3djoin -o props.p3d cans.p3d boxes.p3d signs.p3d
+
+RULE mesh.rul 2 props.p3d
+
+TEMPLATE mesh props.p3d props.p3d
+
+STORE props.p3d props.p3d
+
+
+
+Templates
+=========
+
+The art pipeline supports template commands.  
+Templates are found in \\depot\game\build\art\templates\
+Their command structure is identical to an ini file with the exception that no
+file names are specified.  Instead you may use the two directives INPUT and 
+OUTPUT.
+
+Example template takes in INPUT, processes it and creates OUTPUT:
+
+PRINT Applying MESH template to INPUT
+COMMAND p3dmipmap -m 16 -s -l 5 -o OUTPUT INPUT
+COMMAND convert2dxtn -o OUTPUT OUTPUT
+COMMAND tristrip -m -x -o OUTPUT OUTPUT
+COMMAND p3dxbox -m -o OUTPUT OUTPUT
+
+
+
+Rules
+=====
+
+Bryan Ewert is working on a rule-based art-checking tool that takes P3D files 
+and a rule script and determines if the P3D file satisfies the rules.  
+This tool will save us plenty of headaches.  
+Currently this tool is broken; however, the pipeline supports it as one of its 
+commands.  (See ini command sytax for more detail)  Templates are also 
+supported for rules as well.
+
+
+
+Commands
+========
+
+Here is a list of the available commands for the pipeline.  
+Adding new commands has been made simpler so that the pipeline remains 
+scaleable and very flexible.
+
+
+PRINT <string>
+Function: Prints the given <string> to the screen followed by a new-line.
+Example: PRINT Processing the Props
+
+DEPEND <files>
+Function: defines the dependencies that this ini file has.  Includes files in 
+          the dir local to it.
+EXAMPLE: DEPEND cans.p3d boxes.p3d signs.p3d
+
+TEMPLATE <type> <input> <output>
+Function: Causes a template of the given <type> to be run on the <input> file 
+          resulting in the given <output> file.  Example types are mesh, 
+          character, skin, animation…  These templates are defined in the 
+          directory \\depot\game\build\art\templates\ as mesh.XBOX, mesh.PS2, 
+          mesh.GC ect.
+Example: TEMPLATE mesh props.p3d props.p3d
+
+COMMAND <dos command to execute>
+Function: This allows the pipeline to execute any command required by the user.  
+          It is recommended that only commands available in the p3d commands 
+          directory be used, but any custom tool made by us could also be 
+          called through this interface.
+Example: COMMAND p3djoin -o props.p3d cans.p3d boxes.p3d signs.p3d
+
+STORE <source> <destination>
+Function: Stores the mid-stage file <source> that is required by a later stage 
+          in the pipeline into the STORE directory structure at the same level 
+          as the ini file being processed.  Each ini file must use this 
+          command, or the following RESULT command.
+Example: STORE props.p3d props.p3d
+
+RESULT <source> <destination>
+Function: The same as the STORE command, except the files destination is 
+          relative to the CD directory for the currently processing platform.
+Example: RESULT props.p3d props.p3d
+
+RULE <rule file> <threshold> <file>
+Function: Applies the <rule file> to the <file>.  If the error level returned 
+          is higher than the <threshold> the ini file will cease to be 
+          processed and Error messages will be displayed.  If there are errors 
+          but below the <threshold> then warnings will be displayed and the 
+          pipeline will continue running the ini file.
+Example: RULE mesh.rul 3 props.p3d
+
+LIB_DEPEND <files>
+Function: NOT implemented.  Potentially will allow files stored in a library 
+          structure to be brought into the local level for processing.  This 
+          functionality will likely be used to support instancing.
+Example: LIB_DEPEND tree1.p3d tree2.p3d
+
+STORE_DEPEND <files>
+Function: Like depend it checks the given <files> in the store directory at the 
+          current level.  It will also retrueve these files if they exist.

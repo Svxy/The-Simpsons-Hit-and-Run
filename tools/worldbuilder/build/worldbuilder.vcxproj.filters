@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{366c6ba8-356c-47df-8d66-9bd89b60358c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="commands">
+      <UniqueIdentifier>{935b3601-b5b9-47f8-ba04-ad2dd1e02b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nodes">
+      <UniqueIdentifier>{d220ea56-95c9-4d82-a653-58cf05c5236f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="contexts">
+      <UniqueIdentifier>{c8ebdea7-8295-4987-8a5e-019ed8aa09e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{7ad26358-0035-4d79-9634-d1bb4038dcb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mel scripts">
+      <UniqueIdentifier>{40773277-3c27-4841-a98a-0b283730dc7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="precompiled header">
+      <UniqueIdentifier>{af47442b-26b9-4735-8425-6706a3083197}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{0e0156cf-22b5-4b50-96e0-429a7358170b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AETemplates">
+      <UniqueIdentifier>{95adfaf0-4424-4f9b-b47a-b99817d16fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SuperCam">
+      <UniqueIdentifier>{8f1fd96b-381a-4211-bda0-0b6d6b3ed6e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TriggerVolumes">
+      <UniqueIdentifier>{98be18c4-5fa3-465b-ae4a-f82a46c20b0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game engine">
+      <UniqueIdentifier>{8f086d86-61ae-4349-88d8-49f1a6127674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="from game">
+      <UniqueIdentifier>{01be528e-1bc5-4113-9fa2-863b9ba84a86}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\main\constants.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\pluginMain.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\toolhack.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\main\worldbuilder.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\export.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\commands\worldbuildercommands.h">
+      <Filter>commands</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\actioneventlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\breakablecameralocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\carstartlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\directionallocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\eventlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\fovlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\genericlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\interiorentrancelocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\occlusionlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\pedgrouplocator.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\railcamlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\scriptlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\splinelocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\staticcameralocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\triggertypes.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\triggervolumenode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\wbspline.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\nodes\zoneeventlocatornode.h">
+      <Filter>nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\contexts\locatorcontext.h">
+      <Filter>contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\contexts\triggercontext.h">
+      <Filter>contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\GLExt.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MExt.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MExt_template.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\MUI.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\mayahandles.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\nodehelper.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\stdafx.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\transformmatrix.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\globalcode\utility\util.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\precompiled\PCH.h">
+      <Filter>precompiled header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\resources\resource.h">
+      <Filter>resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\camera\icamerashaker.h">
+      <Filter>SuperCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\camera\isupercamtarget.h">
+      <Filter>SuperCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\camera\railcam.h">
+      <Filter>SuperCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\camera\sinecosshaker.h">
+      <Filter>SuperCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\camera\staticcam.h">
+      <Filter>SuperCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\camera\supercam.h">
+      <Filter>SuperCam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\locator.h">
+      <Filter>TriggerVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\recttriggervolume.h">
+      <Filter>TriggerVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\spheretriggervolume.h">
+      <Filter>TriggerVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\triggerlocator.h">
+      <Filter>TriggerVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\triggervolume.h">
+      <Filter>TriggerVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\triggervolumetracker.h">
+      <Filter>TriggerVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\gameengine\gameengine.h">
+      <Filter>game engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\gameengine\mayacamera.h">
+      <Filter>game engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\code\gameengine\wbcamtarget.h">
+      <Filter>game engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\render\DSG\IEntityDSG.h">
+      <Filter>from game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\ai\actionnames.h">
+      <Filter>from game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\worldsim\character\charactercontroller.h">
+      <Filter>from game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\locatorevents.h">
+      <Filter>from game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\game\code\meta\locatortypes.h">
+      <Filter>from game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\main\pluginMain.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\main\worldbuilder.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\export.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\commands\worldbuildercommands.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\actioneventlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\breakablecameralocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\carstartlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\directionallocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\eventlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\fovlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\genericlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\interiorentrancelocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\occlusionlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\pedgrouplocator.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\railcamlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\scriptlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\splinelocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\staticcameralocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\triggervolumenode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\wbspline.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\nodes\zoneeventlocatornode.cpp">
+      <Filter>nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\locatorcontext.cpp">
+      <Filter>contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\contexts\triggercontext.cpp">
+      <Filter>contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\GLExt.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MExt_template.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\MUI.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\mayahandles.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\transformmatrix.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\globalcode\utility\util.c">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\precompiled\PCH.cpp">
+      <Filter>precompiled header</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\camera\railcam.cpp">
+      <Filter>SuperCam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\camera\sinecosshaker.cpp">
+      <Filter>SuperCam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\camera\staticcam.cpp">
+      <Filter>SuperCam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\camera\supercam.cpp">
+      <Filter>SuperCam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\meta\locator.cpp">
+      <Filter>TriggerVolumes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\meta\recttriggervolume.cpp">
+      <Filter>TriggerVolumes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\meta\spheretriggervolume.cpp">
+      <Filter>TriggerVolumes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\meta\triggervolume.cpp">
+      <Filter>TriggerVolumes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\gameengine\gameengine.cpp">
+      <Filter>game engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\gameengine\mayacamera.cpp">
+      <Filter>game engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\code\gameengine\wbcamtarget.cpp">
+      <Filter>game engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\render\DSG\IEntityDSG.cpp">
+      <Filter>from game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\main\commandlineoptions.cpp">
+      <Filter>from game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\memory\leakdetection.cpp">
+      <Filter>from game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\code\resources\icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\code\resources\resource.rc">
+      <Filter>resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\code\scripts\wb_cleanup.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_locator.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_main.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_setup.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_splines.mel">
+      <Filter>mel scripts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEActionEventLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEBreakableCameraLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AECarStartLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEDirectionalLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEEventLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEFOVLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEGenericLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEInteriorEntranceLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEOcclusionLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AERailCamLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEScriptLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AESplineLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEStaticCameraLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETriggerVolumeNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEWBLocatorSuppress.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEWBTriggerButton.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEZoneEventLocatorNodeTemplate.mel">
+      <Filter>AETemplates</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

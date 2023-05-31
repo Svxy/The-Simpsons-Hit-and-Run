@@ -1,0 +1,395 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "SRR2"=.\SRR2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name pddixbox
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pure3d
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name choreo
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmovie
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radsound
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radscript
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name poser
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name sim
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ScroobyLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmusic
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcontent
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "SRR2PAL"=.\SRR2PAL.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name choreo
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pddixbox
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name poser
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pure3d
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmovie
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radscript
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radsound
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ScroobyLib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name sim
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmusic
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcontent
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "ScroobyLib"=..\..\libs\scrooby\build\Xbox\ScroobyLib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\scrooby
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "choreo"=..\..\libs\choreo\build\xbox\choreo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\choreo
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libpng"=..\..\libs\pure3d\build\xbox\libpng.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\pure3d\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "pddixbox"=..\..\libs\pure3d\build\xbox\pddixbox.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\pure3d\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "poser"=..\..\libs\poser\build\xbox\poser.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\poser\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "pure3d"=..\..\libs\pure3d\build\xbox\Pure3D.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\pure3d\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pddixbox
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "radcontent"=..\..\libs\radcontent\build\xbox\radcontent.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\radcontent\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radcore"=..\..\libs\radcore\build\xbox\radcore.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radmath"=..\..\libs\radmath\build\xbox\radmath.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\radmath\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radmovie"=..\..\libs\radmovie\build\xbox\radmovie.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\radmovie
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radmusic"=..\..\libs\radmusic\build\xbox\radmusic.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\radmusic
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radscript"=..\..\libs\radscript\build\xbox\radscript.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\radscript
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radsound"=..\..\libs\radsound\build\xbox\radsound.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\radsound\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "sim"=..\..\libs\sim\build\XBox\sim.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\sim
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "zlib"=..\..\libs\pure3d\build\xbox\zlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\..\libs\pure3d\build\xbox
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

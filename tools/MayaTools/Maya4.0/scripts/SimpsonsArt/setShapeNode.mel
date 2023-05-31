@@ -1,0 +1,17 @@
+global proc setShapeNode()
+{
+	string $objects[] = `ls -sl -tr`;
+	print ("\n");
+	print $objects;
+	for($object in $objects)
+	{
+		string $shapes[] = `ls -dag -lf $object`;
+		print ("\n");
+		print $shapes;
+		for($shape in $shapes)
+		{
+			string $parents[] = `listRelatives -p $shape`;
+			rename $shape ($parents[0]+ "Shape");
+		}
+	}
+}

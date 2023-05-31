@@ -1,0 +1,43 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// te_PPContext.mel
+//
+// Description: Defines all the scripts required by the PPContext tool
+//              As a convention all Terrain Editor global procedures 
+//              and global variables are prefixed with "te_".  All commands 
+//              exposed through TE plugins are prefixed with "TE_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created -- CBrisebois
+//-----------------------------------------------------------------------------
+
+//This is the global instance of the bv context tool.
+
+global proc te_MCB_StartPPLoop()
+{
+    //Start the PP context...
+    if ( ! `contextInfo -exists PPCtx` ) 
+    {
+        PPContext PPCtx;
+    }
+
+    setToolTo PPCtx;
+}
+
+global proc te_MCB_SplitSelectedPP()
+{
+    //Call the API function.
+    PPSplitSelected();
+}
+
+global proc te_Delete_PPContext()
+{
+    if ( `contextInfo -exists PPCtx` )
+    {
+        deleteUI -toolContext PPCtx;
+    }
+}

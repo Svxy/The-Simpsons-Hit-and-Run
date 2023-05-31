@@ -1,0 +1,44 @@
+global proc forceTexture ()
+{
+   for ($shader in `ls -mat`)
+   {
+      if($shader == "lambert1")
+      {
+         continue;
+      }
+      if($shader == "particleCloud1")
+      {
+         continue;
+      }
+
+      string $connections[] = `listConnections ($shader + ".color")`;
+      if(size($connections) > 0)
+      {
+         print ("Ignoring " + $shader + " since it already has a map...\n");
+         continue;
+      }
+      print ("Processing " + $shader + "\n");
+      float $colour[] = `getAttr ($shader + ".color")`;
+      int $colourR = $colour[0] * 255;
+      int $colourG = $colour[1] * 255;
+      int $colourB = $colour[2] * 255;
+      string $mapname = "R" + $colourR + "G" + $colourG + "B" + $colourB;
+      print ("Mapname " + $mapname+ "\n" );
+
+      shadingNode -asTexture ramp -name $mapname;
+      setAttr ($mapname +".colorEntryList[0].color") -type double3 $colour[0] $colour[1] $colour[2];     
+      setAttr ($mapname +".colorEntryList[1].color") -type double3 $colour[0] $colour[1] $colour[2];     
+      setAttr ($mapname +".colorEntryList[2].color") -type double3 $colour[0] $colour[1] $colour[2];     
+      connectAttr ($mapname + ".outColor") ($shader + ".color");
+      if(`nodeType $shader` == "p3dSimpleShader")
+      {
+         setAttr ($shader +".proceduralXRes") 1;
+         setAttr ($shader +".proceduralYRes") 1;
+      }else
+      if(`nodeType $shader` == "lambert")
+      {
+         setAttr ($shader +".p3dProceduralTexXRes") 4;
+         setAttr ($shader +".p3dProceduralTexYRes") 4;
+      }
+   }
+}

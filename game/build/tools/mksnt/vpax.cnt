@@ -1,0 +1,19 @@
+:Base vpax.hlp
+:Title MKS Visual Pax
+1 Using Visual Pax
+2 Creating an archive=Creating_an_Archive
+2 Adding files=Adding_files
+2 Extracting files=Extracting_files
+2 Transferring data=Transferring_data
+2 Configuring Visual Pax
+1 Visual Pax Menus
+2 File=Menu_File
+2 Archive=Menu_Archive
+2 Tape=Menu_Tape
+2 View=Menu_View
+1 About Archives
+2 Archive overview=Archive_Overview
+2 cpio format=cpio
+2 cpiob format=cpiob_format
+2 tar format=tar_format
+2 ustar format=ustar_format

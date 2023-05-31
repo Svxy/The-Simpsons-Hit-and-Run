@@ -1,0 +1,318 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Forced Object Naming Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,63,30,113,12,ES_AUTOHSCROLL
+    CTEXT           "Object Name",IDC_STATIC,34,14,116,11,SS_CENTERIMAGE
+    PUSHBUTTON      "Done",IDC_BUTTON1,66,63,50,14
+    EDITTEXT        IDC_EDIT2,10,30,52,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+END
+
+IDD_DIALOG2 DIALOG DISCARDABLE  0, 0, 186, 82
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Prefix"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "Set Prefix",IDC_STATIC,36,15,114,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT1,36,31,114,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Done",IDC_BUTTON1,63,53,61,14
+END
+
+IDD_DIALOG3 DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Forced Zone Naming Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,63,30,113,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,65,49,112,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Done",IDC_BUTTON1,66,68,50,14
+    CTEXT           "Object Name",IDC_STATIC,66,14,111,11,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,10,30,52,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "P3D File to Load",IDC_STATIC,10,49,56,12,SS_CENTERIMAGE
+END
+
+IDD_DIALOG4 DIALOG DISCARDABLE  0, 0, 186, 111
+STYLE DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Action Trigger"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,63,30,113,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,63,49,114,30,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,63,67,113,30,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Done",IDC_BUTTON1,66,87,50,14
+    CTEXT           "Object Name",IDC_STATIC,66,14,111,11,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,10,30,52,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    CTEXT           "Object",IDC_STATIC,10,49,53,12,SS_CENTERIMAGE
+    CTEXT           "Joint",IDC_STATIC,10,67,53,12,SS_CENTERIMAGE
+END
+
+IDD_DIALOG5 DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Forced Script Naming Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,63,30,113,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,63,49,114,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Done",IDC_BUTTON1,66,68,50,14
+    CTEXT           "Object Name",IDC_STATIC,66,14,111,11,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,10,30,52,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    CTEXT           "Script Name",IDC_STATIC,10,49,53,12,SS_CENTERIMAGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 10
+        VERTGUIDE, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+        HORZGUIDE, 30
+        HORZGUIDE, 42
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        VERTGUIDE, 36
+        VERTGUIDE, 93
+        VERTGUIDE, 150
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+        HORZGUIDE, 38
+    END
+
+    IDD_DIALOG3, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 179
+        VERTGUIDE, 65
+        VERTGUIDE, 66
+        VERTGUIDE, 176
+        VERTGUIDE, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+        HORZGUIDE, 30
+        HORZGUIDE, 42
+        HORZGUIDE, 49
+        HORZGUIDE, 61
+    END
+
+    IDD_DIALOG4, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 179
+        VERTGUIDE, 63
+        VERTGUIDE, 66
+        VERTGUIDE, 176
+        VERTGUIDE, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+        HORZGUIDE, 30
+        HORZGUIDE, 42
+        HORZGUIDE, 49
+        HORZGUIDE, 61
+    END
+
+    IDD_DIALOG5, DIALOG
+    BEGIN
+        LEFTMARGIN, 10
+        RIGHTMARGIN, 179
+        VERTGUIDE, 63
+        VERTGUIDE, 66
+        VERTGUIDE, 176
+        VERTGUIDE, 177
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+        HORZGUIDE, 30
+        HORZGUIDE, 42
+        HORZGUIDE, 49
+        HORZGUIDE, 61
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "100904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Radical Entertainment\0"
+            VALUE "FileDescription", "worldbuilder\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "worldbuilder\0"
+            VALUE "LegalCopyright", "Copyright © 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "worldbuilder.mll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Radical Entertainment worldbuilder\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x1009, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_ESCAPE,      IDCANCEL,               VIRTKEY, NOINVERT
+    VK_RETURN,      IDOK,                   VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIALOG4 DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO1, 0x403, 2, 0
+0x0030, 
+    0
+END
+
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

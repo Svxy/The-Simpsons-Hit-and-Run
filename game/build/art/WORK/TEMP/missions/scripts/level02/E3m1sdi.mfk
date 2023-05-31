@@ -1,0 +1,66 @@
+SelectMission("e3m1sd");
+
+SetMissionStartCameraName( "mission1camShape" );
+SetMissionStartMulticontName( "mission1cam" );
+SetAnimatedCameraName( "mission1camShape" );
+SetAnimCamMulticontName( "mission1cam" );
+
+SetMissionResetPlayerOutCar("l2_bartwalk","level2_carstart");
+SetDynaLoadData("l2z1.p3d;l2r1.p3d;l2r4.p3d;");
+SetInitialWalk("level2_bartstart");
+ 
+AddStage(0);
+	SetStageMessageIndex(171);
+	SetHUDIcon( "kburger" );
+	SetMaxTraffic(5);
+	AddObjective("goto");
+		AddNPC("cletus", "m5_cletus_sd");
+		SetDestination("m5_krustyburger");
+		AddStageVehicle("cletu_v","m5_cletustruck_sd","NULL","EasyRace\AI_5th.con");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(25);
+	SetHUDIcon( "cletus" );
+	AddObjective("talkto");
+		AddNPC("cletus", "m5_cletus_sd");
+		AddObjectiveNPCWaypoint( "cletus", "m5_cletus_walk1" );
+		AddObjectiveNPCWaypoint( "cletus", "m5_cletus_walk2" );
+		AddObjectiveNPCWaypoint( "cletus", "m5_cletus_walk1" );
+		AddObjectiveNPCWaypoint( "cletus", "m5_cletus_sd" );
+		SetTalkToTarget("cletus", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis02_05.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_scratch_head" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_cross_arms" );
+		AddAmbientPcAnimation( "none" );
+		SetConversationCam( 3, "pc_far" );
+		SetCamBestSide("m5_bestside");
+		SetDialogueInfo("bart","cletus","slack",0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

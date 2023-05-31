@@ -1,0 +1,3764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{fbd3a3ca-84b4-4c88-a860-e8e177fb349c}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ai">
+      <UniqueIdentifier>{2c6190b4-7d6f-4c46-bd46-4aa2592a6ec3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ai\sequencer">
+      <UniqueIdentifier>{9b1a3376-29c3-4750-b143-c8767da38682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ai\vehicle">
+      <UniqueIdentifier>{959f457e-ce51-4085-a4a3-79d529c7631b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ai\actor">
+      <UniqueIdentifier>{7505343e-4065-4234-9dd2-ba3eedca2b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\atc">
+      <UniqueIdentifier>{425107d0-b29f-48a5-8a6a-2a0335eda6f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\camera">
+      <UniqueIdentifier>{f8841e18-4d49-4859-a6cb-22d4e56589ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cards">
+      <UniqueIdentifier>{90913fde-2ba1-4f62-a2f7-3bfba544945c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\console">
+      <UniqueIdentifier>{ae3199a7-bf7d-4c2e-aa72-1da98b72c5a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\constants">
+      <UniqueIdentifier>{89bb985f-adaf-4432-87c3-e03ddd534f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contexts">
+      <UniqueIdentifier>{d159c4e8-bd1e-4c47-87ec-460e4aa4aad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contexts\gameplay">
+      <UniqueIdentifier>{7708841a-f1dd-4c57-844d-f8989bda6d36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contexts\demo">
+      <UniqueIdentifier>{c51f59d3-e1e3-415a-8b4c-90f0a150635b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contexts\supersprint">
+      <UniqueIdentifier>{fdd1cd13-a32d-4cc8-8a86-7e89a614f6bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\debug">
+      <UniqueIdentifier>{7f19faf5-f3d9-4739-a4a9-5b44febfeeca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\events">
+      <UniqueIdentifier>{70e3402d-c1f3-4e80-9bc5-403a174ca0f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\font">
+      <UniqueIdentifier>{5320eb05-9c60-4485-ba5c-ab033dff450e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gameflow">
+      <UniqueIdentifier>{8303e693-bc83-4760-b74b-b53c3913318b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{cdc2d0d6-a70f-422a-aeee-7e23b388b353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interiors">
+      <UniqueIdentifier>{ae496ec3-e041-4af2-b59a-ebb0bb9855dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\loading">
+      <UniqueIdentifier>{17bcd9bc-86c4-4215-8a8d-2956b09a0fba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main">
+      <UniqueIdentifier>{d0bb90f4-e2e3-40ba-9e51-46b5345f97b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ps2">
+      <UniqueIdentifier>{8736e2d1-c517-46a6-a8cb-a5ee895dd065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\gc">
+      <UniqueIdentifier>{7828ea6c-0bb0-4d07-9741-740eb1ad31b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\xbox">
+      <UniqueIdentifier>{3351b322-e03c-47ff-bd57-d862cb246936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{7019535f-b6bc-4f9f-a69c-3535d792a913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission">
+      <UniqueIdentifier>{f7a576f8-c963-4ffc-bbcb-c4383ae7d2be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\objectives">
+      <UniqueIdentifier>{ff72f8ac-5c90-47a9-bb76-a9b87541b7ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\conditions">
+      <UniqueIdentifier>{d8551e05-50e1-475f-8162-060b570f3eab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\safezone">
+      <UniqueIdentifier>{3adb0f18-4c00-41bb-b709-9eadb42fd54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\rewards">
+      <UniqueIdentifier>{284696c7-3f8f-4f5f-97c6-cd421e188c52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\charactersheet">
+      <UniqueIdentifier>{de8e934d-0a5e-4083-b552-f6e24337acff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\ufo">
+      <UniqueIdentifier>{df0a94fd-5c1a-4eab-90a5-6c2e3ead0c48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mission\respawnmanager">
+      <UniqueIdentifier>{2b508901-4090-4801-866e-5afaebca786f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation">
+      <UniqueIdentifier>{78d67527-8bbb-4b35-88f5-e7d24cb76e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\presevents">
+      <UniqueIdentifier>{8a62e7cc-6a3b-453f-8304-4c127996ad30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui">
+      <UniqueIdentifier>{8fd73dc5-f3e4-47fb-a138-fd8cb6d09a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\backend">
+      <UniqueIdentifier>{34496716-a96a-41e3-9f3d-8300420d29a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\frontend">
+      <UniqueIdentifier>{0ba83c62-94eb-47c5-8f83-b289017459ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\ingame">
+      <UniqueIdentifier>{1932cf05-1d8e-4d08-af4c-a7b2eb5ce448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\ingame\hudevents">
+      <UniqueIdentifier>{d3f5bc20-27cd-4008-9de7-69dc44748b87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\utility">
+      <UniqueIdentifier>{4811d647-195a-4aa4-89a9-48f404e3c35d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\bootup">
+      <UniqueIdentifier>{41e668da-4a00-40ee-a4e6-00c663bb6a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\gui\minigame">
+      <UniqueIdentifier>{3fdb7f16-16f9-4ac6-b60b-ed3779d06124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\presentation\fmvplayer">
+      <UniqueIdentifier>{4010ad9d-cd13-4eeb-a619-96cac8b07b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render">
+      <UniqueIdentifier>{6cc779a8-c4d5-425f-8e7c-4eca4e58ddce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\RenderFlow">
+      <UniqueIdentifier>{85327fe7-5dd3-4650-b750-639246dc5bca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\Culling">
+      <UniqueIdentifier>{271edf6f-8c64-48f3-8648-981f45fd6aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\DSG">
+      <UniqueIdentifier>{546fd24d-6bcb-4c64-9e1e-b267b4d64fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\RenderManager">
+      <UniqueIdentifier>{734de230-087c-4dac-9011-9ef1e930706f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\Enums">
+      <UniqueIdentifier>{5a95ed3b-c308-4ece-9637-5022de8ae0b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\Loaders">
+      <UniqueIdentifier>{3ee0febc-f77c-4a9d-a711-710336b4ebd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\IntersectManager">
+      <UniqueIdentifier>{483d4836-f5ab-46f1-bd80-4b8967de8efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\particles">
+      <UniqueIdentifier>{b336aad2-8578-47be-b72c-96549e5ba74f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\breakables">
+      <UniqueIdentifier>{c3a17b1a-45da-4b8a-8a59-25925417f9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\render\animentitydsgmanager">
+      <UniqueIdentifier>{d6cd1bcf-6858-4045-a0db-8dd3161c0db9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\roads">
+      <UniqueIdentifier>{8334fb90-5dd7-4da9-8622-e765fcbe9988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound">
+      <UniqueIdentifier>{4574c952-eb0e-4b9f-b204-9e8ae26f266d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\soundrenderer">
+      <UniqueIdentifier>{e166f0fc-954f-4c92-bd64-bdc7e1c298fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\avatar">
+      <UniqueIdentifier>{2b10c33d-8fee-4479-ba16-0a6d64515efb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\music">
+      <UniqueIdentifier>{b896c48f-22da-4b90-b722-006241e0acd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\soundfx">
+      <UniqueIdentifier>{ca2856f5-72fe-4fec-96d2-1fc35ee4c5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\tuning">
+      <UniqueIdentifier>{767fd92f-e86a-4c1b-be54-9c31bd22a4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\dialog">
+      <UniqueIdentifier>{4e77be2b-9157-4d2a-9b23-027a9e317999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\nis">
+      <UniqueIdentifier>{a25ae763-6c71-4115-82b1-a08d8313a697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\sounddebug">
+      <UniqueIdentifier>{39de026b-5cdf-4745-a842-4e2eab7df534}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound\movingpositional">
+      <UniqueIdentifier>{69a4b448-e018-4184-9d90-3f5f8c656311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim">
+      <UniqueIdentifier>{4bcf92d2-1bd2-4ad0-a3f0-623f02f54016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\redbrick">
+      <UniqueIdentifier>{e0f878c4-f9a0-4461-9a7a-7f85594b0968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\redbrick\vehiclecontroller">
+      <UniqueIdentifier>{493b61a9-a23b-4ecf-975e-4e03532434d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\character">
+      <UniqueIdentifier>{495c86c3-04bd-4f09-8f44-cab56db314fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\character\footprint">
+      <UniqueIdentifier>{c803a16c-b511-4971-8d6c-3941c6737028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\traffic">
+      <UniqueIdentifier>{a0889db6-648a-4c96-b9f2-f1423c222120}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\ped">
+      <UniqueIdentifier>{2cf0041f-3f42-419e-9778-7f3b90392a15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\harass">
+      <UniqueIdentifier>{077ceb80-60fa-4c47-8bd0-f56e739e2d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\spawn">
+      <UniqueIdentifier>{22127efa-dd7f-4500-8e6b-6d7db044e2e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\coins">
+      <UniqueIdentifier>{e607cb8e-fd77-4de6-bfc8-345e3470833b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\parkedcars">
+      <UniqueIdentifier>{c82e9cf8-5466-4907-a5f8-2a11301e95b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\worldsim\skidmarks">
+      <UniqueIdentifier>{a56816ee-78b1-4e5c-800b-69e845a754bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data">
+      <UniqueIdentifier>{c6adaaa5-3ad2-45c9-9378-3c2068817d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data\memcard">
+      <UniqueIdentifier>{cf1ab07d-6f90-4352-8601-bd466ef65663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\data\config">
+      <UniqueIdentifier>{d904c4e4-8f3a-4fe6-b5b5-ed6661c02ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cheats">
+      <UniqueIdentifier>{61b91f2e-e0d1-4c9c-bdaa-d14452ff9ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pedpaths">
+      <UniqueIdentifier>{01143225-79f8-492e-b8c3-8fe5cd833419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stateprop">
+      <UniqueIdentifier>{c3dfb73c-9967-46a9-954c-248c2094d5c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\meta">
+      <UniqueIdentifier>{9186fe00-73b6-4e46-acf2-5c78175197dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\supersprint">
+      <UniqueIdentifier>{b68772bc-dd2c-420f-ac11-ec83c7afae30}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\code\ai\actionbuttonhandler.cpp">
+      <Filter>Source Files\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actionbuttonmanager.cpp">
+      <Filter>Source Files\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\automaticdoor.cpp">
+      <Filter>Source Files\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\playanimonce.cpp">
+      <Filter>Source Files\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\state.cpp">
+      <Filter>Source Files\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\statemanager.cpp">
+      <Filter>Source Files\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\sequencer\action.cpp">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\sequencer\actioncontroller.cpp">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\sequencer\sequencer.cpp">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\sequencer\task.cpp">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\chaseai.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\potentialfield.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\potentials.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\trafficai.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\vehicleai.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\vehicleairender.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\vehicle\waypointai.cpp">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\ActorAnimationUFO.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\actor.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\actoranimationwasp.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\actordsg.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\actormanager.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\attackbehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\attractionbehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\cutcambehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\evasionbehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\flyingactor.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\intersectionlist.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\projectile.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\projectiledsg.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\spawnpoint.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\stunnedbehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\ufoattackbehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\ufobeamalwaysonbehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ai\actor\ufobehaviour.cpp">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\atc\atcloader.cpp">
+      <Filter>Source Files\atc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\atc\atcmanager.cpp">
+      <Filter>Source Files\atc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\animatedcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\bumpercam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\chasecam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\conversationcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\debugcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\firstpersoncam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\followcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\kullcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\pccam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\railcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\relativeanimatedcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\reversecam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\sinecosshaker.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\snapshotcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\staticcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\supercam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\supercamcentral.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\supercamcontroller.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\supercammanager.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\supersprintcam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\surveillancecam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\trackercam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\walkercam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\wrecklesscam.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\camera\wrecklesseventlistener.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cards\bonuscard.cpp">
+      <Filter>Source Files\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cards\card.cpp">
+      <Filter>Source Files\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cards\cardgallery.cpp">
+      <Filter>Source Files\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cards\cardsdb.cpp">
+      <Filter>Source Files\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cards\collectorcard.cpp">
+      <Filter>Source Files\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\console\console.cpp">
+      <Filter>Source Files\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\console\debugconsolecallback.cpp">
+      <Filter>Source Files\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\console\fbstricmp.cpp">
+      <Filter>Source Files\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\console\nameinsensitive.cpp">
+      <Filter>Source Files\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\console\upcase.cpp">
+      <Filter>Source Files\console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\bootupcontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\context.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\entrycontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\exitcontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\frontendcontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\loadingcontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\pausecontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\playingcontext.cpp">
+      <Filter>Source Files\contexts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\gameplay\gameplaycontext.cpp">
+      <Filter>Source Files\contexts\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\gameplay\loadinggameplaycontext.cpp">
+      <Filter>Source Files\contexts\gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\demo\democontext.cpp">
+      <Filter>Source Files\contexts\demo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\demo\loadingdemocontext.cpp">
+      <Filter>Source Files\contexts\demo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\supersprint\loadingsupersprintcontext.cpp">
+      <Filter>Source Files\contexts\supersprint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\supersprint\supersprintcontext.cpp">
+      <Filter>Source Files\contexts\supersprint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\contexts\supersprint\supersprintfecontext.cpp">
+      <Filter>Source Files\contexts\supersprint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\debug\debuginfo.cpp">
+      <Filter>Source Files\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\debug\profiler.cpp">
+      <Filter>Source Files\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\debug\section.cpp">
+      <Filter>Source Files\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\events\eventlistener.cpp">
+      <Filter>Source Files\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\events\eventmanager.cpp">
+      <Filter>Source Files\events</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\gameflow\gameflow.cpp">
+      <Filter>Source Files\gameflow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\FEMouse.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\Gamepad.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\Keyboard.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\Mouse.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\MouseCursor.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\RealController.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\basedamper.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\button.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\constanteffect.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\forceeffect.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\inputmanager.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\mappable.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\mapper.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\rumbleeffect.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\rumblegc.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\rumbleps2.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\rumblewin32.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\rumblexbox.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\steeringspring.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\usercontrollerWin32.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\virtualinputs.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\input\wheelrumble.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\interiors\interiormanager.cpp">
+      <Filter>Source Files\interiors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\cameradataloader.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\cementfilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\choreofilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\consolefilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\filehandlerfactory.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\iconfilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\intersectionloader.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\loadingmanager.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\locatorloader.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\p3dfilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\pathloader.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\roaddatasegmentloader.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\roadloader.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\scroobyfilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\loading\soundfilehandler.cpp">
+      <Filter>Source Files\loading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\commandlineoptions.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\game.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\pchsrr2.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\singletons.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\tuidunaligned.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\win32main.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\win32platform.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\ps2main.cpp">
+      <Filter>Source Files\main\ps2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\ps2platform.cpp">
+      <Filter>Source Files\main\ps2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\gcmain.cpp">
+      <Filter>Source Files\main\gc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\gamecube_extras\gcmanager.cpp">
+      <Filter>Source Files\main\gc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\gcplatform.cpp">
+      <Filter>Source Files\main\gc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\gamecube_extras\screenshot.c">
+      <Filter>Source Files\main\gc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\xboxmain.cpp">
+      <Filter>Source Files\main\xbox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\main\xboxplatform.cpp">
+      <Filter>Source Files\main\xbox</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\classsizetracker.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\createheap.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\leakdetection.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\memorypool.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\memoryutilities.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\propstats.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\memory\srrmemory.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\animatedicon.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\bonusmissioninfo.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\gameplaymanager.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\haspresentationinfo.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\mission.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\missionmanager.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\missionscriptloader.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\missionstage.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\nocopbonusobjective.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\nodamagebonusobjective.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\racepositionbonusobjective.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\statepropcollectible.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\timeremainbonusobjective.cpp">
+      <Filter>Source Files\mission</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\buycarobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\buyskinobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\coinobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\collectdumpedobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\collectibleobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\deliveryobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\destroybossobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\destroyobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\dialogueobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\fmvobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\followobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\getinobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\gooutsideobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\gotoobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\interiorobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\loadvehicleobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\loseobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\missionobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\pickupitemobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\raceobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\talktoobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\objectives\timerobjective.cpp">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\damagecondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\followcondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\getoutofcarcondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\keepbarrelcondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\leaveinteriorcondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\missioncondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\notabductedcondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\outofboundscondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\positioncondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\racecondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\timeoutcondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\vehiclecarryingstateprop.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\conditions\vehiclecondition.cpp">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\safezone\safezone.cpp">
+      <Filter>Source Files\mission\safezone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\rewards\merchandise.cpp">
+      <Filter>Source Files\mission\rewards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\rewards\reward.cpp">
+      <Filter>Source Files\mission\rewards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\rewards\rewardsmanager.cpp">
+      <Filter>Source Files\mission\rewards</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\charactersheet\charactersheetmanager.cpp">
+      <Filter>Source Files\mission\charactersheet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\ufo\tractorbeam.cpp">
+      <Filter>Source Files\mission\ufo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\ufo\ufo.cpp">
+      <Filter>Source Files\mission\ufo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\respawnmanager\respawnentity.cpp">
+      <Filter>Source Files\mission\respawnmanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\mission\respawnmanager\respawnmanager.cpp">
+      <Filter>Source Files\mission\respawnmanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\animplayer.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\blinker.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\cameraplayer.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\language.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\mouthflapper.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\nisplayer.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\playerdrawable.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\presentation.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\presentationanimator.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\simpleanimationplayer.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\transitionplayer.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\tutorialmanager.cpp">
+      <Filter>Source Files\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\presevents\fmvevent.cpp">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\presevents\nisevent.cpp">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\presevents\presentationevent.cpp">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\presevents\transevent.cpp">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guientity.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guimanager.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guimenu.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guimenuitem.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiscreen.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiscreenmemcardcheck.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiscreenmemorycard.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiscreenmessage.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiscreenprompt.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guisystem.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guitextbible.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiuserinputhandler.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\guiwindow.cpp">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\backend\guimanagerbackend.cpp">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\backend\guiscreendemo.cpp">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\backend\guiscreenloading.cpp">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\backend\guiscreenloadingfe.cpp">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guimanagerfrontend.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreencardgallery.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreencontrollerWin32.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreendisplay.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenloadgame.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenmainmenu.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenmissiongallery.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenmultichoosechar.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenmultisetup.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenoptions.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenplaymovie.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenscrapbook.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenscrapbookcontents.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenscrapbookstats.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenskingallery.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreensound.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreensplash.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenvehiclegallery.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenviewcredits.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\frontend\guiscreenviewmovies.cpp">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guimanageringame.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreencreditspostfmv.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenhastransitions.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenhud.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenhudmap.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreeniriswipe.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenletterbox.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenlevelend.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenlevelstats.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenmissionbase.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenmissionload.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenmissionover.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenmissionselect.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenmissionsuccess.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenmultihud.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpause.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpausecontroller.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpausedisplay.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpausemission.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpauseoptions.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpausesettings.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpausesound.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpausesunday.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenphonebooth.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenpurchaserewards.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenrewards.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreensavegame.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreentutorial.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\guiscreenviewcards.cpp">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudcardcollected.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudcoincollected.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudcountdown.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudeventhandler.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudhitnrun.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\huditemdropped.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudmissionobjective.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudmissionprogress.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\ingame\hudevents\hudwaspdestroyed.cpp">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\hudmap.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\hudmapcam.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\numerictext.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\scrollingtext.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\slider.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\specialfx.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\teletypetext.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\utility\transitions.cpp">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\bootup\guimanagerbootup.cpp">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\bootup\guimanagerlanguage.cpp">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\bootup\guiscreenbootupload.cpp">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\bootup\guiscreenlanguage.cpp">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\bootup\guiscreenlicense.cpp">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\minigame\guimanagerminigame.cpp">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\minigame\guiscreenminihud.cpp">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\minigame\guiscreenminimenu.cpp">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\minigame\guiscreenminipause.cpp">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\gui\minigame\guiscreenminisummary.cpp">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\fmvplayer\fmvplayer.cpp">
+      <Filter>Source Files\presentation\fmvplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\presentation\fmvplayer\fmvuserinputhandler.cpp">
+      <Filter>Source Files\presentation\fmvplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\RenderFlow\renderflow.cpp">
+      <Filter>Source Files\render\RenderFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\BoxPts.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\Cell.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\CellBlock.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\CoordSubList.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\CullData.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\HexahedronP.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\ISpatialProxy.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\OctTreeData.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\OctTreeNode.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\SpatialTree.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\SpatialTreeIter.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\SphereSP.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\VectorLib.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Culling\WorldScene.cpp">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\DSGFactory.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\DynaPhysDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\FenceEntityDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\IEntityDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\InstAnimDynaPhysDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\InstDynaPhysDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\InstStatEntityDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\InstStatPhysDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\IntersectDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\LensFlareDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\StatePropDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\StaticEntityDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\StaticPhysDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\TriStripDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\WorldSphereDSG.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\animcollisionentitydsg.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\animentitydsg.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\breakableobjectdsg.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\DSG\collisionentitydsg.cpp">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\RenderManager\FrontEndRenderLayer.cpp">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\RenderManager\RenderLayer.cpp">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\RenderManager\RenderManager.cpp">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\RenderManager\WorldRenderLayer.cpp">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\AllWrappers.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\AnimCollLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\AnimDSGLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\AnimDynaPhysLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\BillboardWrappedLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\DynaPhysLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\FenceLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\GeometryWrappedLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\InstStatEntityLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\InstStatPhysLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\IntersectLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\LensFlareLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\StaticEntityLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\StaticPhysLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\TreeDSGLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\WorldSphereLoader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\breakableobjectloader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Loaders\instparticlesystemloader.cpp">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\IntersectManager\IntersectManager.cpp">
+      <Filter>Source Files\render\IntersectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Particles\particlemanager.cpp">
+      <Filter>Source Files\render\particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Particles\particlesystemdsg.cpp">
+      <Filter>Source Files\render\particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\Particles\vehicleparticleemitter.cpp">
+      <Filter>Source Files\render\particles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\breakables\breakablesmanager.cpp">
+      <Filter>Source Files\render\breakables</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\render\animentitydsgmanager\animentitydsgmanager.cpp">
+      <Filter>Source Files\render\animentitydsgmanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\geometry.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\intersection.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\lane.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\road.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\roadmanager.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\roadrender.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\roadrendertest.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\roadsegment.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\roadsegmentdata.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\roads\trafficcontrol.cpp">
+      <Filter>Source Files\roads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\listener.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\positionalsoundplayer.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\simpsonssoundplayer.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundcluster.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundloader.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundmanager.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderercallback.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\dasoundplayer.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\fader.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\musicsoundplayer.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\playermanager.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\soundallocatedresource.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\sounddynaload.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\soundnucleus.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\soundrenderingmanager.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\soundresource.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\soundresourcemanager.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\soundtuner.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\tunerdebugpage.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\wireplayers.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundrenderer\wiresystem.cpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\avatar\avatarsoundplayer.cpp">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\avatar\carsoundparameters.cpp">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\avatar\soundavatar.cpp">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\avatar\vehiclesounddebugpage.cpp">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\avatar\vehiclesoundplayer.cpp">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\music\musicplayer.cpp">
+      <Filter>Source Files\sound\music</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\gcreverbcontroller.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\positionalsoundsettings.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\ps2reverbcontroller.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\reverbcontroller.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\reverbsettings.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\soundeffectplayer.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\soundfxfrontendlogic.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\soundfxgameplaylogic.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\soundfxlogic.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\soundfxpauselogic.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\win32reverbcontroller.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\soundfx\xboxreverbcontroller.cpp">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\tuning\globalsettings.cpp">
+      <Filter>Source Files\sound\tuning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\conversation.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\conversationmatcher.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialogcoordinator.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialogline.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialoglist.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialogpriorityqueue.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialogqueueelement.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialogselectiongroup.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\dialogsounddebugpage.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\playabledialog.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\dialog\selectabledialog.cpp">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\nis\nissoundplayer.cpp">
+      <Filter>Source Files\sound\nis</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\sounddebug\sounddebugdisplay.cpp">
+      <Filter>Source Files\sound\sounddebug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\sounddebug\sounddebugpage.cpp">
+      <Filter>Source Files\sound\sounddebug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\actorplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\aivehiclesoundplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\animobjsoundplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\avatarvehicleposnplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\movingsoundmanager.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\platformsoundplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\trafficsoundplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\vehicleposnsoundplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\sound\movingpositional\waspsoundplayer.cpp">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\avatar.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\avatarmanager.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\groundplanepool.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\hitnrunmanager.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\huskpool.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\vehiclecentral.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\worldcollisionsolveragent.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\worldobject.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\worldphysicsmanager.cpp">
+      <Filter>Source Files\worldsim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\geometryvehicle.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\physicslocomotion.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\physicslocomotioncontrollerforces.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\redbrickcollisionsolveragent.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\rootmatrixdriver.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\suspensionjointdriver.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\trafficbodydrawable.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\trafficlocomotion.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehicle.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehicleeventlistener.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehicleinit.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehiclelocomotion.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\wheel.cpp">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehiclecontroller\aivehiclecontroller.cpp">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehiclecontroller\humanvehiclecontroller.cpp">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehiclecontroller\vehiclecontroller.cpp">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\redbrick\vehiclecontroller\vehiclemappable.cpp">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\aicharactercontroller.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\character.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\charactercontroller.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\charactermanager.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\charactermappable.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\characterrenderable.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\charactertarget.cpp">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\character\footprint\footprintmanager.cpp">
+      <Filter>Source Files\worldsim\character\footprint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\traffic\trafficmanager.cpp">
+      <Filter>Source Files\worldsim\traffic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\ped\pedestrian.cpp">
+      <Filter>Source Files\worldsim\ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\ped\pedestrianmanager.cpp">
+      <Filter>Source Files\worldsim\ped</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\harass\chasemanager.cpp">
+      <Filter>Source Files\worldsim\harass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\spawn\spawnmanager.cpp">
+      <Filter>Source Files\worldsim\spawn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\coins\coinmanager.cpp">
+      <Filter>Source Files\worldsim\coins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\coins\sparkle.cpp">
+      <Filter>Source Files\worldsim\coins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\parkedcars\parkedcarmanager.cpp">
+      <Filter>Source Files\worldsim\parkedcars</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\skidmarks\SkidMarkGenerator.cpp">
+      <Filter>Source Files\worldsim\skidmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\skidmarks\skidmark.cpp">
+      <Filter>Source Files\worldsim\skidmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\worldsim\skidmarks\skidmarkmanager.cpp">
+      <Filter>Source Files\worldsim\skidmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\data\PersistentWorldManager.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\data\gamedatamanager.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\data\savegameinfo.cpp">
+      <Filter>Source Files\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\data\memcard\memorycardmanager.cpp">
+      <Filter>Source Files\data\memcard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\data\config\configstring.cpp">
+      <Filter>Source Files\data\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\data\config\gameconfigmanager.cpp">
+      <Filter>Source Files\data\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cheats\cheatinputhandler.cpp">
+      <Filter>Source Files\cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cheats\cheatinputsystem.cpp">
+      <Filter>Source Files\cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\cheats\cheats.cpp">
+      <Filter>Source Files\cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\pedpaths\path.cpp">
+      <Filter>Source Files\pedpaths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\pedpaths\pathmanager.cpp">
+      <Filter>Source Files\pedpaths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\pedpaths\pathsegment.cpp">
+      <Filter>Source Files\pedpaths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\stateprop\stateprop.cpp">
+      <Filter>Source Files\stateprop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\stateprop\statepropdata.cpp">
+      <Filter>Source Files\stateprop</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\actioneventlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\carstartlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\directionallocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\eventlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\fovlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\interiorentrancelocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\locator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\occlusionlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\recttriggervolume.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\scriptlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\spheretriggervolume.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\splinelocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\staticcamlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\triggerlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\triggervolume.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\triggervolumetracker.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\meta\zoneeventlocator.cpp">
+      <Filter>Source Files\meta</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\supersprint\supersprintdata.cpp">
+      <Filter>Source Files\supersprint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\supersprint\supersprintmanager.cpp">
+      <Filter>Source Files\supersprint</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\ai\actionbuttonhandler.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actionbuttonmanager.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actionlist.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actionnames.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\automaticdoor.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\playanimonce.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\state.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\statemanager.h">
+      <Filter>Source Files\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\sequencer\action.h">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\sequencer\actioncontroller.h">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\sequencer\sequencer.h">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\sequencer\task.h">
+      <Filter>Source Files\ai\sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\chaseai.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\potentialfield.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\potentials.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\trafficai.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\vehicleai.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\vehicleairender.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\vehicle\waypointai.h">
+      <Filter>Source Files\ai\vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\ActorAnimationUFO.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\actor.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\actoranimation.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\actoranimationwasp.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\actordsg.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\actormanager.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\attackbehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\attractionbehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\behaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\cutcambehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\evasionbehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\flyingactor.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\intersectionlist.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\projectile.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\projectiledsg.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\spawnpoint.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\stunnedbehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\ufoattackbehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\ufobeamalwaysonbehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ai\actor\ufobehaviour.h">
+      <Filter>Source Files\ai\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\atc\atcloader.h">
+      <Filter>Source Files\atc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\atc\atcmanager.h">
+      <Filter>Source Files\atc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\animatedcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\bumpercam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\bumpercamdata.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\chasecam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\chasecamdata.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\conversationcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\conversationcamdata.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\debugcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\firstpersoncam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\followcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\followcamdata.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\followcamdatachunk.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\frustrumdrawable.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\icamerashaker.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\isupercamtarget.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\kullcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\pccam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\railcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\relativeanimatedcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\reversecam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\sinecosshaker.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\snapshotcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\staticcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\supercam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\supercamcentral.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\supercamconstants.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\supercamcontroller.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\supercammanager.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\supersprintcam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\surveillancecam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\trackercam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\trackercamdata.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\walkercam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\walkercamdata.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\walkercamdatachunk.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\wrecklesscam.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\camera\wrecklesseventlistener.h">
+      <Filter>Source Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cards\bonuscard.h">
+      <Filter>Source Files\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cards\card.h">
+      <Filter>Source Files\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cards\cardgallery.h">
+      <Filter>Source Files\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cards\cards.h">
+      <Filter>Source Files\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cards\cardsdb.h">
+      <Filter>Source Files\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cards\collectorcard.h">
+      <Filter>Source Files\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\console\console.h">
+      <Filter>Source Files\console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\console\debugconsolecallback.h">
+      <Filter>Source Files\console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\console\fbstricmp.h">
+      <Filter>Source Files\console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\console\nameinsensitive.h">
+      <Filter>Source Files\console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\console\upcase.h">
+      <Filter>Source Files\console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\actorenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\blobshadownames.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\breakablesenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\characterenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\directionalarrowenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\maxnpccharacters.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\maxplayers.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\movienames.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\particleenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\physprop.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\srrchunks.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\statepropenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\constants\vehicleenum.h">
+      <Filter>Source Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\bootupcontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\context.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\contextenum.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\entrycontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\exitcontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\frontendcontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\loadingcontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\pausecontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\playingcontext.h">
+      <Filter>Source Files\contexts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\gameplay\gameplaycontext.h">
+      <Filter>Source Files\contexts\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\gameplay\loadinggameplaycontext.h">
+      <Filter>Source Files\contexts\gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\demo\democontext.h">
+      <Filter>Source Files\contexts\demo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\demo\loadingdemocontext.h">
+      <Filter>Source Files\contexts\demo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\supersprint\loadingsupersprintcontext.h">
+      <Filter>Source Files\contexts\supersprint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\supersprint\supersprintcontext.h">
+      <Filter>Source Files\contexts\supersprint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\contexts\supersprint\supersprintfecontext.h">
+      <Filter>Source Files\contexts\supersprint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\debug\debuginfo.h">
+      <Filter>Source Files\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\debug\profiler.h">
+      <Filter>Source Files\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\debug\ps2perf.hpp">
+      <Filter>Source Files\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\debug\section.h">
+      <Filter>Source Files\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\events\eventdata.h">
+      <Filter>Source Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\events\eventenum.h">
+      <Filter>Source Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\events\eventlistener.h">
+      <Filter>Source Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\events\eventmanager.h">
+      <Filter>Source Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\font\defaultfont.h">
+      <Filter>Source Files\font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\gameflow\gameflow.h">
+      <Filter>Source Files\gameflow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\FEMouse.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\Gamepad.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\Keyboard.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\Mouse.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\MouseCursor.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\RealController.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\basedamper.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\button.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\constanteffect.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\controller.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\forceeffect.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\inputmanager.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\mappable.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\mapper.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\rumbleeffect.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\steeringspring.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\usercontrollerWin32.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\virtualinputs.hpp">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\input\wheelrumble.h">
+      <Filter>Source Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\interiors\interiormanager.h">
+      <Filter>Source Files\interiors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\cameradataloader.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\cementfilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\choreofilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\consolefilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\filehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\filehandlerenum.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\filehandlerfactory.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\iconfilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\intersectionloader.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\loadingmanager.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\locatorloader.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\p3dfilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\pathloader.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\roaddatasegmentloader.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\roadloader.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\scroobyfilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\loading\soundfilehandler.h">
+      <Filter>Source Files\loading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\commandlineoptions.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\errorsWIN32.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\game.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\globaltypes.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\pchsrr2.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\platform.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\singletons.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\tuidunaligned.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\win32platform.h">
+      <Filter>Source Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\errorsPS2.h">
+      <Filter>Source Files\main\ps2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\ps2platform.h">
+      <Filter>Source Files\main\ps2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\errorsGC.h">
+      <Filter>Source Files\main\gc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\gamecube_extras\gcmanager.h">
+      <Filter>Source Files\main\gc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\gcplatform.h">
+      <Filter>Source Files\main\gc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\gamecube_extras\license.h">
+      <Filter>Source Files\main\gc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\gamecube_extras\screenshot.h">
+      <Filter>Source Files\main\gc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\errorsXBOX.h">
+      <Filter>Source Files\main\xbox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\main\xboxplatform.h">
+      <Filter>Source Files\main\xbox</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\allocpool.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\classsizetracker.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\createheap.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\leakdetection.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\map.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\memorypool.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\memoryutilities.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\propstats.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\srrmemory.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\memory\stlallocators.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\animatedicon.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\bonusmissioninfo.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\bonusobjective.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\boss.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\gameplaymanager.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\haspresentationinfo.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\mission.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\missionmanager.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\missionscriptloader.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\missionstage.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\nocopbonusobjective.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\nodamagebonusobjective.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\racepositionbonusobjective.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\statepropcollectible.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\timeremainbonusobjective.h">
+      <Filter>Source Files\mission</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\buycarobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\buyskinobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\coinobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\collectdumpedobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\collectibleobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\deliveryobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\destroybossobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\destroyobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\dialogueobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\fmvobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\followobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\getinobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\gooutsideobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\gotoobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\interiorobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\loadvehicleobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\loseobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\missionobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\pickupitemobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\raceobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\talktoobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\objectives\timerobjective.h">
+      <Filter>Source Files\mission\objectives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\damagecondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\followcondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\getoutofcarcondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\keepbarrelcondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\leaveinteriorcondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\missioncondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\notabductedcondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\outofboundscondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\positioncondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\racecondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\timeoutcondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\vehiclecarryingstateprop.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\conditions\vehiclecondition.h">
+      <Filter>Source Files\mission\conditions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\safezone\safezone.h">
+      <Filter>Source Files\mission\safezone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\rewards\merchandise.h">
+      <Filter>Source Files\mission\rewards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\rewards\reward.h">
+      <Filter>Source Files\mission\rewards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\rewards\rewardsmanager.h">
+      <Filter>Source Files\mission\rewards</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\charactersheet\charactersheet.h">
+      <Filter>Source Files\mission\charactersheet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\charactersheet\charactersheetmanager.h">
+      <Filter>Source Files\mission\charactersheet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\ufo\tractorbeam.h">
+      <Filter>Source Files\mission\ufo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\ufo\ufo.h">
+      <Filter>Source Files\mission\ufo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\ufo\weapon.h">
+      <Filter>Source Files\mission\ufo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\respawnmanager\respawnentity.h">
+      <Filter>Source Files\mission\respawnmanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\mission\respawnmanager\respawnmanager.h">
+      <Filter>Source Files\mission\respawnmanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\animplayer.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\blinker.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\cameraplayer.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\language.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\mouthflapper.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\nisplayer.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\playerdrawable.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\presentation.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\presentationanimator.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\simpleanimationplayer.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\transitionplayer.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\tutorialmanager.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\tutorialmode.h">
+      <Filter>Source Files\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\presevents\fmvevent.h">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\presevents\nisevent.h">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\presevents\presentationevent.h">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\presevents\transevent.h">
+      <Filter>Source Files\presentation\presevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guientity.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guimanager.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guimenu.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guimenuitem.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiscreen.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiscreenmemcardcheck.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiscreenmemorycard.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiscreenmessage.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiscreenprompt.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guisystem.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guitextbible.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiuserinputhandler.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\guiwindow.h">
+      <Filter>Source Files\presentation\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\backend\guiloadingbar.h">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\backend\guimanagerbackend.h">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\backend\guiscreendemo.h">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\backend\guiscreenloading.h">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\backend\guiscreenloadingfe.h">
+      <Filter>Source Files\presentation\gui\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guimanagerfrontend.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreencardgallery.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreencontrollerWin32.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreendisplay.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenloadgame.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenmainmenu.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenmissiongallery.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenmultichoosechar.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenmultisetup.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenoptions.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenplaymovie.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenscrapbook.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenscrapbookcontents.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenscrapbookstats.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenskingallery.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreensound.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreensplash.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenvehiclegallery.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenviewcredits.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\frontend\guiscreenviewmovies.h">
+      <Filter>Source Files\presentation\gui\frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guimanageringame.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreencreditspostfmv.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenhastransitions.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenhud.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenhudmap.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreeniriswipe.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenletterbox.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenlevelend.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenlevelstats.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenmissionbase.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenmissionload.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenmissionover.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenmissionselect.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenmissionsuccess.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenmultihud.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpause.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpausecontroller.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpausedisplay.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpausemission.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpauseoptions.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpausesettings.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpausesound.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpausesunday.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenphonebooth.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenpurchaserewards.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenrewards.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreensavegame.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreentutorial.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\guiscreenviewcards.h">
+      <Filter>Source Files\presentation\gui\ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudcardcollected.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudcoincollected.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudcountdown.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudeventhandler.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudhitnrun.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\huditemdropped.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudmissionobjective.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudmissionprogress.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\ingame\hudevents\hudwaspdestroyed.h">
+      <Filter>Source Files\presentation\gui\ingame\hudevents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\colourutility.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\hudmap.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\hudmapcam.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\numerictext.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\scrollingtext.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\slider.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\specialfx.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\teletypetext.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\utility\transitions.h">
+      <Filter>Source Files\presentation\gui\utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\bootup\guimanagerbootup.h">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\bootup\guimanagerlanguage.h">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\bootup\guiscreenbootupload.h">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\bootup\guiscreenlanguage.h">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\bootup\guiscreenlicense.h">
+      <Filter>Source Files\presentation\gui\bootup</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\minigame\guimanagerminigame.h">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\minigame\guiscreenminihud.h">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\minigame\guiscreenminimenu.h">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\minigame\guiscreenminipause.h">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\gui\minigame\guiscreenminisummary.h">
+      <Filter>Source Files\presentation\gui\minigame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\fmvplayer\fmvplayer.h">
+      <Filter>Source Files\presentation\fmvplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\presentation\fmvplayer\fmvuserinputhandler.h">
+      <Filter>Source Files\presentation\fmvplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\RenderFlow\renderflow.h">
+      <Filter>Source Files\render\RenderFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\BlockCoord.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Bounds.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\BoxPts.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Cell.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\CellBlock.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\ContiguousBinNode.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\CoordSubList.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\CullData.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\FixedArray.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\FloatFuncs.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\HexahedronP.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\ISpatialProxy.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Matrix3f.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\NodeFLL.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\OctTreeConst.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\OctTreeData.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\OctTreeNode.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\OctTreeParams.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Plane3f.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Point3f.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\ReserveArray.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\ScratchArray.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\SpatialNode.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\SpatialTree.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\SpatialTreeFactory.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\SpatialTreeIter.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\SphereSP.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\SwapArray.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\UseArray.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Vector3f.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\Vector3i.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\VectorLib.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\WorldScene.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Culling\srrRenderTypes.h">
+      <Filter>Source Files\render\Culling</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\DSGFactory.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\DynaLoadListDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\DynaPhysDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\FenceEntityDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\IEntityDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\InstAnimDynaPhysDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\InstDynaPhysDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\InstStatEntityDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\InstStatPhysDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\IntersectDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\LensFlareDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\StatePropDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\StaticEntityDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\StaticPhysDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\TriStripDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\WorldSphereDSG.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\animcollisionentitydsg.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\animentitydsg.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\breakableobjectdsg.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\DSG\collisionentitydsg.h">
+      <Filter>Source Files\render\DSG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\RenderManager\FrontEndRenderLayer.h">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\RenderManager\RenderLayer.h">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\RenderManager\RenderManager.h">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\RenderManager\WorldRenderLayer.h">
+      <Filter>Source Files\render\RenderManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Enums\RenderEnums.h">
+      <Filter>Source Files\render\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\AllWrappers.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\AnimCollLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\AnimDSGLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\AnimDynaPhysLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\BillboardWrappedLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\ChunkListenerCallback.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\DynaPhysLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\FenceLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\GeometryWrappedLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\IWrappedLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\InstStatEntityLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\InstStatPhysLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\IntersectLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\LensFlareLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\StaticEntityLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\StaticPhysLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\TreeDSGLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\WorldSphereLoader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\breakableobjectloader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Loaders\instparticlesystemloader.h">
+      <Filter>Source Files\render\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\IntersectManager\IntersectManager.h">
+      <Filter>Source Files\render\IntersectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Particles\particlemanager.h">
+      <Filter>Source Files\render\particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Particles\particlesystemdsg.h">
+      <Filter>Source Files\render\particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\Particles\vehicleparticleemitter.h">
+      <Filter>Source Files\render\particles</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\breakables\breakablesmanager.h">
+      <Filter>Source Files\render\breakables</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\render\animentitydsgmanager\animentitydsgmanager.h">
+      <Filter>Source Files\render\animentitydsgmanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\geometry.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\intersection.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\lane.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\road.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\roadmanager.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\roadrendertest.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\roadsegment.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\roadsegmentdata.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\roads\trafficcontrol.h">
+      <Filter>Source Files\roads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\listener.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\nisenum.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\positionalsoundplayer.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\simpsonssoundplayer.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundcluster.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundclusternameenum.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundcollisiondata.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundloader.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundmanager.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderercallback.h">
+      <Filter>Source Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\dasoundgroup.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\fader.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\idasoundresource.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\idasoundtuner.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\musicsoundplayer.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\playermanager.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundallocatedresource.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundconstants.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\sounddynaload.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundnucleus.hpp">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundplayer.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundrenderingmanager.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundresource.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundresourcemanager.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundsystem.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\soundtuner.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundrenderer\tunerdebugpage.h">
+      <Filter>Source Files\sound\soundrenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\avatar\avatarsoundplayer.h">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\avatar\carsoundparameters.h">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\avatar\icarsoundparameters.h">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\avatar\soundavatar.h">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\avatar\vehiclesounddebugpage.h">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\avatar\vehiclesoundplayer.h">
+      <Filter>Source Files\sound\avatar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\music\musicplayer.h">
+      <Filter>Source Files\sound\music</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\gcreverbcontroller.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\ipositionalsoundsettings.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\ireverbsettings.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\positionalsoundsettings.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\ps2reverbcontroller.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\reverbcontroller.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\reverbsettings.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\soundeffectplayer.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\soundfxfrontendlogic.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\soundfxgameplaylogic.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\soundfxlogic.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\soundfxpauselogic.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\win32reverbcontroller.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\soundfx\xboxreverbcontroller.h">
+      <Filter>Source Files\sound\soundfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\tuning\globalsettings.h">
+      <Filter>Source Files\sound\tuning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\tuning\iglobalsettings.h">
+      <Filter>Source Files\sound\tuning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\conversation.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\conversationmatcher.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogcoordinator.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogline.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialoglist.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogpriorityqueue.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogqueueelement.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogqueuetype.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogselectiongroup.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\dialogsounddebugpage.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\playabledialog.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\selectabledialog.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\dialog\selectabledialoglist.h">
+      <Filter>Source Files\sound\dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\nis\nissoundplayer.h">
+      <Filter>Source Files\sound\nis</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\sounddebug\sounddebugdisplay.h">
+      <Filter>Source Files\sound\sounddebug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\sounddebug\sounddebugpage.h">
+      <Filter>Source Files\sound\sounddebug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\actorplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\aivehiclesoundplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\animobjsoundplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\avatarvehicleposnplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\movingsoundmanager.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\platformsoundplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\trafficsoundplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\vehicleposnsoundplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\sound\movingpositional\waspsoundplayer.h">
+      <Filter>Source Files\sound\movingpositional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\avatar.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\avatarmanager.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\groundplanepool.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\hitnrunmanager.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\huskpool.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\physicsairef.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\vehiclecentral.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\worldcollisionsolveragent.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\worldobject.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\worldphysicsmanager.h">
+      <Filter>Source Files\worldsim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\geometryvehicle.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\physicslocomotion.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\redbrickcollisionsolveragent.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\rootmatrixdriver.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\suspensionjointdriver.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\trafficbodydrawable.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\trafficlocomotion.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehicle.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehicleeventlistener.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehiclelocomotion.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\wheel.h">
+      <Filter>Source Files\worldsim\redbrick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehiclecontroller\aivehiclecontroller.h">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehiclecontroller\humanvehiclecontroller.h">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehiclecontroller\vehiclecontroller.h">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\redbrick\vehiclecontroller\vehiclemappable.h">
+      <Filter>Source Files\worldsim\redbrick\vehiclecontroller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\aicharactercontroller.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\character.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\charactercontroller.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\charactermanager.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\charactermappable.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\characterrenderable.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\charactertarget.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\controllereventhandler.h">
+      <Filter>Source Files\worldsim\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\character\footprint\footprintmanager.h">
+      <Filter>Source Files\worldsim\character\footprint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\traffic\trafficmanager.h">
+      <Filter>Source Files\worldsim\traffic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\traffic\trafficmodelgroup.h">
+      <Filter>Source Files\worldsim\traffic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\traffic\trafficvehicle.h">
+      <Filter>Source Files\worldsim\traffic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\ped\pedestrian.h">
+      <Filter>Source Files\worldsim\ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\ped\pedestrianmanager.h">
+      <Filter>Source Files\worldsim\ped</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\harass\chasemanager.h">
+      <Filter>Source Files\worldsim\harass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\spawn\spawnmanager.h">
+      <Filter>Source Files\worldsim\spawn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\coins\coinmanager.h">
+      <Filter>Source Files\worldsim\coins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\coins\sparkle.h">
+      <Filter>Source Files\worldsim\coins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\parkedcars\parkedcarmanager.h">
+      <Filter>Source Files\worldsim\parkedcars</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\skidmarks\SkidMarkGenerator.h">
+      <Filter>Source Files\worldsim\skidmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\skidmarks\skidmark.h">
+      <Filter>Source Files\worldsim\skidmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\worldsim\skidmarks\skidmarkmanager.h">
+      <Filter>Source Files\worldsim\skidmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\PersistentWorldManager.h">
+      <Filter>Source Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\gamedata.h">
+      <Filter>Source Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\gamedatamanager.h">
+      <Filter>Source Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\savegameinfo.h">
+      <Filter>Source Files\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\memcard\memorycardmanager.h">
+      <Filter>Source Files\data\memcard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\config\configstring.h">
+      <Filter>Source Files\data\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\config\gameconfig.h">
+      <Filter>Source Files\data\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\data\config\gameconfigmanager.h">
+      <Filter>Source Files\data\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cheats\cheatinputhandler.h">
+      <Filter>Source Files\cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cheats\cheatinputs.h">
+      <Filter>Source Files\cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cheats\cheatinputsystem.h">
+      <Filter>Source Files\cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\cheats\cheats.h">
+      <Filter>Source Files\cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\pedpaths\path.h">
+      <Filter>Source Files\pedpaths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\pedpaths\pathmanager.h">
+      <Filter>Source Files\pedpaths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\pedpaths\pathsegment.h">
+      <Filter>Source Files\pedpaths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\stateprop\stateprop.hpp">
+      <Filter>Source Files\stateprop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\stateprop\statepropdata.hpp">
+      <Filter>Source Files\stateprop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\stateprop\statepropdatatypes.hpp">
+      <Filter>Source Files\stateprop</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\actioneventlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\carstartlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\directionallocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\eventlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\fovlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\interiorentrancelocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\locator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\locatorevents.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\locatortypes.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\occlusionlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\pedgrouplocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\recttriggervolume.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\scriptlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\spheretriggervolume.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\splinelocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\staticcamlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\triggerlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\triggervolume.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\triggervolumetracker.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\meta\zoneeventlocator.h">
+      <Filter>Source Files\meta</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\supersprint\supersprintdata.h">
+      <Filter>Source Files\supersprint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\supersprint\supersprintdrawable.h">
+      <Filter>Source Files\supersprint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\supersprint\supersprintmanager.h">
+      <Filter>Source Files\supersprint</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SRR2.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Simpsons.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\libs\sdks\win32\Bink\binkw32.lib" />
+    <Library Include="..\..\libs\sdks\win32\eax2\Libs\eax.lib" />
+    <Library Include="..\..\libs\sdks\win32\eax2\Libs\eaxguid.lib" />
+  </ItemGroup>
+</Project>

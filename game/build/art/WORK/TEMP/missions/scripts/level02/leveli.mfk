@@ -1,0 +1,310 @@
+//This is all level initialization stuff..
+//Anything here is persistent across the entire level.
+ 
+EnableTutorialMode( false );
+InitLevelPlayerVehicle("honor_v","level2_carstart","DEFAULT");
+AddCharacter("bart","bart");
+//SetPostLevelFMV("fmv3.rmv");
+
+CreateChaseManager("cPolice","Pursuit\L2cop.con",1);
+SetHitAndRunDecay(1.5);
+SetNumChaseCars("1");
+
+
+
+AddNPCCharacterBonusMission("milhouse", "npd", "sr1_mhouse_sd", "sr1", "checkered", "intro", 0, "checkeredfinish" );
+SetBonusMissionDialoguePos("sr1","sr1_bart","sr1_mhouse_sd","homer_car");
+	
+	SetConversationCam( 0, "pc_far",				"sr1" );
+	SetConversationCam( 1, "npc_far",				"sr1" );
+	
+	AddAmbientNpcAnimation( "none",					"sr1" );
+	AddAmbientNpcAnimation( "dialogue_no",				"sr1" );
+	
+	AddAmbientPcAnimation( "dialogue_hands_on_hips",		"sr1" );
+	AddAmbientPcAnimation( "none",					"sr1" );
+
+	SetCamBestSide("sr1_bestside",					"sr1" );
+
+AddNPCCharacterBonusMission("nelson", "npd", "sr2_nelson_sd", "sr2", "checkered", "intro", 0, "checkeredfinish" );
+SetBonusMissionDialoguePos("sr2","sr2_bart","sr2_nelson_sd","sr2_carstart");
+	
+	SetConversationCam( 0, "pc_far",				"sr2" );
+	SetConversationCam( 1, "npc_far",				"sr2" );
+	
+	AddAmbientNpcAnimation( "none",					"sr2" );
+	AddAmbientNpcAnimation( "dialogue_shaking_fist",		"sr2" );
+	
+	AddAmbientPcAnimation( "dialogue_scratch_head",			"sr2" );
+	AddAmbientPcAnimation( "none",					"sr2" );
+
+	SetCamBestSide("sr2_bestside",					"sr2" );
+
+AddNPCCharacterBonusMission("ralph", "npd", "sr3_ralph_sd", "sr3", "checkered", "intro", 0, "checkeredfinish" );
+SetBonusMissionDialoguePos("sr3","sr3_bart","sr3_ralph_sd","sr3_carstart");
+	
+	SetConversationCam( 0, "npc_far",				"sr3" );
+	SetConversationCam( 1, "pc_far",				"sr3" );
+	
+	AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture",	"sr3" );
+	AddAmbientNpcAnimation( "none",					"sr3" );
+	
+	AddAmbientPcAnimation( "none",					"sr3" );
+	AddAmbientPcAnimation( "dialogue_yes",				"sr3" );
+
+	SetCamBestSide("sr3_bestside",					"sr3" );
+
+//SetCamBestSide("sr4_bestside");
+AddNPCCharacterBonusMission("louie", "npd", "sr4_louie_sd", "gr1", "dice", "intro", 0 );
+SetBonusMissionDialoguePos("gr1","sr4_bart","sr4_louie_sd","sr4_bartcar");
+
+AddNPCCharacterBonusMission("grandpa", "npd", "bm1_grampa_sd", "bm1", "exclamation", "incontinent", 1, "exclamation_shadow" );
+SetBonusMissionDialoguePos("bm1","bm1_bart_talk","bm1_grampa_sd","bm1_carstart");
+
+	SetConversationCam( 0, "pc_far",				"bm1" );
+	SetConversationCam( 1, "npc_near",				"bm1" );
+	SetConversationCam( 2, "pc_far",				"bm1" );
+	SetConversationCam( 3, "npc_near",				"bm1" );
+	
+	AddAmbientNpcAnimation( "none",					"bm1" );
+	AddAmbientNpcAnimation( "dialogue_shaking_fist",		"bm1" );
+	AddAmbientNpcAnimation( "none",					"bm1" );
+	AddAmbientNpcAnimation( "dialogue_cross_arms",			"bm1" );
+	
+	AddAmbientPcAnimation( "dialogue_hands_in_air",			"bm1" );
+	AddAmbientPcAnimation( "none",					"bm1" );
+	AddAmbientPcAnimation( "dialogue_hands_on_hips",		"bm1" );
+	AddAmbientPcAnimation( "none",					"bm1" );
+
+	SetCamBestSide("bm1_bestside",					"sr3" );
+
+	AddBonusMissionNPCWaypoint( "grandpa", "bm1_grampa_walk1" );
+	AddBonusMissionNPCWaypoint( "grandpa", "bm1_grampa_walk2" );
+	AddBonusMissionNPCWaypoint( "grandpa", "bm1_grampa_sd" );
+
+//ADDING AMBIENT CHARACTERS
+	AddAmbientCharacter("patty", "ambient_patty",  2.0); //DMV Interior
+	
+	AddAmbientCharacter("moe", "ambient_moe",  2.0); //Moe's Interior
+
+	AddAmbientCharacter("moleman", "ambient_moleman",  0); //zone 1
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk1" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk2" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk3" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk4" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk5" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk4" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk3" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk2" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk1" );
+
+
+	AddAmbientCharacter("jasper", "ambient_jasper",  0); //rail 1
+		AddAmbientNPCWaypoint( "jasper", "jasper_walk1" );
+		AddAmbientNPCWaypoint( "jasper", "jasper_walk2" );
+		AddAmbientNPCWaypoint( "jasper", "jasper_walk3" );
+		AddAmbientNPCWaypoint( "jasper", "jasper_walk2" );
+		AddAmbientNPCWaypoint( "jasper", "jasper_walk1" );
+
+	AddAmbientCharacter("lenny", "ambient_lenny",  0); //zone 2
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk1" );
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk2" );
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk1" );
+
+	AddAmbientCharacter("eddie", "ambient_eddie",  0); //zone 3
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk1" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk2" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk1" );
+
+	AddAmbientCharacter("lou", "ambient_lou",  0); //zone 4
+		AddAmbientNPCWaypoint( "lou", "lou_walk1" );
+		AddAmbientNPCWaypoint( "lou", "lou_walk2" );
+		AddAmbientNPCWaypoint( "lou", "lou_walk3" );
+		AddAmbientNPCWaypoint( "lou", "lou_walk4" );
+		AddAmbientNPCWaypoint( "lou", "lou_walk3" );
+		AddAmbientNPCWaypoint( "lou", "lou_walk2" );
+		AddAmbientNPCWaypoint( "lou", "lou_walk1" );
+
+//ADDING PURCHASE POINTS FOR VEHICLES AND SKINS
+//
+	AddPurchaseCarReward( "gil", "gil", "npd", "gil_loc", 1.3, "gil_car" );
+	AddPurchaseCarReward( "simpson", "homer", "npd", "homer_loc", 1.3, "homer_car" );
+
+//ADDING TRAFFIC GROUP FOR LEVEL 02//
+//
+	CreateTrafficGroup( 0 );
+		AddTrafficModel( "taxiA",2 );
+		AddTrafficModel( "sedanB",1 );
+		AddTrafficModel( "sportsA",1,1 );
+		AddTrafficModel( "pizza",1,1 );
+	CloseTrafficGroup( );
+
+//
+//ADDING PED GROUP FOR LEVEL 02//
+//
+//Z1
+CreatePedGroup( 0 );
+AddPed( "male6", 1 );
+AddPed( "fem3", 2 );
+AddPed( "fem4", 2 );
+AddPed( "girl4", 2 );
+ClosePedGroup( );
+
+//R1
+CreatePedGroup( 1 );
+AddPed( "const1", 2 );
+AddPed( "const2", 2 );
+AddPed( "male3", 2 );
+AddPed( "boy4", 1 );
+ClosePedGroup( );
+
+//Z2
+CreatePedGroup( 2 );
+AddPed( "sail1", 2 );
+AddPed( "mobstr", 2 );
+AddPed( "busm2", 1 );
+AddPed( "hooker", 2);
+ClosePedGroup( );
+
+//R2
+CreatePedGroup( 3 );
+AddPed( "const1", 2 );
+AddPed( "bum", 2 );
+AddPed( "sail4", 1 );
+AddPed( "male3", 2 );
+ClosePedGroup( );
+
+//Z3
+CreatePedGroup( 4 );
+AddPed( "busm1", 1 );
+AddPed( "busw1", 2 );
+AddPed( "male5", 2 );
+AddPed( "boy2", 2 );
+
+ClosePedGroup( );
+
+//Z4
+CreatePedGroup( 5 );
+AddPed( "busm1", 1 );
+AddPed( "busw1", 2 );
+AddPed( "busm2", 2 );
+AddPed( "fem2", 2 );
+ClosePedGroup( );
+
+//R4
+CreatePedGroup( 6 );
+AddPed( "male1", 1 );
+AddPed( "busw1", 2 );
+AddPed( "fem1", 2 );
+AddPed( "joger1", 2 );
+ClosePedGroup( );
+
+// WASPS ///
+
+PreallocateActors( "beecamera", "2" );
+SetProjectileStats( "waspray", "70.0", "5" );
+
+// Create a new spawn point called "catapult spawn point"
+// When within a certain radius, specified by the 4th number, it will retrieve the stateprop
+// called "beecamera" from memory and create a new instance of it named "Shelly" This prop
+// will be positioned at (xyz) location specified by the first 3 numbers
+// Final value is unused at this point (eventually for timeout implementation)
+
+
+//zone1
+AddSpawnPointByLocatorScript("w_hospital","beecamera","Shelley","w_hospital","15.0","-1");
+AddSpawnPointByLocatorScript("w_museum","beecamera","Shelley","w_museum","8.0","-1");
+//rail1
+AddSpawnPointByLocatorScript("w_krusty1","beecamera","Shelley","w_krusty1","10.0","-1");
+//zone2
+AddSpawnPointByLocatorScript("w_carwash","beecamera","Shelley","w_carwash","10.0","-1");
+//rail2
+AddSpawnPointByLocatorScript("w_railstair","beecamera","Shelley","w_railstair","15.0","-1");
+AddSpawnPointByLocatorScript("w_rail2","beecamera","Shelley","w_rail2","10.0","-1");
+//zone3
+//rail3
+//AddSpawnPointByLocatorScript("w_matt1","beecamera","Shelley","w_matt1","10.0","-1");
+//AddSpawnPointByLocatorScript("w_matt2","beecamera","Shelley","w_matt2","10.0","-1");
+//AddSpawnPointByLocatorScript("w_matt3","beecamera","Shelley","w_matt3","10.0","-1");
+//zone4
+AddSpawnPointByLocatorScript("w_mono1","beecamera","Shelley","w_mono1","10.0","-1");
+AddSpawnPointByLocatorScript("w_popcycle","beecamera","Shelley","w_popcycle","8.0","-1");
+
+//rail4
+AddSpawnPointByLocatorScript("w_fountain","beecamera","Shelley","w_fountain","10.0","-1");
+
+
+// They will evade between a certain distance in the horizontal, specified by the 1st 2 numbers
+// and will keep a height above the ground somewhere the 3rd and 4th numbers 
+// The final number indicates the speed at which to evade (in KPH)
+AddBehaviour( "beecamera", "EVADE_PLAYER", "2.5", "8.0", "1.0", "2.0", "5" );
+
+//First param - min distance ( go closer and attraction mode disabled)
+//2nd param - max distance ( bee will attempt to move closer )
+//3rd param - speed in KPH
+AddBehaviour( "beecamera", "ATTRACTION", "2.0","15","5.0");
+
+// Tell the wasp to attack the player. First number indicates maximum firing range in meters
+// 2nd number indicates forward firing arc in degrees
+// Both conditions have to be satisfied before the actor will fire
+// 3rd number is the number of second between wasp evasion attempts
+AddBehaviour( "beecamera", "ATTACK_PLAYER", "15.0", "2.5" , "4.0");
+
+
+SetActorRotationSpeed( "beecamera", "85.0" );
+//AddShield( "beecamera", "beeshield" );
+
+
+//STATIC wasps - these ones never move
+//AddBehaviour( "static_bee", "ATTRACTION", "2.0","20","10.0");
+
+//Zone 1
+AddSpawnPointByLocatorScript("w_townhall","beecamera","Shelley","w_townhall","20.0","-1");
+AddSpawnPointByLocatorScript("w_gazebo","beecamera","Shelley","w_gazebo","15.0","-1");
+AddSpawnPointByLocatorScript("w_roof","beecamera","Shelley","w_roof","10.0","-1");
+//Zone 2
+AddSpawnPointByLocatorScript("w_legitroof","beecamera","Shelley","w_legitroof","15.0","60");
+AddSpawnPointByLocatorScript("w_legitroof2","beecamera","Shelley","w_legitroof2","15.0","60");
+AddSpawnPointByLocatorScript("w_moesroof","beecamera","Shelley","w_moesroof","15.0","-1");
+//Rail 2
+AddSpawnPointByLocatorScript("w_rail1","beecamera","Shelley","w_rail1","12.0","-1");
+AddSpawnPointByLocatorScript("w_roundroom","beecamera","Shelley","w_roundroom","8.0","-1");
+//Zone 3
+//Zone 4
+AddSpawnPointByLocatorScript("w_police","beecamera","Shelley","w_police","10.0","-1");
+AddSpawnPointByLocatorScript("w_mono2","beecamera","Shelley","w_mono2","10.0","-1");
+AddSpawnPointByLocatorScript("w_mono3","beecamera","Shelley","w_mono3","10.0","-1");
+
+AddBehaviour( "w_townhall", "ATTACK_PLAYER", "15.0", "5.0" , "-1.0");
+AddBehaviour( "w_townhall", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_roof", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_roof", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_gazebo", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_gazebo", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_legitroof", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_legitroof", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_legitroof2", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_legitroof2", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_moesroof", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_moesroof", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_rail1", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_rail1", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_roundroom", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_roundroom", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_police", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_police", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_mono2", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_mono2", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_mono3", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_mono3", "ATTRACTION", "2.0","20","-1");
+
+
+//Bind the coin drawable and textures for various particle/sfx. The art is loaded in the missgen/fx file.
+SetCoinDrawable( "coinShape_000" );
+SetParticleTexture( 0, "scratch2.bmp" ); // sparkles.
+SetParticleTexture( 1, "spark4.bmp" );	 // sparks when vehicle hits.
+SetParticleTexture( 2, "cloud.tga" );	 // dust cloud when running/jumping.
+SetParticleTexture( 3, "cloud.tga" );	 // leaves when hitting shrubs/trees.
+SetParticleTexture( 4, "star.tga" );	 // stars when hitting something static.
+SetParticleTexture( 5, "cloud.tga" );	 // paint chips when vehicle is damaged.
+SetParticleTexture( 6, "halo.bmp" );	 // Ring for shock wave fx.

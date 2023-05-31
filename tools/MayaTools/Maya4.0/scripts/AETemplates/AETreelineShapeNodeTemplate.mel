@@ -1,0 +1,41 @@
+global proc AETreelineShapeNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+        editorTemplate -beginLayout "Treeline Attributes" -collapse false;
+        
+        editorTemplate -addControl "material";
+
+        editorTemplate -addControl "uscale";
+
+        editorTemplate -addControl "height";
+
+        editorTemplate -suppress "colour";
+
+        editorTemplate -suppress "alpha";
+
+		editorTemplate -endLayout;
+
+      	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AETELocatorSuppress( $nodeName );
+
+    editorTemplate -suppress "controlPoints";
+    editorTemplate -suppress "weights";
+    editorTemplate -suppress "uvSet";
+    editorTemplate -suppress "tweak";
+    editorTemplate -suppress "relativeTweak";
+    editorTemplate -suppress "currentUVSet";
+    editorTemplate -suppress "doubleSided";
+    editorTemplate -suppress "opposite";
+    editorTemplate -suppress "smoothShading";
+    editorTemplate -suppress "featureDisplacement";
+    editorTemplate -suppress "initialSampleRate";
+    editorTemplate -suppress "textureThreshold";
+    editorTemplate -suppress "normalThreshold";
+    editorTemplate -suppress "extraSampleRate";
+}
+ 

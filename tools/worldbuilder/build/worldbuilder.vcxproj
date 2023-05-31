@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Tools Debug|Win32">
+      <Configuration>Tools Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Tools Release|Win32">
+      <Configuration>Tools Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName>
+    </SccProjectName>
+    <SccAuxPath />
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{B5900135-3859-403D-BC2F-FD90B4C2B2E5}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\include\;..\code\;..\..\..\game\libs\pure3d\toollib\inc;..\..\..\game\libs\pure3d\toollib\chunks16\inc;.;..\..\..\game\libs\pure3d\constants;..\..\globalcode;..\..\..\game\libs\radmath;..\..\..\game\libs\pure3d\;..\..\..\game\libs\radcore\inc;..\..\..\game\code\constants;..\..\..\game\code;..\..\..\game\libs\radcontent\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;NT_PLUGIN;RAD_PC;RAD_WIN32;RAD_RELEASE;WORLD_BUILDER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <PrecompiledHeaderFile>precompiled\PCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Release/worldbuilder.pch</PrecompiledHeaderOutputFile>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 /EXPORT:initializePlugin /EXPORT:uninitializePlugin %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>user32.lib;gdi32.lib;glu32.lib;version.lib;Foundation.lib;OpenGL32.lib;OpenMaya.lib;OpenMayaFX.lib;OpenMayaRender.lib;OpenMayaUI.lib;OpenMayaAnim.lib;WS2_32.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>Release\worldbuilder.mll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCMT.lib;LIBCPMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDatabaseFile>.\Release/worldbuilder.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>.\Release/worldbuilder.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/worldbuilder.tlb</TypeLibraryName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copy worldbuilder.mll to Distribution and Maya dir.</Message>
+      <Command>copy .\Release\worldbuilder.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\worldbuilder.mll
+copy .\Release\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilderr.mll
+copy .\Release\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilder.mll
+</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\include\;..\code\;..\..\..\game\libs\pure3d\toollib\inc;..\..\..\game\libs\pure3d\toollib\chunks16\inc;.;..\..\..\game\libs\pure3d\constants;..\..\globalcode;..\..\..\game\libs\radmath;..\..\..\game\libs\pure3d\;..\..\..\game\libs\radcore\inc;..\..\..\game\code\constants;..\..\..\game\code;..\..\..\game\libs\radcontent\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;NT_PLUGIN;RAD_PC;RAD_WIN32;RAD_DEBUG;WORLD_BUILDER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <PrecompiledHeaderFile>precompiled\PCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug/worldbuilder.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>user32.lib;gdi32.lib;glu32.lib;version.lib;Foundation.lib;OpenGL32.lib;OpenMaya.lib;OpenMayaFX.lib;OpenMayaRender.lib;OpenMayaUI.lib;OpenMayaAnim.lib;WS2_32.LIB;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>Debug\worldbuilder.mll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\..\..\game\libs\pure3d\sdks\Maya4_0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/worldbuilder.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>.\Debug/worldbuilder.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/worldbuilder.tlb</TypeLibraryName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Copy worldbuilder.mll to Distribution and Maya dir.</Message>
+      <Command>copy .\Debug\worldbuilder.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\worldbuilder.mll
+copy .\Debug\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilderd.mll
+copy .\Debug\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilder.mll
+</Command>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\code\main\constants.h" />
+    <ClInclude Include="..\code\main\pluginMain.h" />
+    <ClInclude Include="..\code\main\toolhack.h" />
+    <ClInclude Include="..\code\main\worldbuilder.h" />
+    <ClInclude Include="..\code\commands\export.h" />
+    <ClInclude Include="..\code\commands\worldbuildercommands.h" />
+    <ClInclude Include="..\code\nodes\actioneventlocatornode.h" />
+    <ClInclude Include="..\code\nodes\breakablecameralocatornode.h" />
+    <ClInclude Include="..\code\nodes\carstartlocatornode.h" />
+    <ClInclude Include="..\code\nodes\directionallocatornode.h" />
+    <ClInclude Include="..\code\nodes\eventlocatornode.h" />
+    <ClInclude Include="..\code\nodes\fovlocatornode.h" />
+    <ClInclude Include="..\code\nodes\genericlocatornode.h" />
+    <ClInclude Include="..\code\nodes\interiorentrancelocatornode.h" />
+    <ClInclude Include="..\code\nodes\occlusionlocatornode.h" />
+    <ClInclude Include="..\code\nodes\pedgrouplocator.h" />
+    <ClInclude Include="..\code\nodes\railcamlocatornode.h" />
+    <ClInclude Include="..\code\nodes\scriptlocatornode.h" />
+    <ClInclude Include="..\code\nodes\splinelocatornode.h" />
+    <ClInclude Include="..\code\nodes\staticcameralocatornode.h" />
+    <ClInclude Include="..\code\nodes\triggertypes.h" />
+    <ClInclude Include="..\code\nodes\triggervolumenode.h" />
+    <ClInclude Include="..\code\nodes\wbspline.h" />
+    <ClInclude Include="..\code\nodes\zoneeventlocatornode.h" />
+    <ClInclude Include="..\code\contexts\locatorcontext.h" />
+    <ClInclude Include="..\code\contexts\triggercontext.h" />
+    <ClInclude Include="..\..\globalcode\utility\GLExt.h" />
+    <ClInclude Include="..\..\globalcode\utility\MExt.h" />
+    <ClInclude Include="..\..\globalcode\utility\MExt_template.h" />
+    <ClInclude Include="..\..\globalcode\utility\MUI.h" />
+    <ClInclude Include="..\..\globalcode\utility\mayahandles.h" />
+    <ClInclude Include="..\..\globalcode\utility\nodehelper.h" />
+    <ClInclude Include="..\..\globalcode\utility\stdafx.h" />
+    <ClInclude Include="..\..\globalcode\utility\transformmatrix.h" />
+    <ClInclude Include="..\..\globalcode\utility\util.h" />
+    <ClInclude Include="..\code\precompiled\PCH.h" />
+    <ClInclude Include="..\code\resources\resource.h" />
+    <ClInclude Include="..\..\..\game\code\camera\icamerashaker.h" />
+    <ClInclude Include="..\..\..\game\code\camera\isupercamtarget.h" />
+    <ClInclude Include="..\..\..\game\code\camera\railcam.h" />
+    <ClInclude Include="..\..\..\game\code\camera\sinecosshaker.h" />
+    <ClInclude Include="..\..\..\game\code\camera\staticcam.h" />
+    <ClInclude Include="..\..\..\game\code\camera\supercam.h" />
+    <ClInclude Include="..\..\..\game\code\meta\locator.h" />
+    <ClInclude Include="..\..\..\game\code\meta\recttriggervolume.h" />
+    <ClInclude Include="..\..\..\game\code\meta\spheretriggervolume.h" />
+    <ClInclude Include="..\..\..\game\code\meta\triggerlocator.h" />
+    <ClInclude Include="..\..\..\game\code\meta\triggervolume.h" />
+    <ClInclude Include="..\..\..\game\code\meta\triggervolumetracker.h" />
+    <ClInclude Include="..\code\gameengine\gameengine.h" />
+    <ClInclude Include="..\code\gameengine\mayacamera.h" />
+    <ClInclude Include="..\code\gameengine\wbcamtarget.h" />
+    <ClInclude Include="..\..\..\game\code\render\DSG\IEntityDSG.h" />
+    <ClInclude Include="..\..\..\game\code\ai\actionnames.h" />
+    <ClInclude Include="..\..\..\game\code\worldsim\character\charactercontroller.h" />
+    <ClInclude Include="..\..\..\game\code\meta\locatorevents.h" />
+    <ClInclude Include="..\..\..\game\code\meta\locatortypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\main\pluginMain.cpp" />
+    <ClCompile Include="..\code\main\worldbuilder.cpp" />
+    <ClCompile Include="..\code\commands\export.cpp" />
+    <ClCompile Include="..\code\commands\worldbuildercommands.cpp" />
+    <ClCompile Include="..\code\nodes\actioneventlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\breakablecameralocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\carstartlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\directionallocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\eventlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\fovlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\genericlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\interiorentrancelocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\occlusionlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\pedgrouplocator.cpp" />
+    <ClCompile Include="..\code\nodes\railcamlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\scriptlocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\splinelocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\staticcameralocatornode.cpp" />
+    <ClCompile Include="..\code\nodes\triggervolumenode.cpp" />
+    <ClCompile Include="..\code\nodes\wbspline.cpp" />
+    <ClCompile Include="..\code\nodes\zoneeventlocatornode.cpp" />
+    <ClCompile Include="..\code\contexts\locatorcontext.cpp" />
+    <ClCompile Include="..\code\contexts\triggercontext.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\GLExt.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\MExt.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\MExt_template.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\MUI.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\mayahandles.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\transformmatrix.cpp" />
+    <ClCompile Include="..\..\globalcode\utility\util.c" />
+    <ClCompile Include="..\code\precompiled\PCH.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">PCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">PCH.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="..\..\..\game\code\camera\railcam.cpp" />
+    <ClCompile Include="..\..\..\game\code\camera\sinecosshaker.cpp" />
+    <ClCompile Include="..\..\..\game\code\camera\staticcam.cpp" />
+    <ClCompile Include="..\..\..\game\code\camera\supercam.cpp" />
+    <ClCompile Include="..\..\..\game\code\meta\locator.cpp" />
+    <ClCompile Include="..\..\..\game\code\meta\recttriggervolume.cpp" />
+    <ClCompile Include="..\..\..\game\code\meta\spheretriggervolume.cpp" />
+    <ClCompile Include="..\..\..\game\code\meta\triggervolume.cpp" />
+    <ClCompile Include="..\code\gameengine\gameengine.cpp" />
+    <ClCompile Include="..\code\gameengine\mayacamera.cpp" />
+    <ClCompile Include="..\code\gameengine\wbcamtarget.cpp" />
+    <ClCompile Include="..\..\..\game\code\render\DSG\IEntityDSG.cpp" />
+    <ClCompile Include="..\..\..\game\code\main\commandlineoptions.cpp" />
+    <ClCompile Include="..\..\..\game\code\memory\leakdetection.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\code\scripts\wb_cleanup.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_locator.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_main.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_setup.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\scripts\wb_splines.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\others\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\others\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\others\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEActionEventLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEBreakableCameraLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AECarStartLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEDirectionalLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEEventLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEFOVLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEGenericLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEInteriorEntranceLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEOcclusionLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AERailCamLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEScriptLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AESplineLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEStaticCameraLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AETriggerVolumeNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEWBLocatorSuppress.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEWBTriggerButton.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\code\AETemplates\AEZoneEventLocatorNodeTemplate.mel">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">Copy %(FullPath) to Maya (dist and install) Templates</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">copy "%(FullPath)" "C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel"
+copy "%(FullPath)" "..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel"</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">C:\AW\Maya4.0\scripts\AETemplates\%(Filename).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\%(Filename).mel;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="..\code\resources\icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\code\resources\resource.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Tools Debug|Win32'">\simpsons2\tools\worldbuilder\code\resources</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Tools Release|Win32'">\simpsons2\tools\worldbuilder\code\resources</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\game\libs\pure3d\lib\freetype\builds\win32\visualc\freetype.vcxproj">
+      <Project>{6d333c70-a27d-4e25-ad26-bb9e20558b8f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\game\libs\pure3d\toollib\toollib_extras.vcxproj">
+      <Project>{cdb92e4a-1e5d-49a8-8153-34264b3fef29}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,1245 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "AnimCollDSGMaker"=..\game\libs\pure3d\tools\commandline\AnimCollDSGMaker\AnimCollDSGMaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    AnimCollDSGMaker
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\animcolldsgmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "AnimDSGMaker"=..\game\libs\pure3d\tools\commandline\AnimDSGMaker\AnimDSGMaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    AnimDSGMaker
+    ..\game\libs\pure3d\tools\commandline\animdsgmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Image2LUT"=.\CreateSetChunk\SetChunk.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    .\createsetchunk
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "InstAnimDynaPhysMaker"=..\game\libs\pure3d\tools\commandline\InstAnimDynaPhysMaker\InstAnimDynaPhysMaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    InstAnimDynaPhysMaker
+    ..\game\libs\pure3d\tools\commandline\instanimdynaphysmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "Instancer"=..\game\libs\pure3d\tools\commandline\Instancer\Instancer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Instancer
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\instancer
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "LensFlareDSGMaker"=..\game\libs\pure3d\tools\commandline\LensFlareDSGMaker\LensFlareDSGMaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    LensFlareDSGMaker
+    ..\game\libs\pure3d\tools\commandline\lensflaredsgmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "MayaRules"=.\MayaRules\MayaRules.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    MayaRules
+    ..\..\joel\projects\simpsons2\tools
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Pure3D"=..\game\libs\pure3d\build\win32\Pure3D.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Pure3D
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\build\win32
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "breakablesmaker"=..\game\libs\pure3d\tools\commandline\breakablesmaker\breakablesmaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    breakablesmaker
+    ..\game\libs\pure3d\tools\commandline\breakablesmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "chunkGroup"=..\game\libs\pure3d\tools\commandline\chunkGroup\chunkGroup.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    chunkGroup
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\chunkgroup
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "convert2dxtn"=..\game\libs\pure3d\tools\commandline\convert2dxtn\convert2dxtn.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\tools\commandline\convert2dxtn
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "findbreakables"=..\game\libs\pure3d\tools\commandline\findbreakables\findbreakables.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    findbreakables
+    ..\game\libs\pure3d\tools\commandline\findbreakables
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "freetype"=..\game\libs\pure3d\lib\freetype\builds\win32\visualc\freetype.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/DEV/freetype", KAOAAAAA
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\lib\freetype\builds\win32\visualc
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libpng"=..\game\libs\pure3d\build\win32\libpng.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    libpng
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\build\win32
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "makechunktool"=..\game\libs\pure3d\tools\commandline\makechunktool\makechunktool.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    makechunktool
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\makechunktool
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "objectsnapper"=.\objectsnapper\build\objectsnapper.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    objectsnapper
+    ..\..\joel\projects\simpsons2\tools\objectsnapper\build
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3d2dsg"=..\game\libs\pure3d\tools\commandline\p3d2dsg\p3d2dsg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3d2dsg
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\p3d2dsg
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dcompress"=..\game\libs\pure3d\tools\commandline\p3dcompress\p3dcompress.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\tools\commandline\p3dcompress
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcontent
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3ddiff"="..\game\libs\pure3d\tools\gui-win32\p3ddiff\p3ddiff.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3ddiff
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\gui-win32\p3ddiff
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dexplorer"="..\game\libs\pure3d\tools\gui-win32\p3dexplorer\p3dexplorer.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3dexplorer
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\gui-win32\p3dexplorer
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dgc"=..\game\libs\pure3d\tools\commandline\p3dgc\p3dgc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\tools\commandline\p3dgc
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Pure3D
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dgendsg"=..\game\libs\pure3d\tools\commandline\p3dgendsg\p3dgendsg.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3dgendsg
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\p3dgendsg
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dgeo2prims"=..\game\libs\pure3d\tools\commandline\p3dgeo2prims\p3dgeo2prims.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3dgeo2prims
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\p3dgeo2prims
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dimage"=..\game\libs\pure3d\tools\commandline\p3dimage\p3dimage.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\tools\commandline\p3dimage
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3djoin"=..\game\libs\pure3d\tools\commandline\p3djoin\p3djoin.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\tools\commandline\p3djoin
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcontent
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dmutate"=..\game\libs\pure3d\tools\commandline\p3dmutate\p3dmutate.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3dmutate
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\p3dmutate
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dsort"=..\game\libs\pure3d\tools\commandline\p3dsort\p3dsort.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3dsort
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\p3dsort
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dsplit"=..\game\libs\pure3d\tools\commandline\p3dsplit\p3dsplit.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    p3dsplit
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\p3dsplit
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "p3dview"=..\game\libs\pure3d\apps\p3dview\build\win32\p3dview.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\apps\p3dview\build\win32
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name radcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Pure3D
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pddidx8
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name pddigl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcontent
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "pddidx8"=..\game\libs\pure3d\build\win32\pddidx8.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game\libs\pure3d\build\win32
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "pddigl"=..\game\libs\pure3d\build\win32\pddigl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    Perforce Project
+    ..\game
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "propwrapper"=..\game\libs\pure3d\tools\commandline\propwrapper\propwrapper.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    propwrapper
+    ..\game\libs\pure3d\tools\commandline\propwrapper
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "radcontent"=..\game\libs\radcontent\build\win32\radcontent.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    radcontent
+    ..\game\libs\radcontent
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radcore"=..\game\libs\radcore\build\win32\radcore.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    radcore
+    ..\..\joel\projects\simpsons2\game\libs\radcore
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "radmath"=..\game\libs\radmath\build\win32\radmath.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    nbrooke-dual
+    ..\..\joel\projects\simpsons2\game\libs\radmath\build\win32
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "relatedfiles"=.\relatedfiles\relatedfiles.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    relatedfiles
+    ..\..\joel\projects\simpsons2\tools\relatedfiles
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "roadOptimizer"=..\game\libs\pure3d\tools\commandline\roadOptimizer\roadOptimizer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    roadOptimizer
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\tools\commandline\roadoptimizer
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "toollib"=..\game\libs\pure3d\toollib\toollib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    toollib
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\toollib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "toollib_extras"=..\game\libs\pure3d\toollib\toollib_extras.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    toollib_extras
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\toollib
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "trackeditor"=.\trackeditor\build\trackeditor.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    trackeditor
+    ..\..\joel\projects\simpsons2\tools\trackeditor\build
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "worldbuilder"=.\worldbuilder\build\worldbuilder.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    worldbuilder
+    ..\..\joel\projects\simpsons2\tools\worldbuilder\build
+    end source code control
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name freetype
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libpng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radmath
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name toollib_extras
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Pure3D
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcore
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name radcontent
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "zlib"=..\game\libs\pure3d\build\win32\zlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    zlib
+    ..\..\joel\projects\simpsons2\game\libs\pure3d\build\win32
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    tools
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

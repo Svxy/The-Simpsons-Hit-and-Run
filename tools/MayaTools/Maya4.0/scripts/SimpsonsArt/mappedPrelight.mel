@@ -1,0 +1,126 @@
+/*===========================================================================
+   File:    mappedPrelight.mel
+   Created: January 28, 2002
+   Author:  Harold Westlund
+
+   Copyright (c) 2002 Radical Entertainment, Inc.
+   All rights reserved.
+
+=============================================================================
+
+    This procedure remaps vertex colour of a mesh.  Colours within a
+    specified luminance range (low to high) are mapped to the corresponding
+    RGB color.  Low-high-RGB sets are passed to this procedure as parater
+    arrays.
+
+    return value:
+    bool = success of this procedure.
+
+===========================================================================*/
+
+global proc int mappedPrelight ( 
+    float $map_low[],
+    float $map_high[],
+    float $map_red[],
+    float $map_green[],
+    float $map_blue[] )
+{
+    print "Remapping vertex colours.\n";
+    
+    int $NUM_MAPS = size( $map_low );
+    if( size( $map_high )  != $NUM_MAPS  ||
+        size( $map_red )   != $NUM_MAPS  ||
+        size( $map_green ) != $NUM_MAPS  ||
+        size( $map_blue )  != $NUM_MAPS )
+    {
+        return false;
+    }
+
+    string $selection[] = `ls -selection`;
+
+    string $mesh[] = `filterExpand -sm 12 -ex true`;
+
+    // Step through all selected meshes
+    for( $i = 0; $i < size($mesh); $i++ )
+    {
+        int $verticesA[] = `polyEvaluate -v ( $mesh[$i] )`;
+        int $numVerts    = $verticesA[0];
+        clear $verticesA;
+          
+        int $vfIdx = 0;
+        int $viList[];
+        int $fiList[];
+        float $redList[];
+        float $greenList[];
+        float $blueList[];
+        
+        // Step through the vertices in the mesh
+        for( $j = 0; $j < $numVerts; $j++ )
+        {
+            // Find the faces which use the current vertex.
+            string $command = " " + $mesh[$i] + ".vtx["+$j+"]";
+            string $s[] = `polyInfo -vf $command`;
+            string $t[];
+            int $tokCount = `tokenize $s[0] $t`;
+            clear $s;
+            
+            // Step through the vertexFaces for this vertex
+            for( $k = 2; $k < $tokCount; $k++ )
+            {
+                string $vf = " " + $mesh[$i] + ".vtxFace["+$j+"]["+$t[$k]+"]";
+                float $rgb[] = `polyColorPerVertex -q -r -g -b $vf`;
+                float $red   = $rgb[0];
+                float $green = $rgb[1];
+                float $blue  = $rgb[2];
+                clear $rgb;
+
+                // Find the lumninance
+                float $y = .299 * $red + .587 * $green + .114 * $blue;
+                    
+                // Apply the appropriate color maps.
+                int $mIdx;
+                for ( $mIdx = 0; $mIdx < $NUM_MAPS; $mIdx++ )
+                {
+                    if ( ($y <= ( $map_high[$mIdx] ) ) &&
+                         ($y >= ( $map_low[$mIdx]  ) )  )
+                    {
+                        // Luminance is within specified range
+                        $red   = $map_red[$mIdx];
+                        $green = $map_green[$mIdx];
+                        $blue  = $map_blue[$mIdx];
+
+                        // Write color back to vertexFace
+//                        polyColorPerVertex -e -rgb $red $green $blue $vf;
+                        break;
+                    }
+                }
+                $viList[$vfIdx]    = $j;
+                $fiList[$vfIdx]    = $t[$k];
+                $redList[$vfIdx]   = $red;
+                $greenList[$vfIdx] = $green;
+                $blueList[$vfIdx]  = $blue;
+
+                $vfIdx++;
+                
+            }
+            clear $t;
+
+        }
+        // Use the collected information to colour the mesh.
+        polyColorPerVertexArray( $viList, $fiList, $redList,
+                                     $greenList, $blueList, $mesh[$i] );
+        clear $viList;
+        clear $fiList;
+        clear $redList;
+        clear $greenList;
+        clear $blueList;
+    }
+    clear $mesh;
+
+    select $selection;
+
+    print "Finished remapping.\n";
+
+    return true;
+}
+

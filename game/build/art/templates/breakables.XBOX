@@ -1,0 +1,19 @@
+PRINT Applying BREAKABLE template to INPUT
+# Keep textures (19000), shaders(11000)
+# EFX frame controllers (121200)
+# tlParticleSystemFactoryChunks (15800)
+# tlParticleSystemChunk (15801)
+# tlSkeletonChunk16s (4500)
+# animation chunks
+# composite drawables 
+# meshes
+
+#COMMAND p3ddel -k 19000 -k 11000 -k 10000 -k 20000 -k 121000 -k 20001 -k 121200 -k 15800 -k 4512 -k 15801 -k 4500 -o OUTPUT INPUT
+COMMAND p3dimage --ntsc_fix -r -b 8 -o OUTPUT OUTPUT
+
+#Texture compression messes up alpha, disable until bug is fixed
+#COMMAND convert2dxtn -o OUTPUT OUTPUT
+#COMMAND p3dgeo2prims -o OUTPUT OUTPUT
+COMMAND tristrip -m -x -o OUTPUT OUTPUT
+COMMAND p3danim -o OUTPUT OUTPUT
+COMMAND p3dxbox -m -o OUTPUT OUTPUT

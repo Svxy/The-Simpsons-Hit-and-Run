@@ -1,0 +1,52 @@
+global proc AEStaticCameraLocatorNodeTemplate( string $nodeName )
+{
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Locator Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+		editorTemplate -endLayout;
+
+        editorTemplate -beginLayout "Camera Attributes" -collapse false;
+            editorTemplate -addControl "cutInOut";
+            editorTemplate -addControl "carOnly";
+            editorTemplate -addControl "onFootOnly";
+            editorTemplate -addControl "oneShot";
+            editorTemplate -addControl "noFOV";
+            editorTemplate -addControl "fieldOfView";
+            editorTemplate -addControl "facingOffset";
+
+            editorTemplate -addSeparator;
+
+            editorTemplate -addControl "targetLag";
+
+            editorTemplate -addSeparator;
+
+            editorTemplate -addControl "active";
+
+            editorTemplate -addControl "target";
+            editorTemplate -addControl "tracking";
+
+            editorTemplate -addSeparator;
+			editorTemplate -addControl "transitionTo";
+
+            editorTemplate -callCustom "AEWBTargetSelectNew"
+                    "AEWBTargetSelectReplace"
+                    "message";
+
+		editorTemplate -endLayout;
+
+		editorTemplate -beginLayout "Triggers" -collapse 0;
+            
+			editorTemplate -callCustom "AEWBTriggerButtonNew" 
+					"AEWBTriggerButtonReplace"
+					"message";                  
+
+		editorTemplate -endLayout;
+
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

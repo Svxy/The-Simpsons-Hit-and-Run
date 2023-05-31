@@ -1,0 +1,4 @@
+PRINT Applying IMAGE template to INPUT
+COMMAND p3dimage --ntsc_fix -r -b 8  -o OUTPUT INPUT
+#COMMAND p3dmipmap -s -l 3 -o OUTPUT OUTPUT
+#COMMAND p3dps2 -m -o OUTPUT OUTPUT

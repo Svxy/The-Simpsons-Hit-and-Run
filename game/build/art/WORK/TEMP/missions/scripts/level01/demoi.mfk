@@ -1,0 +1,296 @@
+//This is all level initialization stuff..
+//Anything here is persistent across the entire level.
+
+EnableTutorialMode( false );
+InitLevelPlayerVehicle("famil_v","demo_carstart","DEFAULT", "HardRace\AI_1st.con");
+
+AddCharacter("homer","homer");
+
+
+CreateChaseManager("cPolice","Pursuit\L1cop.con",1);
+SetHitAndRunDecay(3.0);
+SetNumChaseCars("1");
+
+AddNPCCharacterBonusMission("carl", "npd", "sr1_mhouse_sd", "sr1", "checkered", "test", 0 );
+AddNPCCharacterBonusMission("milhouse", "npd", "sr1_mhouse_sd", "sr1", "checkered", "intro", 0 );
+AddNPCCharacterBonusMission("nelson", "npd", "sr2_nelson_sd", "sr2", "checkered", "intro", 0 );
+AddNPCCharacterBonusMission("ralph", "npd", "sr3_ralph_sd", "sr3", "checkered", "intro", 0 );
+AddNPCCharacterBonusMission("louie", "npd", "sr4_louie_sd", "gr1", "dice", "intro", 0 );
+AddNPCCharacterBonusMission("cletus", "npd", "bm1_cletus_sd", "bm1", "exclamation", "jug", 1, "exclamation_shadow" );
+AddBonusMissionNPCWaypoint( "cletus", "bm1_cletus_walk1" );
+AddBonusMissionNPCWaypoint( "cletus", "bm1_cletus_walk2" );
+AddBonusMissionNPCWaypoint( "cletus", "bm1_cletus_sd" );
+
+
+//ADDING AMBIENT CHARACTERS
+	AddAmbientCharacter("apu", "m0_apu_place",  2.0);  //Kwik-E-Mart Interior
+
+	AddAmbientCharacter("ralph", "ambient_ralph",  1.3); //zone 1
+		AddAmbientNPCWaypoint( "ralph", "ralph_walk1" );
+		AddAmbientNPCWaypoint( "ralph", "ralph_walk2" );
+		AddAmbientNPCWaypoint( "ralph", "ralph_walk3" );
+	
+	AddAmbientCharacter("moleman", "ambient_moleman",  0); //rail 1
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk1" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk2" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk3" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk4" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk3" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk2" );
+		AddAmbientNPCWaypoint( "moleman", "moleman_walk1" );
+	
+	AddAmbientCharacter("grandpa", "ambient_grandpa",  0); //zone 2
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk1" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk2" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk3" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk4" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk5" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk4" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk3" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk2" );
+		AddAmbientNPCWaypoint( "grandpa", "grandpa_walk1" );
+	
+	AddAmbientCharacter("patty", "ambient_patty",  1.3); //rail 2
+		AddAmbientNPCWaypoint( "patty", "patty_walk1" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk2" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk3" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk4" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk5" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk4" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk3" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk2" );
+		AddAmbientNPCWaypoint( "patty", "patty_walk1" );
+
+	AddAmbientCharacter("lisa", "m1_lisa_place",  1.3); //school interior
+		
+
+	AddAmbientCharacter("willie", "ambient_willie",  1.3); //zone 3
+		AddAmbientNPCWaypoint( "willie", "willie_walk1" );
+		AddAmbientNPCWaypoint( "willie", "willie_walk2" );
+		AddAmbientNPCWaypoint( "willie", "willie_walk3" );
+		AddAmbientNPCWaypoint( "willie", "willie_walk2" );
+		AddAmbientNPCWaypoint( "willie", "willie_walk1" );
+
+	AddAmbientCharacter("eddie", "ambient_eddie",  0); //rail 3
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk1" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk2" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk3" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk4" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk5" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk4" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk3" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk2" );
+		AddAmbientNPCWaypoint( "eddie", "eddie_walk1" );
+
+	AddAmbientCharacter("krusty", "ambient_krusty",  0); //zone 4
+		AddAmbientNPCWaypoint( "krusty", "krusty_walk1" );
+		AddAmbientNPCWaypoint( "krusty", "krusty_walk2" );
+		AddAmbientNPCWaypoint( "krusty", "krusty_walk3" );
+		AddAmbientNPCWaypoint( "krusty", "krusty_walk2" );
+		AddAmbientNPCWaypoint( "krusty", "krusty_walk1" );
+
+	AddAmbientCharacter("lenny", "ambient_lenny",  0); //rail 6
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk1" );
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk2" );
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk3" );
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk2" );
+		AddAmbientNPCWaypoint( "lenny", "lenny_walk1" );
+
+	AddAmbientCharacter("moe", "ambient_moe",  1.3); //zone 7
+		AddAmbientNPCWaypoint( "moe", "moe_walk1" );
+		AddAmbientNPCWaypoint( "moe", "moe_walk2" );
+		AddAmbientNPCWaypoint( "moe", "moe_walk1" );
+		
+AddPurchaseCarReward( "gil", "gil", "npd", "gil_loc", 1.3, "gil_car" );
+AddPurchaseCarNPCWaypoint("gil", "gil_walk1");
+AddPurchaseCarReward( "simpson", "barney", "npd", "barney_loc", 1.3, "barney_car" );
+AddPurchaseCarNPCWaypoint("barney", "barney_walk1");
+
+//ADDING TRAFFIC GROUP FOR LEVEL 01//
+//
+CreateTrafficGroup( 0 );
+AddTrafficModel( "minivanA",2 );
+AddTrafficModel( "glastruc",1,1 );
+AddTrafficModel( "schoolbu",1,1 );
+AddTrafficModel( "pickupA",1 );
+CloseTrafficGroup( );
+//
+
+//
+//ADDING PED GROUP FOR LEVEL 01//
+//
+//z1r1
+CreatePedGroup( 0 );
+AddPed( "male6", 2 );
+AddPed( "girl4", 1 );
+AddPed( "fem4", 2 );
+AddPed( "boy3", 2 );
+ClosePedGroup( );
+
+//z2
+CreatePedGroup( 1 );
+AddPed( "olady1", 2 );
+AddPed( "olady2", 2 );
+AddPed( "fem3", 2 );
+AddPed( "male3", 1 );
+ClosePedGroup( );
+
+//R2
+CreatePedGroup( 2 );
+AddPed( "male2", 2 );
+AddPed( "olady3", 2 );
+AddPed( "girl1", 2 );
+AddPed( "fem4", 1 );
+ClosePedGroup( );
+
+//Z3
+CreatePedGroup( 3 );
+AddPed( "boy2", 2 );
+AddPed( "boy3", 1 );
+AddPed( "girl2", 2 );
+AddPed( "girl3", 2 );
+ClosePedGroup( );
+
+//R3Z4
+CreatePedGroup( 4 );
+AddPed( "fem4", 2 );
+AddPed( "busm1", 2 );
+AddPed( "busw1", 2 );
+AddPed( "busm2", 1 );
+ClosePedGroup( );
+
+//R6Z7
+CreatePedGroup( 5 );
+AddPed( "farmr1", 2 );
+AddPed( "rednk1", 1 );
+AddPed( "bum", 2 );
+AddPed( "hooker", 2 );
+ClosePedGroup( );
+
+//R7
+CreatePedGroup( 6 );
+AddPed( "joger1", 2 );
+AddPed( "male5", 1 );
+AddPed( "male2", 2 );
+AddPed( "fem2", 2 );
+ClosePedGroup( );
+
+//Z6
+CreatePedGroup( 7 );
+AddPed( "nuclear", 7 );
+ClosePedGroup( );
+
+//THESE CAUSE GRAPHICAL GLITCHES IN DEMO MODE!!
+//Bind the coin drawable and sparkle texture. The art is loaded in the missgen.p3d file.
+// Yes the name of the p3d tTexture is scratch2.bmp, thanks to p3dimage. No biggie.
+//SetCoinDrawable( "coinShape_000" );
+//SetParticleTexture( 0, "scratch2.bmp" ); // sparkles.
+//SetParticleTexture( 1, "spark4.bmp" );	 // sparks when vehicle hits.
+//SetParticleTexture( 2, "cloud.tga" );	 // dust cloud when running/jumping.
+//SetParticleTexture( 3, "cloud.tga" );	 // leaves when hitting shrubs/trees.
+//SetParticleTexture( 4, "star.tga" );	 // stars when hitting something static.
+//SetParticleTexture( 5, "cloud.tga" );	 // paint chips when vehicle is damaged.
+//SetParticleTexture( 6, "halo.bmp" );	 // Ring for shock wave fx.
+
+
+PreallocateActors( "beecamera", "3" );
+SetProjectileStats( "waspray", "60.0", "5" );
+
+//AddSpawnPoint( "SimpsonsHouse", "beecamera", "Shelly","222.041","4.5","-169.169","50.0","20" );
+
+AddSpawnPointByLocatorScript("w_lemon","beecamera","Shelley","w_lemon","15.0","60");
+
+AddSpawnPointByLocatorScript("w_schoolroof1","beecamera","Shelley","w_schoolroof1","15.0","60");
+
+AddSpawnPointByLocatorScript("w_bonuscar","beecamera","Shelley","w_bonuscar","50.0","60");
+
+AddSpawnPointByLocatorScript("w_stonetemple","beecamera","Shelley","w_stonetemple","60.0","60");
+
+AddSpawnPointByLocatorScript("w_trailor1","beecamera","Shelley","w_trailor1","50.0","60");
+AddSpawnPointByLocatorScript("w_trailor2","beecamera","Shelley","w_trailor2","50.0","60");
+AddSpawnPointByLocatorScript("w_cardguard","beecamera","Shelley","w_cardguard","60.0","60");
+
+AddSpawnPointByLocatorScript("w_bridge1","beecamera","Shelley","w_bridge1","30.0","60");
+AddSpawnPointByLocatorScript("w_bridge2","beecamera","Shelley","w_bridge2","30.0","60");
+AddSpawnPointByLocatorScript("w_barn","beecamera","Shelley","w_barn","20.0","60");
+
+// They will evade between a certain distance in the horizontal, specified by the 1st 2 numbers
+// and will keep a height above the ground somewhere the 3rd and 4th numbers 
+// The final number indicates the speed at which to evade (in KPH)
+//AddBehaviour( "beecamera", "EVADE_PLAYER", "3.0", "8", "1.0", "2.0", "5" );
+
+//First param - min distance ( go closer and attraction mode disabled)
+//2nd param - max distance ( bee will attempt to move closer )
+//3rd param - speed in KPH
+AddBehaviour( "beecamera", "ATTRACTION", "4.0","10","10.0");
+
+// Tell the wasp to attack the player. First number indicates maximum firing range in meters
+// 2nd number indicates forward firing arc in degrees
+// 3rd number is the number of second between wasp evasion attempts
+// Both conditions have to be satisfied before the actor will fire
+AddBehaviour( "beecamera", "ATTACK_PLAYER", "10.0", "5.0" , "10.0");
+
+SetActorRotationSpeed( "beecamera", "40.0" );
+
+
+//STATIC wasps - these ones never move
+//AddBehaviour( "static_bee", "ATTRACTION", "2.0","20","10.0");
+
+//Zone 1
+
+AddSpawnPointByLocatorScript("w_simpsons","beecamera","Shelley","w_simpsons","10.0","60");
+AddSpawnPointByLocatorScript("w_flanders","beecamera","Shelley","w_flanders","10.0","60");
+AddSpawnPointByLocatorScript("w_wiggum","beecamera","Shelley","w_wiggum","8.0","60");
+
+//Zone 2
+
+AddSpawnPointByLocatorScript("w_kwickemart","beecamera","Shelley","w_kwickemart","10.0","60");
+AddSpawnPointByLocatorScript("w_lardlad","beecamera","Shelley","w_lardlad","8.0","60");
+AddSpawnPointByLocatorScript("w_gasroof","beecamera","Shelley","w_gasroof","15.0","60");
+
+//Zone 3
+
+//Zone 4
+
+AddSpawnPointByLocatorScript("w_schoolroof2","beecamera","Shelley","w_schoolroof2","15.0","60");
+AddSpawnPointByLocatorScript("w_playground","beecamera","Shelley","w_playground","15.0","60");
+AddSpawnPointByLocatorScript("w_schoolstairs","beecamera","Shelley","w_schoolstairs","15.0","60");
+AddSpawnPointByLocatorScript("w_tower","beecamera","Shelley","w_tower","15.0","60");
+
+//Zone 5
+
+//Zone 6
+
+
+//AddSpawnPointByLocatorScript("static_bee2","beecamera","Shelley","w_powerplant2","20.0","60");
+//AddSpawnPointByLocatorScript("static_bee3","beecamera","Shelley","w_powerplant3","20.0","60");
+//AddSpawnPointByLocatorScript("static_bee4","beecamera","Shelley","w_powerplant4","20.0","60");
+
+
+//Zone 7
+
+
+
+AddBehaviour( "w_simpsons", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_simpsons", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_flanders", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_flanders", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_wiggum", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "w_wiggum", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_kwickemart", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_kwickemart", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_gasroof", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_gasroof", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_playground", "ATTACK_PLAYER", "10.0", "5.0" , "-1.0");
+AddBehaviour( "w_playground", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_schoolroof2", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "w_schoolroof2", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_tower", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "w_tower", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_schoolstairs", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "w_schoolstairs", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "w_lardlad", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "w_lardlad", "ATTRACTION", "2.0","20","-1");
+AddBehaviour( "static_bee2", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "static_bee3", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");
+AddBehaviour( "static_bee4", "ATTACK_PLAYER", "20.0", "5.0" , "-1.0");

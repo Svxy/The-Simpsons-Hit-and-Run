@@ -1,0 +1,226 @@
+//===========================================================================
+// Copyright ©2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// Created:     13 Nov 2001
+//
+// Component:   MEL Script for Maya.
+//					 Provides useful UV editing operations.
+//
+// Creator:     Bryan Ewert
+//
+// Version:		 1.0
+//					 Tested on Maya v3 and v4.
+//
+//===========================================================================
+
+// ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+//
+// How to use:
+//
+//		Call this script.  A UI will be provided with the following functions:
+//
+//		Spin:  Spins the UVs around the selected face(s).
+//
+//			Reverse Spin: Spins the UVs the other direction.
+//			Auto Map Cut: Cuts the UV seams on all edges of the face prior
+//			              to performing the Spin operation.
+//
+//			Note:  The "Auto Map Cut" option is always immediately turned off.
+//					 It is only necessary to cut the edges once for a particular
+//					 face, and the Construction History stack will be inflated
+//					 with unnecessary 'polyMapCut' operations if not.  //
+//
+// ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+//===========================================================================
+// getUVsInOrder
+//===========================================================================
+// Description: Returns the UV components for the specified face in proper
+//					 "construction" order.
+//
+//					 See < http://www.ewertb.com/maya/mel/mel_a55.html >
+//
+// Constraints: 
+//
+// Parameters:  string $face: The face component for which to retrieve the UVs.
+//
+// Return:	    (string[]) The UV components associated with the specified face.
+//
+//===========================================================================
+proc string[] getUVsInOrder( string $face )
+{
+	string $uvOrder[];
+	
+	string $vtxFace[] = `polyListComponentConversion -ff -tvf $face`;
+	$vtxFace = `filterExpand -sm 70 -ex true $vtxFace`;
+	
+	for ( $vf in $vtxFace )
+	{
+		string $uv[] = `polyListComponentConversion -fvf -tuv $vf`;
+		$uvOrder[`size $uvOrder`] = $uv[0];
+	}
+	
+	return $uvOrder;
+}
+
+//===========================================================================
+// getFaceEdges
+//===========================================================================
+// Description: Returns the edge components that construct the specified face.
+//
+// Constraints: 
+//
+// Parameters:  string $face: The face for which to retrieve the edges.
+//
+// Return:	    (string[]): The edge components.
+//
+//===========================================================================
+proc string[] getFaceEdges( string $face )
+{
+	string $edges[] = `polyListComponentConversion -ff -te $face`;
+	$edges = `filterExpand -sm 32 -ex true $edges`;
+	
+	return $edges;
+}
+
+//===========================================================================
+// performSpinUVz
+//===========================================================================
+// Description: Invoked when the user presses the "Spin UVz" button.
+//					 Spins the UVs.
+//
+// Constraints: If at least one polymesh face component is not selected
+//					 then no action is taken.
+//
+//					 The "Auto Map Cut" option is always immediately turned off.
+//					 It is only necessary to cut the edges once for a particular
+//					 face, and the Construction History stack will be inflated
+//					 with unnecessary 'polyMapCut' operations if not.  Eventually
+//					 I may determine a way to detect if an auto-cut is necessary
+//					 and just skip the step when applicable.
+//
+// Parameters:  (none)
+//
+// Return:	    (none)
+//
+//===========================================================================
+global proc performSpinUVz()
+{
+	string $faces[] = `filterExpand -sm 34 -ex true`;
+	
+	if ( `size $faces` > 0 )
+	{
+		string $select[] = `ls -sl`;
+
+		int $reverse = `checkBox -q -value rad_uvzReverse`;
+		int $autoCut = `checkBox -q -value rad_uvzAutoCut`;
+
+		for ( $face in $faces )
+		{
+			if ( $autoCut )
+			{
+				// Only need to cut edges if any of the vertices 
+				string $edges[] = getFaceEdges( $face );
+				polyMapCut $edges;
+			}
+
+			string $uvOrder[] = getUVsInOrder( $face );
+			print $uvOrder;
+			print "------\n";
+			int $numUVs = `size $uvOrder`;
+			float $uv[];
+			float $u[], $v[];
+
+			for ( $i = 0; $i < $numUVs; $i++ )
+			{
+					$uv = `polyEditUV -q $uvOrder[$i]`;
+					$u[`size $u`] = $uv[0];
+					$v[`size $v`] = $uv[1];
+			}
+
+			for ( $i = 0; $i < $numUVs; $i++ )
+			{
+				int $next;
+
+				if ( $reverse )
+				{
+					$next = ( $i + ( $numUVs - 1 ) ) % $numUVs;
+				}
+				else
+				{
+					$next = ( $i + 1 ) % $numUVs;
+				}
+
+				polyEditUV -r false -u $u[$next] -v $v[$next] $uvOrder[$i];
+			}
+		}
+
+		checkBox -e -value off rad_uvzAutoCut;
+		
+		select -r $select;	
+	}
+	else
+	{
+		warning( "UVz: No action taken -- Please select one or more faces." );
+	}
+}
+
+//===========================================================================
+// uvz
+//===========================================================================
+// Description: Generates the UI for this script.
+//
+// Constraints: 
+//
+// Parameters:  (none)
+//
+// Return:	    (none)
+//
+//===========================================================================
+global proc uvz()
+{
+	if ( `window -exists raduvz` )
+		deleteUI -window raduvz;
+		
+	window -title "UVz" -iconName "UVz" raduvz;
+	
+		columnLayout -adjustableColumn true;
+
+			string $spinFrame = `frameLayout -label "Spin UVz on Face"`;
+			
+				string $spinForm = `formLayout`;
+
+					string $spinReverse = `checkBox -label "Reverse Spin" rad_uvzReverse`;
+					string $spinAutoCut = `checkBox -label "Auto Map Cut" rad_uvzAutoCut`;
+					string $spinUVz = `button -label "Spin UVz"`;
+					
+					setParent ..;
+
+				setParent ..;
+				
+			setParent ..;
+			
+		setParent ..;
+		
+	formLayout -e
+	
+		-af	$spinReverse			"top"		4
+		-af	$spinReverse			"left"	4
+		
+		-ac	$spinAutoCut			"top"		4		$spinReverse
+		-af	$spinAutoCut			"left"	4
+
+		-ac	$spinUVz					"top"		4		$spinAutoCut
+		-af	$spinUVz					"left"	4
+		-af	$spinUVz					"right"	4
+		-af	$spinUVz					"bottom"	2
+		
+			$spinForm;
+
+	// Attach command callbacks
+	button -e
+		-c performSpinUVz
+			$spinUVz;
+			
+	showWindow raduvz;
+}

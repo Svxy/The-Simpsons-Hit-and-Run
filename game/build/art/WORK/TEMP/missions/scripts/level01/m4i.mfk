@@ -1,0 +1,75 @@
+SelectMission("m4");
+
+SetMissionResetPlayerOutCar("m4_homer_start", "m4_carstart");
+SetDynaLoadData("l1r4a.p3d;l1z6.p3d;l1r6.p3d;");
+SetNumValidFailureHints( 2 );
+UsePedGroup(7); 
+
+AddStage(0);
+	SetStageMessageIndex(252);
+	SetHUDIcon( "pwrplant" );
+	AddObjective( "goto" );
+		TurnGotoDialogOff();
+		SetDestination( "m4_start_sd", "triggersphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(10);
+	RESET_TO_HERE();
+	SetStageMessageIndex(10);
+	SetHUDIcon( "powercou" );
+	AddObjective("delivery","neither");
+		AddCollectible("PP_powerbox1");
+		AddCollectible("PP_powerbox2");
+		AddCollectible("PP_powerbox3");
+		AddCollectible("PP_powerbox4");
+		AddCollectible("PP_powerbox5");
+		AddCollectible("PP_powerbox6");
+		AddCollectible("PP_powerbox7");
+		AddCollectible("PP_powerbox8");
+		AddCollectible("PP_powerbox9");
+	CloseObjective();
+	SetStageTime(210);
+	AddCondition("timeout");
+	CloseCondition();
+	AddStageMusicChange();
+	ShowStageComplete();
+CloseStage();
+
+//AddStage("final");
+//	SetStageMessageIndex(11);
+//	SetHUDIcon( "wstation" ); 
+//	AddObjective("goto");
+//		TurnGotoDialogOff();
+//		SetDestination("m4_locator_sd","triggersphere");
+//		SetCollectibleEffect("wrench_collect");
+//	CloseObjective();
+//	AddStageTime(30);
+//	AddCondition("timeout");
+//	CloseCondition();
+//	SetCompletionDialog("sleep","burns");
+//CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(11);
+	SetHUDIcon( "wstation" );
+	AddObjective("goto");
+		AddNPC("burns", "m4_carl_sd");
+		SetDestination("m4_locator_sd", "triggersphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		SetDialogueInfo("homer","burns","sleep",0);
+	CloseObjective();
+CloseStage();
+
+
+CloseMission();

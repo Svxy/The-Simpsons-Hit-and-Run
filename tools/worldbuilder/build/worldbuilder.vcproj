@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="worldbuilder"
+	SccProjectName="Perforce Project"
+	SccAuxPath=""
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="MFCProj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Tools Release|Win32"
+			OutputDirectory=".\Release"
+			IntermediateDirectory=".\Release"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\include\,..\code\,..\..\..\game\libs\pure3d\toollib\inc,..\..\..\game\libs\pure3d\toollib\chunks16\inc,.,..\..\..\game\libs\pure3d\constants,..\..\globalcode,..\..\..\game\libs\radmath,..\..\..\game\libs\pure3d\,..\..\..\game\libs\radcore\inc,..\..\..\game\code\constants,..\..\..\game\code,..\..\..\game\libs\radcontent\inc"
+				PreprocessorDefinitions="NDEBUG;WIN32;_WINDOWS;NT_PLUGIN;RAD_PC;RAD_WIN32;RAD_RELEASE;WORLD_BUILDER"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="precompiled\PCH.h"
+				PrecompiledHeaderFile=".\Release/worldbuilder.pch"
+				AssemblerOutput="4"
+				AssemblerListingLocation=".\Release/"
+				ObjectFile=".\Release/"
+				ProgramDataBaseFileName=".\Release/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386 /EXPORT:initializePlugin /EXPORT:uninitializePlugin"
+				AdditionalDependencies="user32.lib gdi32.lib glu32.lib version.lib Foundation.lib OpenGL32.lib OpenMaya.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaUI.lib OpenMayaAnim.lib WS2_32.LIB"
+				OutputFile="Release\worldbuilder.mll"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\lib"
+				IgnoreDefaultLibraryNames="LIBC.lib;LIBCMT.lib;LIBCPMT.lib"
+				ProgramDatabaseFile=".\Release/worldbuilder.pdb"
+				SubSystem="2"
+				ImportLibrary=".\Release/worldbuilder.lib"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Release/worldbuilder.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copy worldbuilder.mll to Distribution and Maya dir."
+				CommandLine="copy .\Release\worldbuilder.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\worldbuilder.mll
+copy .\Release\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilderr.mll
+copy .\Release\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilder.mll
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_AFXDLL;NDEBUG"
+				Culture="4105"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+		<Configuration
+			Name="Tools Debug|Win32"
+			OutputDirectory=".\Debug"
+			IntermediateDirectory=".\Debug"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\include\,..\code\,..\..\..\game\libs\pure3d\toollib\inc,..\..\..\game\libs\pure3d\toollib\chunks16\inc,.,..\..\..\game\libs\pure3d\constants,..\..\globalcode,..\..\..\game\libs\radmath,..\..\..\game\libs\pure3d\,..\..\..\game\libs\radcore\inc,..\..\..\game\code\constants,..\..\..\game\code,..\..\..\game\libs\radcontent\inc"
+				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;NT_PLUGIN;RAD_PC;RAD_WIN32;RAD_DEBUG;WORLD_BUILDER"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="precompiled\PCH.h"
+				PrecompiledHeaderFile=".\Debug/worldbuilder.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile=".\Debug/"
+				ProgramDataBaseFileName=".\Debug/"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="4"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386"
+				AdditionalDependencies="user32.lib gdi32.lib glu32.lib version.lib Foundation.lib OpenGL32.lib OpenMaya.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaUI.lib OpenMayaAnim.lib WS2_32.LIB"
+				OutputFile="Debug\worldbuilder.mll"
+				LinkIncremental="2"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile=".\Debug/worldbuilder.pdb"
+				SubSystem="2"
+				ImportLibrary=".\Debug/worldbuilder.lib"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Debug/worldbuilder.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copy worldbuilder.mll to Distribution and Maya dir."
+				CommandLine="copy .\Debug\worldbuilder.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\worldbuilder.mll
+copy .\Debug\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilderd.mll
+copy .\Debug\worldbuilder.mll C:\AW\Maya4.0\bin\plug-ins\worldbuilder.mll
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_AFXDLL;_DEBUG"
+				Culture="4105"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="main"
+			Filter="">
+			<File
+				RelativePath="..\code\main\constants.h">
+			</File>
+			<File
+				RelativePath="..\code\main\pluginMain.cpp">
+			</File>
+			<File
+				RelativePath="..\code\main\pluginMain.h">
+			</File>
+			<File
+				RelativePath="..\code\main\toolhack.h">
+			</File>
+			<File
+				RelativePath="..\code\main\worldbuilder.cpp">
+			</File>
+			<File
+				RelativePath="..\code\main\worldbuilder.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="commands"
+			Filter="">
+			<File
+				RelativePath="..\code\commands\export.cpp">
+			</File>
+			<File
+				RelativePath="..\code\commands\export.h">
+			</File>
+			<File
+				RelativePath="..\code\commands\worldbuildercommands.cpp">
+			</File>
+			<File
+				RelativePath="..\code\commands\worldbuildercommands.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="nodes"
+			Filter="">
+			<File
+				RelativePath="..\code\nodes\actioneventlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\actioneventlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\breakablecameralocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\breakablecameralocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\carstartlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\carstartlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\directionallocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\directionallocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\eventlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\eventlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\fovlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\fovlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\genericlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\genericlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\interiorentrancelocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\interiorentrancelocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\occlusionlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\occlusionlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\pedgrouplocator.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\pedgrouplocator.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\railcamlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\railcamlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\scriptlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\scriptlocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\splinelocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\splinelocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\staticcameralocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\staticcameralocatornode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\triggertypes.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\triggervolumenode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\triggervolumenode.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\wbspline.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\wbspline.h">
+			</File>
+			<File
+				RelativePath="..\code\nodes\zoneeventlocatornode.cpp">
+			</File>
+			<File
+				RelativePath="..\code\nodes\zoneeventlocatornode.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="contexts"
+			Filter="">
+			<File
+				RelativePath="..\code\contexts\locatorcontext.cpp">
+			</File>
+			<File
+				RelativePath="..\code\contexts\locatorcontext.h">
+			</File>
+			<File
+				RelativePath="..\code\contexts\triggercontext.cpp">
+			</File>
+			<File
+				RelativePath="..\code\contexts\triggercontext.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="utility"
+			Filter="">
+			<File
+				RelativePath="..\..\globalcode\utility\GLExt.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\GLExt.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt_template.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt_template.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MUI.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MUI.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\mayahandles.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\mayahandles.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\nodehelper.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\stdafx.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\transformmatrix.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\transformmatrix.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\util.c">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\util.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="mel scripts"
+			Filter="">
+			<File
+				RelativePath="..\code\scripts\wb_cleanup.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\wb_locator.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\wb_main.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\wb_setup.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\wb_splines.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="precompiled header"
+			Filter="">
+			<File
+				RelativePath="..\code\precompiled\PCH.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\precompiled\PCH.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="resources"
+			Filter="">
+			<File
+				RelativePath="..\code\resources\resource.h">
+			</File>
+			<File
+				RelativePath="..\code\resources\resource.rc">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCResourceCompilerTool"
+						AdditionalIncludeDirectories="\simpsons2\tools\worldbuilder\code\resources;$(NoInherit)"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCResourceCompilerTool"
+						AdditionalIncludeDirectories="\simpsons2\tools\worldbuilder\code\resources;$(NoInherit)"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="AETemplates"
+			Filter="">
+			<File
+				RelativePath="..\code\AETemplates\AEActionEventLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEBreakableCameraLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AECarStartLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEDirectionalLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEEventLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEFOVLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEGenericLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEInteriorEntranceLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEOcclusionLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AERailCamLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEScriptLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AESplineLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEStaticCameraLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AETriggerVolumeNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEWBLocatorSuppress.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEWBTriggerButton.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\AETemplates\AEZoneEventLocatorNodeTemplate.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install) Templates"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\AETemplates\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\AETemplates\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="SuperCam"
+			Filter="">
+			<File
+				RelativePath="..\..\..\game\code\camera\icamerashaker.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\isupercamtarget.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\railcam.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\railcam.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\sinecosshaker.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\sinecosshaker.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\staticcam.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\staticcam.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\supercam.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\camera\supercam.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="TriggerVolumes"
+			Filter="">
+			<File
+				RelativePath="..\..\..\game\code\meta\locator.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\locator.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\recttriggervolume.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\recttriggervolume.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\spheretriggervolume.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\spheretriggervolume.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\triggerlocator.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\triggervolume.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\triggervolume.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\triggervolumetracker.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="game engine"
+			Filter="">
+			<File
+				RelativePath="..\code\gameengine\gameengine.cpp">
+			</File>
+			<File
+				RelativePath="..\code\gameengine\gameengine.h">
+			</File>
+			<File
+				RelativePath="..\code\gameengine\mayacamera.cpp">
+			</File>
+			<File
+				RelativePath="..\code\gameengine\mayacamera.h">
+			</File>
+			<File
+				RelativePath="..\code\gameengine\wbcamtarget.cpp">
+			</File>
+			<File
+				RelativePath="..\code\gameengine\wbcamtarget.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="from game"
+			Filter="">
+			<File
+				RelativePath="..\..\..\game\code\render\DSG\IEntityDSG.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\render\DSG\IEntityDSG.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\ai\actionnames.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\worldsim\character\charactercontroller.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\main\commandlineoptions.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\memory\leakdetection.cpp">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\locatorevents.h">
+			</File>
+			<File
+				RelativePath="..\..\..\game\code\meta\locatortypes.h">
+			</File>
+		</Filter>
+		<File
+			RelativePath="..\code\resources\icon1.ico">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

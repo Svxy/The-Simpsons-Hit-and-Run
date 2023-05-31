@@ -1,0 +1,152 @@
+//===========================================================================
+// Copyright ©2002 Radical Entertainment Ltd.  All rights reserved.
+//
+// Created:     11 April, 2002
+//
+// Component:   replaceSimpleShaderWithLambert.mel
+//
+// Description: Replaces all pure3dSimpleShaders with Maya's lambert.
+//
+// Constraints: Attributes that map 1:1 are restored; anything else isn't.
+//
+// Creator:     Bryan Ewert
+//
+//===========================================================================
+
+proc string rootNode( string $object )
+{
+    string $buffer[];
+    tokenize $object "." $buffer;
+    return $buffer[0];
+}
+
+//===========================================================================
+// arrayMatch
+//===========================================================================
+// Description: This is copied directly from Maya's "replaceNode.mel"
+//
+//===========================================================================
+proc int arrayMatch( string $array[], string $match )
+{
+    for ($item in $array)
+        if ($item == $match)
+            return true;
+
+    return false;
+}
+
+//===========================================================================
+// myReplaceNode
+//===========================================================================
+// Description: This is mostly copied directly from Maya's "replaceNode.mel"
+//
+//              As is usual with Maya scripts, it spewed unnecessary warnings
+//              when connections were automatically disconnected or 
+//              reconnected, and I just don't like Script Editor spew when
+//              nothing is actually wrong.
+//
+//              All that I changed was to replace the catch() wrappers with
+//              less verbose isConnected() wrappers.
+//
+//===========================================================================
+proc myReplaceNode( string $originalNode, string $replaceNode )
+{
+    // Copy the scalar values
+
+    string $originalAttrs[] =
+        `listAttr -scalar -multi -read -visible $originalNode`;
+
+    string $replaceAttrs[] =
+        `listAttr -scalar -multi -write -visible $replaceNode`;
+
+    for ($attr in $originalAttrs) {
+        if (arrayMatch($replaceAttrs, $attr)) {
+            float $value = `getAttr ($originalNode+"."+$attr)`;
+            catch(`setAttr ($replaceNode+"."+$attr) $value`);
+        }
+    }
+
+    string $connections[];
+
+    // Process the source connections
+
+    $connections = `listConnections -source true -destination false
+        -connections true -plugs true $originalNode`;
+
+    for ($i = 0; $i < size($connections); $i += 2) {
+        string $originalPlug = $connections[$i];
+        string $srcPlug = $connections[$i+1];
+
+        string $replacePlug =
+            substitute($originalNode, $originalPlug, $replaceNode);
+        
+        catch(`connectAttr $srcPlug $replacePlug`);
+    }
+
+    // Process the destination connections
+
+    $connections = `listConnections -source false -destination true
+        -connections true -plugs true $originalNode`;
+
+    for ($i = 0; $i < size($connections); $i += 2) {
+        string $originalPlug = $connections[$i];
+        string $dstPlug = $connections[$i+1];
+
+        string $replacePlug =
+            substitute($originalNode, $originalPlug, $replaceNode);
+
+        // First, break connections between original and dstPlug.
+        // Maya's 'replaceNode.mel' just wrapped this in a catch(),
+        // which spewed warnings if plug automatically disconnected 
+        // due to a previous disconnect.
+        if ( `isConnected $originalPlug $dstPlug` )
+        {
+            disconnectAttr $originalPlug $dstPlug;
+        }
+
+        // Maya's 'replaceNode.mel' just wrapped this in a catch(),
+        // which spewed warnings if plug was automatically connected.
+        if ( !`isConnected $replacePlug $dstPlug` )
+        {
+            connectAttr $replacePlug $dstPlug;
+        }
+    }
+}
+
+//===========================================================================
+// replaceSimpleShaderWithLambert
+//===========================================================================
+// Description: Replaces all pure3dSimpleShaders with Maya's lambert.
+//
+// Constraints: Attributes that map 1:1 are restored; anything else isn't.
+//
+//  Parameters: (none)
+//
+//      Return: (none)
+//
+//===========================================================================
+global proc replaceSimpleShaderWithLambert()
+{
+    string $ss[] = `ls -type "pure3dSimpleShader"`;
+
+    for ( $shaderNode in $ss )
+    {
+        string $alpha[] = `listConnections ( $shaderNode + ".transparency" )`;
+        
+        // This would be the desired Material type
+        string $replaceType = "lambert";
+
+        string $replaceWith = `createNode $replaceType`;
+
+        myReplaceNode $shaderNode $replaceWith;
+
+        delete $shaderNode;
+
+        // Rename the new node to match the original.
+        rename $replaceWith $shaderNode;
+    }
+}
+
+/*
+source replaceSimpleShaderWithLambert; replaceSimpleShaderWithLambert;
+*/

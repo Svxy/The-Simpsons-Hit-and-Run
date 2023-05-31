@@ -1,0 +1,9 @@
+PRINT Applying STATICS template to INPUT
+COMMAND p3ddel -d 4500 -d 4512 -o OUTPUT INPUT
+COMMAND p3dimage --ntsc_fix -r -o OUTPUT OUTPUT
+
+COMMAND p3dgeo2prims -o OUTPUT OUTPUT
+COMMAND tristrip -m -o OUTPUT OUTPUT
+COMMAND convert2dxtn -1 -o OUTPUT OUTPUT
+COMMAND p3dgc --mg --ms -r 1 -c 32 -u 32 -o OUTPUT OUTPUT
+COMMAND DSGMaker OUTPUT 

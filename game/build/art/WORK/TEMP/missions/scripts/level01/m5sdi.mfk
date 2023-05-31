@@ -1,0 +1,52 @@
+SelectMission("m5sd");
+
+SetMissionStartCameraName( "mission1camShape" );
+SetMissionStartMulticontName( "mission1cam" );
+SetAnimatedCameraName( "mission1camShape" );
+SetAnimCamMulticontName( "mission1cam" );
+
+SetMissionResetPlayerOutCar("level1_homer_start", "m2_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+//SetInitialWalk("level1_homer_start");
+
+UsePedGroup( 0 ) ;
+
+AddStage(0);
+	SetMaxTraffic(2);
+	SetHUDIcon("simpsons");
+	SetStageMessageIndex(217);
+	AddObjective( "goto" );
+		SetDestination( "m2_simpsonhouse_sd", "carsphere" );
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	RESET_TO_HERE();
+	SetStageMessageIndex(15);
+	SetHUDIcon("simpsons");
+	AddObjective("interior");
+		SetDestination("SimpsonsHouse", "simp_mission_doorstar"); 
+	CloseObjective();
+CloseStage();
+
+AddStage(15);
+	SetHUDIcon("simpsons");
+	SetStageMessageIndex(272);
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis01_05.p3d" );
+		SetDestination("m5_locator_sd","triggersphere");  
+		SetCollectibleEffect("wrench_collect");  
+		MustActionTrigger();
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AddObjective("fmv");
+		SetFMVInfo("fmv2.rmv");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+

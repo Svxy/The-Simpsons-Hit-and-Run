@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{24f2d142-66d2-4581-8cb8-236b62fc2ead}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\chunks16">
+      <UniqueIdentifier>{6e945c09-ba0d-4148-b932-c83427a020fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\chunks16\chunks">
+      <UniqueIdentifier>{fe1fbc11-6d83-4fc4-ae75-0c211508c74d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\inc">
+      <UniqueIdentifier>{ef15e62c-d49e-4ab4-9e8c-475560c344cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6ef7a34c-377b-4dff-835c-a05ee7cb1176}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{6a3e65aa-0197-4465-85e8-796fe961e746}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\ChunkManip.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\code\constants\srrchunks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\toollib.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\DataManip.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\dospath.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\getopt.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\glob.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\greyscale.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\hash.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\lzr.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\lzrf.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\pddi\ps2\packet.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\porc.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\pddi\ps2\ps2prim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\simdata.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAdjEdgeList.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAdjFaceList.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAnimatedObject.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlAnimation.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBSPTree.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBillboardObject.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBillboardObjectAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBox.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlBuffer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlByteStream.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCameraAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlChannel.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlChunk16.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCollisionObject.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlColour.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCompositeDrawable.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlCompressedByteStream.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlDataChunk.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlEdge.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlEntity.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlEventAnimation.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExportInfo.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExpression.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExpressionAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlExpressionOffsets.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFile.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFileByteStream.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFlexibleJoint.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFlexibleObject.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFont.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFourCC.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlFrameController.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlGCComponentQuantizer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlGCPrimBuffer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlGameAttr.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHashList.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHashTable.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHeightField.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlHistory.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlImage.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlImageQuantizer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlIndexedSkinVertex.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlIndexedVertex.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlIterator.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlKeyDefs.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLight.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLightAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLightGroup.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLoadManager.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlLocator.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlMatrix.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlMemByteStream.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlMultiController.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlOffsetList.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlOffsetSkinVertex.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlOpticEffect.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPDDI.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPS2PrimBuffer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPS2SkinPrimBuffer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlParticleSystem.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPhotonMap.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPhysicsObject.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPlane.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPoint.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPose.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPoseAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPrimBuffer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPrimGroup.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlPrimGroupMesh.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlQuat.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlRC.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlRay.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSafeEntityCaster.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlScenegraph.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlScenegraphTransformAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSegment.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlShader.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSimpleShader.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSkeleton.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSkin.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSkinVertex.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSphere.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlSprite.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlString.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlStringTable.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTable.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTarga.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTextDataParser.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTexture.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTextureAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTranAnimKeys.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriMesh.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriMeshIntersect.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangle.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangleFactory.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangleIntersect.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTriangleIntersectFactory.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsEdge.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsTriangle.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsTriangleToTriStripConverter.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsVertexCache.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTsVertexConnectivity.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlTypes.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlUV.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVertex.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVertexAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVertexAnimKey.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlVisAnim.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlXBOXPrimBuffer.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlcamera.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlentitytable.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlinventory.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\game\libs\pure3d\toollib\inc\tlversion.hpp">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\game\libs\pure3d\toollib\src\tlDataChunk.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\game\libs\pure3d\toollib\toollib_extras.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCameraAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCameraChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCompositeDrawableChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlEntityChannelChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlExportInfoChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlExpressionAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFrameControllerChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlHistoryChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLightAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLightGroupChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlMultiControllerChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPoseAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlScenegraphTransformAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSkeletonChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlTextureAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlVertexAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlVertexOffsetExpressionChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlVisibilityAnimChunk16.sc">
+      <Filter>Header Files\chunks16</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlAnimatedObjectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlAnimationChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlBBoxChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlBSphereChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlBillboardObjectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlChannelChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlCollisionObjectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlExpressionChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFencelineChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFlexibleJointChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFlexibleObjectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFontChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlFrameControllerChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlGameAttrChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlImageChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlIntersectionChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLightChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlLocatorChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlMeshChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlOpticEffectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlParticleSystemChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPhotonMapChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPhysicsObjectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlPrimGroupChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlRoadChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlRoadSegmentChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlScenegraphChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlScroobyProjectChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlShaderChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlShadowSkinChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSkinChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSmartPropChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlSpriteChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlTextureChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+    <None Include="..\..\game\libs\pure3d\toollib\Schema16\tlWallChunk.sc">
+      <Filter>Header Files\chunks16\chunks</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,37 @@
+global proc AEWBLocatorSuppress( string $nodeName )
+{
+  	editorTemplate -suppress "inputTranslate";
+	editorTemplate -suppress "input";
+	editorTemplate -suppress "caching";
+	editorTemplate -suppress "nodeState";
+	editorTemplate -suppress "visibility";
+	editorTemplate -suppress "intermediateObject";
+	editorTemplate -suppress "template";
+	editorTemplate -suppress "ghosting";
+    editorTemplate -suppress "instObjGroups";
+    editorTemplate -suppress "compInstObjGroups";
+    editorTemplate -suppress "castsShadows";
+    editorTemplate -suppress "receiveShadows";
+    editorTemplate -suppress "depthJitter";
+    editorTemplate -suppress "motionBlur";
+    editorTemplate -suppress "renderInfo";
+    editorTemplate -suppress "primaryVisibility";
+    editorTemplate -suppress "visibleInReflections";
+    editorTemplate -suppress "visibleInRefractions";
+    editorTemplate -suppress "geometryAntialiasingOverride";
+    editorTemplate -suppress "antialiasingLevel";
+    editorTemplate -suppress "shadingSamplesOverride";
+    editorTemplate -suppress "shadingSamples";
+    editorTemplate -suppress "maxShadingSamples";
+    editorTemplate -suppress "volumeSamplesOverride";
+    editorTemplate -suppress "volumeSamples";
+    editorTemplate -suppress "maxVisibilitySamplesOverride";
+    editorTemplate -suppress "maxVisibilitySamples";
+    editorTemplate -suppress "boundingBoxScale"; 
+    editorTemplate -suppress "drawOverride";
+    editorTemplate -suppress "useObjectColor";
+    editorTemplate -suppress "objectColor";
+    editorTemplate -suppress "intermediateObject";
+    editorTemplate -suppress "visibility";
+    editorTemplate -suppress "lodVisibility";
+}

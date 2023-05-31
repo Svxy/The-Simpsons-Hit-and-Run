@@ -1,0 +1,29 @@
+global proc AERoadNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	       
+		editorTemplate -beginLayout "Road Attributes" -collapse 0;
+
+            editorTemplate -addControl "IntersectionStart";
+            editorTemplate -addControl "IntersectionEnd";
+            editorTemplate -addControl "density";
+            editorTemplate -addControl "speed";
+            editorTemplate -addControl "difficulty";
+            editorTemplate -addControl "shortCut";
+
+			editorTemplate -callCustom "AETEShowRoadSegNew"
+					"AETEShowRoadSegReplace"
+					"message";
+        
+		editorTemplate -endLayout;
+
+    	editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+
+    editorTemplate -suppress "localPosition";
+}
+ 

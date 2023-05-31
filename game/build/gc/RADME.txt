@@ -1,0 +1,7 @@
+You will need the keyboard and the steering wheel libraries installed.  They are found in //depot/users/cary
+
+kbd_4-Jun-02.zip and LG-051502.zip
+
+They are also available in t:\Devsys
+
+Cary

@@ -1,0 +1,13 @@
+#include <presentation/gui/guientity.cpp>
+#include <presentation/gui/guimanager.cpp>
+#include <presentation/gui/guimenu.cpp>
+#include <presentation/gui/guimenuitem.cpp>
+#include <presentation/gui/guiscreen.cpp>
+#include <presentation/gui/guiscreenmemcardcheck.cpp>
+#include <presentation/gui/guiscreenmemorycard.cpp>
+#include <presentation/gui/guiscreenmessage.cpp>
+#include <presentation/gui/guiscreenprompt.cpp>
+#include <presentation/gui/guisystem.cpp>
+#include <presentation/gui/guitextbible.cpp>
+#include <presentation/gui/guiuserinputhandler.cpp>
+#include <presentation/gui/guiwindow.cpp>

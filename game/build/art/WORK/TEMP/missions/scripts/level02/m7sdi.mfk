@@ -1,0 +1,67 @@
+SelectMission("m7sd");
+
+SetMissionStartCameraName( "mission4camShape" );
+SetMissionStartMulticontName( "mission4cam" );
+SetAnimatedCameraName( "mission4camShape" );
+SetAnimCamMulticontName( "mission4cam" );
+
+SetMissionResetPlayerOutCar("m4_bart_start","m4_carstart"); //reusing mission 4 start locators
+SetDynaLoadData("l2z1.p3d;l2z4.p3d;l2r4.p3d;");
+
+UsePedGroup(6);
+
+AddStage(0);
+	SetMaxTraffic(4);
+	SetStageMessageIndex(55);
+	SetHUDIcon( "stadium" );
+	AddObjective("goto");
+		AddNPC("frink", "m4_frink_sd", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+		SetDestination("stadium");
+	CloseObjective();
+CloseStage();	
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetStageMessageIndex(66);
+	SetHUDIcon( "frink" );
+	AddObjective("talkto");
+		AddNPC("frink", "m4_frink_sd");  //reusing mission 4 locator
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_walk1" );
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_walk2" );
+		AddObjectiveNPCWaypoint( "frink", "m4_frink_sd" );
+		SetTalkToTarget("frink", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis02_07.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_near" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide("m4_bestside");
+		//SetConversationCam( 3, "pc_far" );
+		SetDialogueInfo("bart","frink","doodad",0);
+		SetDialoguePositions("m4_bart_start","m4_frink_sd","m4_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

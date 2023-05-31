@@ -1,0 +1,29 @@
+global proc AETEShowRoadSegNew( string $nodeName )
+{
+    columnLayout -adj true;
+
+        select $nodeName;
+        string $names[] = `ls -sl -o`;
+
+        string $command = "te_MCB_ShowRoadFromSelected()";
+
+		button -label "Show Road Segments" -command $command TEShowRoadSegsButton;
+
+    setParent ..;
+
+    select $names[0];
+}
+
+
+global proc AETEShowRoadSegReplace( string $nodeName )
+{
+
+    select $nodeName;
+    string $names[] = `ls -sl -o`;
+
+    string $command = "te_MCB_ShowRoadFromSelected";
+
+    button -e -command $command TEShowRoadSegsButton;
+
+    select $names[0];
+}

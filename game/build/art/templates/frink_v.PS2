@@ -1,0 +1,5 @@
+PRINT Applying CAR template to INPUT
+COMMAND p3dimage --ntsc_fix -r -b 8 -N -o OUTPUT INPUT
+#COMMAND p3dmipmap -s -l 3 -o OUTPUT OUTPUT
+COMMAND tristrip -d -o OUTPUT OUTPUT
+COMMAND p3dps2 -o OUTPUT OUTPUT

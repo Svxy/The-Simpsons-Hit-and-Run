@@ -1,0 +1,172 @@
+//
+// Copy File Textures Ver.1.51
+//
+// Created by Yuya Sugiyama < yuya@sb.sakura.ne.jp >
+// Last Modify : 16th/December/2001
+// Please check my web site -INVISIBLE-.
+// URL : http://sb.sakura.ne.jp/~yuya/
+//
+// Description:
+//  This script copies file textures in current scene to current sourceimages
+//  directory. This script makes your file management easier.
+//
+// Usage:
+//  Type
+//
+//	yuya_copyFileTex;
+//
+//  Then appear the window. Set options and hit "Copy File Textures" button.
+//  Using specify directory option, path must be terminated in "\"(backslash).
+//  (If you use browse button, unnecessary paying attention to this limitation.)
+//
+// Please use (and modify) this at your own lisk.
+//
+
+
+// Start window procedure
+
+global proc yuya_copyFileTex () {
+
+if ((`window -ex yuya_copyFileTex`) == true) deleteUI yuya_copyFileTex;
+window -t "Copy File Texture" -w 420 -h 100  yuya_copyFileTex;
+columnLayout -adj 1;
+
+frameLayout -l "Copy File Texture" -la "center" -bs "etchedIn" -cll 1 -cl 0;
+
+columnLayout -adj 1;
+radioButtonGrp -w 330 -cw3 140 100 100 -nrb 2 -label "Which Files?" -la2 "All Files" "Selected Files" -select 1 yuya_allOrSel;
+
+columnLayout -adj 1;
+radioButtonGrp -w 330 -cw3 140 100 100 -nrb 2 -label "Mofify Texture Node?" -la2 "Yes" "No" -select 1 yuya_modTexNode;
+
+checkBoxGrp -l "Specify Directory"
+	-onCommand
+		"textFieldGrp -e -ed true yuya_cftDirField;
+		symbolButton -e -enable true yuya_cftBrowseButton;"
+	-offCommand
+		"textFieldGrp -e -ed false yuya_cftDirField;
+		symbolButton -e -enable false yuya_cftBrowseButton;"
+	yuya_cftCB;
+
+rowLayout -w 330 -nc 2 -cw2 380 40 -cal 1 "right" yuya_cftDirNameLayout;
+textFieldGrp -l "Directory" -ed false -w 375 yuya_cftDirField;
+symbolButton
+	-enable false
+	-image "navButtonBrowse.xpm"
+	 -c "yuya_getDirProc" yuya_cftBrowseButton;
+
+setParent..;
+setParent..;
+setParent..;
+setParent..;
+
+button -l "Copy File Textures." -c "yuya_copyFileTexMain (`radioButtonGrp -q -select yuya_allOrSel`) (`radioButtonGrp -q -select yuya_modTexNode`)";
+
+showWindow;
+
+}
+
+// End create window procedure
+
+
+// Start copy file textures procedure
+
+global proc int yuya_copyFileTexMain ( int $allOrSel, int $modTexNode ) {
+
+if ( $allOrSel == 1 ) {
+	select -all;
+}
+
+string $path[] = `ls -sl -type file`;
+select -cl;
+
+if ( $allOrSel == 2 ) {
+	select -add $path;
+}
+
+string $copyPath;
+
+if (`checkBoxGrp -q -value1 yuya_cftCB`){
+
+	$copyPath = `textFieldGrp -q -fileName yuya_cftDirField`;
+
+}else{
+	$copyPath =`workspace -q -rd`+"sourceimages/";
+	for ($i=1; $i<=17; $i++){
+		$copyPath = `substitute "/" $copyPath "\\"`;
+	}
+}
+
+string $batchName = `file -q -sceneName`;
+
+if( `size($batchName)` ){
+	string $tokBatName[];
+	int $numTokenB = `tokenize $batchName "/" $tokBatName`;
+	$batchName = $tokBatName[$numTokenB-1] +".bat";
+	$batchName = `substitute ".ma" $batchName ""`;
+	$batchName = `substitute ".mb" $batchName ""`;
+
+}else{
+	$batchName = "untitled.bat";
+}
+
+system ("echo on>"+$copyPath+"copyFileTex_"+$batchName);
+
+string $current;
+for ( $current in $path ) {
+
+	string $currentFullPath = `getAttr ($current + ".ftn")`;
+
+	string $tokFileName[];
+	int $numToken = `tokenize $currentFullPath "/" $tokFileName`;
+	string $fileName = $tokFileName[$numToken-1];
+
+	for ($i=1; $i<=17; $i++){
+		$currentFullPath = `substitute "/" $currentFullPath "\\"`;
+	}
+
+	system ("echo copy \""+$currentFullPath+"\" \""+$copyPath+"\">>\""+$copyPath+"copyFileTex_"+$batchName+"\"");
+
+
+}
+
+system ("echo del \""+$copyPath+"copyFileTex_"+$batchName+"\">>\""+$copyPath+"copyFileTex_"+$batchName+"\"");
+system ("start \""+$copyPath+"copyFileTex_"+$batchName+"\"");
+
+if ($modTexNode == 1){
+
+	for ( $current in $path ) {
+
+		string $currentFullPath = `getAttr ($current + ".ftn")`;
+
+		string $tokFileName[];
+		int $numToken = `tokenize $currentFullPath "/" $tokFileName`;
+		string $fileName = $tokFileName[$numToken-1];
+
+		setAttr ( $current + ".ftn" ) -type "string" ($copyPath+$fileName);
+
+	}
+
+}
+
+return 1;
+
+}
+
+// End copy file textures procedure
+
+
+// Get Directory Name
+
+global proc yuya_getDirProc(){
+
+fileBrowser "yuya_getDirNameProc" "Select Directory" "directory" 4;
+
+}
+
+global proc yuya_getDirNameProc(string $dir, string $type){
+
+textFieldGrp -e -fileName ($dir+"\\") yuya_cftDirField;
+
+}
+

@@ -1,0 +1,64 @@
+SelectMission("gr1");
+//  The Wager Race (Time Trial)
+//  Script set up for multiple laps
+
+SetAnimatedCameraName( "race4camShape" );
+SetAnimCamMulticontName( "race4cam" );
+
+SetMissionResetPlayerInCar("sr4_carstart");
+SetDynaLoadData("l1z3.p3d;l1r2.p3d;l1r3.p3d;");
+
+UsePedGroup(3); 
+
+//Pay the Entry Fee
+AddStage(0);
+	RESET_TO_HERE();
+	AddObjective("coins");
+		SetCoinFee(20);   //<========sets the races entery fee this could match the Race Payout but doesn't have to
+	CloseObjective(); 
+CloseStage();
+
+AddStage(1, "final");
+	SetHUDIcon( "race" );
+	PlacePlayerCar("current", "sr4_carstart");
+	PutMFPlayerInCar( );  // This makes the play auto reset into their car for this stage.                
+	StartCountdown(count);
+	AddToCountdownSequence( "3", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "2", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "1", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "GO", 400 ); // duration time in milliseconds 
+
+	SetMaxTraffic(2);
+	SetStageMessageIndex(225);
+	
+	SetStageTime(1); 
+	SetStageTime(1); //  <=====   This sets the in game timer to start at 1 second, you CANNOT start it at 0
+	UseElapsedTime(); // <=====   This tell the timer to count up rather than down 
+	SetRaceEnteryFee(20);  //<====== sets the Race Payout this vaule is multipled by the a Car's Races odd in the Con File
+	
+//	RESET_TO_HERE();
+	AddObjective( "race", "gamble","both");
+		SetParTime(195);
+		AddCollectible("sr4_waypoint1","carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddCollectible("sr4_waypoint2","carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddCollectible("sr4_waypoint3","carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddCollectible("sr4_waypoint4","carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddCollectible("sr4_waypoint5","carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddCollectible("sr4_waypoint6","carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "current");
+	CloseCondition();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+CloseStage();
+
+CloseMission();

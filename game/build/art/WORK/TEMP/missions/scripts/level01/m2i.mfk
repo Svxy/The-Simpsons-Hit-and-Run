@@ -1,0 +1,202 @@
+SelectMission("m2");
+
+//SetMissionResetPlayerOutCar("m2_homer_inside","level1_carstart");
+//SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;l1i02.p3d@", "SimpsonsHouse");
+
+SetMissionResetPlayerInCar("m2_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+
+UsePedGroup( 0 ); 
+
+AddStage(0);
+//	RESET_TO_HERE();
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	RESET_TO_HERE();
+	SetStageMessageIndex(41);
+	SetHUDIcon( "tuxedo" );
+	AddObjective("goto","both");
+		TurnGotoDialogOff();
+		SetDestination("m2_object1","tux");
+	CloseObjective();
+	SetStageTime(40);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(42);
+	SetHUDIcon( "lawnmwr" );
+	AddObjective("goto","both");
+		TurnGotoDialogOff();
+		AddNPC("barney", "m2_barney");
+		SetDestination("m2_object2","mower");
+	CloseObjective();
+	AddStageTime(40); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("mower");
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(43);
+	SetHUDIcon( "barne" );
+	AddObjective("talkto","both");
+		AddNPC("barney", "m2_barney");
+		AddObjectiveNPCWaypoint( "barney", "barney_walk1" );
+		SetTalkToTarget("barney", 0, 0);
+	CloseObjective();
+	AddStageTime(40); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_scratch_head" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		SetCamBestSide("m2_bestside_barn");
+		SetDialogueInfo("homer","barney","cooler",0);
+		SetDialoguePositions("m2_homer_barney","m2_barney","mission2_carstart");
+	CloseObjective();
+	AddStageTime(0); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+CloseStage();
+
+AddStage(3);
+	SetStageMessageIndex(151);
+	SetHUDIcon( "cooler" );
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		SetDestination("m2_cooler","coolr"); //change to cooler when it's ready
+	CloseObjective();
+	AddStageTime(40);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(44);
+	SetHUDIcon( "lawnchr" );
+	AddObjective("goto","both");
+		TurnGotoDialogOff();
+		SetDestination("m2_object4","lwnchair");
+	CloseObjective();
+	AddStageTime(0); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("picture");
+	ShowStageComplete();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(45);
+	SetHUDIcon( "photo" );
+	AddObjective("goto","both");
+		TurnGotoDialogOff();
+		SetDestination("m2_object6","flanpic");
+	CloseObjective();
+	AddStageTime(40); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("inhaler");
+	ShowStageComplete();
+CloseStage();
+
+AddStage();
+	SetStageMessageIndex(46);
+	SetHUDIcon( "inhaler" );
+	AddObjective("goto","both");
+		TurnGotoDialogOff();
+		SetDestination("m2_object5","inhaler");
+	CloseObjective();
+	AddStageTime(40); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	SetCompletionDialog("return");
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(251);
+	SetHUDIcon( "ned" );
+	AddObjective( "goto" );
+		AddNPC("ned", "m2_ned_sd");
+		SetDestination( "m2_nedhouse", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddStageTime(40); 
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(4);
+	SetStageMessageIndex(4);
+	SetHUDIcon( "ned" );
+	AddObjective("talkto","both");
+		AddNPC("ned", "m2_ned_sd");
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_1" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_2" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_3" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_2" );
+		AddObjectiveNPCWaypoint( "ned", "ned_walk_1" );
+		SetTalkToTarget("ned", 0, 0);
+	CloseObjective();
+	AddStageMusicChange();
+	SetStageMusicAlwaysOn();
+CloseStage();
+
+AddStage(0, "final");
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_shaking_fist" );
+		SetCamBestSide("bestside_m2");
+		SetDialogueInfo("homer","ned","reward",0);
+		SetDialoguePositions("m2_homer_ned","m2_ned_sd","mission2_carstart",1);
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+
+//DIALOGUE ANIMATION LIST
+//
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

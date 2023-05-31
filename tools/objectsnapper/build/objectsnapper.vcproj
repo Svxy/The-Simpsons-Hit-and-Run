@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="objectsnapper"
+	SccProjectName="Perforce Project"
+	SccAuxPath=""
+	SccLocalPath="."
+	SccProvider="MSSCCI:Perforce SCM"
+	Keyword="MFCProj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Tools Release|Win32"
+			OutputDirectory=".\Release"
+			IntermediateDirectory=".\Release"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				OptimizeForWindowsApplication="TRUE"
+				AdditionalIncludeDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\include\,..\code\,..\..\..\game\libs\pure3d\toollib\inc,..\..\..\game\libs\pure3d\toollib\chunks16\inc,.,..\..\..\game\libs\pure3d\constants,..\..\globalcode,..\..\..\game\libs\radmath"
+				PreprocessorDefinitions="_WIN32;NDEBUG;WIN32;_WINDOWS;NT_PLUGIN;RAD_WIN32;RAD_PC;RAD_RELEASE"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderFile=".\Release/objectsnapper.pch"
+				AssemblerListingLocation=".\Release/"
+				ObjectFile=".\Release/"
+				ProgramDataBaseFileName=".\Release/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="TRUE"
+				AdditionalOptions="/MACHINE:I386 /EXPORT:initializePlugin /EXPORT:uninitializePlugin"
+				AdditionalDependencies="user32.lib gdi32.lib glu32.lib version.lib Foundation.lib OpenGL32.lib OpenMaya.lib OpenMayaUI.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaAnim.lib"
+				OutputFile="Release\objectsnapper.mll"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\lib"
+				IgnoreDefaultLibraryNames="LIBC.lib;LIBCMT.lib;LIBCPMT.lib"
+				ProgramDatabaseFile=".\Release/objectsnapper.pdb"
+				SubSystem="2"
+				ImportLibrary=".\Release/objectsnapper.lib"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="NDEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Release/objectsnapper.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copy trackeditor.mll to Distribution and Maya dir."
+				CommandLine="copy .\Release\objectsnapper.mll ..\..\MayaTools\Maya4.0\bin\plug-ins\objectsnapper.mll
+copy .\Release\objectsnapper.mll C:\AW\Maya4.0\bin\plug-ins\objectsnapper.mll
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_AFXDLL;NDEBUG"
+				Culture="4105"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+		<Configuration
+			Name="Tools Debug|Win32"
+			OutputDirectory=".\Debug"
+			IntermediateDirectory=".\Debug"
+			ConfigurationType="2"
+			UseOfMFC="2"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\code\,..\..\..\game\libs\pure3d\toollib\inc,..\..\..\game\libs\pure3d\toollib\chunks16\inc,.,..\..\..\game\libs\pure3d\constants,..\..\globalcode,..\..\..\game\libs\radmath,..\..\..\game\libs\pure3d\sdks\Maya4_0\include\"
+				PreprocessorDefinitions="_DEBUG;WIN32;_WINDOWS;NT_PLUGIN;RAD_WIN32;RAD_PC;RAD_DEBUG"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderFile=".\Debug/objectsnapper.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile=".\Debug/"
+				ProgramDataBaseFileName=".\Debug/"
+				BrowseInformation="1"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="4"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				IgnoreImportLibrary="TRUE"
+				AdditionalOptions="/MACHINE:I386"
+				AdditionalDependencies="user32.lib gdi32.lib glu32.lib version.lib Foundation.lib OpenGL32.lib OpenMaya.lib OpenMayaFX.lib OpenMayaRender.lib OpenMayaUI.lib OpenMayaAnim.lib"
+				OutputFile="Debug\objectsnapper.mll"
+				LinkIncremental="2"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="..\..\..\game\libs\pure3d\sdks\Maya4_0\lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile=".\Debug/objectsnapper.pdb"
+				SubSystem="2"
+				ImportLibrary=".\Debug/objectsnapper.lib"/>
+			<Tool
+				Name="VCMIDLTool"
+				PreprocessorDefinitions="_DEBUG"
+				MkTypLibCompatible="TRUE"
+				SuppressStartupBanner="TRUE"
+				TargetEnvironment="1"
+				TypeLibraryName=".\Debug/objectsnapper.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				Description="Copy trackeditor.mll to Distribution and Maya dir."
+				CommandLine="copy .\Debug\objectsnapper.mll C:\AW\Maya4.0\bin\plug-ins\objectsnapperd.mll"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_AFXDLL;_DEBUG"
+				Culture="4105"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="main"
+			Filter="">
+			<File
+				RelativePath="..\code\main\mayaincludes.h">
+			</File>
+			<File
+				RelativePath="..\code\main\pluginMain.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\main\pluginMain.h">
+			</File>
+			<File
+				RelativePath="..\code\main\stdafx.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="mel scripts"
+			Filter="">
+			<File
+				RelativePath="..\code\scripts\os_cleanup.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\scripts\os_main.mel">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Copy $(InputPath) to Maya (dist and install)"
+						CommandLine="copy &quot;$(InputPath)&quot; &quot;C:\AW\Maya4.0\scripts\others\$(InputName).mel&quot;
+copy &quot;$(InputPath)&quot; &quot;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel&quot;"
+						Outputs="C:\AW\Maya4.0\scripts\others\$(InputName).mel;..\..\MayaTools\Maya4.0\scripts\others\$(InputName).mel"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="commands"
+			Filter="">
+			<File
+				RelativePath="..\code\commands\snapselected.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\commands\snapselected.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="utility"
+			Filter="">
+			<File
+				RelativePath="..\..\globalcode\utility\MExt.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt_template.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MExt_template.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MUI.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\MUI.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\mayahandles.cpp">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\mayahandles.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\util.c">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\util.h">
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\winutil.c">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						PrecompiledHeaderThrough="precompiled\PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\globalcode\utility\winutil.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="precompiled header"
+			Filter="">
+			<File
+				RelativePath="..\code\precompiled\PCH.cpp">
+				<FileConfiguration
+					Name="Tools Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="PCH.h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Tools Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="PCH.h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\code\precompiled\PCH.h">
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

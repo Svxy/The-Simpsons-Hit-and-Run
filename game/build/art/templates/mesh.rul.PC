@@ -1,0 +1,13 @@
+rule
+{
+    severity 3
+    label "WhakoTexture"
+    message "SHIT!"
+
+    if 
+    {
+        type tlTextureChunk      
+    }
+
+    require Bpp > 5555
+}

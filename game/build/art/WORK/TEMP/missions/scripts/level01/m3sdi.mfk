@@ -1,0 +1,182 @@
+SelectMission("m3sd");
+
+SetMissionStartCameraName( "mission1camShape" );
+SetMissionStartMulticontName( "mission1cam" );
+SetAnimatedCameraName( "mission1camShape" );
+SetAnimCamMulticontName( "mission1cam" );
+
+UsePedGroup( 0 ); 
+
+//SetInitialWalk("level1_homer_start");
+
+SetMissionResetPlayerOutCar("level1_homer_start", "level1_carstart");
+SetDynaLoadData("l1z1.p3d;l1r1.p3d;l1r7.p3d;");
+
+AddStage(0);
+	SetMaxTraffic(2);
+	SetStageMessageIndex(217);
+	SetHUDIcon("simpsons");
+	AddObjective( "goto" );
+	
+		SetDestination( "m2_simpsonhouse_sd", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	RESET_TO_HERE();
+	SetMaxTraffic(2);
+	SetHUDIcon("simpsons");
+	SetStageMessageIndex(155);
+	AddObjective("interior","nearest road");
+		AddNPC("marge", "m2_marge_sd");
+		SetDestination("SimpsonsHouse", "simp_mission_doorstar"); // use name of interiors entry locator
+	CloseObjective();
+CloseStage();
+
+AddStage(5);
+	SetStageMessageIndex(00);
+	SetHUDIcon("marage");
+	AddObjective("talkto");
+		AddNPC("marge", "m2_marge_sd");
+		SetTalkToTarget("marge", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AllowMissionAbort("false");
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis01_03.p3d" );
+		SetDialogueInfo("homer","marge","scorpion",0);
+		
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(250);
+	AddObjective("gooutside");
+	TurnGotoDialogOff();
+		SetDestination("outside_Simpsons_house_locator");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(253);
+	SetHUDIcon("kburger");
+	AddObjective("goto");
+		AddNPC("lenny", "m3_lenny");
+		SetDestination("m3_lardlads", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(6);
+	SetHUDIcon("lenny");
+	AddObjective("talkto","both");
+		AddNPC("lenny", "m3_lenny");
+		AddObjectiveNPCWaypoint( "lenny", "lenny_walk_1" );
+		AddObjectiveNPCWaypoint( "lenny", "lenny_walk_2" );
+		SetTalkToTarget("lenny", 0, 0);
+	CloseObjective();
+CloseStage();
+
+//LOCKED STAGE FOR PLOW KING
+//
+//THIS DIALOGUE WILL INCLUDE THE GATED LINES
+AddStage("locked","car","plowk_v");
+	SetStageMessageIndex(0);
+	AddObjective("dialogue");
+		SetConversationCam( 0, "npc_far" );
+		SetConversationCam( 1, "pc_near" );
+		SetConversationCam( 2, "npc_far" );
+		SetConversationCam( 3, "pc_near" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_no" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_thinking" );
+		SetCamBestSide( "m3_bestside");
+		SetDialogueInfo("homer","lenny","churro",0);
+		SetDialoguePositions("m3_homer_lenny","lenny_walk_2","barney_car");
+	CloseObjective();
+CloseStage();
+
+//THIS DIALOGUE WILL NOT INCLUDE THE GATED LINES AND WILL BEGIN THE MISSION
+//AddStage(0);
+//	AddObjective("dialogue");
+//		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+//		AmbientAnimationRandomize( 0, 0 );
+//		SetConversationCam( 0, "npc_far" );
+//		SetConversationCam( 1, "pc_near" );
+//		SetConversationCam( 2, "npc_far" );
+//		SetConversationCam( 3, "pc_near" );
+//		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+//		AddAmbientNpcAnimation( "none" );
+//		AddAmbientNpcAnimation( "dialogue_yes" );
+//		AddAmbientNpcAnimation( "none" );
+//		AddAmbientPcAnimation( "none" );
+//		AddAmbientPcAnimation( "dialogue_no" );
+//		AddAmbientPcAnimation( "none" );
+//		AddAmbientPcAnimation( "dialogue_thinking" );
+//		SetCamBestSide( "m3_bestside");
+//		SetDialogueInfo("homer","lenny","churro2",0);
+//		SetDialoguePositions("m3_homer_lenny","lenny_walk_2","barney_car");
+//	CloseObjective();
+//CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(239);
+	SetHUDIcon( "barne" );
+	AddObjective("buycar", "plowk_v");
+	CloseObjective();
+CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(12);
+//	AddObjective("getin");
+//		SetObjTargetVehicle("current");
+//	CloseObjective();
+//CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(253);
+//	SetHUDIcon("kburger");
+//	AddObjective("goto");
+//		TurnGotoDialogOff();
+//		AddNPC("lenny", "m3_lenny");
+//		SetDestination("m3_lardlads", "carsphere");
+//		SetCollectibleEffect("wrench_collect");
+//	CloseObjective();
+//CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

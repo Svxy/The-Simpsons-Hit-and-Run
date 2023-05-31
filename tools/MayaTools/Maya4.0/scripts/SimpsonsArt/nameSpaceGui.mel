@@ -1,0 +1,74 @@
+global string $g_P3DNameSpaceField;
+
+global proc P3DRemoveNameSpaceTool_RemoveNameSpace(string $selectedNodes[], string $nameSpace)
+{
+   print "called P3DRemoveNameSpaceTool_RemoveNameSpace for:";
+   print $selectedNodes;
+   print "\n";
+   for($node in $selectedNodes)
+   {      
+      string $newName = `substitute $nameSpace $node ""`;
+      if($newName != "")
+      {             
+         rename -is $node $newName;      
+      }
+   }
+}
+
+global proc P3DRemoveNameSpaceTool_RemoveSelected()
+{
+   global string $g_P3DNameSpaceField;
+   string $nameSpace = `textField -q -text $g_P3DNameSpaceField`;
+   string $selectedNodes[] = `ls -sl`;
+
+   P3DRemoveNameSpaceTool_RemoveNameSpace( $selectedNodes, $nameSpace );
+}
+
+global proc P3DRemoveNameSpaceTool_RemoveHierarchy()
+{
+   global string $g_P3DNameSpaceField;
+   string $nameSpace = `textField -q -text $g_P3DNameSpaceField`;
+   select -add -hi;
+   string $selectedNodes[] = `ls -sl`;
+   
+   P3DRemoveNameSpaceTool_RemoveNameSpace( $selectedNodes, $nameSpace );
+}
+
+
+global proc P3DRemoveNameSpaceTool_GUICreate()
+{
+   string $windowName = "P3DRemoveNameSpaceTool";
+
+   global string $g_P3DNameSpaceField;
+
+   if (`window -query -exists $windowName`!=1)
+   {
+      window 
+            -width 300 
+            -height 140
+            -minimizeButton false 
+            -maximizeButton false 
+            -sizeable false 
+            -title $windowName 
+            $windowName;
+
+      columnLayout 
+         -adjustableColumn true
+	      -columnAlign "left" 
+         -cat "left" 5;
+
+         text -l "NameSpace";
+         $g_P3DNameSpaceField = `textField -width 200`;
+
+      button
+         -label "Remove Selected"
+            -command "P3DRemoveNameSpaceTool_RemoveSelected()";
+      button
+         -label "Remove Hierarchy"
+            -command "P3DRemoveNameSpaceTool_RemoveHierarchy()";
+
+      showWindow $windowName;
+   }
+}
+
+P3DRemoveNameSpaceTool_GUICreate();

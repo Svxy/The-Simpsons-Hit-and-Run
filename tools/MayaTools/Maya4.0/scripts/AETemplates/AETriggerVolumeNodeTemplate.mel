@@ -1,0 +1,18 @@
+global proc AETriggerVolumeNodeTemplate( string $nodeName )
+{
+	
+	editorTemplate -beginScrollLayout;
+	
+		editorTemplate -beginLayout "Trigger Volume Attributes" -collapse 0;
+			AElocatorCommon $nodeName;
+
+            editorTemplate -addControl "type";
+		editorTemplate -endLayout;
+        
+        editorTemplate -addExtraControls;
+
+    editorTemplate -endScrollLayout;
+
+    AEWBLocatorSuppress( $nodeName );
+}
+ 

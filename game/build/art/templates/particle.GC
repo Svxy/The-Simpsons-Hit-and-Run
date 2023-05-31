@@ -1,0 +1,7 @@
+PRINT Applying PARTICLE template to INPUT
+COMMAND p3ddel -k 19000 -k 11000 -k 10000 -k 20000 -k 121000 -k 20001 -k 121200 -k 15800 -k 15801 -o OUTPUT INPUT
+COMMAND p3dimage --ntsc_fix -r -b 8 -o OUTPUT OUTPUT
+COMMAND convert2dxtn -1 -o OUTPUT OUTPUT
+COMMAND tristrip -o OUTPUT OUTPUT
+COMMAND p3danim -o OUTPUT OUTPUT
+COMMAND p3dgc --mg --ms -r 1 -c 8 -u 8 -o OUTPUT OUTPUT

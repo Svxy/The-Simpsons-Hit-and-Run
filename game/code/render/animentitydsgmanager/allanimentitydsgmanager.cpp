@@ -1,0 +1,1 @@
+#include <render/animentitydsgmanager/animentitydsgmanager.cpp>

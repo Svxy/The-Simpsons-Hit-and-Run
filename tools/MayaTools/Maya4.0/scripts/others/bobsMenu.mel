@@ -1,0 +1,33 @@
+global proc bobsMenu(){
+
+	global string $gMainWindow;
+
+	setParent $gMainWindow;
+
+	menu -l "Bobs Menu"
+		-p MayaWindow
+		-to 1
+		-aob true
+		-fi "bob_Mr_T.bmp"
+		bobsMenu;
+
+	menuItem -l "Refresh Layers"
+		-ann ("")
+		-echoCommand true
+		-c "reBuildLayers"
+		reBuildLayers;
+
+	menuItem -divider true;
+
+	menuItem -l "Persp To Ortho"
+		-ann ("")
+		-echoCommand true
+		-c "swapCamera 0"
+		swapCamera;
+
+	menuItem -l "Back To Persp"
+		-ann ("")
+		-echoCommand true
+		-c "swapCamera 1"
+		swapCamera2;
+};

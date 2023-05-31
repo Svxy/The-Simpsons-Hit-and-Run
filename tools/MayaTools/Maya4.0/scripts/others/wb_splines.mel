@@ -1,0 +1,46 @@
+global int $gSplineCompleteCB = -1;
+
+global proc wb_MCB_CreateCameraPath()
+{
+    global int $gSplineCompleteCB;
+
+    if ( !`contextInfo -exists CameraSplineCtx` ) 
+    {
+        curveCVCtx -degree 3 -me false -un true CameraSplineCtx;
+    }
+    else
+    {
+        string $currentCtx = `currentCtx`;
+
+        if ( $currentCtx == "CameraSplineCtx" )
+        {
+            ctxCompletion;
+
+            wb_CB_SplineComplete();
+        }
+    }
+
+    setToolTo CameraSplineCtx;
+
+    $gSplineCompleteCB = `scriptJob -ro 1 -p "WorldBuilder" -e "ToolChanged" wb_CB_SplineComplete`;
+}
+
+global proc wb_CB_SplineComplete()
+{
+    WB_SplineComplete();
+}
+ 
+global proc wb_SplinesCleanup()
+{
+    global int $gSplineCompleteCB;
+
+    if ( $gSplineCompleteCB != -1 )
+    {
+        scriptJob -k $gSplineCompleteCB;
+    }
+
+    if ( `contextInfo -exists CameraSplineCtx` )
+    {
+        deleteUI -tc CameraSplineCtx;
+    }
+}

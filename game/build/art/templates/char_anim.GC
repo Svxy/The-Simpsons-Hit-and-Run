@@ -1,0 +1,7 @@
+PRINT Applying CHARACTER_ANIM template to INPUT
+COMMAND p3ddel -D INPUT -o OUTPUT
+#delete everything but the anims.
+COMMAND p3ddel -k 121000 OUTPUT -o OUTPUT
+#delete the texture anims.
+COMMAND p3ddel -a TEX* OUTPUT -o OUTPUT 
+COMMAND p3danim -C -O --vector-tolerance 0.005 --quaternion-tolerance 0.1 -o OUTPUT OUTPUT

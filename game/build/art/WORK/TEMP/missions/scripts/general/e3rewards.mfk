@@ -1,0 +1,144 @@
+// SYNTAX:
+//
+// BindReward( <name>, <filename>, <reward type>, <quest type>, <level> );
+//
+// or
+//
+// BindReward( <name>, <filename>, <reward type>, "forsale", <level>, <coin cost>, <seller> );
+//
+
+
+// Level 1
+//
+//BindReward( "famil_v", "art\cars\famil_v.p3d", "car", "defaultcar", 1 );
+//BindReward( "cletu_v", "art\cars\cletu_v.p3d", "car", "bonusmission", 1 );
+//BindReward( "elect_v", "art\cars\elect_v.p3d", "car", "streetrace", 1 );
+//BindReward( "plowk_v", "art\cars\plowk_v.p3d", "car", "forsale", 1, 40, "simpson" ); //Barney
+//BindReward( "comic_v", "art\cars\comic_v.p3d", "car", "forsale", 1, 40, "gil" );
+//BindReward( "moe_v", "art\cars\moe_v.p3d", "car", "forsale", 1, 40, "gil" );
+
+//BindReward( "homer", "art\chars\homer_m.p3d", "skin", "defaultskin", 1 );
+//BindReward( "h_undrwr", "art\chars\h_undr_m.p3d", "skin", "forsale", 1, 40, "interior" );
+//BindReward( "h_stcrobe", "art\chars\h_stcr_m.p3d", "skin", "forsale", 1, 40, "interior" );
+//BindReward( "h_scuzzy", "art\chars\h_scuz_m.p3d", "skin", "forsale", 1, 40, "interior" );
+
+// Level 2
+//
+BindReward( "snake_v", "art\cars\snake_v.p3d", "car", "defaultcar", 2 );
+BindReward( "gramp_v", "art\cars\gramp_v.p3d", "car", "bonusmission", 2 );
+BindReward( "mrplo_v", "art\cars\mrplo_v.p3d", "car", "streetrace", 2 );
+BindReward( "famil_v", "art\cars\famil_v.p3d", "car", "forsale", 2, 25, "simpson" ); //Homer
+
+BindReward( "otto_v", "art\cars\otto_v.p3d", "car", "forsale", 2, 25, "gil" );
+BindReward( "lisa_v", "art\cars\lisa_v.p3d", "car", "forsale", 2, 25, "gil" );
+//BindReward( "cDuff", "art\cars\cDuff.p3d", "car", "forsale", 2, 5, "gil" );
+//BindReward( "bookb_v", "art\cars\bookb_v.p3d", "car", "forsale", 2, 5, "gil" );
+
+BindReward( "bart", "art\chars\bart_m.p3d", "skin", "defaultskin", 2 );
+BindReward( "b_man", "art\chars\b_man_m.p3d", "skin", "forsale", 2, 25, "interior" );
+BindReward( "b_football", "art\chars\b_foot_m.p3d", "skin", "forsale", 2, 25, "interior" );
+BindReward( "b_ninja", "art\chars\b_ninj_m.p3d", "skin", "forsale", 2, 25, "interior" );
+
+// Level 3
+//
+//BindReward( "lisa_v", "art\cars\lisa_v.p3d", "car", "defaultcar", 3 );
+//BindReward( "skinn_v", "art\cars\skinn_v.p3d", "car", "bonusmission", 3 );
+//BindReward( "bookb_v", "art\cars\bookb_v.p3d", "car", "streetrace", 3 );
+//BindReward( "otto_v", "art\cars\otto_v.p3d", "car", "forsale", 3, 10, "simpson" ); // Otto
+//BindReward( "cDonut", "art\cars\cDonut.p3d", "car", "forsale", 3, 10, "gil" );
+//BindReward( "bookb_v", "art\cars\bookb_v.p3d", "car", "forsale", 3, 10, "gil" );
+
+//BindReward( "lisa", "art\chars\lisa_m.p3d", "skin", "defaultskin", 3 );
+//BindReward( "l_cool", "art\chars\l_cool_m.p3d", "skin", "forsale", 3, 10, "interior");
+//BindReward( "l_jersey", "art\chars\l_jers_m.p3d", "skin", "forsale", 3, 10, "interior");
+//BindReward( "l_florida", "art\chars\l_flor_m.p3d", "skin", "forsale", 3, 10, "interior");
+
+// Level 4
+//
+//BindReward( "marge_v", "art\cars\marge_v.p3d", "car", "defaultcar", 4 );
+//BindReward( "comic_v", "art\cars\comic_v.p3d", "car", "bonusmission", 4 );
+//BindReward( "wiggu_v", "art\cars\wiggu_v.p3d", "car", "streetrace", 4 );
+//BindReward( "willi_v", "art\cars\willi_v.p3d", "car", "forsale", 4, 10, "simpson" ); // Willie
+//BindReward( "cDonut", "art\cars\cDonut.p3d", "car", "forsale", 4, 10, "gil" );
+//BindReward( "bookb_v", "art\cars\bookb_v.p3d", "car", "forsale", 4, 10, "gil" );
+
+//BindReward( "marge", "art\chars\marge_m.p3d", "skin", "defaultskin", 4 );
+//BindReward( "m_police", "art\chars\m_poli_m.p3d", "skin", "forsale", 4, 5, "interior" );
+//BindReward( "m_prison", "art\chars\m_pris_m.p3d", "skin", "forsale", 4, 5, "interior" );
+//BindReward( "m_pink", "art\chars\m_pink_m.p3d", "skin", "forsale", 4, 5, "interior" );
+
+// Level 5
+//
+//BindReward( "apu_v", "art\cars\apu_v.p3d", "car", "defaultcar", 5 );
+//BindReward( "frink_v", "art\cars\frink_v.p3d", "car", "bonusmission", 5 );
+//BindReward( "bbman_v", "art\cars\bbman_v.p3d", "car", "streetrace", 5 );
+//BindReward( "carhom_v", "art\cars\carhom_v.p3d", "car", "forsale", 5, 10, "simpson" ); // Homer
+//BindReward( "cDonut", "art\cars\cDonut.p3d", "car", "forsale", 5, 10, "gil" );
+//BindReward( "bookb_v", "art\cars\bookb_v.p3d", "car", "forsale", 5, 10, "gil" );
+
+//BindReward( "apu", "art\chars\apu_m.p3d", "skin", "defaultskin", 5 );
+//BindReward( "a_american", "art\chars\a_amer_m.p3d", "skin", "forsale", 5, 5, "interior" );
+//BindReward( "a_army", "art\chars\a_army_m.p3d", "skin", "forsale", 5, 5, "interior" );
+//BindReward( "a_besharp", "art\chars\a_besh_m.p3d", "skin", "forsale", 5, 5, "interior" );
+
+// Level 6
+//
+//BindReward( "bart_v", "art\cars\bart_v.p3d", "car", "defaultcar", 6 );
+//BindReward( "snake_v", "art\cars\snake_v.p3d", "car", "bonusmission", 6 );
+//BindReward( "burns_v", "art\cars\burns_v.p3d", "car", "streetrace", 6 );
+//BindReward( "scorp_v", "art\cars\scorp_v.p3d", "car", "forsale", 6, 10, "simpson" ); // Kearney
+//BindReward( "cDonut", "art\cars\cDonut.p3d", "car", "forsale", 6, 10, "gil" );
+//BindReward( "bookb_v", "art\cars\bookb_v.p3d", "car", "forsale", 6, 10, "gil" );
+
+//BindReward( "bart", "art\chars\bart_m.p3d", "skin", "defaultskin", 6 );
+//BindReward( "b_man", "art\chars\b_man_m.p3d", "skin", "forsale", 6, 5, "interior" );
+//BindReward( "b_military", "art\chars\b_mili_m.p3d", "skin", "forsale", 6, 5, "interior" );
+//BindReward( "b_hugo", "art\chars\b_hugo_m.p3d", "skin", "forsale", 6, 5, "interior" );
+
+// Level 7
+//
+BindReward( "frink_v", "art\cars\frink_v.p3d", "car", "defaultcar", 7 );
+BindReward( "smith_v", "art\cars\smith_v.p3d", "car", "bonusmission", 7 );
+BindReward( "homer_v", "art\cars\homer_v.p3d", "car", "streetrace", 7 );
+BindReward( "krust_v", "art\cars\krust_v.p3d", "car", "forsale", 7, 25, "simpson" ); // Zombie
+BindReward( "comic_v", "art\cars\comic_v.p3d", "car", "forsale", 7, 25, "gil" );
+BindReward( "marge_v", "art\cars\marge_v.p3d", "car", "forsale", 7, 25, "gil" );
+
+BindReward( "homer", "art\chars\homer_m.p3d", "skin", "defaultskin", 7 );
+BindReward( "h_fat", "art\chars\h_fat_m.p3d", "skin", "forsale", 7, 25, "interior" );
+BindReward( "h_donut", "art\chars\h_donu_m.p3d", "skin", "forsale", 7, 25, "interior" );
+BindReward( "h_stcrobe", "art\chars\h_stcr_m.p3d", "skin", "forsale", 7, 25, "interior" );
+
+// Car Attributes (top speed, acceleration, toughness, handling)
+//
+SetCarAttributes( "famil_v", 1, 2, 3, 3 );
+SetCarAttributes( "cletu_v", 1, 2, 4, 2 );
+SetCarAttributes( "elect_v", 1, 2, 3, 3 );
+SetCarAttributes( "otto_v", 1, 1, 5, 1 );
+SetCarAttributes( "honor_v", 2, 2, 2, 3 );
+SetCarAttributes( "gramp_v", 2, 3, 4, 2 );
+SetCarAttributes( "moe_v", 2, 2, 3, 3 );
+SetCarAttributes( "willi_v", 2, 2, 3, 3 );
+SetCarAttributes( "lisa_v", 3, 3, 2, 4 );
+SetCarAttributes( "skinn_v", 2, 3, 3, 3 );
+SetCarAttributes( "bookb_v", 2, 2, 4, 2 );
+SetCarAttributes( "plowk_v", 2, 2, 5, 1 );
+SetCarAttributes( "marge_v", 3, 3, 4, 2 );
+SetCarAttributes( "comic_v", 3, 3, 2, 3 );
+SetCarAttributes( "wiggu_v", 3, 3, 3, 3 );
+SetCarAttributes( "mrplo_v", 3, 3, 4, 2 );
+SetCarAttributes( "apu_v", 4, 4, 3, 3 );
+SetCarAttributes( "frink_v", 4, 4, 2, 4 );
+SetCarAttributes( "bbman_v", 4, 4, 3, 3 );
+SetCarAttributes( "carhom_v", 4, 4, 3, 3 );
+SetCarAttributes( "bart_v", 5, 5, 2, 5 );
+SetCarAttributes( "snake_v", 5, 5, 3, 4 );
+SetCarAttributes( "burns_v", 4, 4, 2, 4 );
+SetCarAttributes( "scorp_v", 4, 4, 3, 3 );
+SetCarAttributes( "homer_v", 5, 5, 3, 4 );
+SetCarAttributes( "smith_v", 4, 4, 4, 2 );
+SetCarAttributes( "hbike_v", 5, 5, 1, 4 );
+SetCarAttributes( "gramR_v", 5, 5, 4, 2 );
+SetCarAttributes( "fone_v", 5, 5, 1, 5 );
+SetCarAttributes( "zombi_v", 4, 3, 3, 3 );
+SetCarAttributes( "krust_v", 4, 3, 3, 4 );

@@ -1,0 +1,43 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// te_BVContext.mel
+//
+// Description: Defines all the scripts required by the BVContext tool
+//              As a convention all Terrain Editor global procedures 
+//              and global variables are prefixed with "te_".  All commands 
+//              exposed through TE plugins are prefixed with "TE_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created -- CBrisebois
+//-----------------------------------------------------------------------------
+
+//This is the global instance of the bv context tool.
+
+global proc te_MCB_StartBVLoop()
+{
+    //Start the BV context...
+    if ( ! `contextInfo -exists BVCtx` ) 
+    {
+        BVContext BVCtx;
+    }
+
+    setToolTo BVCtx;
+}
+
+global proc te_MCB_SplitSelectedBV()
+{
+    //Call the API function.
+    BVSplitSelected();
+}
+
+global proc te_Delete_BVContext()
+{
+    if ( `contextInfo -exists BVCtx` )
+    {
+        deleteUI -toolContext BVCtx;
+    }
+}

@@ -1,0 +1,195 @@
+//-----------------------------------------------------------------------------
+// Copyright (C) 2001 Radical Entertainment Ltd.  All rights reserved.
+//
+// TE_main.mel
+//
+// Description: Installs the Terrain Editor (TE) interface.
+//              As a convention all Terrain Editor global procedures 
+//              and global variables are prefixed with "te_".  All commands 
+//              exposed through TE plugins are prefixed with "TE_".
+//
+//              MCB = Menu Call Back
+//              BCB = Button Call Back
+//
+// Modification History:
+//  + Created Apr 11, 2001 -- bkusy 
+//  + Stolen & Adapted -- CBrisebois
+//-----------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------
+// t e _ b r e a k p o i n t 
+//
+// Synopsis:
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc te_breakpoint( string $tag )
+{
+    confirmDialog -m ( "BreakPoint: " + $tag );
+}
+
+//-----------------------------------------------------------------------------
+// t e _ M C B _ A b o u t
+//
+// Synopsis:    Display an About Terrain Editor window.
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc te_MCB_About()
+{
+//	string $pluginVersion = `te_GetVersion`;
+
+	string $pluginVersion = "2.0";
+
+    string $message = ( "\nSimpsons Road Rage Terrain Editor.\n\n" +
+                        "Release " + $pluginVersion + "\n" +
+                        "(c) 2001, Radical Entertainment, Ltd.\n\n" );
+
+
+    confirmDialog -title "About Terrain Editor"
+                  -message $message
+                  -button "OK"
+                  -defaultButton "OK";
+}
+
+//-----------------------------------------------------------------------------
+// t e _ d o M a i n M e n u I t e m s
+//
+// Synopsis:    Creates the TE menu on the menu handle passed in.
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc te_doMainMenuItems( string $menu )
+{
+    menu -edit -tearOff true -allowOptionBoxes true $menu;
+
+        menuItem -label "Bounding Fences" -sm true;
+        
+            menuItem -label "Create fence line" -command "te_MCB_StartBVLoop()";
+
+            menuItem -label "Split Fence(s)" -command "te_MCB_SplitSelectedBV()";
+
+        setParent -menu ..;
+
+        menuItem -label "Pedestrian Paths" -sm true;
+        
+            menuItem -label "Create path line" -command "te_MCB_StartPPLoop()";
+
+            menuItem -label "Split Path(s)" -command "te_MCB_SplitSelectedPP()";
+
+        setParent -menu ..;
+
+        menuItem -divider true;
+
+        menuItem -label "Track Editor" -sm true;
+
+            radioMenuItemCollection;
+
+            menuItem -label "Off" -radioButton on -command "TE_StateChange(0)";
+
+            menuItem -label "Edit Mode" -radioButton off -command "TE_StateChange(1)";
+
+            menuItem -label "Display Mode" -radioButton off -command "TE_StateChange(2)";
+
+            menuItem -divider true;
+
+            menuItem -label "Create Intersections" -command "te_MCB_StartIntersection()";
+
+            menuItem -label "Edit Roads / Intersections" -command "te_MCB_EditIntersection()";
+
+        setParent -menu ..;
+
+        menuItem -divider true;
+
+        menuItem -label "Tree Line Tool" -allowOptionBoxes true -sm true;
+
+            menuItem -label "Create Tree Lines" -command "te_MCB_CreateTreeLines()";
+
+            menuItem -label "Options" -optionBox true -command "te_MCB_TreelineOptions()";
+
+            menuItem -divider true;
+
+            menuItem -label "Snap Selected Treelines" -command "te_MCB_SnapTreelines()";
+
+            menuItem -divider true;
+
+            menuItem -label "Convert Treelines to Geometry" -command "te_MCB_ConvertToGeometry()";
+
+        setParent -menu ..;
+
+        menuItem -divider true;
+ 
+        menuItem -label "Export" -command "te_MCB_Export()";
+
+        menuItem -optionBox true -command "TE_ExportOptions()";
+
+        menuItem -divider true; 
+
+        menuItem -label "About" -command "te_MCB_About()";
+
+    setParent -m ..;
+}
+
+//-----------------------------------------------------------------------------
+// t e _ I n s t a l l U I
+//
+// Synopsis:
+//
+// Parameters:  NONE
+//
+// Returns:     NOTHING
+//
+// Constraints: NONE
+//
+//-----------------------------------------------------------------------------
+global proc te_InstallUI()
+{
+
+    global string $gMainWindow;
+
+    //
+    // Install TE menu as a root menu.
+    //
+    if ( `menu -exists te_MainMenu` ) deleteUI te_MainMenu;
+    menu -label "Track Editor" -allowOptionBoxes true -parent $gMainWindow te_MainMenu; 
+
+    te_doMainMenuItems "te_MainMenu";
+}
+
+global proc te_MCB_Export()
+{
+    $whichCtx = `currentCtx`;
+
+    if ( $whichCtx != "" )
+    {
+        ctxCompletion;
+    }    
+
+    TE_Export();
+}
+
+source "te_globals.mel";
+source "te_setup.mel";
+source "te_BVContext.mel";
+source "te_PPContext.mel";
+source "te_treelineContext.mel";
+source "te_IntersectionContext.mel";
+source "te_editorWindow.mel";
+source "AETEShowRoadSegButton.mel";
+
+evalDeferred "te_InstallUI";

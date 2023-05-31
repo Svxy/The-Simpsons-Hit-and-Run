@@ -1,0 +1,1760 @@
+
+<< START >> Building FE - Scrooby for [pc] ... ...
+-----
+---------- Building Simpsons2 FrontEnd for PC ----------
+-----
+Checking out files from Perforce ... ...
+//depot/game/exportart/frontend/scrooby/resource/fonts/_pc/font0_16.p3d#1 - currently opened for edit
+//depot/game/exportart/frontend/scrooby/resource/fonts/_pc/font0_24.p3d#1 - currently opened for edit
+//depot/game/exportart/frontend/scrooby/resource/fonts/_pc/font1_14.p3d#1 - currently opened for edit
+//depot/game/exportart/frontend/scrooby/resource/fonts/_pc/font2_12.p3d#1 - currently opened for edit
+//depot/game/exportart/frontend/scrooby/resource/fonts/_pc/font3_12.p3d#1 - currently opened for edit
+
+Creating pure3d fonts ... ...
+DONE creating pure3d fonts.
+
+Checking out files from Perforce ... ...
+//depot/game/cd/PC/art/frontend/scrooby/backend.p3d#24 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/bootup.p3d#25 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/frontend.p3d#32 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingame.p3d#34 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel1.p3d#12 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel2.p3d#11 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel3.p3d#11 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel4.p3d#11 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel5.p3d#11 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel6.p3d#11 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/ingamel7.p3d#11 - currently opened for edit
+//depot/game/cd/pc/art/frontend/scrooby/language.p3d#4 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/minigame.p3d#26 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/_stubs/dummy.p3d#6 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/_stubs/temp.err#1 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/A.p3d#7 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/camlight.p3d#7 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/camset.p3d#18 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/camset_C.p3d#3 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/camset_H.p3d#3 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/camset_T.p3d#3 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/cardsfx.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/curtainL.p3d#11 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/curtainR.p3d#10 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gagbarne.p3d#13 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gagfrink.p3d#12 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gaggrand.p3d#14 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gaghomer.p3d#12 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gagmole.p3d#13 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gagnick.p3d#13 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/gagsnake.p3d#13 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowbook.p3d#9 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowhomr.p3d#12 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowkrusty.p3d#7 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowmini.p3d#9 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowsofa.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowtv.p3d#9 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowvcr.p3d#9 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/glowwasp.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/homer.p3d#15 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/homer_C.p3d#4 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/homer_H.p3d#5 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/homer_T.p3d#5 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/hudhole.p3d#10 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/iris.p3d#7 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l1hudmap.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l2hudmap.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l3hudmap.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l4hudmap.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l5hudmap.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l6hudmap.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/l7hudmap.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/loading.p3d#10 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/logo_anim.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/maggie.p3d#13 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/pedestal.p3d#12 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/podium.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/racecar.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/rewardbg.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/rewardfg.p3d#2 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/sparkles.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/star.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/temp.err#1 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/TVscreen.p3d#8 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/pure3d/X.p3d#7 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/temp.err#1 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/resource/txtbible/srr2.p3d#228 - currently opened for edit
+//depot/game/cd/PC/art/frontend/scrooby/temp.err#1 - currently opened for edit
+
+Copying files to pc CD ... ...
+exportart\frontend\scrooby\backend.p3d
+exportart\frontend\scrooby\backend.prj
+exportart\frontend\scrooby\bootup.p3d
+exportart\frontend\scrooby\bootup.prj
+exportart\frontend\scrooby\frontend.p3d
+exportart\frontend\scrooby\frontend.prj
+exportart\frontend\scrooby\ingame.p3d
+exportart\frontend\scrooby\ingame.prj
+exportart\frontend\scrooby\ingamel1.p3d
+exportart\frontend\scrooby\ingamel1.prj
+exportart\frontend\scrooby\ingamel2.p3d
+exportart\frontend\scrooby\ingamel2.prj
+exportart\frontend\scrooby\ingamel3.p3d
+exportart\frontend\scrooby\ingamel3.prj
+exportart\frontend\scrooby\ingamel4.p3d
+exportart\frontend\scrooby\ingamel4.prj
+exportart\frontend\scrooby\ingamel5.p3d
+exportart\frontend\scrooby\ingamel5.prj
+exportart\frontend\scrooby\ingamel6.p3d
+exportart\frontend\scrooby\ingamel6.prj
+exportart\frontend\scrooby\ingamel7.p3d
+exportart\frontend\scrooby\ingamel7.prj
+exportart\frontend\scrooby\language.p3d
+exportart\frontend\scrooby\language.prj
+exportart\frontend\scrooby\minigame.p3d
+exportart\frontend\scrooby\minigame.prj
+exportart\frontend\scrooby\pages\3dFE.pag
+exportart\frontend\scrooby\pages\3dFEGags.pag
+exportart\frontend\scrooby\pages\3dIris.pag
+exportart\frontend\scrooby\pages\Accept.pag
+exportart\frontend\scrooby\pages\Accept2.pag
+exportart\frontend\scrooby\pages\Accept3.pag
+exportart\frontend\scrooby\pages\Back.pag
+exportart\frontend\scrooby\pages\Back2.pag
+exportart\frontend\scrooby\pages\BigBoard.pag
+exportart\frontend\scrooby\pages\BlackBgd.pag
+exportart\frontend\scrooby\pages\Blank.pag
+exportart\frontend\scrooby\pages\BootupLoad.pag
+exportart\frontend\scrooby\pages\Buy.pag
+exportart\frontend\scrooby\pages\Cancel.pag
+exportart\frontend\scrooby\pages\CardGallery.pag
+exportart\frontend\scrooby\pages\CarSelect.pag
+exportart\frontend\scrooby\pages\CharacterControls.pag
+exportart\frontend\scrooby\pages\Cheats.pag
+exportart\frontend\scrooby\pages\Coins.pag
+exportart\frontend\scrooby\pages\Continue.pag
+exportart\frontend\scrooby\pages\Controller.pag
+exportart\frontend\scrooby\pages\ControllerGC.pag
+exportart\frontend\scrooby\pages\ControllerImage.pag
+exportart\frontend\scrooby\pages\ControllerImageS.pag
+exportart\frontend\scrooby\pages\ControllerPC.pag
+exportart\frontend\scrooby\pages\ControllerPS2.pag
+exportart\frontend\scrooby\pages\ControllerXBOX.pag
+exportart\frontend\scrooby\pages\COVER.pag
+exportart\frontend\scrooby\pages\CreditsBgd.pag
+exportart\frontend\scrooby\pages\CreditsFgd.pag
+exportart\frontend\scrooby\pages\CreditsKK.pag
+exportart\frontend\scrooby\pages\Demo.pag
+exportart\frontend\scrooby\pages\Display.pag
+exportart\frontend\scrooby\pages\ErrorPrompt.pag
+exportart\frontend\scrooby\pages\Explosion.pag
+exportart\frontend\scrooby\pages\FeDivide.pag
+exportart\frontend\scrooby\pages\GameSettings.pag
+exportart\frontend\scrooby\pages\GameSlots.pag
+exportart\frontend\scrooby\pages\GenericPrompt.pag
+exportart\frontend\scrooby\pages\HighResCard.pag
+exportart\frontend\scrooby\pages\Hud.pag
+exportart\frontend\scrooby\pages\HudBgd.pag
+exportart\frontend\scrooby\pages\HudHole.pag
+exportart\frontend\scrooby\pages\HudMap.pag
+exportart\frontend\scrooby\pages\IrisCover.pag
+exportart\frontend\scrooby\pages\Language.pag
+exportart\frontend\scrooby\pages\LetterBox.pag
+exportart\frontend\scrooby\pages\LetterBoxButtons.pag
+exportart\frontend\scrooby\pages\Level.pag
+exportart\frontend\scrooby\pages\Level1.pag
+exportart\frontend\scrooby\pages\Level2.pag
+exportart\frontend\scrooby\pages\Level3.pag
+exportart\frontend\scrooby\pages\Level4.pag
+exportart\frontend\scrooby\pages\Level5.pag
+exportart\frontend\scrooby\pages\Level6.pag
+exportart\frontend\scrooby\pages\Level7.pag
+exportart\frontend\scrooby\pages\LevelBar.pag
+exportart\frontend\scrooby\pages\LevelStats.pag
+exportart\frontend\scrooby\pages\LoadGame.pag
+exportart\frontend\scrooby\pages\Loading.pag
+exportart\frontend\scrooby\pages\LoadingFE.pag
+exportart\frontend\scrooby\pages\LoadingText.pag
+exportart\frontend\scrooby\pages\LowResCard.pag
+exportart\frontend\scrooby\pages\MainMenu.pag
+exportart\frontend\scrooby\pages\MemCardCheck.pag
+exportart\frontend\scrooby\pages\MemoryCard.pag
+exportart\frontend\scrooby\pages\Message.pag
+exportart\frontend\scrooby\pages\MessageBox.pag
+exportart\frontend\scrooby\pages\MiniHud.pag
+exportart\frontend\scrooby\pages\MiniMenu.pag
+exportart\frontend\scrooby\pages\MiniPause.pag
+exportart\frontend\scrooby\pages\MiniSummary.pag
+exportart\frontend\scrooby\pages\MissionGallery.pag
+exportart\frontend\scrooby\pages\MissionLoad.pag
+exportart\frontend\scrooby\pages\MissionOver.pag
+exportart\frontend\scrooby\pages\MissionSelect.pag
+exportart\frontend\scrooby\pages\MouseSettings.pag
+exportart\frontend\scrooby\pages\MultiChooseCharacter.pag
+exportart\frontend\scrooby\pages\MultiHud.pag
+exportart\frontend\scrooby\pages\MultiSetup.pag
+exportart\frontend\scrooby\pages\Options.pag
+exportart\frontend\scrooby\pages\Overlay.pag
+exportart\frontend\scrooby\pages\Pause.pag
+exportart\frontend\scrooby\pages\PauseBgd.pag
+exportart\frontend\scrooby\pages\PauseCards.pag
+exportart\frontend\scrooby\pages\PauseFgd.pag
+exportart\frontend\scrooby\pages\PauseMission.pag
+exportart\frontend\scrooby\pages\PauseMissionObjective.pag
+exportart\frontend\scrooby\pages\PauseOptions.pag
+exportart\frontend\scrooby\pages\PauseSettings.pag
+exportart\frontend\scrooby\pages\PauseSunday.pag
+exportart\frontend\scrooby\pages\PauseViewCards.pag
+exportart\frontend\scrooby\pages\PCGamepadConfig.pag
+exportart\frontend\scrooby\pages\PCKeyboardConfig.pag
+exportart\frontend\scrooby\pages\PhoneBooth.pag
+exportart\frontend\scrooby\pages\PlayMovie.pag
+exportart\frontend\scrooby\pages\Prompt.pag
+exportart\frontend\scrooby\pages\PurchaseRewards.pag
+exportart\frontend\scrooby\pages\Rewards.pag
+exportart\frontend\scrooby\pages\SAFEZONE.pag
+exportart\frontend\scrooby\pages\SaveGame.pag
+exportart\frontend\scrooby\pages\ScrapBook.pag
+exportart\frontend\scrooby\pages\ScrapBookContents.pag
+exportart\frontend\scrooby\pages\ScrapBookStats.pag
+exportart\frontend\scrooby\pages\SelectMemoryDevice.pag
+exportart\frontend\scrooby\pages\SkinGallery.pag
+exportart\frontend\scrooby\pages\SmallBoard.pag
+exportart\frontend\scrooby\pages\Sound.pag
+exportart\frontend\scrooby\pages\Splash.pag
+exportart\frontend\scrooby\pages\Tutorial.pag
+exportart\frontend\scrooby\pages\TVFrame.pag
+exportart\frontend\scrooby\pages\VehicleControls.pag
+exportart\frontend\scrooby\pages\VehicleGallery.pag
+exportart\frontend\scrooby\pages\ViewCard.pag
+exportart\frontend\scrooby\pages\ViewCredits.pag
+exportart\frontend\scrooby\pages\ViewMap.pag
+exportart\frontend\scrooby\pages\ViewMovies.pag
+exportart\frontend\scrooby\pages\WhiteCover.pag
+exportart\frontend\scrooby\pages\XSmallBoard.pag
+exportart\frontend\scrooby\resource\fonts\font0_16.p3d
+exportart\frontend\scrooby\resource\fonts\font0_24.p3d
+exportart\frontend\scrooby\resource\fonts\font1_14.p3d
+exportart\frontend\scrooby\resource\fonts\font2_12.p3d
+exportart\frontend\scrooby\resource\fonts\font3_12.p3d
+exportart\frontend\scrooby\resource\images\accept.png
+exportart\frontend\scrooby\resource\images\action.png
+exportart\frontend\scrooby\resource\images\auxX.png
+exportart\frontend\scrooby\resource\images\auxY.png
+exportart\frontend\scrooby\resource\images\back.png
+exportart\frontend\scrooby\resource\images\bigclip.png
+exportart\frontend\scrooby\resource\images\bullet.png
+exportart\frontend\scrooby\resource\images\but_actn.png
+exportart\frontend\scrooby\resource\images\but_brak.png
+exportart\frontend\scrooby\resource\images\but_dpad.png
+exportart\frontend\scrooby\resource\images\but_gas.png
+exportart\frontend\scrooby\resource\images\but_hand.png
+exportart\frontend\scrooby\resource\images\but_jump.png
+exportart\frontend\scrooby\resource\images\but_kick.png
+exportart\frontend\scrooby\resource\images\but_lths.png
+exportart\frontend\scrooby\resource\images\but_rths.png
+exportart\frontend\scrooby\resource\images\but_run.png
+exportart\frontend\scrooby\resource\images\coins.png
+exportart\frontend\scrooby\resource\images\controller.png
+exportart\frontend\scrooby\resource\images\controller_s.png
+exportart\frontend\scrooby\resource\images\dot.png
+exportart\frontend\scrooby\resource\images\error.png
+exportart\frontend\scrooby\resource\images\gamelogo.png
+exportart\frontend\scrooby\resource\images\headsetL.png
+exportart\frontend\scrooby\resource\images\headsetR.png
+exportart\frontend\scrooby\resource\images\infobars.png
+exportart\frontend\scrooby\resource\images\infobgd.png
+exportart\frontend\scrooby\resource\images\Larrow.png
+exportart\frontend\scrooby\resource\images\LArrowG.png
+exportart\frontend\scrooby\resource\images\license.png
+exportart\frontend\scrooby\resource\images\loadbgd0.png
+exportart\frontend\scrooby\resource\images\loadbgd1.png
+exportart\frontend\scrooby\resource\images\loading0.png
+exportart\frontend\scrooby\resource\images\loadovly.png
+exportart\frontend\scrooby\resource\images\Rarrow.png
+exportart\frontend\scrooby\resource\images\RArrowG.png
+exportart\frontend\scrooby\resource\images\triggerL.png
+exportart\frontend\scrooby\resource\images\triggerR.png
+exportart\frontend\scrooby\resource\images\tvframe.png
+exportart\frontend\scrooby\resource\images\tvglass.png
+exportart\frontend\scrooby\resource\images\tvglass1.png
+exportart\frontend\scrooby\resource\images\tvglass2.png
+exportart\frontend\scrooby\resource\images\wave.png
+exportart\frontend\scrooby\resource\images\cards\bgdshdw.png
+exportart\frontend\scrooby\resource\images\cards\cardgrey.png
+exportart\frontend\scrooby\resource\images\cards\cardovly.png
+exportart\frontend\scrooby\resource\images\cards\cardred.png
+exportart\frontend\scrooby\resource\images\cards\cardredg.png
+exportart\frontend\scrooby\resource\images\cards\cardsbgd.png
+exportart\frontend\scrooby\resource\images\cards\cardshdw.png
+exportart\frontend\scrooby\resource\images\cards\cardsh_t.png
+exportart\frontend\scrooby\resource\images\cards\cardtag0.png
+exportart\frontend\scrooby\resource\images\cards\cardtag1.png
+exportart\frontend\scrooby\resource\images\cards\cardtag2.png
+exportart\frontend\scrooby\resource\images\cards\cardtag3.png
+exportart\frontend\scrooby\resource\images\cards\cardtag4.png
+exportart\frontend\scrooby\resource\images\cards\cardtag5.png
+exportart\frontend\scrooby\resource\images\cards\cardtag6.png
+exportart\frontend\scrooby\resource\images\cards\cardyelg.png
+exportart\frontend\scrooby\resource\images\cards\cardyell.png
+exportart\frontend\scrooby\resource\images\cards\frame.png
+exportart\frontend\scrooby\resource\images\cards\textbgd.png
+exportart\frontend\scrooby\resource\images\cards\textshdw.png
+exportart\frontend\scrooby\resource\images\cards\db\card00.png
+exportart\frontend\scrooby\resource\images\cards\db\card00_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card01.png
+exportart\frontend\scrooby\resource\images\cards\db\card01_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card02.png
+exportart\frontend\scrooby\resource\images\cards\db\card02_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card03.png
+exportart\frontend\scrooby\resource\images\cards\db\card03_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card04.png
+exportart\frontend\scrooby\resource\images\cards\db\card04_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card05.png
+exportart\frontend\scrooby\resource\images\cards\db\card05_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card06.png
+exportart\frontend\scrooby\resource\images\cards\db\card06_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card07.png
+exportart\frontend\scrooby\resource\images\cards\db\card07_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card08.png
+exportart\frontend\scrooby\resource\images\cards\db\card08_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card09.png
+exportart\frontend\scrooby\resource\images\cards\db\card09_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card10.png
+exportart\frontend\scrooby\resource\images\cards\db\card10_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card11.png
+exportart\frontend\scrooby\resource\images\cards\db\card11_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card12.png
+exportart\frontend\scrooby\resource\images\cards\db\card12_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card13.png
+exportart\frontend\scrooby\resource\images\cards\db\card13_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card14.png
+exportart\frontend\scrooby\resource\images\cards\db\card14_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card15.png
+exportart\frontend\scrooby\resource\images\cards\db\card15_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card16.png
+exportart\frontend\scrooby\resource\images\cards\db\card16_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card17.png
+exportart\frontend\scrooby\resource\images\cards\db\card17_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card18.png
+exportart\frontend\scrooby\resource\images\cards\db\card18_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card19.png
+exportart\frontend\scrooby\resource\images\cards\db\card19_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card20.png
+exportart\frontend\scrooby\resource\images\cards\db\card20_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card21.png
+exportart\frontend\scrooby\resource\images\cards\db\card21_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card22.png
+exportart\frontend\scrooby\resource\images\cards\db\card22_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card23.png
+exportart\frontend\scrooby\resource\images\cards\db\card23_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card24.png
+exportart\frontend\scrooby\resource\images\cards\db\card24_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card25.png
+exportart\frontend\scrooby\resource\images\cards\db\card25_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card26.png
+exportart\frontend\scrooby\resource\images\cards\db\card26_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card27.png
+exportart\frontend\scrooby\resource\images\cards\db\card27_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card28.png
+exportart\frontend\scrooby\resource\images\cards\db\card28_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card29.png
+exportart\frontend\scrooby\resource\images\cards\db\card29_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card30.png
+exportart\frontend\scrooby\resource\images\cards\db\card30_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card31.png
+exportart\frontend\scrooby\resource\images\cards\db\card31_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card32.png
+exportart\frontend\scrooby\resource\images\cards\db\card32_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card33.png
+exportart\frontend\scrooby\resource\images\cards\db\card33_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card34.png
+exportart\frontend\scrooby\resource\images\cards\db\card34_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card35.png
+exportart\frontend\scrooby\resource\images\cards\db\card35_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card36.png
+exportart\frontend\scrooby\resource\images\cards\db\card36_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card37.png
+exportart\frontend\scrooby\resource\images\cards\db\card37_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card38.png
+exportart\frontend\scrooby\resource\images\cards\db\card38_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card39.png
+exportart\frontend\scrooby\resource\images\cards\db\card39_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card40.png
+exportart\frontend\scrooby\resource\images\cards\db\card40_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card41.png
+exportart\frontend\scrooby\resource\images\cards\db\card41_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card42.png
+exportart\frontend\scrooby\resource\images\cards\db\card42_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card43.png
+exportart\frontend\scrooby\resource\images\cards\db\card43_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card44.png
+exportart\frontend\scrooby\resource\images\cards\db\card44_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card45.png
+exportart\frontend\scrooby\resource\images\cards\db\card45_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card46.png
+exportart\frontend\scrooby\resource\images\cards\db\card46_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card47.png
+exportart\frontend\scrooby\resource\images\cards\db\card47_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card48.png
+exportart\frontend\scrooby\resource\images\cards\db\card48_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card49.png
+exportart\frontend\scrooby\resource\images\cards\db\card49_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card50.png
+exportart\frontend\scrooby\resource\images\cards\db\card50_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card51.png
+exportart\frontend\scrooby\resource\images\cards\db\card51_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card52.png
+exportart\frontend\scrooby\resource\images\cards\db\card52_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card53.png
+exportart\frontend\scrooby\resource\images\cards\db\card53_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card54.png
+exportart\frontend\scrooby\resource\images\cards\db\card54_t.png
+exportart\frontend\scrooby\resource\images\cards\db\card55.png
+exportart\frontend\scrooby\resource\images\cards\db\card55_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card00_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card01_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card02_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card03_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card04_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card05_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card06_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card07_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card08_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card09_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card10_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card11_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card12_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card13_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card14_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card15_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card16_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card17_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card18_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card19_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card20_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card21_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card22_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card23_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card24_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card25_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card26_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card27_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card28_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card29_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card30_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card31_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card32_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card33_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card34_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card35_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card36_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card37_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card38_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card39_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card40_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card41_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card42_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card43_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card44_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card45_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card46_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card47_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card48_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card49_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card50_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card51_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card52_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card53_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card54_t.png
+exportart\frontend\scrooby\resource\images\cards\db\_stubs\card55_t.png
+exportart\frontend\scrooby\resource\images\cards\icons\qannounc.png
+exportart\frontend\scrooby\resource\images\cards\icons\qapu.png
+exportart\frontend\scrooby\resource\images\cards\icons\qbart.png
+exportart\frontend\scrooby\resource\images\cards\icons\qbrockmn.png
+exportart\frontend\scrooby\resource\images\cards\icons\qburns.png
+exportart\frontend\scrooby\resource\images\cards\icons\qcarl.png
+exportart\frontend\scrooby\resource\images\cards\icons\qchild.png
+exportart\frontend\scrooby\resource\images\cards\icons\qdrwolff.png
+exportart\frontend\scrooby\resource\images\cards\icons\qgil.png
+exportart\frontend\scrooby\resource\images\cards\icons\qhomer.png
+exportart\frontend\scrooby\resource\images\cards\icons\qjasper.png
+exportart\frontend\scrooby\resource\images\cards\icons\qjimbo.png
+exportart\frontend\scrooby\resource\images\cards\icons\qkang.png
+exportart\frontend\scrooby\resource\images\cards\icons\qkrusty.png
+exportart\frontend\scrooby\resource\images\cards\icons\qlenny.png
+exportart\frontend\scrooby\resource\images\cards\icons\qlisa.png
+exportart\frontend\scrooby\resource\images\cards\icons\qmaggie.png
+exportart\frontend\scrooby\resource\images\cards\icons\qmanjula.png
+exportart\frontend\scrooby\resource\images\cards\icons\qmarge.png
+exportart\frontend\scrooby\resource\images\cards\icons\qmeyerjr.png
+exportart\frontend\scrooby\resource\images\cards\icons\qmilhous.png
+exportart\frontend\scrooby\resource\images\cards\icons\qmother.png
+exportart\frontend\scrooby\resource\images\cards\icons\qotto.png
+exportart\frontend\scrooby\resource\images\cards\icons\qphoto.png
+exportart\frontend\scrooby\resource\images\cards\icons\qralph.png
+exportart\frontend\scrooby\resource\images\cards\icons\qskinner.png
+exportart\frontend\scrooby\resource\images\cards\icons\qsmither.png
+exportart\frontend\scrooby\resource\images\cards\icons\qsparlke.png
+exportart\frontend\scrooby\resource\images\cards\icons\qstacy.png
+exportart\frontend\scrooby\resource\images\cards\icons\qwiggum.png
+exportart\frontend\scrooby\resource\images\cards\icons\qwillie.png
+exportart\frontend\scrooby\resource\images\credits\credits.png
+exportart\frontend\scrooby\resource\images\credits\kang.png
+exportart\frontend\scrooby\resource\images\credits\kodos.png
+exportart\frontend\scrooby\resource\images\frame\frame_b.png
+exportart\frontend\scrooby\resource\images\frame\frame_bl.png
+exportart\frontend\scrooby\resource\images\frame\frame_br.png
+exportart\frontend\scrooby\resource\images\frame\frame_l.png
+exportart\frontend\scrooby\resource\images\frame\frame_r.png
+exportart\frontend\scrooby\resource\images\frame\frame_t.png
+exportart\frontend\scrooby\resource\images\frame\frame_tl.png
+exportart\frontend\scrooby\resource\images\frame\frame_tr.png
+exportart\frontend\scrooby\resource\images\hud\camera.png
+exportart\frontend\scrooby\resource\images\hud\count1.png
+exportart\frontend\scrooby\resource\images\hud\count2.png
+exportart\frontend\scrooby\resource\images\hud\count3.png
+exportart\frontend\scrooby\resource\images\hud\damage.png
+exportart\frontend\scrooby\resource\images\hud\greenbar.png
+exportart\frontend\scrooby\resource\images\hud\greybar.png
+exportart\frontend\scrooby\resource\images\hud\helptext.png
+exportart\frontend\scrooby\resource\images\hud\mapbgd.png
+exportart\frontend\scrooby\resource\images\hud\mapframe.png
+exportart\frontend\scrooby\resource\images\hud\mc_en.png
+exportart\frontend\scrooby\resource\images\hud\mf_en.png
+exportart\frontend\scrooby\resource\images\hud\nbt_en.png
+exportart\frontend\scrooby\resource\images\hud\radar.png
+exportart\frontend\scrooby\resource\images\hud\radartop.png
+exportart\frontend\scrooby\resource\images\hud\redbar.png
+exportart\frontend\scrooby\resource\images\hud\talking.png
+exportart\frontend\scrooby\resource\images\hud\walkie.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\hitnrun0.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\hitnrun1.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\hitnrun2.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\hrmetter.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\hrsector.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\hrticket.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\radar.png
+exportart\frontend\scrooby\resource\images\hud\hitnrun\radartop.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\aicar.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\blueflag.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\bonus.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\camicon.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\checker.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\collect.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\dice.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\dollar.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\harascar.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\mission.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\phone.png
+exportart\frontend\scrooby\resource\images\hud\mapicons\user.png
+exportart\frontend\scrooby\resource\images\hud\textbox\txtbox_l.png
+exportart\frontend\scrooby\resource\images\hud\textbox\txtbox_r.png
+exportart\frontend\scrooby\resource\images\icons\check.png
+exportart\frontend\scrooby\resource\images\icons\cross.png
+exportart\frontend\scrooby\resource\images\icons\dash.png
+exportart\frontend\scrooby\resource\images\letters\0.png
+exportart\frontend\scrooby\resource\images\letters\1.png
+exportart\frontend\scrooby\resource\images\letters\2.png
+exportart\frontend\scrooby\resource\images\letters\3.png
+exportart\frontend\scrooby\resource\images\letters\4.png
+exportart\frontend\scrooby\resource\images\letters\5.png
+exportart\frontend\scrooby\resource\images\letters\6.png
+exportart\frontend\scrooby\resource\images\letters\7.png
+exportart\frontend\scrooby\resource\images\letters\8.png
+exportart\frontend\scrooby\resource\images\letters\9.png
+exportart\frontend\scrooby\resource\images\letters\colon.png
+exportart\frontend\scrooby\resource\images\letters\comma.png
+exportart\frontend\scrooby\resource\images\letters\exclamation-inverted.png
+exportart\frontend\scrooby\resource\images\letters\exclamation.png
+exportart\frontend\scrooby\resource\images\letters\hyphen.png
+exportart\frontend\scrooby\resource\images\letters\letterA.png
+exportart\frontend\scrooby\resource\images\letters\letterB.png
+exportart\frontend\scrooby\resource\images\letters\letterC.png
+exportart\frontend\scrooby\resource\images\letters\letterD.png
+exportart\frontend\scrooby\resource\images\letters\letterE.png
+exportart\frontend\scrooby\resource\images\letters\letterF.png
+exportart\frontend\scrooby\resource\images\letters\letterG.png
+exportart\frontend\scrooby\resource\images\letters\letterH.png
+exportart\frontend\scrooby\resource\images\letters\letterI.png
+exportart\frontend\scrooby\resource\images\letters\letterJ.png
+exportart\frontend\scrooby\resource\images\letters\letterK.png
+exportart\frontend\scrooby\resource\images\letters\letterL.png
+exportart\frontend\scrooby\resource\images\letters\letterM.png
+exportart\frontend\scrooby\resource\images\letters\letterN.png
+exportart\frontend\scrooby\resource\images\letters\letterO.png
+exportart\frontend\scrooby\resource\images\letters\letterP.png
+exportart\frontend\scrooby\resource\images\letters\letterQ.png
+exportart\frontend\scrooby\resource\images\letters\letterR.png
+exportart\frontend\scrooby\resource\images\letters\letterS.png
+exportart\frontend\scrooby\resource\images\letters\letterT.png
+exportart\frontend\scrooby\resource\images\letters\letterU.png
+exportart\frontend\scrooby\resource\images\letters\letterV.png
+exportart\frontend\scrooby\resource\images\letters\letterW.png
+exportart\frontend\scrooby\resource\images\letters\letterX.png
+exportart\frontend\scrooby\resource\images\letters\letterY.png
+exportart\frontend\scrooby\resource\images\letters\letterZ.png
+exportart\frontend\scrooby\resource\images\letters\money.png
+exportart\frontend\scrooby\resource\images\letters\period.png
+exportart\frontend\scrooby\resource\images\letters\pound.png
+exportart\frontend\scrooby\resource\images\letters\question.png
+exportart\frontend\scrooby\resource\images\letters\slash.png
+exportart\frontend\scrooby\resource\images\letters\space.png
+exportart\frontend\scrooby\resource\images\letters\yquestion.png
+exportart\frontend\scrooby\resource\images\letters\extended\A_Diaeresis.png
+exportart\frontend\scrooby\resource\images\letters\extended\E_Acute.png
+exportart\frontend\scrooby\resource\images\letters\extended\E_Circumflex.png
+exportart\frontend\scrooby\resource\images\letters\extended\I_Acute.png
+exportart\frontend\scrooby\resource\images\letters\extended\N_Tilde.png
+exportart\frontend\scrooby\resource\images\letters\extended\O_Acute.png
+exportart\frontend\scrooby\resource\images\letters\extended\O_Diaereris.png
+exportart\frontend\scrooby\resource\images\letters\extended\S_Sharp.png
+exportart\frontend\scrooby\resource\images\letters\extended\U_Acute.png
+exportart\frontend\scrooby\resource\images\letters\extended\U_Diaeresis.png
+exportart\frontend\scrooby\resource\images\levelbar\arrow_l.png
+exportart\frontend\scrooby\resource\images\levelbar\arrow_r.png
+exportart\frontend\scrooby\resource\images\levelbar\greybgd.png
+exportart\frontend\scrooby\resource\images\levelbar\levelbar.png
+exportart\frontend\scrooby\resource\images\levelbar\redbgd.png
+exportart\frontend\scrooby\resource\images\loading\bomb.png
+exportart\frontend\scrooby\resource\images\loading\dynamite.png
+exportart\frontend\scrooby\resource\images\loading\explode.png
+exportart\frontend\scrooby\resource\images\loading\fire.png
+exportart\frontend\scrooby\resource\images\loading\fire2.png
+exportart\frontend\scrooby\resource\images\loading\rope.png
+exportart\frontend\scrooby\resource\images\minigame\charbgd.png
+exportart\frontend\scrooby\resource\images\minigame\kingicon.png
+exportart\frontend\scrooby\resource\images\minigame\playerbg.png
+exportart\frontend\scrooby\resource\images\minigame\track1.png
+exportart\frontend\scrooby\resource\images\minigame\track2.png
+exportart\frontend\scrooby\resource\images\minigame\track3.png
+exportart\frontend\scrooby\resource\images\minigame\track4.png
+exportart\frontend\scrooby\resource\images\minigame\track5.png
+exportart\frontend\scrooby\resource\images\minigame\track6.png
+exportart\frontend\scrooby\resource\images\minigame\track7.png
+exportart\frontend\scrooby\resource\images\minigame\trackCCW.png
+exportart\frontend\scrooby\resource\images\minigame\trackCW.png
+exportart\frontend\scrooby\resource\images\minigame\chars\apu.png
+exportart\frontend\scrooby\resource\images\minigame\chars\apu_s.png
+exportart\frontend\scrooby\resource\images\minigame\chars\bart.png
+exportart\frontend\scrooby\resource\images\minigame\chars\bart_s.png
+exportart\frontend\scrooby\resource\images\minigame\chars\homer.png
+exportart\frontend\scrooby\resource\images\minigame\chars\homer_s.png
+exportart\frontend\scrooby\resource\images\minigame\chars\lisa.png
+exportart\frontend\scrooby\resource\images\minigame\chars\lisa_s.png
+exportart\frontend\scrooby\resource\images\minigame\chars\marge.png
+exportart\frontend\scrooby\resource\images\minigame\chars\marge_s.png
+exportart\frontend\scrooby\resource\images\minigame\faces\a_happy.png
+exportart\frontend\scrooby\resource\images\minigame\faces\a_mad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\a_normal.png
+exportart\frontend\scrooby\resource\images\minigame\faces\a_sad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\b_happy.png
+exportart\frontend\scrooby\resource\images\minigame\faces\b_mad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\b_normal.png
+exportart\frontend\scrooby\resource\images\minigame\faces\b_sad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\h_happy.png
+exportart\frontend\scrooby\resource\images\minigame\faces\h_mad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\h_normal.png
+exportart\frontend\scrooby\resource\images\minigame\faces\h_sad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\l_happy.png
+exportart\frontend\scrooby\resource\images\minigame\faces\l_mad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\l_normal.png
+exportart\frontend\scrooby\resource\images\minigame\faces\l_sad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\m_happy.png
+exportart\frontend\scrooby\resource\images\minigame\faces\m_mad.png
+exportart\frontend\scrooby\resource\images\minigame\faces\m_normal.png
+exportart\frontend\scrooby\resource\images\minigame\faces\m_sad.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S0.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S1.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S2.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S3.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S4.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S5.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S6.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S7.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S8.png
+exportart\frontend\scrooby\resource\images\minigame\stars\S9.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\apu_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\bart_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\bbman_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\bookb_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\burns_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\carhom_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cArmor.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cCola.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cCurator.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cDonut.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cDuff.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cFire_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cHears.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cKlimo.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cletu_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cLimo.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cNerd.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\comic_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cPolice.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cSedan.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\cVan.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\elect_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\famil_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\fone_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\frink_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\gramp_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\hbike_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\homer_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\honor_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\krust_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\lisa_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\marge_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\moe_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\mrplo_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\otto_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\plowk_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\scorp_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\skinn_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\smith_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\snake_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\wiggu_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\willi_v.png
+exportart\frontend\scrooby\resource\images\minigame\vehicles\zombi_v.png
+exportart\frontend\scrooby\resource\images\missionloading\background_blue.png
+exportart\frontend\scrooby\resource\images\missionloading\bigstar.png
+exportart\frontend\scrooby\resource\images\missionloading\Bullet_off.png
+exportart\frontend\scrooby\resource\images\missionloading\Bullet_on.png
+exportart\frontend\scrooby\resource\images\missionloading\checkflag.png
+exportart\frontend\scrooby\resource\images\missionloading\Clip.png
+exportart\frontend\scrooby\resource\images\missionloading\cliparm.png
+exportart\frontend\scrooby\resource\images\missionloading\clipright.png
+exportart\frontend\scrooby\resource\images\missionloading\corner1.png
+exportart\frontend\scrooby\resource\images\missionloading\corner2.png
+exportart\frontend\scrooby\resource\images\missionloading\corner3.png
+exportart\frontend\scrooby\resource\images\missionloading\corner4.png
+exportart\frontend\scrooby\resource\images\missionloading\Flag.png
+exportart\frontend\scrooby\resource\images\missionloading\F_downPiece.png
+exportart\frontend\scrooby\resource\images\missionloading\F_leftPiece.png
+exportart\frontend\scrooby\resource\images\missionloading\F_rightPiece.png
+exportart\frontend\scrooby\resource\images\missionloading\F_UpPiece.png
+exportart\frontend\scrooby\resource\images\missionloading\glow1.png
+exportart\frontend\scrooby\resource\images\missionloading\glow2.png
+exportart\frontend\scrooby\resource\images\missionloading\level01.png
+exportart\frontend\scrooby\resource\images\missionloading\level02.png
+exportart\frontend\scrooby\resource\images\missionloading\level03.png
+exportart\frontend\scrooby\resource\images\missionloading\level04.png
+exportart\frontend\scrooby\resource\images\missionloading\level05.png
+exportart\frontend\scrooby\resource\images\missionloading\level06.png
+exportart\frontend\scrooby\resource\images\missionloading\level07.png
+exportart\frontend\scrooby\resource\images\missionloading\level08.png
+exportart\frontend\scrooby\resource\images\missionloading\level09.png
+exportart\frontend\scrooby\resource\images\missionloading\shooting_star.png
+exportart\frontend\scrooby\resource\images\missionloading\Star.png
+exportart\frontend\scrooby\resource\images\missionloading\text_bar.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level01.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level02.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level03.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level04.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level05.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level06.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level07.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level08.png
+exportart\frontend\scrooby\resource\images\missionloading\_stubs\level09.png
+exportart\frontend\scrooby\resource\images\rewards\carstar.png
+exportart\frontend\scrooby\resource\images\rewards\greystar.png
+exportart\frontend\scrooby\resource\images\rewards\halfstar.png
+exportart\frontend\scrooby\resource\images\rewards\husk.png
+exportart\frontend\scrooby\resource\images\rewards\Larrow0.png
+exportart\frontend\scrooby\resource\images\rewards\Larrow1.png
+exportart\frontend\scrooby\resource\images\rewards\lock.png
+exportart\frontend\scrooby\resource\images\rewards\pbglow.png
+exportart\frontend\scrooby\resource\images\rewards\pricetag.png
+exportart\frontend\scrooby\resource\images\rewards\Rarrow0.png
+exportart\frontend\scrooby\resource\images\rewards\Rarrow1.png
+exportart\frontend\scrooby\resource\images\rewards\rewardbg.png
+exportart\frontend\scrooby\resource\images\scrapbook\car-l1.png
+exportart\frontend\scrooby\resource\images\scrapbook\car-l2.png
+exportart\frontend\scrooby\resource\images\scrapbook\car-l3.png
+exportart\frontend\scrooby\resource\images\scrapbook\car-l4.png
+exportart\frontend\scrooby\resource\images\scrapbook\car-l5.png
+exportart\frontend\scrooby\resource\images\scrapbook\cards.png
+exportart\frontend\scrooby\resource\images\scrapbook\cursor.png
+exportart\frontend\scrooby\resource\images\scrapbook\ksticker.png
+exportart\frontend\scrooby\resource\images\scrapbook\movie-l1.png
+exportart\frontend\scrooby\resource\images\scrapbook\movie-l3.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l1.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l2.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l3.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l4.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l5.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l6.png
+exportart\frontend\scrooby\resource\images\scrapbook\msn-l7.png
+exportart\frontend\scrooby\resource\images\scrapbook\msnframe.png
+exportart\frontend\scrooby\resource\images\scrapbook\msnlockd.png
+exportart\frontend\scrooby\resource\images\scrapbook\sbcursor.png
+exportart\frontend\scrooby\resource\images\scrapbook\skin-l1.png
+exportart\frontend\scrooby\resource\images\scrapbook\skin-l2.png
+exportart\frontend\scrooby\resource\images\scrapbook\skin-l3.png
+exportart\frontend\scrooby\resource\images\scrapbook\skin-l4.png
+exportart\frontend\scrooby\resource\images\scrapbook\skin-l5.png
+exportart\frontend\scrooby\resource\images\scrapbook\silhouet\si_apu.png
+exportart\frontend\scrooby\resource\images\scrapbook\silhouet\si_bart.png
+exportart\frontend\scrooby\resource\images\scrapbook\silhouet\si_car.png
+exportart\frontend\scrooby\resource\images\scrapbook\silhouet\si_homer.png
+exportart\frontend\scrooby\resource\images\scrapbook\silhouet\si_lisa.png
+exportart\frontend\scrooby\resource\images\scrapbook\silhouet\si_marge.png
+exportart\frontend\scrooby\resource\images\sound\effects.png
+exportart\frontend\scrooby\resource\images\sound\mouse.png
+exportart\frontend\scrooby\resource\images\sound\music.png
+exportart\frontend\scrooby\resource\images\sound\nosound.png
+exportart\frontend\scrooby\resource\images\sound\slider_g.png
+exportart\frontend\scrooby\resource\images\sound\slider_gbig.png
+exportart\frontend\scrooby\resource\images\sound\slider_p.png
+exportart\frontend\scrooby\resource\images\sound\slider_pbig.png
+exportart\frontend\scrooby\resource\images\sound\voice.png
+exportart\frontend\scrooby\resource\images\tvframe\tvframe_b.png
+exportart\frontend\scrooby\resource\images\tvframe\tvframe_l.png
+exportart\frontend\scrooby\resource\images\tvframe\tvframe_r.png
+exportart\frontend\scrooby\resource\images\tvframe\tvframe_t.png
+exportart\frontend\scrooby\resource\pure3d\A.p3d
+exportart\frontend\scrooby\resource\pure3d\camlight.p3d
+exportart\frontend\scrooby\resource\pure3d\camset.p3d
+exportart\frontend\scrooby\resource\pure3d\camset_C.p3d
+exportart\frontend\scrooby\resource\pure3d\camset_H.p3d
+exportart\frontend\scrooby\resource\pure3d\camset_T.p3d
+exportart\frontend\scrooby\resource\pure3d\cardsfx.p3d
+exportart\frontend\scrooby\resource\pure3d\curtainL.p3d
+exportart\frontend\scrooby\resource\pure3d\curtainR.p3d
+exportart\frontend\scrooby\resource\pure3d\gagbarne.p3d
+exportart\frontend\scrooby\resource\pure3d\gagfrink.p3d
+exportart\frontend\scrooby\resource\pure3d\gaggrand.p3d
+exportart\frontend\scrooby\resource\pure3d\gaghomer.p3d
+exportart\frontend\scrooby\resource\pure3d\gagmole.p3d
+exportart\frontend\scrooby\resource\pure3d\gagnick.p3d
+exportart\frontend\scrooby\resource\pure3d\gagsnake.p3d
+exportart\frontend\scrooby\resource\pure3d\glowbook.p3d
+exportart\frontend\scrooby\resource\pure3d\glowhomr.p3d
+exportart\frontend\scrooby\resource\pure3d\glowkrusty.p3d
+exportart\frontend\scrooby\resource\pure3d\glowmini.p3d
+exportart\frontend\scrooby\resource\pure3d\glowsofa.p3d
+exportart\frontend\scrooby\resource\pure3d\glowtv.p3d
+exportart\frontend\scrooby\resource\pure3d\glowvcr.p3d
+exportart\frontend\scrooby\resource\pure3d\glowwasp.p3d
+exportart\frontend\scrooby\resource\pure3d\homer.p3d
+exportart\frontend\scrooby\resource\pure3d\homer_C.p3d
+exportart\frontend\scrooby\resource\pure3d\homer_H.p3d
+exportart\frontend\scrooby\resource\pure3d\homer_T.p3d
+exportart\frontend\scrooby\resource\pure3d\hudhole.p3d
+exportart\frontend\scrooby\resource\pure3d\iris.p3d
+exportart\frontend\scrooby\resource\pure3d\l1hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\l2hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\l3hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\l4hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\l5hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\l6hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\l7hudmap.p3d
+exportart\frontend\scrooby\resource\pure3d\loading.p3d
+exportart\frontend\scrooby\resource\pure3d\logo_anim.p3d
+exportart\frontend\scrooby\resource\pure3d\maggie.p3d
+exportart\frontend\scrooby\resource\pure3d\pedestal.p3d
+exportart\frontend\scrooby\resource\pure3d\podium.p3d
+exportart\frontend\scrooby\resource\pure3d\racecar.p3d
+exportart\frontend\scrooby\resource\pure3d\rewardbg.p3d
+exportart\frontend\scrooby\resource\pure3d\rewardfg.p3d
+exportart\frontend\scrooby\resource\pure3d\sparkles.p3d
+exportart\frontend\scrooby\resource\pure3d\star.p3d
+exportart\frontend\scrooby\resource\pure3d\TVscreen.p3d
+exportart\frontend\scrooby\resource\pure3d\X.p3d
+exportart\frontend\scrooby\resource\pure3d\_stubs\dummy.p3d
+exportart\frontend\scrooby\resource\txtbible\credits.txt
+exportart\frontend\scrooby\resource\txtbible\srr2.E
+exportart\frontend\scrooby\resource\txtbible\srr2.F
+exportart\frontend\scrooby\resource\txtbible\srr2.G
+exportart\frontend\scrooby\resource\txtbible\srr2.I
+exportart\frontend\scrooby\resource\txtbible\srr2.p3d
+exportart\frontend\scrooby\resource\txtbible\srr2.S
+exportart\frontend\scrooby\resource\txtbible\srr2.txt
+exportart\frontend\scrooby\resource\txtbible\srr2.X
+exportart\frontend\scrooby\screens\Blank.scr
+exportart\frontend\scrooby\screens\BootupLoad.scr
+exportart\frontend\scrooby\screens\CardGallery.scr
+exportart\frontend\scrooby\screens\Controller.scr
+exportart\frontend\scrooby\screens\CreditsPostFMV.scr
+exportart\frontend\scrooby\screens\Demo.scr
+exportart\frontend\scrooby\screens\Display.scr
+exportart\frontend\scrooby\screens\ErrorPrompt.scr
+exportart\frontend\scrooby\screens\ErrorPrompt3D.scr
+exportart\frontend\scrooby\screens\Hud.scr
+exportart\frontend\scrooby\screens\IrisWipe.scr
+exportart\frontend\scrooby\screens\Language.scr
+exportart\frontend\scrooby\screens\LetterBox.scr
+exportart\frontend\scrooby\screens\Level1.scr
+exportart\frontend\scrooby\screens\Level2.scr
+exportart\frontend\scrooby\screens\Level3.scr
+exportart\frontend\scrooby\screens\Level4.scr
+exportart\frontend\scrooby\screens\Level5.scr
+exportart\frontend\scrooby\screens\Level6.scr
+exportart\frontend\scrooby\screens\Level7.scr
+exportart\frontend\scrooby\screens\LevelEnd.scr
+exportart\frontend\scrooby\screens\LevelStats.scr
+exportart\frontend\scrooby\screens\License.scr
+exportart\frontend\scrooby\screens\LoadGame.scr
+exportart\frontend\scrooby\screens\Loading.scr
+exportart\frontend\scrooby\screens\LoadingFE.scr
+exportart\frontend\scrooby\screens\MainMenu.scr
+exportart\frontend\scrooby\screens\MemCardCheck.scr
+exportart\frontend\scrooby\screens\MemoryCard.scr
+exportart\frontend\scrooby\screens\MemoryCard3D.scr
+exportart\frontend\scrooby\screens\Message.scr
+exportart\frontend\scrooby\screens\Message3D.scr
+exportart\frontend\scrooby\screens\MiniHud.scr
+exportart\frontend\scrooby\screens\MiniMenu.scr
+exportart\frontend\scrooby\screens\MiniPause.scr
+exportart\frontend\scrooby\screens\MiniSummary.scr
+exportart\frontend\scrooby\screens\MissionGallery.scr
+exportart\frontend\scrooby\screens\MissionLoad.scr
+exportart\frontend\scrooby\screens\MissionOver.scr
+exportart\frontend\scrooby\screens\MissionSelect.scr
+exportart\frontend\scrooby\screens\MultiChooseCharacter.scr
+exportart\frontend\scrooby\screens\MultiHud.scr
+exportart\frontend\scrooby\screens\MultiSetup.scr
+exportart\frontend\scrooby\screens\Options.scr
+exportart\frontend\scrooby\screens\PauseController.scr
+exportart\frontend\scrooby\screens\PauseMission.scr
+exportart\frontend\scrooby\screens\PauseOptions.scr
+exportart\frontend\scrooby\screens\PauseSettings.scr
+exportart\frontend\scrooby\screens\PauseSound.scr
+exportart\frontend\scrooby\screens\PauseSunday.scr
+exportart\frontend\scrooby\screens\PauseViewCards.scr
+exportart\frontend\scrooby\screens\PhoneBooth.scr
+exportart\frontend\scrooby\screens\PlayMovie.scr
+exportart\frontend\scrooby\screens\Prompt.scr
+exportart\frontend\scrooby\screens\Prompt3D.scr
+exportart\frontend\scrooby\screens\PurchaseRewards.scr
+exportart\frontend\scrooby\screens\SaveGame.scr
+exportart\frontend\scrooby\screens\ScrapBook.scr
+exportart\frontend\scrooby\screens\ScrapBookContents.scr
+exportart\frontend\scrooby\screens\ScrapBookStats.scr
+exportart\frontend\scrooby\screens\SkinGallery.scr
+exportart\frontend\scrooby\screens\Sound.scr
+exportart\frontend\scrooby\screens\Splash.scr
+exportart\frontend\scrooby\screens\Tutorial.scr
+exportart\frontend\scrooby\screens\VehicleGallery.scr
+exportart\frontend\scrooby\screens\ViewCredits.scr
+exportart\frontend\scrooby\screens\ViewMap.scr
+exportart\frontend\scrooby\screens\ViewMovies.scr
+853 File(s) copied
+exportart\frontend\scrooby\resource\images\_pc\controller.png
+exportart\frontend\scrooby\resource\images\_pc\error.png
+exportart\frontend\scrooby\resource\images\_pc\Larrow.png
+exportart\frontend\scrooby\resource\images\_pc\LArrowG.png
+exportart\frontend\scrooby\resource\images\_pc\loadbgd0.png
+exportart\frontend\scrooby\resource\images\_pc\loadbgd1.png
+exportart\frontend\scrooby\resource\images\_pc\Rarrow.png
+exportart\frontend\scrooby\resource\images\_pc\RArrowG.png
+exportart\frontend\scrooby\resource\images\_pc\walkie.png
+exportart\frontend\scrooby\resource\images\_pc\cards\cardyell.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card00_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card01_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card02_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card03_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card04_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card05_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card06_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card07_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card08_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card09_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card10_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card11_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card12_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card13_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card14_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card15_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card16_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card17_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card18_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card19_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card20_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card21_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card22_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card23_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card24_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card25_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card26_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card27_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card28_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card29_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card30_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card31_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card32_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card33_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card34_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card35_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card36_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card37_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card38_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card39_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card40_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card41_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card42_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card43_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card44_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card45_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card46_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card47_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card48_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card49_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card50_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card51_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card52_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card53_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card54_t.png
+exportart\frontend\scrooby\resource\images\_pc\cards\db\card55_t.png
+exportart\frontend\scrooby\resource\images\_pc\hud\helptext.png
+exportart\frontend\scrooby\resource\images\_pc\hud\hitnrun\hrticket.png
+exportart\frontend\scrooby\resource\images\_pc\levelbar\levelbar.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\apu.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\apu_s.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\bart.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\bart_s.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\homer.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\homer_s.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\lisa.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\lisa_s.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\marge.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\chars\marge_s.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\apu_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\bart_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\bbman_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\burns_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\carhom_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cCurator.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cDonut.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cDuff.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cFire_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cHears.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cKlimo.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cletu_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cNerd.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\comic_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cSedan.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\cVan.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\elect_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\famil_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\fone_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\frink_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\homer_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\honor_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\krust_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\lisa_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\marge_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\moe_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\mrplo_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\otto_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\plowk_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\scorp_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\skinn_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\smith_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\snake_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\wiggu_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\willi_v.png
+exportart\frontend\scrooby\resource\images\_pc\minigame\vehicles\zombi_v.png
+exportart\frontend\scrooby\resource\images\_pc\sound\effects.png
+exportart\frontend\scrooby\resource\images\_pc\sound\music.png
+exportart\frontend\scrooby\resource\images\_pc\sound\nosound.png
+exportart\frontend\scrooby\resource\images\_pc\sound\voice.png
+119 File(s) copied
+exportart\frontend\scrooby\resource\pure3d\_pc\loading.p3d
+1 File(s) copied
+exportart\frontend\scrooby\resource\fonts\_pc\font0_16.p3d
+exportart\frontend\scrooby\resource\fonts\_pc\font0_24.p3d
+exportart\frontend\scrooby\resource\fonts\_pc\font1_14.p3d
+exportart\frontend\scrooby\resource\fonts\_pc\font2_12.p3d
+exportart\frontend\scrooby\resource\fonts\_pc\font3_12.p3d
+5 File(s) copied
+DONE Copying files to pc CD.
+
+[pc]: Processing pure3d files ... ...
+DONE processing pure3d files.
+
+[pc]: Processing project resource files ... ...
+
+*** Extracting resource files for language.prj
+Processing image file: images\frame\frame_b.png
+Processing image file: images\frame\frame_bl.png
+Processing image file: images\frame\frame_br.png
+Processing image file: images\frame\frame_l.png
+Processing image file: images\frame\frame_r.png
+Processing image file: images\frame\frame_t.png
+Processing image file: images\frame\frame_tl.png
+Processing image file: images\frame\frame_tr.png
+Processing image file: images\error.png
+Processing image file: images\accept.png
+Copying font file: fonts\font0_16.p3d
+        1 file(s) copied.
+Copying font file: fonts\font1_14.p3d
+        1 file(s) copied.
+
+*** Extracting resource files for bootup.prj
+
+*** Extracting resource files for backend.prj
+Processing image file: images\loading0.png
+Processing image file: images\loadbgd0.png
+Processing image file: images\loadbgd1.png
+Processing image file: images\loading\fire.png
+Processing image file: images\loading\dynamite.png
+Processing image file: images\loading\fire2.png
+Processing image file: images\loading\bomb.png
+Copying font file: fonts\font0_16.p3d
+        1 file(s) copied.
+
+*** Extracting resource files for frontend.prj
+Processing image file: images\gamelogo.png
+Processing image file: images\tvframe.png
+Processing image file: images\tvglass2.png
+Processing image file: images\tvglass1.png
+Processing image file: images\LArrowG.png
+Processing image file: images\Larrow.png
+Processing image file: images\Rarrow.png
+Processing image file: images\RArrowG.png
+Processing image file: images\accept.png
+Processing image file: images\frame\frame_b.png
+Processing image file: images\frame\frame_bl.png
+Processing image file: images\frame\frame_br.png
+Processing image file: images\frame\frame_l.png
+Processing image file: images\frame\frame_r.png
+Processing image file: images\frame\frame_t.png
+Processing image file: images\frame\frame_tl.png
+Processing image file: images\frame\frame_tr.png
+Processing image file: images\auxX.png
+Processing image file: images\back.png
+Processing image file: images\scrapbook\ksticker.png
+Processing image file: images\levelbar\levelbar.png
+Processing image file: images\triggerL.png
+Processing image file: images\triggerR.png
+Processing image file: images\scrapbook\skin-l1.png
+Processing image file: images\scrapbook\car-l1.png
+Processing image file: images\scrapbook\movie-l1.png
+Processing image file: images\scrapbook\msn-l1.png
+Processing image file: images\scrapbook\cards.png
+Processing image file: images\scrapbook\msn-l7.png
+Processing image file: images\scrapbook\msn-l3.png
+Processing image file: images\scrapbook\msn-l2.png
+Processing image file: images\scrapbook\skin-l5.png
+Processing image file: images\scrapbook\skin-l3.png
+Processing image file: images\scrapbook\skin-l4.png
+Processing image file: images\scrapbook\skin-l2.png
+Processing image file: images\scrapbook\car-l5.png
+Processing image file: images\scrapbook\car-l3.png
+Processing image file: images\scrapbook\car-l4.png
+Processing image file: images\scrapbook\car-l2.png
+Processing image file: images\scrapbook\movie-l3.png
+Processing image file: images\scrapbook\msn-l6.png
+Processing image file: images\scrapbook\msn-l5.png
+Processing image file: images\scrapbook\msn-l4.png
+Processing image file: images\scrapbook\msnframe.png
+Processing image file: images\scrapbook\msnlockd.png
+Processing image file: images\scrapbook\silhouet\si_marge.png
+Processing image file: images\scrapbook\silhouet\si_bart.png
+Processing image file: images\scrapbook\silhouet\si_homer.png
+Processing image file: images\scrapbook\silhouet\si_lisa.png
+Processing image file: images\scrapbook\silhouet\si_apu.png
+Processing image file: images\scrapbook\sbcursor.png
+Processing image file: images\scrapbook\silhouet\si_car.png
+Processing image file: images\cards\cardyell.png
+Processing image file: images\cards\frame.png
+Processing image file: images\cards\db\card00.png
+Processing image file: images\cards\db\card01.png
+Processing image file: images\cards\db\card02.png
+Processing image file: images\cards\db\card03.png
+Processing image file: images\cards\db\card04.png
+Processing image file: images\cards\db\card05.png
+Processing image file: images\cards\db\card06.png
+Processing image file: images\cards\db\card07.png
+Processing image file: images\cards\db\card08.png
+Processing image file: images\cards\db\card09.png
+Processing image file: images\cards\db\card10.png
+Processing image file: images\cards\db\card11.png
+Processing image file: images\cards\db\card12.png
+Processing image file: images\cards\db\card13.png
+Processing image file: images\cards\db\card14.png
+Processing image file: images\cards\db\card15.png
+Processing image file: images\cards\db\card16.png
+Processing image file: images\cards\db\card17.png
+Processing image file: images\cards\db\card18.png
+Processing image file: images\cards\db\card19.png
+Processing image file: images\cards\db\card20.png
+Processing image file: images\cards\db\card21.png
+Processing image file: images\cards\db\card22.png
+Processing image file: images\cards\db\card23.png
+Processing image file: images\cards\db\card24.png
+Processing image file: images\cards\db\card25.png
+Processing image file: images\cards\db\card26.png
+Processing image file: images\cards\db\card27.png
+Processing image file: images\cards\db\card28.png
+Processing image file: images\cards\db\card29.png
+Processing image file: images\cards\db\card30.png
+Processing image file: images\cards\db\card31.png
+Processing image file: images\cards\db\card32.png
+Processing image file: images\cards\db\card33.png
+Processing image file: images\cards\db\card34.png
+Processing image file: images\cards\db\card35.png
+Processing image file: images\cards\db\card36.png
+Processing image file: images\cards\db\card37.png
+Processing image file: images\cards\db\card38.png
+Processing image file: images\cards\db\card39.png
+Processing image file: images\cards\db\card40.png
+Processing image file: images\cards\db\card41.png
+Processing image file: images\cards\db\card42.png
+Processing image file: images\cards\db\card43.png
+Processing image file: images\cards\db\card44.png
+Processing image file: images\cards\db\card45.png
+Processing image file: images\cards\db\card46.png
+Processing image file: images\cards\db\card47.png
+Processing image file: images\cards\db\card48.png
+Processing image file: images\cards\db\card49.png
+Processing image file: images\cards\db\card50.png
+Processing image file: images\cards\db\card51.png
+Processing image file: images\cards\db\card52.png
+Processing image file: images\cards\db\card53.png
+Processing image file: images\cards\db\card54.png
+Processing image file: images\cards\db\card55.png
+Processing image file: images\cards\cardgrey.png
+Processing image file: images\cards\icons\qmarge.png
+Processing image file: images\cards\icons\qhomer.png
+Processing image file: images\cards\icons\qcarl.png
+Processing image file: images\cards\icons\qapu.png
+Processing image file: images\cards\icons\qbart.png
+Processing image file: images\cards\icons\qbrockmn.png
+Processing image file: images\cards\icons\qburns.png
+Processing image file: images\cards\icons\qannounc.png
+Processing image file: images\cards\icons\qchild.png
+Processing image file: images\cards\icons\qdrwolff.png
+Processing image file: images\cards\icons\qgil.png
+Processing image file: images\cards\icons\qjasper.png
+Processing image file: images\cards\icons\qjimbo.png
+Processing image file: images\cards\icons\qmanjula.png
+Processing image file: images\cards\icons\qkrusty.png
+Processing image file: images\cards\icons\qlenny.png
+Processing image file: images\cards\icons\qlisa.png
+Processing image file: images\cards\icons\qmaggie.png
+Processing image file: images\cards\icons\qkang.png
+Processing image file: images\cards\icons\qphoto.png
+Processing image file: images\cards\icons\qmilhous.png
+Processing image file: images\cards\icons\qmother.png
+Processing image file: images\cards\icons\qotto.png
+Processing image file: images\cards\icons\qmeyerjr.png
+Processing image file: images\cards\icons\qwillie.png
+Processing image file: images\cards\icons\qskinner.png
+Processing image file: images\cards\icons\qsmither.png
+Processing image file: images\cards\icons\qsparlke.png
+Processing image file: images\cards\icons\qstacy.png
+Processing image file: images\cards\icons\qwiggum.png
+Processing image file: images\cards\icons\qralph.png
+Processing image file: images\sound\voice.png
+Processing image file: images\sound\effects.png
+Processing image file: images\sound\music.png
+Processing image file: images\sound\slider_g.png
+Processing image file: images\sound\slider_p.png
+Processing image file: images\sound\nosound.png
+Processing image file: images\error.png
+Processing image file: images\controller.png
+Processing image file: images\sound\mouse.png
+Processing image file: images\sound\slider_gbig.png
+Processing image file: images\sound\slider_pbig.png
+Copying font file: fonts\font0_16.p3d
+        1 file(s) copied.
+Copying font file: fonts\font1_14.p3d
+        1 file(s) copied.
+Copying font file: fonts\font0_24.p3d
+        1 file(s) copied.
+Copying font file: fonts\font2_12.p3d
+        1 file(s) copied.
+Copying font file: fonts\font3_12.p3d
+        1 file(s) copied.
+
+*** Extracting resource files for minigame.prj
+Processing image file: images\minigame\track4.png
+Processing image file: images\minigame\track2.png
+Processing image file: images\minigame\track3.png
+Processing image file: images\minigame\track1.png
+Processing image file: images\minigame\track7.png
+Processing image file: images\minigame\track6.png
+Processing image file: images\minigame\track5.png
+Processing image file: images\auxX.png
+Processing image file: images\RArrowG.png
+Processing image file: images\LArrowG.png
+Processing image file: images\Rarrow.png
+Processing image file: images\Larrow.png
+Processing image file: images\minigame\trackCW.png
+Processing image file: images\minigame\trackCCW.png
+Processing image file: images\minigame\charbgd.png
+Processing image file: images\minigame\playerbg.png
+Processing image file: images\minigame\vehicles\carhom_v.png
+Processing image file: images\minigame\vehicles\bart_v.png
+Processing image file: images\minigame\vehicles\bbman_v.png
+Processing image file: images\minigame\vehicles\bookb_v.png
+Processing image file: images\minigame\vehicles\burns_v.png
+Processing image file: images\minigame\vehicles\apu_v.png
+Processing image file: images\minigame\vehicles\zombi_v.png
+Processing image file: images\minigame\vehicles\cFire_v.png
+Processing image file: images\minigame\vehicles\cCola.png
+Processing image file: images\minigame\vehicles\cCurator.png
+Processing image file: images\minigame\vehicles\cDonut.png
+Processing image file: images\minigame\vehicles\cDuff.png
+Processing image file: images\minigame\vehicles\cArmor.png
+Processing image file: images\minigame\vehicles\comic_v.png
+Processing image file: images\minigame\vehicles\cKlimo.png
+Processing image file: images\minigame\vehicles\cletu_v.png
+Processing image file: images\minigame\vehicles\cLimo.png
+Processing image file: images\minigame\vehicles\cNerd.png
+Processing image file: images\minigame\vehicles\cHears.png
+Processing image file: images\minigame\vehicles\fone_v.png
+Processing image file: images\minigame\vehicles\cSedan.png
+Processing image file: images\minigame\vehicles\cVan.png
+Processing image file: images\minigame\vehicles\elect_v.png
+Processing image file: images\minigame\vehicles\famil_v.png
+Processing image file: images\minigame\vehicles\cPolice.png
+Processing image file: images\minigame\vehicles\krust_v.png
+Processing image file: images\minigame\vehicles\gramp_v.png
+Processing image file: images\minigame\vehicles\hbike_v.png
+Processing image file: images\minigame\vehicles\homer_v.png
+Processing image file: images\minigame\vehicles\honor_v.png
+Processing image file: images\minigame\vehicles\frink_v.png
+Processing image file: images\minigame\vehicles\plowk_v.png
+Processing image file: images\minigame\vehicles\marge_v.png
+Processing image file: images\minigame\vehicles\moe_v.png
+Processing image file: images\minigame\vehicles\mrplo_v.png
+Processing image file: images\minigame\vehicles\otto_v.png
+Processing image file: images\minigame\vehicles\lisa_v.png
+Processing image file: images\minigame\vehicles\willi_v.png
+Processing image file: images\minigame\vehicles\skinn_v.png
+Processing image file: images\minigame\vehicles\smith_v.png
+Processing image file: images\minigame\vehicles\snake_v.png
+Processing image file: images\minigame\vehicles\wiggu_v.png
+Processing image file: images\minigame\vehicles\scorp_v.png
+Processing image file: images\minigame\stars\S5.png
+Processing image file: images\minigame\stars\S1.png
+Processing image file: images\minigame\stars\S2.png
+Processing image file: images\minigame\stars\S3.png
+Processing image file: images\minigame\stars\S4.png
+Processing image file: images\minigame\stars\S0.png
+Processing image file: images\minigame\stars\S9.png
+Processing image file: images\minigame\stars\S7.png
+Processing image file: images\minigame\stars\S8.png
+Processing image file: images\minigame\stars\S6.png
+Processing image file: images\minigame\chars\homer_s.png
+Processing image file: images\minigame\chars\apu_s.png
+Processing image file: images\minigame\chars\bart.png
+Processing image file: images\minigame\chars\bart_s.png
+Processing image file: images\minigame\chars\homer.png
+Processing image file: images\minigame\chars\apu.png
+Processing image file: images\minigame\chars\marge_s.png
+Processing image file: images\minigame\chars\lisa_s.png
+Processing image file: images\minigame\chars\marge.png
+Processing image file: images\minigame\chars\lisa.png
+Processing image file: images\back.png
+Processing image file: images\accept.png
+Processing image file: images\frame\frame_b.png
+Processing image file: images\frame\frame_bl.png
+Processing image file: images\frame\frame_br.png
+Processing image file: images\frame\frame_l.png
+Processing image file: images\frame\frame_r.png
+Processing image file: images\frame\frame_t.png
+Processing image file: images\frame\frame_tl.png
+Processing image file: images\frame\frame_tr.png
+Processing image file: images\minigame\faces\b_mad.png
+Processing image file: images\minigame\faces\a_mad.png
+Processing image file: images\minigame\faces\a_normal.png
+Processing image file: images\minigame\faces\a_sad.png
+Processing image file: images\minigame\faces\b_happy.png
+Processing image file: images\minigame\faces\a_happy.png
+Processing image file: images\minigame\faces\h_sad.png
+Processing image file: images\minigame\faces\b_sad.png
+Processing image file: images\minigame\faces\h_happy.png
+Processing image file: images\minigame\faces\h_mad.png
+Processing image file: images\minigame\faces\h_normal.png
+Processing image file: images\minigame\faces\b_normal.png
+Processing image file: images\minigame\faces\m_mad.png
+Processing image file: images\minigame\faces\l_mad.png
+Processing image file: images\minigame\faces\l_normal.png
+Processing image file: images\minigame\faces\l_sad.png
+Processing image file: images\minigame\faces\m_happy.png
+Processing image file: images\minigame\faces\l_happy.png
+Processing image file: images\minigame\faces\m_sad.png
+Processing image file: images\minigame\faces\m_normal.png
+Processing image file: images\minigame\kingicon.png
+Processing image file: images\error.png
+Copying font file: fonts\font0_16.p3d
+        1 file(s) copied.
+Copying font file: fonts\font1_14.p3d
+        1 file(s) copied.
+
+*** Extracting resource files for ingame.prj
+Processing image file: images\action.png
+Processing image file: images\hud\damage.png
+Processing image file: images\hud\walkie.png
+Processing image file: images\cards\db\_stubs\card00_t.png
+Processing image file: images\cards\db\_stubs\card01_t.png
+Processing image file: images\cards\db\_stubs\card02_t.png
+Processing image file: images\cards\db\_stubs\card03_t.png
+Processing image file: images\cards\db\_stubs\card04_t.png
+Processing image file: images\cards\db\_stubs\card05_t.png
+Processing image file: images\cards\db\_stubs\card06_t.png
+Processing image file: images\cards\db\_stubs\card07_t.png
+Processing image file: images\cards\db\_stubs\card08_t.png
+Processing image file: images\cards\db\_stubs\card09_t.png
+Processing image file: images\cards\db\_stubs\card10_t.png
+Processing image file: images\cards\db\_stubs\card11_t.png
+Processing image file: images\cards\db\_stubs\card12_t.png
+Processing image file: images\cards\db\_stubs\card13_t.png
+Processing image file: images\cards\db\_stubs\card14_t.png
+Processing image file: images\cards\db\_stubs\card15_t.png
+Processing image file: images\cards\db\_stubs\card16_t.png
+Processing image file: images\cards\db\_stubs\card17_t.png
+Processing image file: images\cards\db\_stubs\card18_t.png
+Processing image file: images\cards\db\_stubs\card19_t.png
+Processing image file: images\cards\db\_stubs\card20_t.png
+Processing image file: images\cards\db\_stubs\card21_t.png
+Processing image file: images\cards\db\_stubs\card22_t.png
+Processing image file: images\cards\db\_stubs\card23_t.png
+Processing image file: images\cards\db\_stubs\card24_t.png
+Processing image file: images\cards\db\_stubs\card25_t.png
+Processing image file: images\cards\db\_stubs\card26_t.png
+Processing image file: images\cards\db\_stubs\card27_t.png
+Processing image file: images\cards\db\_stubs\card28_t.png
+Processing image file: images\cards\db\_stubs\card29_t.png
+Processing image file: images\cards\db\_stubs\card30_t.png
+Processing image file: images\cards\db\_stubs\card31_t.png
+Processing image file: images\cards\db\_stubs\card32_t.png
+Processing image file: images\cards\db\_stubs\card33_t.png
+Processing image file: images\cards\db\_stubs\card34_t.png
+Processing image file: images\cards\db\_stubs\card35_t.png
+Processing image file: images\cards\db\_stubs\card36_t.png
+Processing image file: images\cards\db\_stubs\card37_t.png
+Processing image file: images\cards\db\_stubs\card38_t.png
+Processing image file: images\cards\db\_stubs\card39_t.png
+Processing image file: images\cards\db\_stubs\card40_t.png
+Processing image file: images\cards\db\_stubs\card41_t.png
+Processing image file: images\cards\db\_stubs\card42_t.png
+Processing image file: images\cards\db\_stubs\card43_t.png
+Processing image file: images\cards\db\_stubs\card44_t.png
+Processing image file: images\cards\db\_stubs\card45_t.png
+Processing image file: images\cards\db\_stubs\card46_t.png
+Processing image file: images\cards\db\_stubs\card47_t.png
+Processing image file: images\cards\db\_stubs\card48_t.png
+Processing image file: images\cards\db\_stubs\card49_t.png
+Processing image file: images\cards\db\_stubs\card50_t.png
+Processing image file: images\cards\db\_stubs\card51_t.png
+Processing image file: images\cards\db\_stubs\card52_t.png
+Processing image file: images\cards\db\_stubs\card53_t.png
+Processing image file: images\cards\db\_stubs\card54_t.png
+Processing image file: images\cards\db\_stubs\card55_t.png
+Processing image file: images\hud\helptext.png
+Processing image file: images\hud\mapicons\user.png
+Processing image file: images\hud\mapicons\mission.png
+Processing image file: images\hud\mapicons\aicar.png
+Processing image file: images\hud\mapicons\collect.png
+Processing image file: images\hud\mapicons\checker.png
+Processing image file: images\hud\mapicons\blueflag.png
+Processing image file: images\hud\hitnrun\radar.png
+Processing image file: images\hud\hitnrun\radartop.png
+Processing image file: images\hud\hitnrun\hrsector.png
+Processing image file: images\hud\hitnrun\hitnrun1.png
+Processing image file: images\hud\hitnrun\hitnrun0.png
+Processing image file: images\dot.png
+Processing image file: images\letters\space.png
+Processing image file: images\letters\colon.png
+Processing image file: images\letters\comma.png
+Processing image file: images\letters\hyphen.png
+Processing image file: images\letters\exclamation.png
+Processing image file: images\letters\money.png
+Processing image file: images\letters\period.png
+Processing image file: images\letters\exclamation-inverted.png
+Processing image file: images\letters\question.png
+Processing image file: images\letters\yquestion.png
+Processing image file: images\letters\slash.png
+Processing image file: images\letters\0.png
+Processing image file: images\letters\1.png
+Processing image file: images\letters\2.png
+Processing image file: images\letters\3.png
+Processing image file: images\letters\4.png
+Processing image file: images\letters\5.png
+Processing image file: images\letters\6.png
+Processing image file: images\letters\7.png
+Processing image file: images\letters\8.png
+Processing image file: images\letters\9.png
+Processing image file: images\letters\letterA.png
+Processing image file: images\letters\letterB.png
+Processing image file: images\letters\letterC.png
+Processing image file: images\letters\letterD.png
+Processing image file: images\letters\letterE.png
+Processing image file: images\letters\letterF.png
+Processing image file: images\letters\letterG.png
+Processing image file: images\letters\letterH.png
+Processing image file: images\letters\letterI.png
+Processing image file: images\letters\letterJ.png
+Processing image file: images\letters\letterK.png
+Processing image file: images\letters\letterL.png
+Processing image file: images\letters\letterM.png
+Processing image file: images\letters\letterN.png
+Processing image file: images\letters\letterO.png
+Processing image file: images\letters\letterP.png
+Processing image file: images\letters\letterQ.png
+Processing image file: images\letters\letterR.png
+Processing image file: images\letters\letterS.png
+Processing image file: images\letters\letterT.png
+Processing image file: images\letters\letterU.png
+Processing image file: images\letters\letterV.png
+Processing image file: images\letters\letterW.png
+Processing image file: images\letters\letterX.png
+Processing image file: images\letters\letterY.png
+Processing image file: images\letters\letterZ.png
+Processing image file: images\letters\extended\A_Diaeresis.png
+Processing image file: images\letters\extended\A_Grave.png
+Could not open resource\images\letters\extended\A_Grave.png
+Processing image file: images\letters\extended\E_Acute.png
+Processing image file: images\letters\extended\E_Circumflex.png
+Processing image file: images\letters\extended\I_Acute.png
+Processing image file: images\letters\extended\N_Tilde.png
+Processing image file: images\letters\extended\O_Acute.png
+Processing image file: images\letters\extended\O_Diaereris.png
+Processing image file: images\letters\extended\S_Sharp.png
+Processing image file: images\letters\extended\U_Acute.png
+Processing image file: images\letters\extended\U_Diaeresis.png
+Processing image file: images\but_dpad.png
+Processing image file: images\but_lths.png
+Processing image file: images\but_rths.png
+Processing image file: images\but_actn.png
+Processing image file: images\but_jump.png
+Processing image file: images\but_kick.png
+Processing image file: images\but_run.png
+Processing image file: images\but_gas.png
+Processing image file: images\but_brak.png
+Processing image file: images\but_hand.png
+Processing image file: images\hud\hitnrun\hrticket.png
+Processing image file: images\hud\hitnrun\hitnrun2.png
+Processing image file: images\hud\hitnrun\hrmetter.png
+Processing image file: images\hud\greybar.png
+Processing image file: images\hud\mapicons\dice.png
+Processing image file: images\hud\mapicons\bonus.png
+Processing image file: images\hud\mapicons\dollar.png
+Processing image file: images\hud\mapicons\phone.png
+Processing image file: images\accept.png
+Processing image file: images\back.png
+Processing image file: images\missionloading\Clip.png
+Processing image file: images\missionloading\clipright.png
+Processing image file: images\missionloading\F_UpPiece.png
+Processing image file: images\missionloading\F_downPiece.png
+Processing image file: images\missionloading\F_leftPiece.png
+Processing image file: images\missionloading\F_rightPiece.png
+Processing image file: images\missionloading\corner1.png
+Processing image file: images\missionloading\corner2.png
+Processing image file: images\missionloading\corner3.png
+Processing image file: images\missionloading\corner4.png
+Processing image file: images\missionloading\checkflag.png
+Processing image file: images\missionloading\cliparm.png
+Processing image file: images\coins.png
+Processing image file: images\letters\extended\A_Grave.png
+Could not open resource\images\letters\extended\A_Grave.png
+Processing image file: images\rewards\carstar.png
+Processing image file: images\rewards\Larrow1.png
+Processing image file: images\rewards\Rarrow0.png
+Processing image file: images\rewards\Rarrow1.png
+Processing image file: images\rewards\Larrow0.png
+Processing image file: images\auxX.png
+Processing image file: images\rewards\lock.png
+Processing image file: images\frame\frame_tr.png
+Processing image file: images\frame\frame_bl.png
+Processing image file: images\frame\frame_br.png
+Processing image file: images\frame\frame_l.png
+Processing image file: images\frame\frame_r.png
+Processing image file: images\frame\frame_t.png
+Processing image file: images\frame\frame_tl.png
+Processing image file: images\frame\frame_b.png
+Processing image file: images\rewards\husk.png
+Processing image file: images\rewards\greystar.png
+Processing image file: images\rewards\pbglow.png
+Processing image file: images\rewards\halfstar.png
+Processing image file: images\letters\extended\A_Grave.png
+Could not open resource\images\letters\extended\A_Grave.png
+Processing image file: images\cards\cardyell.png
+Processing image file: images\cards\frame.png
+Processing image file: images\cards\cardgrey.png
+Processing image file: images\cards\icons\qmarge.png
+Processing image file: images\cards\icons\qhomer.png
+Processing image file: images\cards\icons\qcarl.png
+Processing image file: images\cards\icons\qapu.png
+Processing image file: images\cards\icons\qbart.png
+Processing image file: images\cards\icons\qbrockmn.png
+Processing image file: images\cards\icons\qburns.png
+Processing image file: images\cards\icons\qannounc.png
+Processing image file: images\cards\icons\qchild.png
+Processing image file: images\cards\icons\qdrwolff.png
+Processing image file: images\cards\icons\qgil.png
+Processing image file: images\cards\icons\qjasper.png
+Processing image file: images\cards\icons\qjimbo.png
+Processing image file: images\cards\icons\qmanjula.png
+Processing image file: images\cards\icons\qkrusty.png
+Processing image file: images\cards\icons\qlenny.png
+Processing image file: images\cards\icons\qlisa.png
+Processing image file: images\cards\icons\qmaggie.png
+Processing image file: images\cards\icons\qkang.png
+Processing image file: images\cards\icons\qphoto.png
+Processing image file: images\cards\icons\qmilhous.png
+Processing image file: images\cards\icons\qmother.png
+Processing image file: images\cards\icons\qotto.png
+Processing image file: images\cards\icons\qmeyerjr.png
+Processing image file: images\cards\icons\qwillie.png
+Processing image file: images\cards\icons\qskinner.png
+Processing image file: images\cards\icons\qsmither.png
+Processing image file: images\cards\icons\qsparlke.png
+Processing image file: images\cards\icons\qstacy.png
+Processing image file: images\cards\icons\qwiggum.png
+Processing image file: images\cards\icons\qralph.png
+Processing image file: images\Larrow.png
+Processing image file: images\LArrowG.png
+Processing image file: images\Rarrow.png
+Processing image file: images\RArrowG.png
+Processing image file: images\sound\voice.png
+Processing image file: images\sound\effects.png
+Processing image file: images\sound\music.png
+Processing image file: images\sound\slider_g.png
+Processing image file: images\sound\slider_p.png
+Processing image file: images\sound\nosound.png
+Processing image file: images\icons\check.png
+Processing image file: images\icons\cross.png
+Processing image file: images\icons\dash.png
+Processing image file: images\levelbar\levelbar.png
+Processing image file: images\levelbar\redbgd.png
+Processing image file: images\levelbar\greybgd.png
+Processing image file: images\error.png
+Copying font file: fonts\font0_24.p3d
+        1 file(s) copied.
+Copying font file: fonts\font1_14.p3d
+        1 file(s) copied.
+Copying font file: fonts\font0_16.p3d
+        1 file(s) copied.
+Copying font file: fonts\font2_12.p3d
+        1 file(s) copied.
+
+*** Extracting resource files for ingamel1.prj
+Processing image file: images\cards\db\card00_t.png
+Processing image file: images\cards\db\card01_t.png
+Processing image file: images\cards\db\card02_t.png
+Processing image file: images\cards\db\card03_t.png
+Processing image file: images\cards\db\card04_t.png
+Processing image file: images\cards\db\card05_t.png
+Processing image file: images\cards\db\card06_t.png
+Processing image file: images\cards\db\card07_t.png
+
+*** Extracting resource files for ingamel2.prj
+Processing image file: images\cards\db\card08_t.png
+Processing image file: images\cards\db\card09_t.png
+Processing image file: images\cards\db\card10_t.png
+Processing image file: images\cards\db\card11_t.png
+Processing image file: images\cards\db\card12_t.png
+Processing image file: images\cards\db\card13_t.png
+Processing image file: images\cards\db\card14_t.png
+Processing image file: images\cards\db\card15_t.png
+
+*** Extracting resource files for ingamel3.prj
+Processing image file: images\cards\db\card16_t.png
+Processing image file: images\cards\db\card17_t.png
+Processing image file: images\cards\db\card18_t.png
+Processing image file: images\cards\db\card19_t.png
+Processing image file: images\cards\db\card20_t.png
+Processing image file: images\cards\db\card21_t.png
+Processing image file: images\cards\db\card22_t.png
+Processing image file: images\cards\db\card23_t.png
+
+*** Extracting resource files for ingamel4.prj
+Processing image file: images\cards\db\card24_t.png
+Processing image file: images\cards\db\card25_t.png
+Processing image file: images\cards\db\card26_t.png
+Processing image file: images\cards\db\card27_t.png
+Processing image file: images\cards\db\card28_t.png
+Processing image file: images\cards\db\card29_t.png
+Processing image file: images\cards\db\card30_t.png
+Processing image file: images\cards\db\card31_t.png
+
+*** Extracting resource files for ingamel5.prj
+Processing image file: images\cards\db\card32_t.png
+Processing image file: images\cards\db\card33_t.png
+Processing image file: images\cards\db\card34_t.png
+Processing image file: images\cards\db\card35_t.png
+Processing image file: images\cards\db\card36_t.png
+Processing image file: images\cards\db\card37_t.png
+Processing image file: images\cards\db\card38_t.png
+Processing image file: images\cards\db\card39_t.png
+
+*** Extracting resource files for ingamel6.prj
+Processing image file: images\cards\db\card40_t.png
+Processing image file: images\cards\db\card41_t.png
+Processing image file: images\cards\db\card42_t.png
+Processing image file: images\cards\db\card43_t.png
+Processing image file: images\cards\db\card44_t.png
+Processing image file: images\cards\db\card45_t.png
+Processing image file: images\cards\db\card46_t.png
+Processing image file: images\cards\db\card47_t.png
+
+*** Extracting resource files for ingamel7.prj
+Processing image file: images\cards\db\card48_t.png
+Processing image file: images\cards\db\card49_t.png
+Processing image file: images\cards\db\card50_t.png
+Processing image file: images\cards\db\card51_t.png
+Processing image file: images\cards\db\card52_t.png
+Processing image file: images\cards\db\card53_t.png
+Processing image file: images\cards\db\card54_t.png
+Processing image file: images\cards\db\card55_t.png
+DONE processing project resource files.
+
+[pc]: Joining project resource files ... ...
+.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No MatchCould not open cd\pc\art\frontend\scrooby\resource\language.p3d
+Could not open cd\pc\art\frontend\scrooby\language.p3d
+Could not open cd\pc\art\frontend\scrooby\language.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\bootup.p3d
+Could not open cd\pc\art\frontend\scrooby\bootup.p3d
+Could not open cd\pc\art\frontend\scrooby\bootup.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\backend.p3d
+Could not open cd\pc\art\frontend\scrooby\backend.p3d
+Could not open cd\pc\art\frontend\scrooby\backend.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\frontend.p3d
+Could not open cd\pc\art\frontend\scrooby\frontend.p3d
+Could not open cd\pc\art\frontend\scrooby\frontend.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\minigame.p3d
+Could not open cd\pc\art\frontend\scrooby\minigame.p3d
+Could not open cd\pc\art\frontend\scrooby\minigame.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingame.p3d
+Could not open cd\pc\art\frontend\scrooby\ingame.p3d
+Could not open cd\pc\art\frontend\scrooby\ingame.p3d for writing
+.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No Match.\*.p3d: No MatchCould not open cd\pc\art\frontend\scrooby\resource\ingamel1.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel1.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel1.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingamel2.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel2.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel2.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingamel3.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel3.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel3.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingamel4.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel4.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel4.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingamel5.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel5.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel5.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingamel6.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel6.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel6.p3d for writing
+Could not open cd\pc\art\frontend\scrooby\resource\ingamel7.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel7.p3d
+Could not open cd\pc\art\frontend\scrooby\ingamel7.p3d for writing
+DONE joining project resource files.
+
+[pc]: Finalizing Scrooby project files ... ...
+.\*.p3d: No MatchDONE finalizing Scrooby project files.
+
+[pc]: Cleaning Scrooby CD folder ... ...
+0 File(s) copied
+The system cannot find the path specified.
+DONE cleaning Scrooby CD folder.
+
+-----
+---------- Finished building Simpsons2 FrontEnd for PC ----------
+-----
+<<  END  >> DONE building FE - Scrooby for [pc].
+

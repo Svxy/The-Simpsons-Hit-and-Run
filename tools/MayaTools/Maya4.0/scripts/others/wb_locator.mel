@@ -1,0 +1,71 @@
+global float $gWB_Offset = 0;
+
+global proc wb_BCB_CreateLocator( string $type )
+{
+    //Start the Locator context...
+    if ( ! `contextInfo -exists LocatorCtx` ) 
+    {
+        LocatorContext LocatorCtx;
+    }
+
+    WB_SetLocatorType($type);
+
+    setToolTo LocatorCtx;
+}
+
+global proc wb_MCB_SnapLocatorOptions()
+{
+    global float $gWB_Offset;
+
+    if ( `window -exists wb_OptionWindow` ) deleteUI wb_OptionWindow;
+
+    window -title "Snap Locator Options" wb_OptionWindow;
+
+    columnLayout;
+
+        rowLayout -nc 2;
+
+            text -label "Offset (M):";
+
+            floatField -min -10.0 -max 10.0 -value $gWB_Offset -cc ("$gWB_Offset = #1");
+
+        setParent ..;
+
+        button -label "snap locator" -command "WB_SnapLocator( $gWB_Offset )";
+
+    setParent ..;
+
+    showWindow;
+}
+
+global proc wb_BCB_AttachTriggers( string $name, int $isVisibler )
+{
+	global int $gIsItVisibler;
+
+	$gIsItVisibler = $isVisibler;
+
+    //Start the Trigger context...
+    if ( ! `contextInfo -exists TriggerCtx` ) 
+    {
+        TriggerContext TriggerCtx;
+    }
+
+    select $name;
+
+    WB_SelectObject( $name );
+
+    setToolTo TriggerCtx;
+}
+
+global proc wb_LocatorCleanup()
+{
+    if ( `contextInfo -exists LocatorCtx` )
+    {
+        deleteUI -tc LocatorCtx;
+    }
+
+    if ( `contextInfo -exists TriggerCtx` )
+    {
+        deleteUI -tc TriggerCtx;
+    }
+}

@@ -1,0 +1,164 @@
+SelectMission("bm1");
+
+SetMissionResetPlayerInCar("bm1_carstart");
+SetDynaLoadData("l2z3.p3d;l2r2.p3d;l2r3.p3d;");
+
+UsePedGroup(4);
+AddStage(3);
+	SetPresentationBitmap( "art/frontend/dynaload/images/mis02_08.p3d" );
+	RESET_TO_HERE();
+	SetMaxTraffic(5);
+	SetStageMessageIndex(114);
+	SetHUDIcon( "blood" );
+	SetStageTime(30);
+	AddObjective("goto");
+		TurnGotoDialogOff();
+		SetDestination("bm1_blood_locator","bloodbag");
+	CloseObjective();
+	AddCondition("timeout");
+	CloseCondition();
+	SetCompletionDialog("vampire");
+CloseStage();
+
+AddStage(0);
+	AddStageTime(20);
+	SetStageMessageIndex(165);
+	SetHUDIcon( "moes" );
+	AddObjective("goto");
+		SetDestination("bm_moes", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddSafeZone("bm2_moes_door", 30);
+	CloseObjective();
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage(1);
+	SetHUDIcon( "moes" );
+	SetStageMessageIndex(52);
+	AddObjective("interior");
+		SetDestination("moe1", "moes_mission_doorstar"); // use name of interiors entry locator
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetHUDIcon( "moe" );
+	SetStageMessageIndex(83);
+	AddObjective("talkto");
+		AddNPC("moe","bm2_moe", moe1);
+		SetTalkToTarget("moe", 0, 0, "3.0"); // 0 - eclamation, 1 is gift, with optional height offset
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddStageTime(0);
+	AddObjective("dialogue");
+		SetDialogueInfo("bart","moe","goat",0);
+		//AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		//AmbientAnimationRandomize( 0, 0 );
+		//AddAmbientNpcAnimation( "none" );
+		//AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		//AddAmbientPcAnimation( "dialogue_open_arm_hand_gesture" );
+		//AddAmbientPcAnimation( "dialogue_yes" );
+		//SetConversationCam( 3, "pc_far" );
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	SetStageMessageIndex(143);
+	SetHUDIcon( "blood" );
+	//AddStageTime(0);
+	ShowStageComplete();
+	AddObjective("goto");
+		SetDestination("bm1_blood_locator2","i_bldbag");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetMaxTraffic(5);
+	SetStageMessageIndex(171);
+	SetHUDIcon( "kburger" );
+	SetStageMusicAlwaysOn();
+	AddObjective("goto");
+		AddNPC("teen","bm2_svt");
+		SetDestination("bm_krustyburger", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddSafeZone("bm2_svt", 30);
+	CloseObjective();
+	SetStageTime(30);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+	
+AddStage(0);
+	SetStageMessageIndex(175);
+	SetHUDIcon( "svt" );
+	AddObjective("talkto");
+		AddNPC("teen","bm2_svt");
+		SetTalkToTarget("teen", 0, 0); // 0 - eclamation, 1 is gift, with optional hieight offset
+		AddSafeZone("bm2_svt", 30);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddStageTime(0);
+	AddObjective("dialogue");
+		SetDialogueInfo("bart","teen","fries",0);
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	ShowStageComplete();
+	SetStageMessageIndex(143);
+	SetHUDIcon( "blood" );
+	AddObjective("goto");
+		SetDestination("bm1_blood_locator3","bloodbag");
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(12);
+	AddObjective("getin", "neither");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(3);
+	SetStageMessageIndex(32);
+	SetHUDIcon( "grampa" );
+	AddObjective("goto");
+		SetDestination("bm_end", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	SetStageTime(60);
+	AddCondition("timeout");
+	CloseCondition();
+	SetStageMusicAlwaysOn();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(29);
+	SetHUDIcon( "grampa" );
+	AddSafeZone("bm1_grampa_sd", 30);
+	SetStageMusicAlwaysOn();
+	AddObjective("talkto");
+		//AddNPC("grandpa","bm1_grampa_sd"); // do not need this because we are calling grandpa
+		SetTalkToTarget("grandpa", 0, 0); // 0 - eclamation, 1 is gift, with optional hieight offset
+	CloseObjective();
+CloseStage();
+
+AddStage(final);
+	AddStageTime(0);
+	AddObjective("dialogue");
+		SetDialogueInfo("bart","grandpa","warm",0);
+	CloseObjective();
+CloseStage();
+
+CloseMission();

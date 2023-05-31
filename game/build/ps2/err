@@ -1,0 +1,102 @@
+Dependencies: allingame.cpp
+Updating choreo library ...
+----------------------------
+Compile Done : [choreo PS2EE DEBUG]
+Link Done : [choreo PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating sim library ...
+----------------------------
+Compile Done : [sim PS2EE DEBUG]
+Link Done : [sim PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating poser library ...
+----------------------------
+Compile Done : [poser PS2EE DEBUG]
+Link Done : [poser PS2EE DEBUG]
+------------------------------------------------------------------------------
+Updating Scrooby library ...
+----------------------------
+Compile Done : [scrooby PS2EE DEBUG]
+Link Done : [scrooby PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating pure3d library ...
+----------------------------
+Compile Done : [pure3d PS2EE DEBUG]
+Link Done : [pure3d PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating pddi library ...
+----------------------------
+Compile Done : [pddi PS2EE DEBUG]
+Link Done : [pddi PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating png library ...
+----------------------------
+Compile Done : [png PS2EE DEBUG]
+Link Done : [png PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating zlib library ...
+----------------------------
+Compile Done : [zlib PS2EE DEBUG]
+Link Done : [zlib PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating radmath library ...
+----------------------------
+Compile Done : [radmath PS2EE DEBUG]
+Link Done : [radmath PS2EE DEBUG]
+------------------------------------------------------------------------------
+Updating radmusic library ...
+-----------------------------
+Compile Done : [radmusic PS2EE DEBUG]
+Link Done : [radmusic PS2EE DEBUG]
+------------------------------------------------------------------------------
+Updating radsound library ...
+-----------------------------
+Compile Done : [radsound PS2EE DEBUG]
+Link Done : [radsound PS2EE DEBUG]
+------------------------------------------------------------------------------
+Updating radscript library ...
+------------------------------
+Compile Done : [radscript PS2EE DEBUG]
+Link Done : [radscript PS2EE DEBUG]
+------------------------------------------------------------------------------
+Updating radmovie library ...
+-----------------------------
+Compile Done : [radmovie PS2EE DEBUG]
+Link Done : [radmovie PS2EE DEBUG]
+------------------------------------------------------------------------------
+----------------------------
+Updating radcore library ...
+----------------------------
+Compile Done : [radcore PS2EE DEBUG]
+Link Done : [radcore PS2EE DEBUG]
+------------------------------------------------------------------------------
+Updating radcontent library ...
+----------------------------
+Compile Done : [radcontent PS2EE DEBUG]
+Link Done : [radcontent PS2EE DEBUG]
+------------------------------------------------------------------------------
+Compiling: allingame.cpp
+Compiling: allhudevents.cpp
+Compiling: allutility.cpp
+Compiling: alldsg.cpp
+Compiling: allrendermanager.cpp
+Compiling: allmovingposn.cpp
+Compiling: allworldsim.cpp
+Compiling: allcharacter.cpp
+Compiling: allredbrick.cpp
+Compiling: allvehiclecontroller.cpp
+Compiling: allparkedcars.cpp
+Compiling: allsupersprintctx.cpp
+Compiling: allsupersprint.cpp
+Compile Done : [srr2 PS2EE DEBUG]
+Removing Old Executable: srr2pd.elf
+Creating New Executable: srr2pd.elf
+Link Done : [srr2 PS2EE DEBUG]
+------------------------------------------------------------------------------

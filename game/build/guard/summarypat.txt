@@ -1,0 +1,6 @@
+'warning '
+Error
+'error '
+\*\*\*
+Stop
+'\'devenv\' is not recognized'

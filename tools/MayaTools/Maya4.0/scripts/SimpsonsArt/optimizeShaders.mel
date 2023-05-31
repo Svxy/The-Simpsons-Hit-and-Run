@@ -1,0 +1,1046 @@
+//===========================================================================
+// Copyright ©2002 Radical Entertainment Ltd.  All rights reserved.
+//
+// Created:     17 April, 2002
+//
+// Component:   optimizeShaders.mel
+//
+// Description: Sorts file textures by their '.fileTextureName' attributes,
+//              and for those whose input file matches compares all input
+//              attributes to see if they can be considered equivalent.
+//              Equivalent file textures are "merged" so one serves the
+//              duties previously served by both.
+//
+//              Materials and Shading Groups are evaluated and optimized
+//              in similar fashion.
+//
+// Constraints: 
+//
+// Creator:     Bryan Ewert
+//
+//===========================================================================
+
+
+//===========================================================================
+// version
+//===========================================================================
+// Description: Returns the current version for this MEL script.
+//              Used for version control.
+//
+// Constraints: Used with assertCurrent().
+//
+//===========================================================================
+proc float version()
+{
+    return ( 1.1 );
+}
+
+// ////////////////////////////////////////////////////////////////
+//  rootNode
+//
+// Description: Strips the dot-suffix of the specified string.
+//  e.g. "object.attribute" is returned as "object"
+proc string rootNode( string $object )
+{
+    string $buffer[];
+    tokenize $object "." $buffer;
+    return $buffer[0];
+}
+
+//===========================================================================
+// hasInput
+//===========================================================================
+// Description: Returns TRUE if specified attribute has an input connection.
+//
+// Constraints: 
+//
+//  Parameters: string $node: The node.
+//              string $attr: The attribute.
+//
+//      Return: TRUE if specified attribute has an input connection;
+//              else FALSE.
+//
+//===========================================================================
+proc int hasInput( string $node, string $attr )
+{
+    int $hasInput = false;
+    if ( `attributeQuery -node $node -exists $attr` )
+    {
+        string $c[] = `listConnections -d false -s true ( $node + "." + $attr )`;
+        $hasInput = ( $c[0] != "" );
+    }
+    return $hasInput;
+}
+
+//===========================================================================
+// isMinorType
+//===========================================================================
+// Description: Compares the type of the specified node against those in
+//              a static list.  If the type matches it is considered a 
+//              minor type.  This is used to determine the "significance"
+//              of a connection to a node.  If a node's connections serve
+//              only nodes of these types then it is assumed that the node
+//              may be safely deleted without impacting scene requirements.
+//
+// Constraints: 
+//
+//  Parameters: string $node: The node to evaluate.
+//
+//      Return: (int): TRUE if specified node is a minor type; else FALSE.
+//
+//===========================================================================
+proc int isMinorType( string $node )
+{
+    int $isMinorType = false;
+    
+    string $minorNodeTypes[] = 
+    {
+        "defaultLightList",
+        "defaultRenderUtilityList",
+        "defaultShaderList",
+        "defaultTextureList",
+        "lightLinker",
+        "materialInfo",
+        "partition"
+    };
+
+    string $nodeType = `nodeType $node`;
+    
+    for ( $minor in $minorNodeTypes )
+    {
+        if ( $minor == $nodeType )
+        {
+            $isMinorType = true;
+            break;
+        }
+    }
+    
+    return $isMinorType;
+}
+
+//===========================================================================
+// hasOnlyMinorOutputConnections
+//===========================================================================
+// Description: Considers all output connections from the specified node
+//              and determines if all of them may be considered "minor."
+//              A minor connection is one which serves only the node in
+//              question and not other parts of the scene.  If a node 
+//              provides no connections to other significant nodes in the
+//              scene it may be considered safe to delete without impacting
+//              scene requirements.
+//
+// Constraints: 
+//
+//  Parameters: string $node: The node to evaluate.
+//
+//      Return: (int): TRUE if all output connections are minor, or if node
+//                     has no output connections; FALSE if at least one
+//                     non-minor connection exists.
+//
+//===========================================================================
+proc int hasOnlyMinorOutputConnections( string $node )
+{
+    int $onlyMinorTypes = true;
+    
+    string $outputs[] = `listConnections -s false -d true $node`;
+    for ( $c in $outputs )
+    {
+        if ( !isMinorType( $c ) )
+        {
+            $onlyMinorTypes = false;
+            break;
+        }
+    }
+    
+    return $onlyMinorTypes;
+}
+
+//===========================================================================
+// safeDelete
+//===========================================================================
+// Description: Deletes the specified node _only_ if it is considered to have
+//              little impact on the scene.
+//
+//              All nodes providing input connections to the specified node 
+//              are evaluated in iterative fashion.
+//
+// Constraints: 
+//
+//  Parameters: string $node: The node that will be deleted.
+//
+//      Return: (none)
+//
+//===========================================================================
+proc safeDelete( string $node )
+{
+    if ( `objExists $node` )
+    {
+        string $inputs[] = `listConnections -s true -d false $node`;
+
+        if ( hasOnlyMinorOutputConnections( $node ) )
+        {
+            delete $node;
+        }
+        
+        for ( $i in $inputs )
+        {
+            safeDelete( $i );
+        }
+    }
+}
+
+//===========================================================================
+// compareInt
+//===========================================================================
+// Description: Performs an integer comparison for one attribute on 
+//              two nodes.
+//
+// Constraints: This handles all "int" relatives; e.g. enum, short, bool.
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareInt( string $node1, string $node2, string $attr )
+{
+    int $i1 = `getAttr ( $node1 + "." + $attr )`;
+    int $i2 = `getAttr ( $node2 + "." + $attr )`;
+    return ( $i1 == $i2 );
+}
+
+//===========================================================================
+// compareFloat
+//===========================================================================
+// Description: Performs a float comparison for one attribute on 
+//              two nodes.
+//
+// Constraints: This handles all "float" relatives; e.g. doubleAngle
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareFloat( string $node1, string $node2, string $attr )
+{
+    float $f1 = `getAttr ( $node1 + "." + $attr )`;
+    float $f2 = `getAttr ( $node2 + "." + $attr )`;
+    return ( $f1 == $f2 );
+}
+
+//===========================================================================
+// compareFloat2
+//===========================================================================
+// Description: Performs a float2 comparison (i.e. array of two floats)
+//              for one attribute on two nodes.
+//
+// Constraints: 
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareFloat2( string $node1, string $node2, string $attr )
+{
+    float $f1[2] = `getAttr ( $node1 + "." + $attr )`;
+    float $f2[2] = `getAttr ( $node2 + "." + $attr )`;
+    return ( ( $f1[0] == $f2[0] ) && ( $f1[1] == $f2[1] ) );
+}
+
+//===========================================================================
+// compareFloat3
+//===========================================================================
+// Description: Performs a vector comparison for one attribute on 
+//              two nodes.  This would commonly be used to compare 
+//              color attributes.
+//
+// Constraints: 
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareFloat3( string $node1, string $node2, string $attr )
+{
+    float $f1[3] = `getAttr ( $node1 + "." + $attr )`;
+    float $f2[3] = `getAttr ( $node2 + "." + $attr )`;
+    return ( ( $f1[0] == $f2[0] ) && ( $f1[1] == $f2[1] ) && ( $f1[2] == $f2[2] ) );
+}
+
+//===========================================================================
+// compareString
+//===========================================================================
+// Description: Performs a string comparison for one attribute on 
+//              two nodes.
+//
+// Constraints: 
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareString( string $node1, string $node2, string $attr )
+{
+    string $s1 = `getAttr ( $node1 + "." + $attr )`;
+    string $s2 = `getAttr ( $node1 + "." + $attr )`;
+    return ( $s1 == $s2 );
+}
+
+//===========================================================================
+// compareConnections
+//===========================================================================
+// Description: Compares the connections for one attribute on two nodes.
+//              
+//              If neither attribute is connected, the attributes match.
+//
+//              If one attribute is connected but the other is not, then
+//              the attributes do not match.
+//
+//              If both attributes are connected there is a match only if
+//              both connections are to the same node.
+//
+// Constraints: 
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareConnections( string $node1, string $node2, string $attr )
+{
+    // If neither has this attribute, consider it a match.
+    if ( !`attributeQuery -node $node1 -exists $attr` && !`attributeQuery -node $node2 -exists $attr` )
+    {
+        return true;
+    }
+
+    // If one has the attribute, but the other doesn't, no match.
+    if ( 
+         (  `attributeQuery -node $node1 -exists $attr` && !`attributeQuery -node $node2 -exists $attr` ) || 
+         ( !`attributeQuery -node $node1 -exists $attr` &&  `attributeQuery -node $node2 -exists $attr` ) 
+       )
+    {
+        return false;
+    }
+    
+    string $c1[] = `listConnections -d false -s true ( $node1 + "." + $attr )`;
+    string $c2[] = `listConnections -d false -s true ( $node2 + "." + $attr )`;
+    
+    // TRUE if neither or connected, or both are connected to the same node.
+    return ( $c1[0] == $c2[0] );
+}
+
+//===========================================================================
+// compareAttributes
+//===========================================================================
+// Description: Compares the value for one attribute on two nodes.
+//              The attribute type is used to determine the type of 
+//              comparison performed.  The attribute must exist on both 
+//              nodes, and the attribute type must be the same for both 
+//              nodes, else the two do not match.
+//
+// Constraints: 
+//
+//  Parameters: string $node1: The first node.
+//              string $node2: The second node.
+//              string $attr: The attribute for both nodes which is compared.
+//
+//      Return: (int): TRUE if attributes match; else FALSE.
+//
+//===========================================================================
+proc int compareAttributes( string $node1, string $node2, string $attr )
+{
+    int $isEqual = true;
+
+    // If neither has this attribute, consider it a match.
+    if ( !`attributeQuery -node $node1 -exists $attr` && !`attributeQuery -node $node2 -exists $attr` )
+    {
+        // Some objects have different attributes than others (e.g. lambert and layered shaders)
+//        warning( "! Attributes don't exist in compareAttributes( " + $node1 + ", " + $node2 + " ) !" );
+        return true;
+    }
+
+    // If one has the attribute, but the other doesn't, no match.
+    if ( 
+         (  `attributeQuery -node $node1 -exists $attr` && !`attributeQuery -node $node2 -exists $attr` ) || 
+         ( !`attributeQuery -node $node1 -exists $attr` &&  `attributeQuery -node $node2 -exists $attr` ) 
+       )
+    {
+        // This would be a bug.  The script should take care that this will not happen.
+        warning( "! Attribute mismatch in compareAttributes( " + $node1 + ", " + $node2 + " ) !" );
+        return false;
+    }
+    
+    // If one is connected but the other isn't, don't consider them equal.    
+    if ( (  hasInput( $node1, $attr ) && !hasInput( $node2, $attr ) ) ||
+         ( !hasInput( $node1, $attr ) &&  hasInput( $node2, $attr ) )
+       )
+    {
+//        warning( "! Connection mismatch in compareAttributes( " + $node1 + ", " + $node2 + " ) !" );
+        return false;
+    }
+    
+    string $attrType1 = `getAttr -type ( $node1 + "." + $attr )`;
+    string $attrType2 = `getAttr -type ( $node2 + "." + $attr )`;
+    
+    if ( $attrType1 != $attrType2 ) return false;
+    
+    switch ( $attrType1 )
+    {
+        case "bool":
+        case "enum":
+        case "short":
+        {
+            $isEqual = compareInt( $node1, $node2, $attr );
+            break;
+        }
+        case "doubleAngle":
+        case "float":
+        {
+            $isEqual = compareFloat( $node1, $node2, $attr );
+            break;
+        }
+        case "float2":
+        {
+            $isEqual = compareFloat2( $node1, $node2, $attr );
+            break;
+        }
+        case "float3":
+        {
+            // As if this will work... likely a colour attribute and 
+            // this will just compare black to black.
+            $isEqual = compareFloat3( $node1, $node2, $attr );
+            break;
+        }
+        case "string":
+        {
+            $isEqual = compareString( $node1, $node2, $attr );
+            break;
+        }
+        default:
+        {
+            error ( "Unsupported attribute type: " + $attrType1 );
+            break;
+        }
+    }
+    
+    return $isEqual;
+}
+
+//===========================================================================
+// mergeShadingGroup
+//===========================================================================
+// Description: The two Shading Groups have been deemed to be equal.
+//              The members for the latter are assigned to the former and
+//              the latter is deleted from the scene.
+//
+// Constraints: 
+//
+//  Parameters: string $sg1: The Shading Group to keep.
+//              string $sg2: The Shading Group to discard.
+//
+//      Return: (none)
+//
+//===========================================================================
+proc mergeShadingGroup( string $sg1, string $sg2 )
+{
+    string $members[] = `sets -q $sg2`;
+    if ( `size $members` > 0 )  // just to avert useless Maya warning
+    {
+        sets -forceElement $sg1 $members;
+    }
+    safeDelete( $sg2 );
+}
+
+//===========================================================================
+// compareShadingGroups
+//===========================================================================
+// Description: Compares the connections and attributes for two specified
+//              Shading Groups and evaluates if they can be considered
+//              equivalent.  If equivalent, the two are merged.
+//
+// Constraints: If the two Shading Groups are equal, $sg2 will likely be 
+//              deleted from the scene and will not exist when this function
+//              call returns.
+//
+//  Parameters: string $sg1: The first Shading Group.
+//              string $sg2: The second Shading Group.
+//
+//      Return: (int): TRUE if the two Shading Groups are equal; else FALSE.
+//                     If TRUE it is likely that $sg2 was deleted.
+//
+//===========================================================================
+proc int compareShadingGroups( string $sg1, string $sg2 )
+{
+    int $isEqual = true;
+
+    // Has same alpha?
+    $isEqual = $isEqual && compareConnections( $sg1, $sg2, "surfaceShader" );        
+
+    $isEqual = $isEqual && compareConnections( $sg1, $sg2, "volumeShader" );        
+
+    $isEqual = $isEqual && compareConnections( $sg1, $sg2, "displacementShader" );        
+
+    $isEqual = $isEqual && compareAttributes( $sg1, $sg2, "memberWireframeColor" );
+    
+    if ( $isEqual )
+    {
+        mergeShadingGroup( $sg1, $sg2 );
+    }
+
+    return $isEqual;    
+}
+
+//===========================================================================
+// mergeMaterial
+//===========================================================================
+// Description: The two Materials have been deemed to be equal.
+//              The former adopts the output connections for the latter and
+//              the latter is deleted from the scene.
+//
+// Constraints: 
+//
+//  Parameters: string $sg1: The Material to keep.
+//              string $sg2: The Material to discard.
+//
+//      Return: (none)
+//
+//===========================================================================
+proc mergeMaterial( string $mat1, string $mat2 )
+{
+    string $c1[] = `listConnections ( $mat1 + ".outColor" )`;
+    string $c2[] = `listConnections ( $mat2 + ".outColor" )`;
+
+    // If no connection, or if connections are already the same, take no action.    
+    if ( ( $c1[0] != "" && $c2[0] != "" ) && ( $c1[0] != $c2[0] ) )
+    {
+        // Deprecate and delete $mat2
+        string $cc[] = `listConnections -source false -d true -plugs true ( $mat2 + ".outColor" )`;
+        disconnectAttr ( $mat2 + ".outColor" ) $cc[0];
+        
+        connectAttr ( $mat1 + ".outColor" ) $cc[0];
+
+        safeDelete( $mat2 );        
+    }
+}
+
+//===========================================================================
+// compareMaterials
+//===========================================================================
+// Description: Compares the connections and attributes for two specified
+//              Materials and evaluates if they can be considered
+//              equivalent.  If equivalent, the two are merged.
+//
+// Constraints: If the two Materials are equal, $mat2 will likely be 
+//              deleted from the scene and will not exist when this function
+//              call returns.
+//
+//  Parameters: string $mat1: The first Material.
+//              string $mat2: The second Material.
+//
+//      Return: (int): TRUE if the two Materials are equal; else FALSE.
+//                     If TRUE it is likely that $mat2 was deleted.
+//
+//===========================================================================
+proc int compareMaterials( string $mat1, string $mat2 )
+{
+    int $isEqual = true;
+
+    $isEqual = $isEqual && compareConnections( $mat1, $mat2, "color" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "color" );        
+
+    $isEqual = $isEqual && compareConnections( $mat1, $mat2, "transparency" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "transparency" );        
+
+    $isEqual = $isEqual && compareConnections( $mat1, $mat2, "ambient" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "ambient" );        
+
+    $isEqual = $isEqual && compareConnections( $mat1, $mat2, "diffuse" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "diffuse" );        
+
+    $isEqual = $isEqual && compareConnections( $mat1, $mat2, "emissive" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "emissive" );        
+
+    $isEqual = $isEqual && compareConnections( $mat1, $mat2, "specular" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "specular" );        
+
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "shininess" );        
+
+    // Pure3D attributes
+    // '.pddiShaderName' will short-circuit the remainder if shader types aren't equal.
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "pddiShaderName" );
+    
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "alphaCompare" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "alphaTest" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "blendMode" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "doubleSided" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "dynamicallyLit" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "filterMode" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "isLightMapped" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "isLit" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "isTranslucent" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "K" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "L" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "mipmapmax" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "mipmapmin" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "mmsharpness" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "prelightMode" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "proceduralXRes" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "proceduralYRes" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "shadeMode" );        
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "shininess" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "uvMode" );
+    $isEqual = $isEqual && compareAttributes( $mat1, $mat2, "vertexShaderName" );
+
+    if ( $isEqual )
+    {
+        // Navigate to each Material and compare them.
+        string $out1[] = `listConnections ( $mat1 + ".outColor" )`;
+        string $out2[] = `listConnections ( $mat2 + ".outColor" )`;
+        
+        mergeMaterial( $mat1, $mat2 );
+        
+        compareShadingGroups( $out1[0], $out2[0] );
+    }
+    
+    return $isEqual;
+}
+
+//===========================================================================
+// mergeFile
+//===========================================================================
+// Description: The two file textures have been deemed to be equal.
+//              The former adopts the output connections for the latter and
+//              the latter is deleted from the scene.
+//
+// Constraints: 
+//
+//  Parameters: string $file1: The file texture to keep.
+//              string $file2: The file texture to discard.
+//
+//      Return: (none)
+//
+//===========================================================================
+proc mergeFile( string $file1, string $file2 )
+{
+    string $c1[] = `listConnections ( $file1 + ".outColor" )`;
+    string $c2[] = `listConnections ( $file2 + ".outColor" )`;
+    
+    // If no connection, or if connections are already the same, take no action.    
+    if ( ( $c1[0] != "" && $c2[0] != "" ) && ( $c1[0] != $c2[0] ) )
+    {
+        string $cc[] = `listConnections -source false -d true -plugs true ( $file2 + ".outColor" )`;
+        disconnectAttr ( $file2 + ".outColor" ) $cc[0];
+        
+        connectAttr ( $file1 + ".outColor" ) $cc[0];
+
+        safeDelete( $file2 );        
+    }
+}
+
+//===========================================================================
+// compareFiles
+//===========================================================================
+// Description: Compares the connections and attributes for two specified
+//              file textures and evaluates if they can be considered
+//              equivalent.  If equivalent, the two are merged.
+//
+// Constraints: If the two file textures are equal, $file2 will likely be 
+//              deleted from the scene and will not exist when this function
+//              call returns.
+//
+//  Parameters: string $file1: The first file texture.
+//              string $file2: The second file texture.
+//
+//      Return: (int): TRUE if the two file textures are equal; else FALSE.
+//                     If TRUE it is likely that $file2 was deleted.
+//
+//===========================================================================
+global proc int compareFiles( string $file1, string $file2 )
+{
+    int $isEqual = true;
+
+    // Compare place2d attributes
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "coverage" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "mirror" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "noiseUV" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "offset" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "uvFilterSize" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "repeatUV" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "rotateFrame" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "rotateUV" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "stagger" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "translateFrame" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "wrapU" );
+    $isEqual = $isEqual && compareAttributes( $file1, $file2, "wrapV" );
+    
+    if ( $isEqual )
+    {
+        // Navigate to each Material and compare them.
+        string $out1[] = `listConnections ( $file1 + ".outColor" )`;
+        string $out2[] = `listConnections ( $file2 + ".outColor" )`;
+        
+        mergeFile( $file1, $file2 );
+        
+        if ( $out1[0] != "" && $out2[0] != "" )
+        {
+            $isEqual = compareMaterials( $out1[0], $out2[0] );
+        }
+    }
+
+    return $isEqual;
+}
+
+//===========================================================================
+// getSortedShadingGroups
+//===========================================================================
+// Description: It is only relevant to compare two Shading Groups for merging
+//              if they share the same Surface Shader.  This returns an array
+//              of all Shading Groups sorted by the names of the nodes
+//              connected to their .surfaceShader inputs.
+//
+// Constraints: 
+//
+//  Parameters: (none)
+//
+//      Return: (string[]): Array of all Shading Groups, sorted by their
+//                          '.surfaceShader' inputs.
+//
+//===========================================================================
+proc string[] getSortedShadingGroups()
+{
+    string $allShadingGroups[];
+    
+    string $shadingGroups[] = `ls -type "shadingEngine"`;
+    
+    for ( $f in $shadingGroups )
+    {
+        string $cc[] = `listConnections -d false -s true ( $f + ".surfaceShader" )`;
+        $allShadingGroups[`size $allShadingGroups`] = ( $cc[0] + "*" + $f );
+    }
+    
+    $allShadingGroups = `sort $allShadingGroups`;
+    clear $shadingGroups;
+    
+    for ( $f in $allShadingGroups )
+    {
+        string $tokens[];
+        tokenize $f "*" $tokens;
+    
+        $shadingGroups[`size $shadingGroups`] = $tokens[1];
+    }
+    
+    return $shadingGroups;
+}
+
+//===========================================================================
+// getSortedMaterials
+//===========================================================================
+// Description: It is only relevant to compare two Materials for merging
+//              if they share the same Color connection.  This returns an 
+//              array of all Materials sorted by the names of the nodes
+//              connected to their .color inputs.
+//
+// Constraints: 
+//
+//  Parameters: (none)
+//
+//      Return: (string[]): Array of all Materials, sorted by their
+//                          '.color' inputs.
+//
+//===========================================================================
+proc string[] getSortedMaterials()
+{
+    string $allMaterials[];
+    
+    string $materials[] = `ls -materials`;
+    
+    for ( $f in $materials )
+    {
+        string $cc[] = `listConnections -d false -s true ( $f + ".color" )`;
+        $allMaterials[`size $allMaterials`] = ( $cc[0] + "*" + $f );
+    }
+    
+    $allMaterials = `sort $allMaterials`;
+    clear $materials;
+    
+    for ( $f in $allMaterials )
+    {
+        string $tokens[];
+        tokenize $f "*" $tokens;
+    
+        $materials[`size $materials`] = $tokens[1];
+    }
+    
+    return $materials;
+}
+
+//===========================================================================
+// getSortedFileTextures
+//===========================================================================
+// Description: It is only relevant to compare two file textures for merging
+//              if they share the same input file.  This returns an array
+//              of all file textures sorted by the names of their source
+//              files, obtained from the '.fileTextureName' attribute.
+//
+// Constraints: 
+//
+//  Parameters: (none)
+//
+//      Return: (string[]): Array of all file textures, sorted by their
+//                          '.fileTextureName' inputs.
+//
+//===========================================================================
+proc string[] getSortedFileTextures()
+{
+    string $allFiles[];
+    
+    string $files[] = `ls -type "file"`;
+    
+    for ( $f in $files )
+    {
+        string $ftn = `getAttr ( $f + ".fileTextureName" )`;
+        $allFiles[`size $allFiles`] = ( $ftn + "*" + $f );
+    }
+    
+    $allFiles = `sort $allFiles`;
+    clear $files;
+    
+    for ( $f in $allFiles )
+    {
+        string $tokens[];
+        tokenize $f "*" $tokens;
+    
+        $files[`size $files`] = $tokens[1];
+    }
+    
+    return $files;
+}
+
+//===========================================================================
+// optimizeShadingGroups
+//===========================================================================
+// Description: Entry point to optimize Shading Groups.
+//
+// Constraints: Will not attempt to merge Materials that could serve to
+//              optimize Shading Groups.  Only Shading Groups already sharing 
+//              a common Material will be merged.
+//
+//  Parameters: (none)
+//
+//      Return: (none)
+//
+//===========================================================================
+proc optimizeShadingGroups()
+{
+    waitCursor -state on;
+
+    string $sgs[] = getSortedShadingGroups();
+
+    int $startSG = `size $sgs`;
+
+    int $f;
+    for ( $f = 0; $f < `size $sgs` - 1; $f++ )
+    {
+        // Previous optimization may have deleted this node
+        string $sg1 = "";
+        while ( $f < `size $sgs` - 1 )
+        {
+            if ( `objExists $sgs[$f]` )
+            {
+                $sg1 = $sgs[$f];
+                break;
+            }
+            
+            $f++;
+        }
+
+        if ( $sg1 == "" ) break;
+        
+        string $sg2 = $sgs[$f+1];
+
+        compareShadingGroups( $sg1, $sg2 );
+    }
+    
+    $sgs = `ls -type "shadingEngine"`;
+    int $endSG = `size $sgs`;
+    
+    print ( "optimizeShadingGroups removed " + ( $startSG- $endSG ) + " shadingGroups.\n" );
+    
+    waitCursor -state off;
+}
+
+//===========================================================================
+// optimizeMaterials
+//===========================================================================
+// Description: Entry point to optimize Materials.
+//
+// Constraints: Will not attempt to merge file textures that could serve to
+//              optimize Materials.  Only Materials already sharing a
+//              common file texture node will be merged.
+//
+//  Parameters: (none)
+//
+//      Return: (none)
+//
+//===========================================================================
+global proc optimizeMaterials()
+{
+    waitCursor -state on;
+
+    string $materials[] = getSortedMaterials();
+    int $startCount = `size $materials`;
+    
+    int $f;
+    for ( $f = 0; $f < `size $materials` - 1; $f++ )
+    {
+        // Previous optimization may have deleted this node
+        string $mat1 = "";
+        while ( $f < `size $materials` - 1 )
+        {
+            if ( `objExists $materials[$f]` )
+            {
+                $mat1 = $materials[$f];
+                break;
+            }
+            
+            $f++;
+        }
+
+        if ( $mat1 == "" ) break;
+        
+        string $mat2 = $materials[$f+1];
+
+        compareMaterials( $mat1, $mat2 );
+    }
+    
+    $materials = `ls -materials`;
+    int $endCount = `size $materials`;
+    
+    print ( "optimizeMaterials removed " + ( $startCount - $endCount ) + " materials.\n" );
+    
+    waitCursor -state off;
+}
+
+//===========================================================================
+// optimizeFileTextures
+//===========================================================================
+// Description: Entry point to optimize file textures.
+//
+// Constraints: 
+//
+//  Parameters: (none)
+//
+//      Return: (none)
+//
+//===========================================================================
+global proc optimizeFileTextures()
+{
+    waitCursor -state on;
+    
+    string $files[] = getSortedFileTextures();
+    string $materials[] = `ls -materials`;
+    string $sgs[] = `ls -type "shadingEngine"`;
+
+    int $startFiles = `size $files`;
+    int $startMaterials = `size $materials`;
+    int $startSG = `size $sgs`;
+    
+    int $f;
+    for ( $f = 0; $f < `size $files` - 1; $f++ )
+    {
+        // Previous optimization may have deleted this node
+        string $file1 = $files[$f];
+        $file2 = "";
+        
+        if ( !`objExists $file1` ) continue;
+        
+        int $g = $f+1;
+        while ( $g < `size $files` - 1 )
+        {
+            if ( `objExists $files[$g]` )
+            {
+                $file2 = $files[$g];
+                break;
+            }
+            
+            $g++;
+        }
+
+        if ( $file1 != "" && $file2 != "" )
+        {
+            string $ftn1 = `getAttr( $file1 + ".fileTextureName" )`;
+            string $ftn2 = `getAttr( $file2 + ".fileTextureName" )`;
+
+            if ( $ftn1 == $ftn2 )
+            {
+                $isEqual = compareFiles( $file1, $file2 );
+            }
+        }
+    }
+    
+    $files = `ls -type "file"`;
+    $materials = `ls -materials`;
+    $sgs = `ls -type "shadingEngine"`;
+
+    int $endFiles = `size $files`;
+    int $endMaterials = `size $materials`;
+    int $endSG = `size $sgs`;
+    
+    print ( "optimizeFileTextures removed: " + ( $startFiles - $endFiles ) + " file textures; " + ( $startMaterials - $endMaterials ) + " materials; " + ( $startSG - $endSG ) + " shadingGroups.\n" );
+    
+    waitCursor -state off;
+}
+
+//===========================================================================
+// optimizeShaders
+//===========================================================================
+// Description: Sorts file textures by their '.fileTextureName' attributes,
+//              and for those whose input file matches compares all input
+//              attributes to see if they can be considered equivalent.
+//              Equivalent file textures are "merged" so one serves the
+//              duties previously served by both.
+//
+//              Materials and Shading Groups are evaluated and optimized
+//              in similar fashion.
+//              
+// Constraints: Note that optimizing file textures implies optimization for
+//              the Material connected to the optimized file texture, which
+//              consequently optimizes the Shading Groups connected to
+//              the optimized Material.
+//
+//              It is not uncommon that the optimizeMaterials() and
+//              optimizeShadingGroups() calls here will yield no additional
+//              results after optimizeFileTextures() has completed its run.
+//
+//  Parameters: (none)
+//
+//      Return: (none)
+//
+//===========================================================================
+global proc optimizeShaders()
+{
+    optimizeFileTextures();
+    optimizeMaterials();
+    optimizeShadingGroups();
+}
+
+/*
+source optimizeShaders; optimizeShaders;
+*/

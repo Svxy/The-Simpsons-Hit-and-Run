@@ -1,0 +1,99 @@
+SelectMission("gr1");
+//The TIME TRIAL
+//Script set up for multiple laps
+
+SetAnimatedCameraName( "race4camShape" );
+SetAnimCamMulticontName( "race4cam" );
+
+SetMissionResetPlayerInCar("sr4_carstart");
+SetDynaLoadData("l2z2.p3d;l2r1.p3d;l2r2.p3d;");
+
+UsePedGroup(2);
+
+//Chuck: StreetRace Prop Load and Unload Setup
+//StreetRacePropsLoad("l2_srr1p.p3d;");
+//StreetRacePropsUnload("l2_srr1p.p3d:");
+
+//Pay the Entry Fee
+AddStage(0);
+ AddObjective("coins");
+  SetCoinFee(25);   //<========sets the races entery fee this could match the Race Payout but doesn't have to
+ CloseObjective(); 
+CloseStage();
+
+
+AddStage(final);
+SetHUDIcon( "race" );
+PlacePlayerCar("current", "sr4_carstart");
+PutMFPlayerInCar( );  // This makes the play auto reset into their car for this stage.                
+
+StartCountdown(count);
+	AddToCountdownSequence( "3", 1000 ); // duration time in milliseconds 
+	AddToCountdownSequence( "2", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "1", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "GO", 400 ); // duration time in milliseconds
+SetStageMessageIndex(225);
+SetMaxTraffic(5); 
+
+SetStageTime(1); //  <=====   This sets the in game timer to start at 1 second, you CANNOT start it at 0
+UseElapsedTime(); // <=====   This tell the timer to count up rather than down 
+SetRaceEnteryFee(25);  //<====== sets the Race Payout this vaule is multipled by the a Car's Races odd in the Con File
+                                        // I can rename the command if its confusing.
+
+RESET_TO_HERE();
+AddObjective( "race", "gamble" );
+SetParTime(130);
+//AddCollectible("sr4_waypoint1","carsphere");
+//AddCollectible("sr4_waypoint1b","carsphere");
+AddCollectible("sr4_waypoint2","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint3","carsphere");
+//AddCollectible("sr4_waypoint4","carsphere");
+AddCollectible("sr4_waypoint5","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr4_waypoint6","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr4_waypoint7","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint8","carsphere");
+AddCollectible("sr4_waypoint9","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint10","carsphere");
+//AddCollectible("sr4_waypoint11","carsphere");
+AddCollectible("sr4_waypoint12","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint13","carsphere");
+//AddCollectible("sr4_waypoint14","carsphere");
+//AddCollectible("sr4_waypoint15","carsphere");
+AddCollectible("sr4_waypoint16","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr4_waypoint17","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint18","carsphere");
+//AddCollectible("sr4_waypoint19","carsphere");
+AddCollectible("sr4_waypoint20","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint21","carsphere");
+//AddCollectible("sr4_waypoint22","carsphere");
+AddCollectible("sr4_waypoint23","carsphere");
+SetCollectibleEffect("wrench_collect");
+//AddCollectible("sr4_waypoint24","carsphere");
+AddCollectible("sr4_waypoint25","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr4_waypoint26","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr4_waypoint27","carsphere");
+SetCollectibleEffect("wrench_collect");
+CloseObjective();
+AddCondition("timeout");
+CloseCondition();
+AddCondition( "damage" );
+	SetCondMinHealth( 0.0 );
+	SetCondTargetVehicle( "current");
+CloseCondition();
+AddCondition("outofvehicle");
+	SetCondTime( 10000 );
+CloseCondition();
+CloseStage();
+
+CloseMission();

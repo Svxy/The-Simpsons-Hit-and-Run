@@ -1,0 +1,15 @@
+#include <loading/cameradataloader.cpp>
+#include <loading/cementfilehandler.cpp>
+#include <loading/choreofilehandler.cpp>
+#include <loading/consolefilehandler.cpp>
+#include <loading/filehandlerfactory.cpp>
+#include <loading/iconfilehandler.cpp>
+#include <loading/intersectionloader.cpp>
+#include <loading/loadingmanager.cpp>
+#include <loading/locatorloader.cpp>
+#include <loading/p3dfilehandler.cpp>
+#include <loading/roaddatasegmentloader.cpp>
+#include <loading/roadloader.cpp>
+#include <loading/scroobyfilehandler.cpp>
+#include <loading/soundfilehandler.cpp>
+#include <loading/pathloader.cpp>

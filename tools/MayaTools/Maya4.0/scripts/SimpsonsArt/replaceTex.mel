@@ -1,0 +1,38 @@
+
+/*
+ |
+ |	 $Source: replaceTex.mel $
+ |
+ |   $Author: jschleifer $
+ |   $Revision: /main/1 $
+ |   $Date: 1997/11/06 10:46:33 $
+ |
+ |   Original Author:
+ |       Jason Schleifer
+ |
+ |   Description:
+ |		 Replaces strings in texture filenames.  Works really well if you
+ |		 need to fix paths.
+ |
+ |	 Usage:
+ |		 replaceTex <old string> <new string>
+ |
+ |		 ex:
+ |
+ |		 replaceTex "/this/is/an/explicit/path" "";
+ |
+*/
+
+global proc replaceTex (string $old, string $new)
+{
+	for ($item in `ls -type file`)
+	{
+    	string $name = `getAttr ($item + ".fileTextureName")`;
+        $name = `substitute $old $name $new`;
+        print ("setAttr -type \"string\" " + $item + ".fileTextureName \"" + $name + "\";\n");
+                $cmd = ("setAttr -type \"string\" " + $item + ".fileTextureName \"" + $name + "\";\n");
+
+        eval $cmd;
+	}
+		
+}

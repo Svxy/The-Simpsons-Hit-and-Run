@@ -1,0 +1,12 @@
+te_Delete_TreeLineContext();
+te_Delete_BVContext();
+te_Delete_PPContext();
+te_Delete_IntersectionContext();
+te_CloseIntersectionEditorWindow();
+
+if ( `menu -exists te_MainMenu` ) 
+{
+    deleteUI te_MainMenu;
+
+    flushUndo;
+}

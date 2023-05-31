@@ -1,0 +1,74 @@
+SelectMission("m6sd");
+
+	SetMissionStartCameraName( "mission6camShape" );
+	SetMissionStartMulticontName( "mission6cam" );
+	SetAnimatedCameraName( "mission6camShape" );
+	SetAnimCamMulticontName( "mission6cam" );
+
+SetMissionResetPlayerOutCar("m6_homer_start", "m6_carstart");
+SetDynaLoadData("l1z3.p3d;l1r3.p3d;l1r2.p3d;");
+
+UsePedGroup(3); 
+
+AddStage(1);
+	SetStageMessageIndex(161);
+	SetMaxTraffic(2);
+	SetHUDIcon("grocery");
+	AddObjective("goto");
+		AddNPC("marge", "m6_marge_sd");
+		SetDestination("m6_locator_sd", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+		AddStageVehicle("marge_v","m6_canyanaro_sd","NULL","EasyRace\AI_5th.con");
+	CloseObjective();
+CloseStage();
+
+AddStage(5);
+	RESET_TO_HERE();
+	SetStageMessageIndex(00);
+	SetHUDIcon("marage");
+	AddObjective("talkto");
+		AddNPC("marge", "m6_marge_sd");
+		AddObjectiveNPCWaypoint( "marge", "m6_marge_walk_2" );
+		AddObjectiveNPCWaypoint( "marge", "m6_marge_walk_1" );
+		SetTalkToTarget("marge", 0, 0.2);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis01_06.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_near" );
+		SetConversationCam( 1, "npc_far" );
+		SetConversationCam( 2, "pc_near" );
+		SetConversationCam( 3, "npc_near" );
+		SetConversationCam( 4, "pc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_shaking_fist" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_scratch_head" );
+		SetCamBestSide( "m6_end");
+		SetDialogueInfo("homer","marge","violent",0);
+		SetDialoguePositions("m6_homer","m6_homer_start","m6_marge_walk_2");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

@@ -1,0 +1,119 @@
+SelectMission("m6");
+
+SetMissionResetPlayerInCar("m6_canyanaro_sd");
+SetDynaLoadData("l1z3.p3d;l1r3.p3d;l1r2.p3d;");
+InitLevelPlayerVehicle("marge_v","m6_canyanaro_sd","OTHER");
+
+SetNumValidFailureHints( 5 );
+
+UsePedGroup(3); 
+
+SetForcedCar();
+
+AddStage(); // destroy the video games!
+	RESET_TO_HERE();
+	SetStageMessageIndex(16);
+	SetHUDIcon( "bonestor" );
+	AddStageVehicle("cBone","m6_video_carstart","target","Missions\level01\M6dump.con", "jasper");
+	SetVehicleAIParams( "cBone", -10, -9 );   // no shortcuts
+	AddStageWaypoint( "m6_video_path8" );
+	AddStageWaypoint( "m6_video_path14" );
+	AddStageWaypoint( "m6_video_path15" );
+	SetStageTime(180);
+
+	StartCountdown(count);
+	AddToCountdownSequence( "3", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "2", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "1",  1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "GO",  400 ); // duration time in milliseconds
+
+	AddObjective("dump","neither");
+		AddNPC("marge", "m6_marge_hide");
+		SetObjTargetVehicle("cBone");
+		AddCollectible("m6_videogames1","bonestorm");
+		AddCollectible("m6_videogames2","bonestorm");
+		AddCollectible("m6_videogames3","bonestorm");
+		AddCollectible("m6_videogames4","bonestorm");
+		AddCollectible("m6_videogames5","bonestorm");
+		AddCollectible("m6_videogames6","bonestorm");
+		AddCollectible("m6_videogames7","bonestorm");
+		AddCollectible("m6_videogames8","bonestorm");
+		AddCollectible("m6_videogames9","bonestorm");
+		AddCollectible("m6_videogames10","bonestorm");
+		SetCollectibleEffect("bonestorm_explosion");
+	CloseObjective();
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "marge_v" );
+	CloseCondition();
+	//SetFadeOut(1.0);
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetHUDIcon("simpsons");
+	SetStageMessageIndex(217);
+	AddObjective( "goto", "both" );
+		SetDestination( "m2_simpsonhouse_sd", "carsphere" );
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "marge_v" );
+	CloseCondition();
+	SetFadeOut(1.0);
+	SwapInDefaultCar();
+	SetSwapDefaultCarLocator("m6_carstart");
+	SetSwapForcedCarLocator("m6_canyanaro_sd");
+	SetSwapPlayerLocator("level1_homer_walkto");
+CloseStage();
+
+AddStage(1);
+	AddObjective("timer");
+		AddNPC("marge", "m1_marge_sd");
+		StayInBlack();
+		SetDurationTime(1);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	AddObjective("dialogue");
+		AddNPC("marge", "m1_marge_sd");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "npc_far" );
+		SetConversationCam( 1, "pc_near" );
+		SetConversationCam( 2, "npc_far" );
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		AddAmbientPcAnimation( "none" );
+		SetDialogueInfo("homer","marge","sharing",0);
+		SetCamBestSide("bestside_m1");
+		SetDialoguePositions("level1_homer_walkto","m1_marge_sd","m6_carstart",1);
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

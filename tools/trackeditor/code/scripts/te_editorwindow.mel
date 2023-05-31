@@ -1,0 +1,335 @@
+//Constant
+global int $gMAX_LANES = 4;
+
+global string $gSelectedName;
+global string $gOriginField; 
+global string $gRoadField;
+global string $gTopField;
+global string $gBottomField;
+global string $gLanesField;
+global string $gShoulderField;
+
+global int    $gSelectionScriptJob;
+
+global string $gSelectedObjectName;
+
+global proc teOpenEditorWindow()
+{
+    global string $gSelectedName;
+    global string $gOriginField; 
+    global string $gRoadField;
+    global string $gTopField;
+    global string $gBottomField;
+    global string $gLanesField;
+    global string $gShoulderField;
+    global int $gMAX_LANES;
+
+
+    if ( `window -exists TE_TileEditor` )
+    {
+        deleteUI -window TE_TileEditor;
+    }
+
+    window -rtf true -title "TE Tile Editor" TE_TileEditor;
+    
+    columnLayout -adjustableColumn true;
+
+        string $selectedRow = `rowLayout -numberOfColumns 3 -columnWidth 1 170`;
+        $gSelectedName = `textField -editable false -text "" -width 170`;
+        string $selectedButton = `button -label "Select Mesh" -command ("teSelectMesh()")`;
+        string $doneButton = `button -label "Done" -command ("teDoneEditingMesh()")`;
+
+        setParent ..;
+
+        string $originRow = `rowLayout -numberOfColumns 2`;
+        string $originButton = `button -label "Set Origin" -command ("teSelectOrigin()")`;
+        $gOriginField = `intField -value -1 -editable false`; 
+        setParent ..;
+
+
+        string $roadRow = `rowLayout -numberOfColumns 2`;
+        string $roadButton = `button -label "Set Road Dir" -command ("teSelectRoadDir()")`;
+        $gRoadField = `intField -value -1 -editable false`;
+        setParent ..;
+
+
+        string $topRow = `rowLayout -numberOfColumns 2`;
+        string $topButton = `button -label "Set TOP" -command ("teSelectTOP()")`;
+        $gTopField = `intField -value -1 -editable false`; 
+        setParent ..;
+    
+
+        string $bottomRow = `rowLayout -numberOfColumns 2`;
+        string $bottomButton = `button -label "Set BOTTOM" -command ("teSelectBOTTOM()")`;
+        $gBottomField = `intField -value -1 -editable false`; 
+        setParent ..;
+
+        //The following #1 is a trick that the scripting system converts into the value of the field/control...
+        string $laneRow = `rowLayout -numberOfColumns 2`;
+        string $laneLabel = `text -label "Num. Lanes" -align "center"`;
+        $gLanesField = `intField -value 1 -min 0 -max $gMAX_LANES -step 1 -editable true -changeCommand ("teSetNumLanes(#1)")`;
+        setParent ..;
+
+        $gShoulderField = `checkBox -label "Has Shoulder" -value true -changeCommand ("teSetShoulder(#1)")`;
+
+    setParent ..; //columnLayout
+
+    showWindow;
+}
+
+global proc teCloseEditorWindow()
+{
+    global string $gSelectedName;
+    global string $gOriginField; 
+    global string $gRoadField;
+    global string $gTopField;
+    global string $gBottomField;
+    global string $gLanesField;
+    global string $gShoulderField;
+
+    global int    $gSelectionScriptJob;
+
+    if ( `window -exists TE_TileEditor` )
+    {
+        deleteUI -window TE_TileEditor;
+    }
+
+    $gSelectedName = "";
+    $gOriginField = ""; 
+    $gRoadField = "";
+    $gTopField = "";
+    $gBottomField = "";
+    $gLanesField = "";
+    $gShoulderField = "";
+
+    $gSelectionScriptJob = 0;
+}
+
+global proc teSelectMesh()
+{
+    global string $gSelectedName;
+    global int    $gSelectionScriptJob;
+    global string $gSelectedObjectName;
+
+    //May want to inform the TrackEditor of this selection if it is good.
+	string $selectedObjects[] = `ls -sl -dag`;
+	string $selectedObjectName = $selectedObjects[0];
+    string $selectedNodeType;
+
+    if ( $selectedObjectName != "" )
+    {
+        //There is something selected
+
+        $selectedNodeType = `nodeType $selectedObjectName `;
+
+        if ( $selectedNodeType == "transform" )
+        {
+            //We don't want the transform, we want the child node.
+            $selectedObjectName = $selectedObjects[1];
+        }
+
+        if ( $selectedObjectName != "" )
+        {
+	        $selectedNodeType = `nodeType $selectedObjectName `;
+
+            if ( $selectedNodeType == "mesh" )
+            {
+                //We're in business
+                textField -edit -text $selectedObjectName $gSelectedName;
+
+                teSwitchToVertexSelection( 1 ); //Turn on vertex selection.
+
+                teAddSettingsToObject( $selectedObjectName );
+                
+                $gSelectedObjectName = $selectedObjectName;
+
+                teUpdateEditorWindow();
+            }
+        }
+    }
+}
+
+global proc teUpdateEditorWindow()
+{
+    global string $gSelectedName;
+    global string $gOriginField; 
+    global string $gRoadField;
+    global string $gTopField;
+    global string $gBottomField;
+    global string $gSelectedObjectName;
+    global string $gLanesField;
+    global string $gShoulderField;
+
+    //Update the fields according to the selected object.
+
+    int $valsSet = false;
+
+    if ( $gSelectedObjectName != "" )
+    {
+        string $attr[] = `listAttr -st teOrigin $gSelectedObjectName`;
+    
+        if ( $attr[0] != "" )
+        {
+            textField -edit -text $gSelectedObjectName $gSelectedName;
+
+            float $origin = `getAttr ($gSelectedObjectName + ".teOrigin")`;
+            intField -edit -value $origin $gOriginField;
+                            
+            float $road = `getAttr ($gSelectedObjectName + ".teRoad")`;
+            intField -edit -value $road $gRoadField;
+        
+            float $top = `getAttr ($gSelectedObjectName + ".teTop")`;
+            intField -edit -value $top $gTopField;
+
+            float $bottom = `getAttr ($gSelectedObjectName + ".teBottom")`;
+            intField -edit -value $bottom $gBottomField;
+
+            int $lanes = `getAttr ($gSelectedObjectName + ".teLanes")`;
+            intField -edit -value $lanes $gLanesField;
+
+            int $hasShoulder = `getAttr ($gSelectedObjectName + ".teShoulder")`;
+            checkBox -edit -value $hasShoulder $gShoulderField;
+
+            $valsSet = 1;
+        }
+    }
+
+    if ( !$valsSet )
+    {
+        textField -edit -text "" $gSelectedName;
+
+        intField -edit -value -1 $gOriginField;
+        intField -edit -value -1 $gRoadField;
+        intField -edit -value -1 $gTopField;
+        intField -edit -value -1 $gBottomField;
+        intField -edit -value 0 $gLanesField;
+        checkBox -edit -value false $gShoulderField;
+    } 
+}
+
+global proc teSwitchToVertexSelection( int $on )
+{
+    if ( $on )
+    {
+        selectMode -component;
+        selectType -vertex true;        
+    }
+    else
+    {
+        selectMode -object;
+    }
+}
+
+global proc teDoneEditingMesh()
+{
+    global string $gSelectedObjectName;
+
+    $gSelectedObjectName = ""; //Clear the selection.
+
+    teSwitchToVertexSelection( 0 ); //Turn on vertex selection.
+
+    teUpdateEditorWindow();
+}
+
+global proc teAddSettingsToObject( string $objectName )
+{
+    string $attr[] = `listAttr -st teOrigin $objectName`;
+    
+    if ( $attr[0] == "" )
+    {
+        addAttr -ln teOrigin -sn teO -at long -defaultValue -1 $objectName;
+
+        addAttr -ln teRoad -sn teR -at long -defaultValue -1 $objectName;
+
+        addAttr -ln teTop -sn teT -at long -defaultValue -1 $objectName;
+
+        addAttr -ln teBottom -sn teB -at long -defaultValue -1 $objectName;
+
+        addAttr -ln teLanes -sn teL -at long -defaultValue 1 $objectName;
+
+        addAttr -ln teShoulder -sn teS -at bool -defaultValue true $objectName;
+
+        //This is for connecting to roads
+        addAttr -ln teWhichRoad -sn teWR -at message $objectName;
+
+        //This is a hint of the type
+        addAttr -ln teTypeHint -sn teTH -at long -defaultValue -1 $objectName;
+    }
+}
+
+global proc teSelectOrigin()
+{
+    global string $gSelectedObjectName;
+
+    int $pos = `TE_GetSelectedVertexIndex`;  
+
+    if ( $pos >= 0 )
+    {
+        setAttr ( $gSelectedObjectName + ".teOrigin" ) $pos;
+    }
+
+    teUpdateEditorWindow();
+}
+
+global proc teSelectRoadDir()
+{
+    global string $gSelectedObjectName;
+
+    int $pos = `TE_GetSelectedVertexIndex`;  
+
+    if ( $pos >= 0 )
+    {
+        setAttr ( $gSelectedObjectName + ".teRoad" ) $pos;
+    }
+
+    teUpdateEditorWindow();
+}
+
+global proc teSelectTOP()
+{
+    global string $gSelectedObjectName;
+
+    int $pos = `TE_GetSelectedVertexIndex`;  
+
+    if ( $pos >= 0 )
+    {
+        setAttr ( $gSelectedObjectName + ".teTop" ) $pos;
+    }
+
+    teUpdateEditorWindow();
+}
+
+global proc teSelectBOTTOM()
+{
+    global string $gSelectedObjectName;
+
+    int $pos = `TE_GetSelectedVertexIndex`;  
+
+    if ( $pos >= 0 )
+    {
+        setAttr ( $gSelectedObjectName + ".teBottom" ) $pos;
+    }
+
+    teUpdateEditorWindow();
+}
+
+
+global proc teSetNumLanes( int $numLanes )
+{
+    global string $gSelectedObjectName;
+
+    if ( $gSelectedObjectName != "" )
+    {
+        setAttr ( $gSelectedObjectName + ".teLanes" ) $numLanes;
+    }
+}
+
+global proc teSetShoulder( int $hasShoulder )
+{
+    global string $gSelectedObjectName;
+
+    if ( $gSelectedObjectName != "" )
+    {
+        setAttr ( $gSelectedObjectName + ".teShoulder" ) $hasShoulder;
+    }
+}

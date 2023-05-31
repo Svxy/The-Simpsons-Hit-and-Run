@@ -1,0 +1,1 @@
+buildps2 r allclean

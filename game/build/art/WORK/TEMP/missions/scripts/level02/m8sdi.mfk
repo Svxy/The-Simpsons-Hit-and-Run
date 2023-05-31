@@ -1,0 +1,17 @@
+SelectMission("m8sd");
+ 
+AddStage(1);
+	SetCharacterToHide("bart"); 
+	AddObjective("fmv");
+		SetFMVInfo("fmv3.rmv"); 
+	CloseObjective();
+CloseStage();
+ 
+AddStage(2);
+	AddObjective("timer");
+		SetDurationTime(2);
+		SetLevelOver();
+	CloseObjective();
+CloseStage();
+ 
+CloseMission();

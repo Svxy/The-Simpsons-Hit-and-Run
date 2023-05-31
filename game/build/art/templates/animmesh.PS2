@@ -1,0 +1,8 @@
+PRINT Applying ANIM MESH template to INPUT
+COMMAND p3ddel -d 2200 -o OUTPUT INPUT
+COMMAND p3dimage --ntsc_fix -r -b 8 -o OUTPUT INPUT
+#COMMAND p3dmipmap -s -l 3 -o OUTPUT OUTPUT
+#COMMAND tristrip -d -o OUTPUT OUTPUT
+#COMMAND p3ddeindex -o OUTPUT OUTPUT
+COMMAND p3danim -C -O --vector-tolerance 0.005 --quaternion-tolerance 0.1 -o OUTPUT OUTPUT
+COMMAND p3dps2 -m -o OUTPUT OUTPUT

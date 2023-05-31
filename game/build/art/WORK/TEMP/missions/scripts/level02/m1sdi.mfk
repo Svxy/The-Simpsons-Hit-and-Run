@@ -1,0 +1,65 @@
+SelectMission("m1sd");
+
+// Set up intro transition camera for Level 02
+// 
+SetMissionStartCameraName( "mission1camShape" );
+SetMissionStartMulticontName( "mission1cam" );
+SetAnimatedCameraName( "mission1camShape" );
+SetAnimCamMulticontName( "mission1cam" );
+
+SetMissionResetPlayerOutCar("l2_bartwalk","level2_carstart");
+SetDynaLoadData("l2z1.p3d;l2r1.p3d;l2r4.p3d;");
+
+UsePedGroup(0);
+
+SetInitialWalk("level2_bartstart");
+
+AddStage(0);
+	SetStageMessageIndex(163);
+	SetHUDIcon( "milhouse" );
+	SetMaxTraffic(5);
+	AddObjective("talkto","neither");
+		AddNPC("milhouse", "m1_milhouse_sd");
+		AddObjectiveNPCWaypoint( "milhouse", "level2_bartstart" );
+		AddObjectiveNPCWaypoint( "milhouse", "m1_milhouse_walk1" );
+		AddObjectiveNPCWaypoint( "milhouse", "m1_milhouse_walk2" );
+		//AddObjectiveNPCWaypoint( "milhouse", "m1_milhouse_walk3" );
+
+		SetTalkToTarget("milhouse", 0, -0.5);
+	CloseObjective();
+CloseStage();
+
+AddStage(1);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis02_01.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+		SetConversationCam( 0, "pc_far" );
+		SetConversationCam( 1, "npc_far" );
+		SetConversationCam( 2, "pc_far" );
+		SetConversationCam( 3, "npc_far" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "dialogue_scratch_head" );
+		AddAmbientNpcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_yes" );
+		SetCamBestSide("m1_bestside");
+		SetDialogueInfo("bart","milhouse","bonestorm",0);
+		SetDialoguePositions("m1_milhouse_walk1","m1_milhouse_sd","level2_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

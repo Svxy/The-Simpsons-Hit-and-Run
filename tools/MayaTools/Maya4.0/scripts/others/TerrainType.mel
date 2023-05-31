@@ -1,0 +1,426 @@
+//===========================================================================
+// Copyright ©2002 Radical Entertainment Ltd.  All rights reserved.
+//
+// Component:   TerrainType.mel  
+//
+// Description: Provides a UI for applying the Pure3D Game Attribute
+//              '.TerrainType' to Materials.
+//===========================================================================
+
+//===========================================================================
+// version
+//===========================================================================
+// Description: Returns the current version for this MEL script.
+//              Used for version control.
+//===========================================================================
+proc float version()
+{
+    return ( 1.1 );
+}
+
+// ////////////////////////////////////////////////////////////////
+//  rootNode
+//
+// Description: Strips the dot-suffix of the specified string.
+//  e.g. "object.attribute" is returned as "object"
+
+proc string rootNode( string $object )
+{
+    string $buffer[];
+    tokenize $object "." $buffer;
+    return $buffer[0];
+}
+
+proc string getFacetSG( string $facet )
+// Input (string) - facet component to query (e.g. "pSphere1.f[0]")
+// Result (string) - Shading Group shading facet (e.g. "lambert2SG")
+{
+    string $facetSG = "";
+
+    // Get array of all Shading Groups
+    string $shadingGroups[] = `ls -type shadingEngine`;
+
+    for ( $shadingGroup in $shadingGroups )
+    {
+        // If this facet is a member of the shading set for this
+        // Shading Group, tag this as the facet's shader
+        
+        // NOTE: This _fails!_ if the entire object is assigned to the shader,
+        //       and no face components are represented in the Shading Group set.
+        if ( `sets -isMember $shadingGroup $facet` )
+        {
+            $facetSG = $shadingGroup;
+            break;
+        }
+    }
+
+    return $facetSG;
+}
+
+// //////////////////////////////////////////////////////////////////////
+//  getMaterialFromSG
+//
+// Description: Returns the Material node feeing the '.surfaceShader'
+//  attribute of the specified Shading Group node (shadingEngine).
+
+proc string getMaterialFromSG( string $SG )
+{
+    string $material = "";
+
+    if ( "shadingEngine" == `nodeType $SG` && `connectionInfo -id ( $SG + ".surfaceShader" )` )
+        $material = rootNode( `connectionInfo -sfd ( $SG + ".surfaceShader" )` );
+
+    return $material;
+}
+
+// ////////////////////////////////////////////////////////////////////////
+//  getSGFromMaterial
+//
+// Description: Returns the Shading Group node being fed by the '.outColor' 
+//  attribute of the specified Material node
+proc string[] getSGFromMaterial( string $material )
+{
+    string $SG[];
+
+    string $class[] = getClassification( `nodeType $material` );
+
+    if ( "shader/surface" == $class[0] && `connectionInfo -is ( $material + ".outColor" )` )
+    {
+        string $dests[] = `connectionInfo -dfs ( $material + ".outColor" )`;
+        for ( $dest in $dests )
+        {
+            if ( "shadingEngine" == `nodeType $dest` )
+            {
+                $SG[`size $SG`] = rootNode( $dest );
+            }
+        }
+    }
+
+    return $SG;
+}
+
+proc int TerrainTypeEnum()
+{
+    string $enumUI = "TerrainTypeEnumUI";
+    string $interiorUI = "TerrainTypeInteriorUI";
+
+    int $enumType = `optionMenu -q -select $enumUI`;
+    $enumType--;    // Convert from 1-based to 0-based
+    $enumType--;    // Skip "Undefined"
+
+    int $isInterior = `checkBox -q -value $interiorUI`;
+    if ( $isInterior ) $enumType += 1073741824; // ( 2 ** 30 )
+
+    return $enumType;
+}
+
+proc SetTerrainTypeEnum( int $enumType )
+{
+    int $bIsInterior = false;
+    
+    if ( $enumType > 1073741823 )
+    {
+        $enumType -= 1073741824;  // ( 2 ** 30 )
+        $bIsInterior = true;
+    }
+    
+    $enumType++;        // Skip "Undefined"
+    $enumType++;        // Convert from 0-based to 1-based
+
+    string $enumUI = "TerrainTypeEnumUI";
+    string $interiorUI = "TerrainTypeInteriorUI";
+
+    optionMenu -e -select $enumType $enumUI;
+    checkBox -e -value $bIsInterior $interiorUI;
+}
+
+proc string[] GetSelectionAsFaces()
+{
+    string $select[] = `ls -sl`;
+    
+    $select = `polyListComponentConversion -tf $select`;
+    $select = `filterExpand -sm 34 -ex true $select`;
+    
+    return $select;
+}
+
+proc int HasTerrainAttr( string $node, string $TerrainAttr )
+{
+    if ( `attributeQuery -node $node -exists $TerrainAttr` ) return true;
+    return false;
+}
+
+proc AssignTerrainType( string $node, string $TerrainAttr, int $type )
+{
+    if ( HasTerrainAttr( $node, $TerrainAttr ) )
+    {
+        setAttr ( $node + "." + $TerrainAttr ) $type;
+    }
+}
+
+proc int GetTerrainType( string $node, string $TerrainAttr )
+{
+    int $type = 0;
+    if ( HasTerrainAttr( $node, $TerrainAttr ) )
+    {
+        $type = `getAttr ( $node + "." + $TerrainAttr )`;
+    }
+    return $type;
+}
+
+proc int AddTerrainTypeAttr( string $node, string $TerrainAttr )
+{
+    // Does the .TerrainType attr exist?
+    if ( `attributeQuery -node $node -exists $TerrainAttr` )
+    {
+        return false;
+    }
+    
+    // Add the P3DGameAttr
+    if ( !`attributeQuery -node $node -exists "P3D_GameAttr"` )
+    {
+        addAttr -ln P3D_GameAttr -dt "string" -hidden true $node;
+    }
+    
+    // Add the TerrainAttr to the P3DGameAttr
+    string $gameAttr = `getAttr ( $node + ".P3D_GameAttr" )`;
+    if ( $gameAttr != "" )
+    {
+        $gameAttr += "~";    
+    }
+    $gameAttr = $gameAttr + $TerrainAttr;
+    setAttr -type "string" ( $node + ".P3D_GameAttr" ) $gameAttr;
+    
+    // Add the .TerrainType attribute
+    addAttr -ln $TerrainAttr -at "long" -hidden true $node;
+    
+    return true;
+}
+
+global proc TerrainType_Apply( string $TerrainAttr )
+{
+    int $type = TerrainTypeEnum();
+    if ( $type < 0 ) return;    // Don't bother with "Undefined"
+
+    string $materials[] = `ls -sl -materials`;
+    
+    for ( $m in $materials )
+    {
+        if ( ( $m == "lambert1" ) || ( $m == "particleCloud1" ) ) continue;
+        
+        AddTerrainTypeAttr( $m, $TerrainAttr );
+
+        AssignTerrainType( $m, $TerrainAttr, $type );
+    }
+}
+
+global proc TerrainType_ApplyIndirect( string $TerrainAttr )
+{
+    int $type = TerrainTypeEnum();
+    if ( $type < 0 ) return;    // Don't bother with "Undefined"
+
+    string $select[] = GetSelectionAsFaces();
+    
+    for ( $f in $select )
+    {
+        string $sg = getFacetSG( $f );
+
+        if ( ( $sg == "" ) || ( $sg == "initialShadingGroup" ) ) continue;
+        
+        string $mat = getMaterialFromSG( $sg );
+        
+        if ( $mat != "" )
+        {
+            AddTerrainTypeAttr( $mat, $TerrainAttr );
+
+            AssignTerrainType( $mat, $TerrainAttr, $type );
+        }
+    }
+}
+
+global proc TerrainType_Select( string $TerrainAttr )
+{
+    int $enumType = TerrainTypeEnum();
+
+    string $matches[];
+    
+    string $materials[] = `ls -materials`;
+    
+    for ( $m in $materials )
+    {
+        if ( ( $m == "lambert1" ) || ( $m == "particleCloud1" ) ) continue;
+        
+        if (
+                ( HasTerrainAttr( $m, $TerrainAttr ) && GetTerrainType( $m, $TerrainAttr ) == $enumType ) ||
+                ( $enumType < 0 ) && ( !HasTerrainAttr( $m, $TerrainAttr ) )
+            )
+        {
+            $matches[`size $matches`] = $m;
+        }
+    }
+    
+    select $matches;
+    
+}
+
+global proc TerrainType_SelectIndirect( string $TerrainAttr )
+{
+    int $enumType = TerrainTypeEnum();
+
+    string $matches[];
+    
+    string $materials[] = `ls -materials`;
+
+    for ( $m in $materials )
+    {
+        if (
+                ( HasTerrainAttr( $m, $TerrainAttr ) && GetTerrainType( $m, $TerrainAttr ) == $enumType ) ||
+                ( $enumType < 0 ) && ( !HasTerrainAttr( $m, $TerrainAttr ) )
+            )
+        {
+            string $sg[] = getSGFromMaterial( $m );
+            for ( $s in $sg )
+            {
+                $matches[`size $matches`] = $s;
+            }
+        }
+        
+    }
+    
+    // Don't alter user selection if nothing found.    
+    if ( `size $matches` > 0 )
+    {
+        select $matches;
+    }
+}
+
+global proc TerrainType_SelectionCallback( string $TerrainAttr )
+{
+    string $materials[] = `ls -sl -materials`;
+    if ( `size $materials` > 0 )
+    {
+        if ( HasTerrainAttr( $materials[0], $TerrainAttr ) )
+        {
+            int $type = `getAttr ( $materials[0] + "." + $TerrainAttr )`;
+            SetTerrainTypeEnum( $type );
+        }
+        else
+        {
+            SetTerrainTypeEnum( -1 );
+        }
+        
+        TerrainType_EnumCallback();     // update the optionMenu
+    }
+}
+
+global proc TerrainType_EnumCallback()
+{
+    string $enumUI = "TerrainTypeEnumUI";
+    string $applyMaterialUI = "TerrainTypeApplyMaterialUI";
+    string $applyObjectUI = "TerrainTypeApplyObjectUI";
+
+    int $enable = `optionMenu -q -select $enumUI` > 1;
+    button -e -enable $enable $applyMaterialUI;
+    button -e -enable $enable $applyObjectUI;
+}
+
+global proc TerrainType()
+{
+    string $TerrainAttr = "TerrainType";
+    
+    string $windowUI = "TerrainTypeUI";
+    
+    string $enumUI = "TerrainTypeEnumUI";
+    string $interiorUI = "TerrainTypeInteriorUI";
+    string $applyMaterialUI = "TerrainTypeApplyMaterialUI";
+    string $applyObjectUI = "TerrainTypeApplyObjectUI";
+
+    string $enumArray[] = 
+    {
+        "* Undefined *",
+        "Road",
+        "Grass",
+        "Sand",
+        "Gravel",
+        "Water",
+  	"Wood",
+ 	"Metal",
+	"Dirt"
+    };
+    
+    if ( `window -exists $windowUI` )
+        deleteUI -window $windowUI;
+        
+    window -title ( "Terrain Type v" + version() ) $windowUI;
+    
+    columnLayout -adj true;
+    
+        frameLayout -label "Surface";
+            columnLayout -adj true;
+                optionMenu $enumUI;
+                    for ( $e = 0; $e < `size $enumArray`; $e++ )
+                    {
+                        menuItem -label $enumArray[$e];
+                    }
+                checkBox -label "Interior" -align "left" $interiorUI;    
+                setParent ..;    
+            setParent ..;
+            
+        frameLayout -label "Materials";
+            columnLayout -adj true;
+
+                button 
+                    -label "Apply To Materials" 
+                    -c ( "TerrainType_Apply \"" + $TerrainAttr + "\"" )
+                    -ann "Applies the displayed Terrain Type to all selected Materials."
+                        $applyMaterialUI;
+                button 
+                    -label "Select Assigned Materials" 
+                    -c ( "TerrainType_Select \"" + $TerrainAttr + "\"" )
+                    -ann "Selects all Materials assigned to the displayed Terrain Type.";
+
+                
+                setParent ..;
+                
+            setParent ..;
+            
+            
+        frameLayout -label "Objects";
+            columnLayout -adj true;
+
+                button 
+                    -label "Apply To Objects" 
+                    -c ( "TerrainType_ApplyIndirect \"" + $TerrainAttr + "\"" )
+                    -ann "Applies the displayed Terrain Type to all Materials assigned to the selected objects."
+                        $applyObjectUI;
+                button 
+                    -label "Select Assigned Objects" 
+                    -c ( "TerrainType_SelectIndirect \"" + $TerrainAttr + "\"" )
+                    -ann "Selects all objects assigned to Materials bearing the displayed Terrain Type.";
+                setParent ..;
+                
+            setParent ..;    
+        
+        setParent ..;
+
+    // Option Menu should respond to user selection, to reflect current type
+    // of selected material
+    scriptJob -parent $enumUI -event "SelectionChanged" ( "TerrainType_SelectionCallback \"" + $TerrainAttr + "\"" );
+    
+    optionMenu -e
+        -cc TerrainType_EnumCallback
+        -select 2
+            $enumUI;
+
+    checkBox -e
+        -value off
+            $interiorUI;
+            
+    TerrainType_SelectionCallback $TerrainAttr;
+    
+    showWindow $windowUI;    
+}
+
+/*
+source TerrainType; TerrainType;
+*/

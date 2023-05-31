@@ -1,0 +1,111 @@
+global proc reBuildLayers()
+{
+//Delete the first 40 layers
+
+$DeleteLayer_Index = 1;
+$DeleteLayer_NumTimes = 40;
+while ($DeleteLayer_Index++ < $DeleteLayer_NumTimes)
+{
+layerEditorLayerButtonSelect 1 "";
+layerEditorDeleteLayer "";
+};
+
+//list all top groups
+
+SelectAllCameras;
+$cameras = `ls -sl`;
+
+SelectAllLights;
+$lights = `ls -sl`;
+
+string $misc[];
+if (`objExists "p3dExporterOptions*"`)
+{
+select "p3dExporterOptions*";
+$misc = `ls -sl`;
+};
+
+select -ado;
+select -d $cameras $misc $lights;
+$TopGroups = `ls -sl`;
+string $TopGroup;
+
+//create a layer for each top groups
+
+for ($TopGroup in $TopGroups)
+{
+	select -r $TopGroup;
+	createDisplayLayer -name ("TG_" + $TopGroup);
+};
+
+SelectAllJoints;
+createDisplayLayer -name "All_BVs";
+
+if (`objExists "*L01only*"`)
+{
+select -r "*L01only*";
+createDisplayLayer -name "KG_L01only";
+};
+
+if (`objExists "*L02only*"`)
+{
+select -r "*L02only*";
+createDisplayLayer -name "KG_L02only";
+};
+
+if (`objExists "*L03only*"`)
+{
+select -r "*L03only*";
+createDisplayLayer -name "KG_L03only";
+};
+
+if (`objExists "*L04only*"`)
+{
+select -r "*L04only*";
+createDisplayLayer -name "KG_L04only";
+};
+
+if (`objExists "*L05only*"`)
+{
+select -r "*L05only*";
+createDisplayLayer -name "KG_L05only";
+};
+
+if (`objExists "*L06only*"`)
+{
+select -r "*L06only*";
+createDisplayLayer -name "KG_L06only";
+};
+
+if (`objExists "*L07only*"`)
+{
+select -r "*L07only*";
+createDisplayLayer -name "KG_L07only";
+};
+
+
+//change color of specific layers
+
+if (`objExists "TG_*gens*.color"`)
+	setAttr "TG_*gens*.color" 29;
+
+if (`objExists "TG_*landmarks*.color"`)
+	setAttr "TG_*landmarks*.color" 30;
+
+if (`objExists "TG_*dynamics*.color"`)
+	setAttr "TG_*dynamics*.color" 22;
+
+if (`objExists "TG_*track*.color"`)
+	setAttr "TG_*track*.color" 28;
+
+if (`objExists "All_BVs"`)
+	setAttr "All_BVs.color" 6;
+
+if (`objExists "TG_*work*.color"`)
+{
+	setAttr "TG_*work*.color" 13;
+	setAttr "TG_*work*.visibility" 0;
+};
+};
+
+

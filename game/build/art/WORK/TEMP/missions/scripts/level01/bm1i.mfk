@@ -1,0 +1,104 @@
+SelectMission("bm1");
+
+SetMissionResetPlayerInCar("bm1_carstart");
+SetDynaLoadData("l1z7.p3d;l1r6.p3d;l1r7.p3d;");
+
+UsePedGroup(5); 
+
+AddStage(0);
+	SetPresentationBitmap( "art/frontend/dynaload/images/mis01_08.p3d" );
+	SetStageMessageIndex(12);
+	AddObjective("getin");
+		SetObjTargetVehicle("current");
+	CloseObjective();
+CloseStage();
+
+AddStage(16); 
+	RESET_TO_HERE();
+	SetStageMessageIndex(145);
+	SetHUDIcon( "cardboar" );
+	AddObjective("delivery");
+		AddCollectible("bm1_cardboard","poster_t");
+		AddCollectible("bm1_cardboard4","poster_t");
+		AddCollectible("bm1_cardboard1","poster_t");
+		AddCollectible("bm1_cardboard2","poster_t");
+		AddCollectible("bm1_cardboard3","poster_t");
+		//SetCollectibleEffect("bonestorm_explosion");
+	CloseObjective();
+	SetStageTime(150);
+	AddCondition("timeout");
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(146);
+	SetHUDIcon( "tamacco" );
+	AddObjective( "goto" );
+		AddNPC("cletus","bm1_cletus_sd");
+		SetDestination( "l1_tommaco", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddStageTime(0);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+
+
+AddStage(16);
+	//SetStageMessageIndex(146);
+	//SetHUDIcon( "tamacco" );
+	AddObjective("delivery");
+		AddCollectible("bm1_tomaco","tomat");
+		AddCollectible("bm1_tomaco1","tomat");
+		AddCollectible("bm1_tomaco2","tomat");
+		AddCollectible("bm1_tomaco3","tomat");
+		AddCollectible("bm1_tomaco4","tomat");
+		AddCollectible("bm1_tomaco5","tomat");
+		AddCollectible("bm1_tomaco6","tomat");
+		AddCollectible("bm1_tomaco7","tomat");
+		AddCollectible("bm1_tomaco8","tomat");
+		AddCollectible("bm1_tomaco9","tomat");
+		AddCollectible("bm1_tomaco10","tomat");
+		AddCollectible("bm1_tomaco11","tomat");
+		SetCollectibleEffect("bonestorm_explosion");
+	CloseObjective();
+	AddStageTime(0);
+	AddCondition("timeout");
+		//SetHitNRun();
+	CloseCondition();
+	ShowStageComplete();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(215);
+	SetHUDIcon( "cletushs" );
+	AddObjective( "goto" );
+		AddNPC("cletus","bm1_cletus_sd");
+		SetDestination( "bm_cletushouse", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+	AddStageTime(0);
+	AddCondition("timeout");
+	CloseCondition();
+CloseStage();
+
+AddStage(0);
+	SetStageMessageIndex(25);
+	SetHUDIcon( "cletus" );
+	AddObjective("talkto");
+		AddNPC("cletus","bm1_cletus_sd");
+		AddObjectiveNPCWaypoint( "cletus", "bm1_cletus_walk1" );
+		SetTalkToTarget("cletus", 0, 0); // 0 - eclamation, 1 is gift, with optional hieight offset
+	CloseObjective();
+CloseStage();
+
+AddStage(0,"final");
+	AddObjective("dialogue");
+		SetDialogueInfo("homer","cletus","cityboy",0);
+		SetCamBestSide( "bm1_bestside" );
+	CloseObjective();
+CloseStage();
+
+CloseMission();

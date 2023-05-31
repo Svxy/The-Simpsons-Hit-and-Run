@@ -1,0 +1,13 @@
+rule
+{
+    severity 9
+    if type tlMeshChunk
+    
+    rule
+    {
+        scope children
+        label "Mesh using lambert!"
+        if type tlPrimGroupChunk
+        require Shader != "lambert[0-9]+"
+    }
+}

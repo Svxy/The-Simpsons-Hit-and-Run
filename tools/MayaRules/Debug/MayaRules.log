@@ -1,0 +1,12 @@
+﻿Build started 11/7/2015 5:44:20 PM.
+     1>Project "G:\Code\Simpsons Hit&Run\tools\MayaRules\MayaRules.vcxproj" on node 3 (Build target(s)).
+     1>CustomBuild:
+         Copying srr2rules to Maya
+         The system cannot find the path specified.
+                 0 file(s) copied.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(170,5): error MSB6006: "cmd.exe" exited with code 1.
+     1>Done Building Project "G:\Code\Simpsons Hit&Run\tools\MayaRules\MayaRules.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.41

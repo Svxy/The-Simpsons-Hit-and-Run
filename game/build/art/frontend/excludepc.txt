@@ -1,0 +1,10 @@
+\_gc\
+\_pc2\
+\_ps2\
+\_xbox\
+.ttf
+.xls
+.h
+.BAK
+.OLD
+.TMP

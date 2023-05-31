@@ -1,0 +1,92 @@
+SelectMission("m3");
+
+SetMissionResetPlayerInCar("m3_cbgcar_sd");
+SetDynaLoadData("l2z4.p3d;l2r3.p3d;l2r4.p3d;");
+InitLevelPlayerVehicle("comic_v","m3_cbgcar_sd","OTHER");
+SetNumValidFailureHints(5);
+
+UsePedGroup(5);
+
+//This is a forced car mission
+SetForcedCar();
+
+AddStage(0);
+	RESET_TO_HERE();
+	SetMaxTraffic(3);
+	SetStageMessageIndex(106);
+	SetHUDIcon( "java" );
+	AddStageVehicle("cNerd","m3_AI_start","race","Missions\level02\M3race.con", "teen");
+
+	StartCountdown(count);
+	AddToCountdownSequence( "3", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "2", 1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "1",  1000 ); // duration time in milliseconds
+	AddToCountdownSequence( "GO",  400 ); // duration time in milliseconds
+
+//	SetStageAIRaceCatchupParams( "cNerd", 80 ); // when we'll apply max catchup (speed up!)
+	SetStageAIRaceCatchupParams("cNerd", 80, 0.8, 1.5, 2.3); 
+
+	AddStageWaypoint( "m3_AI_path4" );
+	AddObjective( "race", "both");
+		AddCollectible("m3_AI_path4","finish_line");
+		SetCollectibleEffect("finish_line_col");
+	CloseObjective();
+	AddCondition("race");
+		SetCondTargetVehicle("cNerd");
+	CloseCondition();
+	AddCondition( "damage" );
+		SetCondMinHealth( 0.0 );
+		SetCondTargetVehicle( "comic_v" );
+	CloseCondition();
+	AddCondition("outofvehicle");
+		SetCondTime( 10000 );
+	CloseCondition();
+	//SetCompletionDialog("futile", "cbg");
+	SetFadeOut( 0.1 );
+	SwapInDefaultCar();
+	SetSwapDefaultCarLocator("level2_carstart");
+	SetSwapForcedCarLocator("m3_cbg_car_end");
+	SetSwapPlayerLocator("m3_bart_end");
+CloseStage();
+
+//AddStage(0);
+//	SetStageMessageIndex(54);
+//	SetHUDIcon( "cbg" );
+//	AddObjective("talkto");
+//		AddNPC("cbg", "m3_cbg_end");
+//		SetTalkToTarget("cbg", 0, 0);
+//	CloseObjective();
+//CloseStage();
+
+AddStage(1);
+	AddObjective("timer");
+		AddNPC("cbg", "m3_cbg_end");
+//		AddStageCharacter ("bart", "m3_bart_end", "", "current", "level2_carstart");
+		SetDurationTime(1);
+	CloseObjective();
+CloseStage();
+
+AddStage("final");
+	AddObjective("dialogue");
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+
+		SetConversationCam( 0, "npc_far" );
+		SetConversationCam( 1, "pc_far" );
+		SetConversationCam( 2, "npc_far" );
+
+		AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		AddAmbientNpcAnimation( "dialogue_yes" );
+		AddAmbientNpcAnimation( "dialogue_cross_arms" );
+
+		AddAmbientPcAnimation( "dialogue_thinking" );
+		AddAmbientPcAnimation( "dialogue_no" );
+		AddAmbientPcAnimation( "dialogue_open_arm_hand_gesture" );
+
+		SetCamBestSide("m3_bestside");
+		SetDialogueInfo("bart","cbg","futile",0);
+		SetDialoguePositions("m3_bart_end","m3_cbg_end","level2_carstart");
+	CloseObjective();
+CloseStage();
+
+CloseMission();

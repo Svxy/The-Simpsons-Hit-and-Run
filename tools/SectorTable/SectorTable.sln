@@ -1,0 +1,51 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "toollib", "..\..\game\libs\pure3d\toollib\toollib.vcproj", "{A224C960-67EC-49C2-8171-9FA441C7634D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SectorTable", "SectorTable.vcproj", "{B316572B-39EC-4EB1-B40D-E62D1B033F52}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = ..\\..\\game\\libs\\pure3d\\toollib\\toollib.vcproj
+		SccProjectName0 = Perforce\u0020Project
+		SccLocalPath0 = ..\\..\\game\\libs\\pure3d\\toollib
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+		ConfigName.2 = Tools Debug
+		ConfigName.3 = Tools Release
+		ConfigName.4 = Tune
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.0 = {A224C960-67EC-49C2-8171-9FA441C7634D}
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Debug.ActiveCfg = Debug|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Debug.Build.0 = Debug|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Release.ActiveCfg = Release|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Release.Build.0 = Release|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Tools Debug.ActiveCfg = Tools Debug|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Tools Debug.Build.0 = Tools Debug|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Tools Release.ActiveCfg = Tools Release|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Tools Release.Build.0 = Tools Release|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Tune.ActiveCfg = Tools Release|Win32
+		{A224C960-67EC-49C2-8171-9FA441C7634D}.Tune.Build.0 = Tools Release|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Debug.ActiveCfg = Debug|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Debug.Build.0 = Debug|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Release.ActiveCfg = Release|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Release.Build.0 = Release|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Tools Debug.ActiveCfg = Debug|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Tools Debug.Build.0 = Debug|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Tools Release.ActiveCfg = Release|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Tools Release.Build.0 = Release|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Tune.ActiveCfg = Release|Win32
+		{B316572B-39EC-4EB1-B40D-E62D1B033F52}.Tune.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

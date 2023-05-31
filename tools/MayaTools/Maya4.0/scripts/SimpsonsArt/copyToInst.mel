@@ -1,0 +1,302 @@
+// copyToInst.mel
+// Copy to Instance
+// Alias|Wavefront Script File
+//
+// Creation Date:	24 Jan. 2001
+// Author:		(Novy) Gurdarshan Dhillon
+//
+//
+//
+// Description:
+//			Copy to Instance
+//			Changes duplicated objects to instanced objects
+//			The user picks the original object and the list of duplicated
+//			objects.
+//
+//			Additional Features:
+//
+//			Additional Files needed:
+//
+// Input Arguments:
+//			None.
+// Return Values:
+//			None.
+// copyToInst
+//
+
+global proc copyToInst()
+{
+	global string $copyToInst_orig;
+	global string $copyToInst_new;
+	global string $copyToInst_dup;
+	global string $copyToInst_origButton;
+	global string $copyToInst_newButton;
+	global string $copyToInst_dupButton;
+	global string $copyToInst_check;
+	global string $copyToInst_InstDup;
+	global string $copyToInst_dupName;
+	if (`window -exists copyToInst`)
+	{
+		deleteUI -window copyToInst;
+	}
+	window -title "Copy to Instance" -rtf true -w 590 -h 400 -sizeable true copyToInst;
+		scrollLayout scrollLayout;
+			columnLayout -rs 5;
+				rowColumnLayout -nc 4 -columnWidth 1 80 -columnWidth 2 200 -columnWidth 3 80 -columnWidth 4 200;
+					columnLayout -cw 80 -cat "left" 5;
+						$copyToInst_origButton = `button -label "Add Original" -w 75 -en 1 -command "CTI_addOrig"`;
+						$copyToInst_newButton = `button -label "Add New" -w 75 -en 0 -command "CTI_addNew"`;
+						text -l "";
+						$copyToInst_dupName = `checkBox -label "Get Dup" -v 0`;
+						$copyToInst_check = `checkBox -label "Set Pivots" -v 1`;
+						$copyToInst_InstDup = `checkBox -label "Instance" -v 1`;
+						text -l "off : Duplicate";
+						text -l "on  : Instance";
+					setParent ..;
+					columnLayout -cw 200 -cat "left" 0;
+						$copyToInst_orig = `textField -ed 0 -w 200 orig`;
+						$copyToInst_new = `textField -ed 0 -w 200 new`;
+					setParent ..;
+					rowLayout -w 80 -h 50 -nc 1 -cl1 "center";;
+						$copyToInst_dupButton = `button -label "Add Duplicates" -w 80 -en 0 -command "CTI_addDup"`;
+					setParent ..;
+					rowLayout -w 200 -h 300 -nc 1 -cl1 "center";;
+						$copyToInst_dup = `textScrollList -w 200 -h 300 dup`;
+					setParent ..;
+				setParent ..;
+				columnLayout -w 560 -h 100 -cat "left" 5;
+					button -label "Create" -w 550 -en 1 -command "CTI_create";
+				setParent ..;
+			setParent ..;
+		setParent ..;
+		window -edit -w 590 -h 400 copyToInst;
+	showWindow;
+}
+
+global proc CTI_addOrig()
+{
+	global string $copyToInst_orig;
+	global string $copyToInst_dup;
+	global string $copyToInst_origButton;
+	global string $copyToInst_newButton;
+	global string $copyToInst_dupButton;
+
+	string $object[];
+	int $numDup;
+	int $index;
+
+	clear($object);
+	$object = `ls -sl -tr`;
+	textField -edit -tx $object[0] $copyToInst_orig;
+	button -edit -en 1 $copyToInst_newButton;
+	$numDup = `textScrollList -q -ni $copyToInst_dup`;
+	textScrollList -edit -removeAll $copyToInst_dup;
+}
+
+global proc CTI_addNew()
+{
+	global string $copyToInst_new;
+	global string $copyToInst_dup;
+	global string $copyToInst_origButton;
+	global string $copyToInst_newButton;
+	global string $copyToInst_dupButton;
+
+	string $object[];
+	int $numDup;
+	int $index;
+
+	clear($object);
+
+	$object = `ls -sl -tr`;
+	textField -edit -tx $object[0] $copyToInst_new;
+	button -edit -en 1 $copyToInst_dupButton;
+}
+
+global proc CTI_addDup()
+{
+	global string $copyToInst_orig;
+	global string $copyToInst_new;
+	global string $copyToInst_dup;
+	global string $copyToInst_dupName;
+
+	string $object[];
+	string $original;
+	string $new;
+	int $index;
+	textScrollList -edit -removeAll $copyToInst_dup;
+	clear($object);
+	if (`checkBox -q -v $copyToInst_dupName`)
+	{	selectInstance `textField -q -tx $copyToInst_orig`;}
+	$object = `ls -sl -tr`;
+	$original = `textField -query -tx $copyToInst_orig`;
+	$new = `textField -query -tx $copyToInst_new`;
+	for ($index=0; $index < size($object); $index++)
+	{
+		if($object[$index]!=$original && $object[$index]!=$new)
+		{
+			textScrollList -edit -append $object[$index] $copyToInst_dup;
+		}
+	}
+	select -clear;
+}
+
+global proc CTI_create()
+{
+	global string $copyToInst_orig;
+	global string $copyToInst_new;
+	global string $copyToInst_dup;
+	global string $copyToInst_check;
+	global string $copyToInst_InstDup;
+	string $objects[];
+	string $inst[];
+	string $inst_new[];
+	string $new;
+	string $original;
+	string $attr;
+	string $attr2;
+	float $orig_pivot[];
+	float $new_pivot[];
+	float $orig_trans[];
+	float $new_trans[];
+	float $trans[];
+
+	float $orig_scale_pivot[];
+	float $new_scale_pivot[];
+	float $orig_scale[];
+	float $new_scale[];
+	float $scale[];
+
+	float $orig_rot[];
+	float $orig_rotx;
+	float $orig_roty;
+	float $orig_rotz;
+	float $rot[];
+	float $x;
+	float $y;
+	float $z;
+	int $index;
+	int $numObj;
+
+	clear($objects); clear($trans); clear($rot); clear($inst); clear($inst_new);
+	clear($orig_pivot); clear($new_pivot); clear($orig_trans); clear($new_trans);
+
+	$original = `textField -query -tx $copyToInst_orig`;
+	$new = `textField -query -tx $copyToInst_new`;
+	$objects = `textScrollList -q -allItems $copyToInst_dup`;
+	$numObj = size($objects);
+	if(`checkBox -q -v $copyToInst_check` == 1)
+	{
+		$orig_pivot = `xform -q -rp $original`;
+		$new_pivot = `xform -q -rp $new`;
+		$orig_trans = `xform -q -t $original`;
+		$new_trans = `xform -q -t $new`;
+
+		$orig_scale_pivot = `xform -q -sp $original`;
+		$new_scale_pivot = `xform -q -sp $new`;
+		$orig_scale = `xform -q -s $original`;
+		$new_scale = `xform -q -s $new`;
+
+		$orig_rot = `xform -q -ro $original`;
+		$orig_rotx = $orig_rot[0];
+		$orig_roty = $orig_rot[1];
+		$orig_rotz = $orig_rot[2];
+//		print $orig_trans;
+//		print "---------\n";
+//		print $new_trans;
+//		print "---------\n";
+	}
+	else
+	{
+		$orig_pivot[0] = 0; $orig_pivot[1] = 0; $orig_pivot[2] = 0;
+		$new_pivot[0] = 0; $new_pivot[1] = 0; $new_pivot[2] = 0;
+		$orig_trans[0] = 0; $orig_trans[1] = 0; $orig_trans[2] = 0;
+		$new_trans[0] = 0; $new_trans[1] = 0; $new_trans[2] = 0;
+		$orig_scale_pivot[0] = 0; $orig_scale_pivot[1] = 0; $orig_scale_pivot[2] = 0;
+		$new_scale_pivot[0] = 0; $new_scale_pivot[1] = 0; $new_scale_pivot[2] = 0;
+		$orig_scale[0] = 0; $orig_scale[1] = 0; $orig_scale[2] = 0;
+		$new_scale[0] = 0; $new_scale[1] = 0; $new_scale[2] = 0;
+		$orig_rotx = 0;
+		$orig_roty = 0;
+		$orig_rotz = 0;
+	}
+	for($index=0; $index<$numObj; $index++)
+	{
+		clear($inst);
+		$attr = $objects[$index] + ".translate";
+		$trans = `xform -ws -q -rp $objects[$index]`;
+		$attr = $objects[$index] + ".rotate";
+		$rot = `getAttr $attr`;
+		$attr = $objects[$index] + ".scale";
+		$scale = `getAttr $attr`;
+		if(`checkBox -q -v $copyToInst_InstDup`)
+		{	$inst = `instance $new`;}
+		else
+		{	$inst = `duplicate $new`;}
+
+		$x = $trans[0] - $new_pivot[0];
+		$y = $trans[1] - $new_pivot[1];
+		$z = $trans[2] - $new_pivot[2];
+		xform -ws -t $x $y $z $inst[0];
+
+		$x = $rot[0] - $orig_rotx ;
+		$y = $rot[1] - $orig_roty;
+		$z = $rot[2] - $orig_rotz;
+		xform -a -ro $x $y $z $inst[0];
+
+		$x = $scale[0];
+		$y = $scale[1];
+		$z = $scale[2];
+		xform -ws -s $x $y $z $inst[0];
+		// $inst[0] = `rename $inst[0] $objects[$index]`;
+		$inst_new[$index] = $inst[0];
+	}
+	if(`checkBox -q -v $copyToInst_InstDup`==0)
+	{ 
+		for($obj in $inst_new)
+		{
+			string $newName = $obj + "Shape";
+			string $shape[] = `pickWalk -d "down" $obj`;
+			rename $shape[0] $newName;
+		}
+	}
+	if (size($new)>0)
+	{
+		group -n "inst" $inst_new;
+	}
+}
+
+global proc selectInstance(string $origObject)
+{
+	string $orig[];
+		clear($orig);
+		$orig[0] = $origObject;
+		select -r $origObject;
+	string $origShape[];
+		clear($origShape);
+		$origShape = `ls -sl -dag -lf`;
+	string $token[];
+		clear($token);
+	int $numTok;
+		$numTok = `tokenize $origShape[0] "|" $token`;
+//	string $select[];
+//	clear($select);
+	int $index;
+//	int $count;
+//	$count = 0;
+//	if(`strcmp $orig[0] $token[0]`!=0)
+//	{	error "No Original Geometry Selected!!";}
+//	else
+	{
+		string $objects[]= `ls -tr`;
+		for($object in $objects)
+		{
+			string $objShape[] = `ls -dag -lf $object`;
+			if(`strcmp $origShape[0] $objShape[0]` == 0)
+			{
+				select -add $object;
+				// $select[$count] = $object;
+				// $count++;
+			}
+		}
+	}
+}

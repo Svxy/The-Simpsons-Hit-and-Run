@@ -1,0 +1,94 @@
+// renameTexture.mel
+// Rename Texture node
+// Alias|Wavefront Script File
+//
+// Creation Date:	20 March. 2001
+// Author:		(Novy) Gurdarshan Dhillon
+//
+//
+//
+// Description:
+//			Renames the texture node to corrisponde to the
+//			image file that it contains.  Also outputs the
+//			images resolution.
+//			
+//
+//
+// Input Arguments:
+//			None.
+// Return Values:
+//			None.
+// renameTexture
+//
+
+
+global proc renameTexture()
+{
+	string $textures[] = `ls -type "file" -type "ramp"`;
+	for($texture in $textures)
+	{
+		string $attr;
+		string $image[];
+		string $file;
+		int $num;
+		int $size;
+		string $name;
+		string $fileNode;
+		if (`nodeType $texture` == "file")
+		{
+			$attr = $texture + ".fileTextureName";
+			$file = `getAttr $attr`;
+			
+			$num = `tokenize $file "/" $image`;
+			$num = `tokenize $image[$num-1] "." $image`;
+			$attr = $texture + ".outSize";
+			float $res[] = `getAttr $attr`;
+			print ("\nFile: " + $file + "   " + $res[0] + " × " + $res[1]);
+			$size = size($image[0]);
+			$name = `substring $image[0] 1 ($size)`;
+			$fileNode = `rename $texture ($name + "_t")`;
+			print ("\nFileNode: " + $fileNode);
+		}
+		else if(`nodeType $texture` == "ramp")
+		{
+			print ("ramp   " + $texture);
+			$image[0] = $texture;
+			$fileNode = $texture;
+		}
+		$attr = $fileNode + ".outColor";
+		string $shaders[] = `listConnections -d 1 -s 0 -p 1 $attr`;
+		// string $shader = $shaders[(size($shaders)-1)];
+		for ($shader in $shaders)
+		{
+			string $info[]; tokenize $shader "." $info;
+			if($info[1] == "color")
+			{
+				$name = $image[0] + "_m";
+				string $shadeNode = `rename $info[0] ($name)`;
+				print ("\nShading Node: " + $shadeNode);
+				$attr = $shadeNode + ".outColor";
+				string $engines[] = `listConnections -d 1 -s 0 $attr`;
+				for ($engine in $engines)
+				{
+					$name = $image[0] + "_shg";
+					string $engineNode = `rename $engine ($name)`;
+					print ("\nShading Engine: " + $engineNode);
+				}
+			}
+		}
+		print ("\n----------------------------------------\n");
+	}
+}
+
+global proc fileRes()
+{
+	string $textures[] = `ls -type "file"`;
+	for($texture in $textures)
+	{
+		string $attr = $texture + ".fileTextureName";
+		string $file = `getAttr $attr`;
+		string $attr = $texture + ".outSize";
+		float $res[] = `getAttr $attr`;
+		print ("\n" + $file + "   " + $res[0] + " × " + $res[1]);
+	}
+}

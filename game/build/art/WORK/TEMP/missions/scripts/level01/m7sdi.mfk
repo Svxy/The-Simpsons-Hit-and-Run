@@ -1,0 +1,69 @@
+SelectMission("m7sd");
+
+SetMissionStartCameraName( "mission7camShape" );
+SetMissionStartMulticontName( "mission7cam" );
+SetAnimatedCameraName( "mission7camShape" );
+SetAnimCamMulticontName( "mission7cam" );
+
+SetMissionResetPlayerOutCar("m7_homer_start","m7_car_start");
+SetDynaLoadData("l1z6.p3d;l1r6.p3d;");
+
+UsePedGroup(7); 
+
+AddStage();
+	SetMaxTraffic(2);
+	SetStageMessageIndex(08);
+	SetHUDIcon("pwrplant");
+	AddObjective("goto");
+		AddNPC("carl", "m7_carl_sd");
+		SetDestination("m4_powerplant", "carsphere");
+		SetCollectibleEffect("wrench_collect");
+	CloseObjective();
+CloseStage();
+
+AddStage(5);
+	RESET_TO_HERE();
+	SetStageMessageIndex(159);
+	SetHUDIcon("carl");
+	AddObjective("talkto");
+		AddNPC("carl", "m7_carl_sd");
+		AddObjectiveNPCWaypoint( "carl", "m7_carl_walk_1" );
+		AddObjectiveNPCWaypoint( "carl", "m7_carl_walk_2" );
+		AddObjectiveNPCWaypoint( "carl", "m7_carl_sd" );
+		SetTalkToTarget("carl", 0, 0);
+	CloseObjective();
+CloseStage();
+
+AddStage(0);
+	AddObjective("dialogue");
+		SetPresentationBitmap( "art/frontend/dynaload/images/mis01_07.p3d" );
+		AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		AmbientAnimationRandomize( 0, 0 );
+
+		AddAmbientNpcAnimation( "dialogue_shake_hand_in_air" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "none" );
+		AddAmbientNpcAnimation( "none" );
+		
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		AddAmbientPcAnimation( "none" );
+		AddAmbientPcAnimation( "dialogue_shaking_fist" );
+		SetCamBestSide( "m7_bestside" );
+		SetDialogueInfo("homer","carl","adventure",0);
+		SetDialoguePositions("m7_homer","m7_carl_sd","m6_marge_walk_2");
+	CloseObjective();
+CloseStage();
+
+CloseMission();
+
+//dialogue_hands_in_air
+//dialogue_hands_on_hips
+//dialogue_scratch_head
+//dialogue_shaking_fist
+//dialogue_thinking
+//dialogue_yes
+//dialogue_no
+//dialogue_cross_arms
+//dialogue_open_arm_hand_gesture
+//dialogue_shake_hand_in_air

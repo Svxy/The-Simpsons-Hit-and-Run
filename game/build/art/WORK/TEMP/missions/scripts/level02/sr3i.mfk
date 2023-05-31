@@ -1,0 +1,109 @@
+SelectMission("sr3");
+//The CIRCUIT RACE (with AI cars)
+//Script set up for multiple laps
+
+SetAnimatedCameraName( "race3camShape" );
+SetAnimCamMulticontName( "race3cam" );
+
+SetMissionResetPlayerInCar("sr3_carstart");
+SetDynaLoadData("l2z1.p3d;l2r1.p3d;l2r4.p3d;");
+
+UsePedGroup(0);
+
+//Chuck: StreetRace Prop Load and Unload Setup
+StreetRacePropsLoad("l2_sr3p.p3d;");
+StreetRacePropsUnload("l2_sr3p.p3d:");
+
+
+AddStage(0); 
+SetHUDIcon( "race" );
+PlacePlayerCar("current", "sr3_carstart");
+PutMFPlayerInCar( );  // This makes the play auto reset into their car for this stage.                
+StartCountdown("count");
+	AddToCountdownSequence( "5", 800 ); // duration time in milliseconds
+	AddToCountdownSequence( "5", 800 ); // duration time in milliseconds
+	AddToCountdownSequence( "5", 800 ); // duration time in milliseconds
+	AddToCountdownSequence( "4", 400 ); // duration time in milliseconds
+
+SetStageMessageIndex(224);
+RESET_TO_HERE();
+NoTrafficForStage();
+AddStageVehicle("lisa_v","sr3_lisa_carstart1","race","Missions\level02\sr3_1st.con","lisa");
+	SetVehicleAIParams( "lisa_v", 50, 51 );
+	SetStageAIRaceCatchupParams("lisa_v", 80, 1, 1.25, 2.5); 
+AddStageVehicle("sportsA","sr3_AI_carstart2","race","Missions\level02\sr3_2nd.con");
+	SetVehicleAIParams( "sportsA", 50, 51 );
+	SetStageAIRaceCatchupParams("sportsA", 80, 0.7, 1.0, 1.5);
+AddStageVehicle("taxiA","sr3_AI_carstart3","race","Missions\level02\sr3_3rd.con");
+	SetVehicleAIParams( "taxiA", 50, 51 );
+	SetStageAIRaceCatchupParams("taxiA", 80, 0.7, 1.0, 1.5);
+AddStageVehicle("sedanB","sr3_AI_carstart4","race","Missions\level02\sr3_4th.con");
+	SetVehicleAIParams( "sedanB", 50, 51 );
+	SetStageAIRaceCatchupParams("sedanB", 80, 0.7, 1.0, 1.5);
+AddStageWaypoint( "sr3_nav1" );
+AddStageWaypoint( "sr3_nav2" );
+AddStageWaypoint( "sr3_nav3" );
+AddStageWaypoint( "sr3_nav4" );
+
+AddObjective( "race",neither );
+AddNPC("patty", "sr3_patty");
+AddNPC("selma", "sr3_selma");
+AddCollectible("sr3_waypoint1","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint2","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint3","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint4","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint5","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint6","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint7","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint8","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint9","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint10","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint11","carsphere");
+SetCollectibleEffect("wrench_collect");
+AddCollectible("sr3_waypoint12","carsphere");
+SetCollectibleEffect("wrench_collect");
+CloseObjective();
+AddCondition( "damage" );
+	SetCondMinHealth( 0.0 );
+	SetCondTargetVehicle( "current");
+CloseCondition();
+AddCondition("outofvehicle");
+	SetCondTime( 10000 );
+CloseCondition();
+AddCondition("position");
+SetConditionPosition(2);
+CloseCondition();
+CloseStage();
+
+AddStage(1,"final");
+	AddObjective("dialogue");
+		AddNPC("patty", "sr3_patty");
+		AddNPC("selma", "sr3_selma");
+		//AmbientAnimationRandomize( 1, 0 );      // ( pc=0, npc=1) (nonrandom=0, random=1)
+		//AmbientAnimationRandomize( 0, 0 );      <<<===---  ASK IAN ABOUT THIS COMMAND
+		//AddAmbientNpcAnimation( "dialogue_open_arm_hand_gesture" );
+		//AddAmbientNpcAnimation( "none" );
+		//AddAmbientNpcAnimation( "dialogue_thinking" );
+		//AddAmbientPcAnimation( "none" );
+		//AddAmbientPcAnimation( "dialogue_yes" );
+		//AddAmbientPcAnimation( "none" );
+		//AddAmbientPcAnimation( "dialogue_hands_in_air" );
+		//SetConversationCam( 3, "pc_far" );
+		//SetConversationCamNpcName("npc_near");
+		//SetConversationCamPcName("pc_near");            <<<===--- ASK IAN ABOUT THIS COMMAND.
+		SetDialogueInfo("patty","bart","success",0);
+		SetDialoguePositions("sr3_patty","sr3_bart_end","sr3_car_end");
+	CloseObjective();
+CloseStage();
+
+CloseMission();

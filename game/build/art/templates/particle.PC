@@ -1,0 +1,14 @@
+PRINT Applying PARTICLE template to INPUT
+# Keep textures (19000), shaders(11000)
+# EFX frame controllers (121200)
+# tlParticleSystemFactoryChunks (15800)
+# tlParticleSystemChunk (15801)
+# animation chunks
+# meshes
+
+COMMAND p3ddel -k 19000 -k 11000 -k 10000 -k 20000 -k 121000 -k 20001 -k 121200 -k 15800 -k 15801 -o OUTPUT INPUT
+COMMAND p3dimage --ntsc_fix -r -o OUTPUT OUTPUT
+#Texture compression messes up alpha, disable until bug is fixed
+#COMMAND p3dgeo2prims -o OUTPUT OUTPUT
+COMMAND tristrip -m -x -o OUTPUT OUTPUT
+COMMAND p3danim -o OUTPUT OUTPUT

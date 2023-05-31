@@ -1,0 +1,1 @@
+#include <interiors/interiormanager.cpp>

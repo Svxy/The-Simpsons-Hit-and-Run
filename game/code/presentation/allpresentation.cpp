@@ -1,0 +1,12 @@
+#include <presentation/animplayer.cpp>
+#include <presentation/blinker.cpp>
+#include <presentation/cameraplayer.cpp>
+#include <presentation/language.cpp>
+#include <presentation/mouthflapper.cpp>
+#include <presentation/nisplayer.cpp>
+#include <presentation/playerdrawable.cpp>
+#include <presentation/presentation.cpp>
+#include <presentation/presentationanimator.cpp>
+#include <presentation/simpleanimationplayer.cpp>
+#include <presentation/transitionplayer.cpp>
+#include <presentation/tutorialmanager.cpp>
