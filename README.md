@@ -6,6 +6,10 @@
 
 <br>
 
+<h5 align=center>Want to talk more about this leak?<br><b><a href='https://news.ycombinator.com/item?id=36703711'>Click Here</a></b> to read on over 150 comments.</h5>
+
+<br>
+
 <h3 align=center><sup>A download for a compiled development/debug version of the game is in the releases tab, the rest of this repo is on <a href='https://mega.nz/folder/kBhiACKI#QUjjgq2yqYBhiqpxkbZjBw'>MEGA</a> since there are way too many files to upload at once to GitHub. The MEGA folder will include a ton of additional assets and scripts for compiling/building the game yourself. (documents will still not be included)</sup></h3>
 
 <h4 align=center><b>Enjoy :)</b></h4>
